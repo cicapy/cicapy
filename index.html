@@ -1,68 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<style type="text/css">
-.inline {
-  background-color: #f7f7f7;
-  border:solid 1px #B0B0B0;
-}
-.error {
-	font-weight: bold;
-	color: #FF0000;
-}
-.warning {
-	font-weight: bold;
-}
-.message {
-	font-style: italic;
-}
-.source, .output, .warning, .error, .message {
-	padding: 0 1em;
-  border:solid 1px #F7F7F7;
-}
-.source {
-  background-color: #f5f5f5;
-}
-.left {
-  text-align: left;
-}
-.right {
-  text-align: right;
-}
-.center {
-  text-align: center;
-}
-.hl.num {
-  color: #AF0F91;
-}
-.hl.sng {
-  color: #317ECC;
-}
-.hl.com {
-  color: #AD95AF;
-  font-style: italic;
-}
-.hl.opt {
-  color: #000000;
-}
-.hl.def {
-  color: #585858;
-}
-.hl.kwa {
-  color: #295F94;
-  font-weight: bold;
-}
-.hl.kwb {
-  color: #B05A65;
-}
-.hl.kwc {
-  color: #55aa55;
-}
-.hl.kwd {
-  color: #BC5A65;
-  font-weight: bold;
-}
-</style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CICAPY</title>
@@ -80,24 +18,24 @@
             background-color: #336699;
             color: #fff;
             padding: 10px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             text-align: center;
-            flex-wrap: wrap;
         }
 
-        .header h1 {
-            margin: 0;
-            font-size: 1.5rem;
+        .header img {
+            max-width: 150px;
+            height: auto;
+            border-radius: 8px;
         }
 
-        .tabs {
+        /* Estilo de las pestañas */
+        .tabs-container {
             display: flex;
             justify-content: center;
+            align-items: center;
+            flex-wrap: wrap; /* Permitir salto de línea */
             background-color: #fff;
             border-bottom: 1px solid #ddd;
-            flex-wrap: wrap;
+            gap: 5px; /* Espacio entre pestañas */
         }
 
         .tab {
@@ -108,6 +46,8 @@
             border-bottom: 3px solid transparent;
             transition: all 0.3s ease;
             text-align: center;
+            flex: 1 1 auto; /* Tamaño flexible */
+            max-width: 150px; /* Limitar el tamaño máximo */
         }
 
         .tab:hover, .tab.active {
@@ -127,48 +67,29 @@
             display: block;
         }
 
-        .section-box {
-            background-color: #f9f9f9;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-        }
-
-        .section-box h2 {
-            margin-top: 0;
-            color: #336699;
-        }
-
         @media (max-width: 768px) {
-            .tabs {
-                flex-direction: column;
-                align-items: center;
-            }
-
             .tab {
-                width: 100%;
-                text-align: center;
+                max-width: 100%; /* Ajustar al ancho completo en móviles */
             }
         }
     </style>
 </head>
 <body>
-   <div class="header">
-  <img src="cicap.png" alt="Logo de CICAPY" style="max-width: 100%; height: auto; border-radius: 8px;">
-  </div>
+    <div class="header">
+        <img src="cicap.png" alt="Logo de CICAPY" style="max-width: 100%; height: auto; border-radius: 8px;"> 
+    </div>
 
-
-    <div class="tabs">
+    <div class="tabs-container">
         <div class="tab active" onclick="openTab(event, 'cicap')">CICAPY</div>
         <div class="tab" onclick="openTab(event, 'excel')">Excel</div>
         <div class="tab" onclick="openTab(event, 'powerbi')">Power BI</div>
-        <div class="tab" onclick="openTab(event, 'python')">Python</div>
-        <div class="tab" onclick="openTab(event, 'r')">R</div>
+        <div class="tab" onclick="openTab(event, 'python')">R y Python</div>
         <div class="tab" onclick="openTab(event, 'sql')">SQL</div>
-         <div class="tab" onclick="openTab(event, 'galeria')">Galería</div>
-         <div class="tab" onclick="openTab(event, 'certificado')">Modelo de Certificado</div>
+        <div class="tab" onclick="openTab(event, 'galeria')">Galería</div>
     </div>
+             
+            
+            
 
     <!-- Contenido de las pestañas --> 
     <div id="cicap" class="tab-content active">
@@ -394,6 +315,15 @@
     <p>Desarrollo de un proyecto final basado en datos reales, aplicando todas las técnicas aprendidas.</p>
 </section>
 
+<section class="section-box">
+    <h2 style="text-align: center; color: #336699;">  Modelo de Certificado</h2>
+    <!-- Aquí puedes agregar las imágenes -->
+    <div class="gallery">
+      <img src="modelo.jpg" alt="Curso de Power BI" style="max-width: 100%; height: auto; border-radius: 8px;">
+      </div>
+  </section>
+
+
 
 <section class="section-box">
     <h2 style="text-align: center; color: #336699;">Ejemplos de Dasboards que aprenderás a crear</h2>
@@ -426,12 +356,7 @@
         </section>
     </div>
 
-    <div id="r" class="tab-content">
-        <section class="section-box">
-            <h2>R</h2>
-            <p>Herramientas avanzadas para análisis y modelado de datos.</p>
-        </section>
-    </div>
+   
 
     <div id="sql" class="tab-content">
         <section class="section-box">
@@ -460,15 +385,7 @@
 </div>
 
 
-<div id="certificado" class="tab-content">
-  <section class="section-box">
-    <h2>Modelo de Certificado</h2>
-    <!-- Aquí puedes agregar las imágenes -->
-    <div class="gallery">
-      <img src="modelo.jpg" alt="Curso de Power BI" style="max-width: 100%; height: auto; border-radius: 8px;">
-      </div>
-  </section>
-</div>
+
     
     
     
