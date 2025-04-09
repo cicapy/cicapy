@@ -81,7 +81,7 @@
 
    <div class="tabs-container">
     <div class="tab active" onclick="openTab(event, 'cicap')">CICAPY</div>
-    <div class="tab" onclick="openTab(event, 'servicios')">Servicios Profesionales</div>
+    <div class="tab" onclick="openTab(event, 'servicios')">Servicios</div>
     <div class="tab" onclick="openTab(event, 'excel')">Excel</div>
     <div class="tab" onclick="openTab(event, 'powerbi')">Power BI</div>
     <div class="tab" onclick="openTab(event, 'dax')">DAX</div>
@@ -130,64 +130,75 @@
 </div>
 
 
-
-<div id="servicios" class="tab-content">
-  <section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
-    <h2>Servicios Profesionales de Análisis y Visualización de Datos</h2>
-    <img src="servicio.jpg" alt="Servicios de análisis y visualización de datos" style="width: 100%; height: auto; margin-top: 20px;">
-    <p>
-      En <strong>CICAPY</strong>, ofrecemos una amplia gama de servicios especializados para potenciar el análisis y la presentación de datos 
-      utilizando herramientas avanzadas como Power BI, R, Python y Excel. Nuestro objetivo es ayudarte a transformar datos en 
-      decisiones estratégicas.
-    </p>
-
-    <div style="margin-top: 20px;">
-      <section class="section-box" style="border: 1px solid #ccc; padding: 20px; background-color: #f9f9f9; margin-bottom: 20px;">
-        <h3>Depuración y Transformación de Datos</h3>
-        <p>
-          Garantizamos la calidad de tus datos mediante procesos de limpieza, normalización y transformación, asegurando que estén 
-          listos para análisis y modelado.
+  <!-- Contenido de las pestañas -->
+  <div id="servicios" class="tab-content active">
+    <section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;"> 
+        <h2 style="text-align: center; color: #336699;">📊 Capacitación empresarial a medida: online, in-company o híbrida.</h2>
+        
+        <p style="text-align: center; font-size: 16px;">
+            Ofrecemos programas de formación diseñados para equipos que buscan potenciar sus capacidades en <strong>Análisis de Datos e Inteligencia de Negocios</strong> mediante el uso de herramientas líderes del mercado:
+            <strong>R, Python, Power BI, SQL y Excel</strong>. Las capacitaciones pueden realizarse <strong>100% online</strong> o <strong>in-company</strong>, adaptadas a las necesidades específicas de tu organización.
         </p>
-      </section>
-      <section class="section-box" style="border: 1px solid #ccc; padding: 20px; background-color: #f9f9f9; margin-bottom: 20px;">
-        <h3>Análisis Avanzado de Datos</h3>
-        <p>
-          Utilizamos herramientas como R, Python y Excel para realizar análisis descriptivos, predictivos y prescriptivos, 
-          adaptados a tus necesidades específicas.
-        </p>
-      </section>
-      <section class="section-box" style="border: 1px solid #ccc; padding: 20px; background-color: #f9f9f9; margin-bottom: 20px;">
-        <h3>Creación de Medidas y Modelado</h3>
-        <p>
-          En Power BI y Excel, diseñamos y optimizamos medidas personalizadas con DAX, y modelos de datos eficientes para 
-          una mejor comprensión y análisis.
-        </p>
-      </section>
-      <section class="section-box" style="border: 1px solid #ccc; padding: 20px; background-color: #f9f9f9; margin-bottom: 20px;">
-        <h3>Informes y Dashboards Interactivos</h3>
-        <p>
-          Diseñamos dashboards visualmente atractivos e informes interactivos en Power BI, Excel y otras plataformas, 
-          proporcionando claridad y accionabilidad a tus datos.
-        </p>
-      </section>
-      <section class="section-box" style="border: 1px solid #ccc; padding: 20px; background-color: #f9f9f9;">
-        <h3>Automatización y Optimización</h3>
-        <p>
-          Implementamos soluciones automatizadas para análisis y generación de reportes, ahorrando tiempo y mejorando la 
-          eficiencia en la toma de decisiones.
-        </p>
-      </section>
-    </div>
-
-    <p style="margin-top: 20px;">
-      ¡Haz que tus datos trabajen para ti! Contáctanos para conocer más sobre cómo nuestros servicios pueden transformar tus 
-      operaciones.
-    </p>
-  </section>
+    
+        <ul style="font-size: 16px; line-height: 1.6; margin: 20px;">
+            <li>📌 Programas personalizados según el sector y los datos reales de tu empresa.</li>
+            <li>🧠 Formación práctica, enfocada en el análisis de datos, automatización de reportes y generación de dashboards.</li>
+            <li>🎯 Modalidad online en vivo o presencial en tu oficina (in-company).</li>
+            <li>📁 Material de clase, datasets y grabaciones disponibles para los participantes.</li>
+            <li>✅ Ideal para equipos de análisis, finanzas, marketing, RRHH, operaciones y más.</li>
+        </ul>
+    
+        <h2 style="text-align: center; color: #336699;">👩‍🏫 Conoce a tu Docente</h2>
+        
+        <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
+            <div style="flex-shrink: 0; text-align: center;">
+                <img src="foto.jpg" alt="Foto del docente" style="border-radius: 50%; width: 150px; height: 200px; object-fit: cover; border: 2px solid #ccc;">
+            </div>
+            
+            <div style="flex: 1; text-align: left;">
+                <p><strong>Nombre del Docente:</strong> Oscar González Frutos</p>
+                <p><strong>Lic. en:</strong> Matemática Estadística FACEN - UNA.</p>
+                <p><strong>MSc. en:</strong> Estadística Aplicada - Universidad de Granada, España (Becal).</p>
+                <p><strong>Experiencia:</strong> Más de 10 años de experiencia en Análisis de Datos y en la enseñanza de herramientas como: SQL, Excel, Power BI, R y Python.</p>
+                <p><strong>Certificaciones:</strong> Certificate in Data Science con R - HarvardX (Harvard University - En Línea).</p>
+                <p><strong>Pasión por enseñar:</strong> Comprometido en ayudarte a dominar habilidades clave y aplicarlas en proyectos reales.</p>
+                <p><strong>Experiencia docente:</strong> Ha impartido capacitaciones en herramientas de análisis de datos (R, Python, Power BI) en instituciones públicas como el <strong>Banco Central del Paraguay (BCP)</strong>, <strong>Itaipú Binacional</strong>, <strong>DGEEC</strong>, <strong>MEC</strong>, <strong>FACEN</strong>, <strong>UNA</strong> y el <strong>Ministerio de Desarrollo Social</strong>; y en organizaciones privadas como <strong>Automotor</strong>, <strong>Banco Familiar</strong>, <strong>Bancoop</strong> y <strong>Sueñolar</strong>.</p>
+                <p>
+                    📎 <a href="https://www.linkedin.com/in/oscar-gonzález-frutos" target="_blank" style="color: #336699; text-decoration: none;">
+                        Conecta conmigo en LinkedIn
+                    </a>
+                </p>
+            </div>
+        </div>
+    
+        <div style="margin-top: 30px;">
+            <h3 style="color: #336699; text-align: center;">📸 Galería de Capacitaciones</h3>
+            <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; margin-top: 15px;">
+                <img src="f1.jpg" alt="Capacitación 1" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
+                <img src="f2.jpg" alt="Capacitación 2" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
+                <img src="f3.jpg" alt="Capacitación 3" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
+                <img src="f4.jpg" alt="Capacitación 4" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
+                <img src="f5.jpg" alt="Capacitación 5" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
+                <img src="f6.jpg" alt="Capacitación 6" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
+                <img src="f7.jpg" alt="Capacitación 7" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
+            </div>
+        </div>
+    
+        <div style="margin-top: 40px; text-align: center;">
+            <h3 style="color: #336699;">📩 Consultar Presupuesto</h3>
+            <p style="font-size: 16px;">
+                ¿Te interesa capacitar a tu equipo? Solicita una propuesta personalizada y sin compromiso.
+            </p>
+            <a href="https://wa.me/595983352932" target="_blank" style="display: inline-block; margin-top: 15px; padding: 12px 25px; background-color: #25D366; color: white; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 16px;">
+                💬 Consultar vía WhatsApp
+            </a>
+            <p style="margin-top: 10px; font-size: 14px; color: #666;">
+                También podés escribirnos a <strong>cicap2021@gmail.com</strong>
+            </p>
+        </div>
+    </section>
+    
 </div>
-
-
-
 
 
     <div id="excel" class="tab-content">
