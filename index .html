@@ -1,0 +1,2401 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CICAPY</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        .header {
+            background-color: #336699;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        .header img {
+            max-width: 150px;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        /* Estilo de las pestañas */
+        .tabs-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap; /* Permitir salto de línea */
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+            gap: 5px; /* Espacio entre pestañas */
+        }
+
+        .tab {
+            padding: 15px 20px;
+            cursor: pointer;
+            font-weight: bold;
+            color: #336699;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+            text-align: center;
+            flex: 1 1 auto; /* Tamaño flexible */
+            max-width: 150px; /* Limitar el tamaño máximo */
+        }
+
+        .tab:hover, .tab.active {
+            color: #000;
+            border-bottom: 3px solid #336699;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-top: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .tab {
+                max-width: 100%; /* Ajustar al ancho completo en móviles */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="cicap.jpg" alt="Logo de CICAPY" style="max-width: 100%; height: auto; border-radius: 8px;"> 
+    </div>
+
+   <div class="tabs-container">
+    <div class="tab active" onclick="openTab(event, 'cicap')">CICAPY</div>
+    <div class="tab" onclick="openTab(event, 'servicios')">Servicios</div>
+    <div class="tab" onclick="openTab(event, 'excel')">Excel</div>
+    
+    <div class="tab" onclick="openTab(event, 'powerbi')">Report y Dashboard con Power BI </div>
+    <div class="tab" onclick="openTab(event, 'dax')">DAX</div>
+   <!-- <div class="tab" onclick="openTab(event, 'dashboard')">Dashboard en Power BI</div>-->
+    <div class="tab" onclick="openTab(event, 'python')">R y Python</div>
+    
+    <div class="tab" onclick="openTab(event, 'sql')">SQL</div>
+    <div class="tab" onclick="openTab(event, 'galeria')">Galería</div>
+</div>
+               
+            
+
+    <!-- Contenido de las pestañas -->
+<div id="cicap" class="tab-content active">
+  <section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
+    <h2>¡Bienvenidos a CICAPY!</h2>
+    <p>
+      En el <strong>Instituto Técnico Superior Centro de Investigación y Capacitación Paraguay (CICAPY)</strong>, nos especializamos en ofrecer 
+      educación virtual de alta calidad. Nuestro enfoque está en tecnologías modernas para el análisis de datos, 
+      potenciando tus habilidades para enfrentar los desafíos del mundo profesional.
+    </p>
+    <p>
+      CICAPY fue creado por la <strong>Resolución 848/2022</strong> del 
+      <strong>Ministerio de Educación y Ciencias</strong>, consolidando nuestro compromiso con la educación de excelencia 
+      en Paraguay.
+    </p>
+
+    <div style="display: flex; gap: 20px; justify-content: space-between;">
+      <section class="section-box" style="border: 1px solid #ccc; padding: 20px; background-color: #f9f9f9; flex: 1;">
+        <h3>Misión</h3>
+        <p>
+          Formar profesionales altamente capacitados mediante programas educativos virtuales innovadores en tecnologías 
+          de análisis de datos, promoviendo la transformación digital y la toma de decisiones basada en datos en Paraguay 
+          y más allá.
+        </p>
+      </section>
+      <section class="section-box" style="border: 1px solid #ccc; padding: 20px; background-color: #f9f9f9; flex: 1;">
+        <h3>Visión</h3>
+        <p>
+          Ser reconocidos como un referente regional en educación virtual, transformando el aprendizaje en análisis de 
+          datos y contribuyendo al desarrollo tecnológico y profesional de nuestros estudiantes.
+        </p>
+      </section>
+    </div>
+  </section>
+</div>
+
+
+  <!-- Contenido de las pestañas -->
+  <div id="servicios" class="tab-content active">
+    <section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;"> 
+        <h2 style="text-align: center; color: #336699;">📊 Capacitación empresarial a medida: online, in-company o híbrida.</h2>
+        
+        <p style="text-align: center; font-size: 16px;">
+            Ofrecemos programas de formación diseñados para equipos que buscan potenciar sus capacidades en <strong>Análisis de Datos e Inteligencia de Negocios</strong> mediante el uso de herramientas líderes del mercado:
+            <strong>R, Python, Power BI, SQL y Excel</strong>. Las capacitaciones pueden realizarse <strong>100% online</strong> o <strong>in-company</strong>, adaptadas a las necesidades específicas de tu organización.
+        </p>
+    
+        <ul style="font-size: 16px; line-height: 1.6; margin: 20px;">
+            <li>📌 Programas personalizados según el sector y los datos reales de tu empresa.</li>
+            <li>🧠 Formación práctica, enfocada en el análisis de datos, automatización de reportes y generación de dashboards.</li>
+            <li>🎯 Modalidad online en vivo o presencial en tu oficina (in-company).</li>
+            <li>📁 Material de clase, datasets y grabaciones disponibles para los participantes.</li>
+            <li>✅ Ideal para equipos de análisis, finanzas, marketing, RRHH, operaciones y más.</li>
+        </ul>
+    
+        <h2 style="text-align: center; color: #336699;">👩‍🏫 Capacitador</h2>
+        
+        <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
+            <div style="flex-shrink: 0; text-align: center;">
+                <img src="foto.jpg" alt="Foto del docente" style="border-radius: 50%; width: 150px; height: 200px; object-fit: cover; border: 2px solid #ccc;">
+            </div>
+            
+            <div style="flex: 1; text-align: left;">
+                <p><strong>Nombre del Docente:</strong> Oscar González Frutos</p>
+                <p><strong>Lic. en:</strong> Matemática Estadística FACEN - UNA.</p>
+                <p><strong>MSc. en:</strong> Estadística Aplicada - Universidad de Granada, España (Becal).</p>
+                <p><strong>Experiencia:</strong> Más de 10 años de experiencia en Análisis de Datos y en la enseñanza de herramientas como: SQL, Excel, Power BI, R y Python.</p>
+                <p><strong>Certificaciones:</strong> Certificate in Data Science con R - HarvardX (Harvard University - En Línea).</p>
+                <p><strong>Pasión por enseñar:</strong> Comprometido en ayudarte a dominar habilidades clave y aplicarlas en proyectos reales.</p>
+                <p><strong>Experiencia docente:</strong> Ha impartido capacitaciones en herramientas de análisis de datos (R, Python, Power BI) en instituciones públicas como el <strong>Banco Central del Paraguay (BCP)</strong>, <strong>Itaipú Binacional</strong>, <strong>DGEEC</strong>, <strong>MEC</strong>, <strong>FACEN</strong>, <strong>UNA</strong> y el <strong>Ministerio de Desarrollo Social</strong>; y en organizaciones privadas como <strong>Automotor</strong>, <strong>Banco Familiar</strong>, <strong>Bancoop</strong> y <strong>Sueñolar</strong>.</p>
+                <p>
+                    📎 <a href="https://www.linkedin.com/in/oscar-gonzález-frutos" target="_blank" style="color: #336699; text-decoration: none;">
+                        Conecta conmigo en LinkedIn
+                    </a>
+                </p>
+            </div>
+        </div>
+    
+        <div style="margin-top: 30px;">
+            <h3 style="color: #336699; text-align: center;">📸 Galería de Capacitaciones</h3>
+            <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; margin-top: 15px;">
+                <img src="f1.jpg" alt="Capacitación 1" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
+                <img src="f2.jpg" alt="Capacitación 2" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
+                <img src="f3.jpg" alt="Capacitación 3" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
+                <img src="f4.jpg" alt="Capacitación 4" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
+                <img src="f5.jpg" alt="Capacitación 5" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
+                <img src="f6.jpg" alt="Capacitación 6" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
+                <img src="f7.jpg" alt="Capacitación 7" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
+            </div>
+        </div>
+    
+        <div style="margin-top: 40px; text-align: center;">
+            <h3 style="color: #336699;">📩 Consultar Presupuesto</h3>
+            <p style="font-size: 16px;">
+                ¿Te interesa capacitar a tu equipo? Solicita una propuesta personalizada y sin compromiso.
+            </p>
+            <a href="https://wa.me/595983352932" target="_blank" style="display: inline-block; margin-top: 15px; padding: 12px 25px; background-color: #25D366; color: white; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 16px;">
+                💬 Consultar vía WhatsApp
+            </a>
+            <p style="margin-top: 10px; font-size: 14px; color: #666;">
+                También podés escribirnos a <strong>cicap2021@gmail.com</strong>
+            </p>
+        </div>
+    </section>
+    
+</div>
+
+
+    <div id="excel" class="tab-content">
+      
+      <section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
+    <h1 style="text-align: center; color: #336699; font-size: 2em; font-weight: bold;">INTELIGENCIA DE NEGOCIOS CON EXCEL</h1>
+    <div style="text-align: center; margin-top: 10px;">
+        <img src="pivot.png" alt="Curso de Power BI" style="max-width: 100%; height: auto; border-radius: 8px;">
+    </div>
+    <p style="text-align: center; margin-top: 20px; font-size: 18px; color: #333; line-height: 1.6;">
+        Este curso está diseñado para adaptarse a tus necesidades. Se ofrece en <strong>modalidad sincrónica y asincrónica</strong>, 
+        lo que te permite participar en las clases en vivo o seguir las grabaciones a tu propio ritmo. 
+        Además, podrás completar las tareas y ejercicios cuando más te convenga.
+    </p>
+    <p style="text-align: center; margin-top: 15px; font-size: 16px; color: #666;">
+        Este curso está diseñado para capacitarte en el uso avanzado de Excel, incluyendo herramientas como Power Query y Power Pivot, para el análisis y la visualización de datos. Aprenderás a importar datos desde múltiples fuentes, transformarlos, modelarlos y crear informes dinámicos y dashboards interactivos.
+    </p>
+
+
+<section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
+    <h2 style="text-align: center; color: #336699;">✅ Metodología</h2>
+    <ul>
+        <li>Clases en vivo a través de Zoom, facilitando la interacción directa con el instructor.</li>
+        <li>Clases grabadas disponibles para consulta posterior.</li>
+        <li>Actividades prácticas: Ejercicios y proyectos aplicados.</li>
+        <li>Asesoramiento personalizado durante y después de las sesiones.</li>
+    </ul>
+</section>
+
+<section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
+    <h2 style="text-align: center; color: #336699;">📅 Fecha de Capacitación en Vivo:</h2>
+    <ul>
+        <li><strong>Fechas:</strong> mayo a junio de 2025.</li>
+        <li><strong>Horario:</strong> 19:30 a 21:40 hs.</li>
+        
+    </ul>
+</section>
+
+
+
+<section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
+    <h2 style="text-align: center; color: #336699;">✅ Costo del Curso</h2>
+    
+    <p><strong>Costo del Curso:</strong> 300.000 Gs (Pago Único). Incluye materiales, grabaciones y certificado.</p>
+    <p>🎉 <strong>¡Descuento para grupos!</strong> Si te inscribes en grupo, obtén un descuento especial. ¡Contáctanos para más información!</p>
+    <ul>
+        <li>2 personas: 250.000 Gs c/u</li>
+        <li>3 personas: 200.000 Gs c/u</li>
+        <li>4 o más: 150.000 Gs c/u</li>
+    </ul>
+</section>
+
+
+<section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
+    <h2 style="text-align: center; color: #336699;">✅ Formas de Pago</h2>
+    <p>Transferencia o depósito bancario:</p>
+    
+    <!-- Método 1: Banco Itaú -->
+    <div style="margin-bottom: 20px;">
+        <h3 style="color: #444;">🏦 Banco Itaú:</h3>
+        <ul style="padding-left: 20px;">
+            <li><strong>Cta. N°:</strong> 720005407</li>
+            <li><strong>Titular:</strong> Oscar Gonzalez Frutos</li>
+            <li><strong>CI:</strong> 3584172</li>
+        </ul>
+    </div>
+    
+    <!-- Alias -->
+    <div style="margin-bottom: 20px;">
+        <ul style="padding-left: 20px;">
+            <li><strong>Alias:</strong> 3584172</li>
+        </ul>
+    </div>
+
+    <!-- Método 2: Pago con Tarjeta -->
+    <div style="margin-bottom: 20px;">
+        <h3 style="color: #444;">💳 Pago con Tarjeta de Crédito/Débito:</h3>
+        <p>Podés abonar mediante POS Virtual. Consultá para recibir el enlace de pago.</p>
+    </div>
+
+    <p style="font-weight: bold; text-align: left;">✅ Para confirmar tu inscripción, por favor envía el comprobante al siguiente número: <strong>0983 352 932</strong></p>
+</section>
+
+
+
+
+
+<section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
+    <h2 style="text-align: center; color: #336699;">👩‍🏫 Conoce a tu Docente</h2>
+    
+    <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
+        <div style="flex-shrink: 0; text-align: center;">
+            <img src="foto.jpg" alt="Foto del docente" style="border-radius: 50%; width: 150px; height: 200px; object-fit: cover; border: 2px solid #ccc;">
+        </div>
+        
+        <div style="flex: 1; text-align: left;">
+            <p><strong>Nombre del Docente:</strong> Oscar González Frutos</p>
+            <p><strong>Lic. en:</strong> Matemática Estadística FACEN - UNA.</p>
+            <p><strong>MSc. en:</strong> Estadística Aplicada - Universidad de Granada, España (Becal).</p>
+            <p><strong>Experiencia:</strong> Más de 10 años de experiencia en Análisis de Datos y en la enseñanza de herramientas como: SQL, Excel, Power BI, R y Python.</p>
+            <p><strong>Certificaciones:</strong> Certificate in Data Science con R - HarvardX (Harvard University - En Línea).</p>
+            <p><strong>Pasión por enseñar:</strong> Comprometido en ayudarte a dominar habilidades clave y aplicarlas en proyectos reales.</p>
+            <p><strong>Experiencia docente:</strong> Ha impartido capacitaciones en herramientas de análisis de datos (R, Python, Power BI) en instituciones públicas como el <strong>Banco Central del Paraguay (BCP)</strong>, <strong>Itaipú Binacional</strong>, <strong>DGEEC</strong>, <strong>MEC</strong>, <strong>FACEN</strong>, <strong>UNA</strong> y el <strong>Ministerio de Desarrollo Social</strong>; y en organizaciones privadas como <strong>Automotor</strong>, <strong>Banco Familiar</strong>, <strong>Bancoop</strong> y <strong>Sueñolar</strong>.</p>
+            <p>
+                📎 <a href="https://www.linkedin.com/in/oscar-gonzález-frutos" target="_blank" style="color: #336699; text-decoration: none;">
+                    Conecta conmigo en LinkedIn
+                </a>
+            </p>
+        </div>
+    </div>
+
+    <div style="margin-top: 30px;">
+        <h3 style="color: #336699; text-align: center;">📸 Galería de Capacitaciones</h3>
+        <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; margin-top: 15px;">
+            <img src="f1.jpg" alt="Capacitación 1" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
+            <img src="f2.jpg" alt="Capacitación 2" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
+            <img src="f3.jpg" alt="Capacitación 3" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
+            <img src="f4.jpg" alt="Capacitación 4" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
+            <img src="f5.jpg" alt="Capacitación 5" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
+            <img src="f6.jpg" alt="Capacitación 6" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
+            <img src="f7.jpg" alt="Capacitación 7" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
+        </div>
+    </div>
+</section>
+<style>
+/* Responsividad para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .section-box div {
+        flex-basis: 100%; /* Cada sección ocupa todo el ancho */
+        text-align: center; /* Centrar contenido */
+    }
+    .section-box img {
+        margin: 0 auto; /* Centrar imagen */
+    }
+}
+</style>
+
+    
+    
+
+     <section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
+        <h2>Contenido del Curso</h2>
+       
+    </section>
+    
+    
+    <section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
+    <h3>Parte Introductoria: Funcionalidades Básicas de Excel</h3>
+    <ul>
+        <li><strong>Interfaz de Excel:</strong> Descripción de las principales pestañas y herramientas, incluyendo la barra de fórmulas y la navegación en hojas de cálculo.</li>
+        <li><strong>Funciones y Fórmulas Básicas:</strong> Uso de funciones como Suma, Promedio, Máximo, Mínimo, referencias absolutas y relativas ($), y fórmulas condicionales como SI, CONTAR.SI, y SUMAR.SI.</li>
+        <li><strong>Formateo de Datos:</strong> Aplicación de estilos de celdas, formatos de números, bordes, filtros y ordenamiento de datos.</li>
+        <li><strong>Gráficos Básicos:</strong> Creación de gráficos de columnas, líneas y circulares, incluyendo ajustes de títulos, ejes y leyendas.</li>
+        <li><strong>Introducción a Tablas:</strong> Creación y manejo de tablas en Excel, aprovechando filtros, estilos y referencias estructuradas.</li>
+    </ul>
+</section>
+
+
+     <section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
+               <h2>Power Query</h2>
+    <div style="text-align: center; margin-bottom: 20px;">
+        <img src="query.png" alt="Power Query" style="max-width: 100%; height: auto; border: 1px solid #ddd; padding: 10px;">
+    </div>
+    <p>
+        Con Power Query, puede buscar orígenes de datos, realizar conexiones y, a continuación, dar forma a esos datos 
+        (por ejemplo, quitar una columna, cambiar un tipo de datos o combinar tablas) de maneras que se ajusten a sus 
+        necesidades. Después, puede cargar la consulta en Excel para crear gráficos e informes.
+    </p>
+    <p>Hay cuatro fases principales para usar Power Query:</p>
+    <ul>
+        <li><strong>Conectar:</strong> Importe y realice conexiones a datos en la nube, en un servicio o localmente.</li>
+        <li><strong>Transformar:</strong> Dé forma a los datos para satisfacer sus necesidades, mientras que el origen original permanece inalterado.</li>
+        <li><strong>Combinar:</strong> Integre datos desde varios orígenes para obtener una vista única de los datos.</li>
+        <li><strong>Cargar:</strong> Complete la consulta y guárdela en una hoja de cálculo o un modelo de datos.</li>
+    </ul>
+     <h3>Tema 1: Introducción y Preparación de Datos con Power Query</h3>
+        <ul>
+            <li>Introducción a Power Query y su uso en el análisis de datos.</li>
+            <li>Importación de datos desde TXT, CSV, Excel y bases de datos.</li>
+            <li>Transformaciones básicas: limpieza, filtrado y ordenamiento de datos.</li>
+            <li>Carga de datos procesados a Excel.</li>
+        </ul>
+    </section>
+
+     <section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
+       
+       <h3>Power Pivot</h3>
+    <div style="text-align: center; margin-bottom: 20px;">
+        <img src="pivot1.jpg" alt="Power Pivot" style="max-width: 100%; height: auto; border: 1px solid #ddd; padding: 10px;">
+    </div>
+    <p>
+        Power Pivot es una herramienta de modelado de datos que permite integrar grandes volúmenes de datos de múltiples 
+        fuentes, establecer relaciones entre ellos y crear cálculos avanzados utilizando DAX (Data Analysis Expressions). 
+        Con Power Pivot, puedes crear modelos de datos robustos y flexibles que mejoran el análisis y la visualización.
+    </p>
+    <p>Las principales funcionalidades de Power Pivot incluyen:</p>
+    <ul>
+        <li><strong>Integración de Datos:</strong> Importa datos de diferentes orígenes y combínalos en un modelo unificado.</li>
+        <li><strong>Relaciones entre Tablas:</strong> Crea relaciones entre múltiples tablas para realizar análisis complejos.</li>
+        <li><strong>Cálculos Avanzados:</strong> Utiliza medidas y columnas calculadas para obtener resultados personalizados con DAX.</li>
+        <li><strong>Optimización de Modelos:</strong> Simplifica y optimiza el modelo para mejorar el rendimiento en análisis y visualizaciones.</li>
+    </ul>
+        <h3>Tema 2: Modelado de Datos con Power Pivot</h3>
+        <ul>
+            <li>Qué es Power Pivot y cómo usarlo para modelos de datos.</li>
+            <li>Creación de relaciones entre tablas y jerarquías.</li>
+            <li>Introducción a DAX: funciones básicas como SUM, AVERAGE y COUNT.</li>
+            <li>Buenas prácticas para optimizar el modelo de datos.</li>
+        </ul>
+    </section>
+
+     <section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
+        <h3>Tema 3: Cálculos y Análisis Avanzados con DAX</h3>
+        <ul>
+            <li>Funciones avanzadas de DAX: CALCULATE, FILTER, ALL.</li>
+            <li>Cálculos temporales (YTD, MTD, variaciones interanuales).</li>
+            <li>Creación de tablas dinámicas desde Power Pivot.</li>
+            <li>Optimización del modelo de datos para análisis más complejos.</li>
+        </ul>
+    </section>
+
+     <section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
+        <h3>Tema 4: Visualización y Presentación de Informes</h3>
+        <ul>
+            <li>Creación de dashboards en Excel: gráficos avanzados y segmentadores.</li>
+            <li>Diseño profesional y formateo de informes.</li>
+            <li>Automatización y actualización automática de datos.</li>
+            <li>Caso práctico: integración completa del flujo de trabajo.</li>
+        </ul>
+    </section>
+
+    <section class="section-box">
+        <h2 style="text-align: center; color: #336699;">Ejemplos de Dasboards creados en clase</h2>
+           <!-- Aquí puedes agregar las imágenes -->
+        <div class="gallery">
+          <img src="informe.jpg" alt="Curso 1" style="max-width: 100%; height: auto; border-radius: 8px;">
+          <img src="p4.png" alt="Curso 1" style="max-width: 100%; height: auto; border-radius: 8px;">
+          
+        </div>
+      </section>
+    
+    
+    
+</div>
+
+
+
+
+    <div id="powerbi" class="tab-content">
+             <section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
+    <h1 style="text-align: center; color: #336699; font-size: 2em; font-weight: bold;">Curso Completo de Report y Dashboard con Power BI </h1>
+    <div style="text-align: center; margin-top: 20px;">
+        <img src="power.jpg" alt="Curso de Power BI" style="max-width: 100%; height: auto; border-radius: 8px;">
+    </div>
+    <p style="text-align: center; margin-top: 20px; font-size: 18px; color: #333; line-height: 1.6;">
+        Este curso de Report y Dashboard con Power BI está diseñado para adaptarse a tus necesidades. Se ofrece en modalidad sincrónica y asincrónica, lo que te permite participar en las clases en vivo o seguir las grabaciones a tu propio ritmo.
+    </p>
+    <p style="text-align: center; margin-top: 15px; font-size: 16px; color: #666;">
+        ¡No importa si eres principiante o ya tienes experiencia! Este curso está diseñado para ayudarte a mejorar tus habilidades de análisis de datos con Power BI.
+    </p>
+</section>
+
+<section class="section-box" style="border: 2px solid #25D366; padding: 30px; margin: 30px 0; background-color: #eafff3; border-radius: 12px;">
+    <h2 style="text-align: center; color: #128C7E; font-size: 24px;">🎯 ¿A quién va dirigido este curso?</h2>
+    <ul style="font-size: 18px; max-width: 800px; margin: 0 auto; padding-left: 20px; line-height: 1.6; color: #000;">
+        <li><strong>Profesionales de todas las áreas</strong> que necesitan analizar y visualizar datos para tomar mejores decisiones.</li>
+        <li><strong>Analistas, contadores, ingenieros, administradores y personal de recursos humanos</strong>, entre otros, que deseen optimizar sus reportes y automatizar procesos de análisis.</li>
+        <li><strong>Emprendedores y dueños de negocios</strong> que quieran entender el comportamiento de su empresa mediante indicadores visuales.</li>
+        <li><strong>Estudiantes y recién egresados</strong> que buscan adquirir una herramienta valiosa para el mercado laboral.</li>
+        <li><strong>Personas sin experiencia previa en Power BI</strong>, pero con conocimientos básicos de Excel y análisis de datos.</li>
+    </ul>
+</section>
+
+
+<section class="section-box" style="border: 2px solid #25D366; padding: 30px; margin: 30px 0; background-color: #eafff3; border-radius: 10px;">
+    <h2 style="text-align: center; color: #128C7E;">✅ Inscripción</h2>
+    <p style="text-align: center; font-size: 18px; margin-top: 10px;">
+        Completá el formulario y reservá tu lugar. 
+    </p>
+    <div style="text-align: center; margin-top: 20px;">
+        <a href="https://forms.gle/UDoQ8tmFSurUbycR7" target="_blank" style="display: inline-block; padding: 15px 30px; background-color: #25D366; color: white; border-radius: 50px; text-decoration: none; font-size: 18px; font-weight: bold; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+            📝 Completar preinscripción
+        </a>
+    </div>
+</section>
+
+
+<section class="section-box" style="border: 2px solid #25D366; padding: 30px; margin: 30px 0; background-color: #eafff3; border-radius: 10px;">
+<h2 style="text-align: center; color: #128C7E;">📲 ¿Tenés dudas o querés más info?</h2>
+<p style="text-align: center; font-size: 18px; margin-top: 10px;">
+    Escribinos ahora y recibí atención personalizada por WhatsApp.
+</p>
+<div style="text-align: center; margin-top: 20px;">
+    <a href="https://wa.me/595983352932" target="_blank" style="display: inline-block; padding: 15px 30px; background-color: #25D366; color: white; border-radius: 50px; text-decoration: none; font-size: 18px; font-weight: bold; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+        💬 Chatear por WhatsApp
+    </a>
+</div>
+<p style="text-align: center; margin-top: 15px; font-size: 15px; color: #555;">
+    O escribinos a <strong>cicap2021@gmail.com</strong>
+</p>
+</section>
+
+
+
+
+
+<section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
+    <h2 style="text-align: center; color: #336699;">📅 Fecha de Capacitación online en Vivo:</h2> 
+    <ul>
+        <li><strong>Fecha de inicio:</strong> Miércoles 6 de agosto de 2025.</li>
+        <li><strong>Horario:</strong> 19:30 a 21:30 hs.</li>
+        <li><strong>Clases en vivo por Zoom:</strong> 6, 12, 13, 19, 20, 26, 27 de agosto y 2 de setiembre de 2025</li>
+        <li><strong>Día:</strong> Martes y Miércoles</li>
+    </ul>
+    
+</section>
+
+   
+<section class="section-box" style="border: 2px solid #25D366; padding: 30px; margin: 30px 0; background-color: #eafff3; border-radius: 12px;">
+  <h2 style="text-align: center; color: #128C7E; font-size: 24px;">📘 Nivel del Curso: ¡Desde Principiante hasta Avanzado!</h2>
+  <p style="font-size: 18px; max-width: 800px; margin: 0 auto; line-height: 1.6; color: #000; text-align: center;">
+    Este curso está diseñado para llevarte paso a paso desde cero hasta dominar Power BI a nivel profesional. 
+    <strong>No se requieren conocimientos previos</strong>, ya que comenzamos con lo más básico y avanzamos gradualmente a técnicas de análisis de datos avanzadas.
+  </p>
+  <ul style="font-size: 18px; max-width: 800px; margin: 20px auto 0; padding-left: 20px; line-height: 1.6; color: #000;">
+    <li>🔰 <strong>Nivel Principiante:</strong> Ideal si nunca trabajaste con Power BI. Aprendé los conceptos fundamentales y familiarizate con el entorno de trabajo.</li>
+    <li>⚙️ <strong>Nivel Intermedio:</strong> Transformación y modelado de datos, creación de relaciones, uso de filtros y medidas.</li>
+    <li>🚀 <strong>Nivel Avanzado:</strong> DAX avanzado, inteligencia de tiempo, diseño de dashboards interactivos, visuales con IA y publicación en la nube.</li>
+  </ul>
+</section>
+
+  
+  <header>
+        <h1>📘 Report y Dashboard en Power BI</h1>
+        <p>🎯 Objetivo general: Aprender a importar, transformar, combinar, y optimizar datos utilizando Power Query y Power BI para crear modelos de datos eficientes y dashboards interactivos que permitan un análisis avanzado y visualización efectiva de la información, asegurando una toma de decisiones rápida y precisa a través de reportes dinámicos y bien estructurados.</p>
+    </header>
+<section class="section-box" style="border: 2px solid #25D366; padding: 30px; margin: 30px 0; background-color: #eafff3; border-radius: 12px;">
+    <h2 style="text-align: center; color: #128C7E; font-size: 24px;">🔹 MÓDULO 1: Introducción a Power Query y Power BI</h2>
+    <ul style="font-size: 18px; max-width: 800px; margin: 0 auto; padding-left: 20px; line-height: 1.6; color: #000;">
+        <li><strong>Qué es Power Query y Power BI:</strong> Diferencias entre Power Query (transformación de datos) y Power BI (visualización y análisis).</li>
+        <li><strong>Casos de uso de Power Query en Excel y Power BI:</strong> Aplicaciones y herramientas.</li>
+        <li><strong>Acceso a Power Query desde Power BI:</strong> Navegación y acceso directo.</li>
+        <li><strong>Navegación del entorno de Power BI:</strong> Panel de consultas, editor de informes.</li>
+    </ul>
+</section>
+
+<section class="section-box" style="border: 2px solid #25D366; padding: 30px; margin: 30px 0; background-color: #eafff3; border-radius: 12px;">
+    <h2 style="text-align: center; color: #128C7E; font-size: 24px;">🔹 MÓDULO 2: Importar y Conectar Datos en Power Query</h2>
+    <ul style="font-size: 18px; max-width: 800px; margin: 0 auto; padding-left: 20px; line-height: 1.6; color: #000;">
+        <li><strong>Importar datos desde:</strong> Archivos Excel, CSV, Bases de datos (SQL Server, Access), Web y APIs, Carpetas (consolidación de archivos).</li>
+        <li><strong>Opciones de carga:</strong> Solo conexión, tabla, y tabla dinámica.</li>
+    </ul>
+</section>
+
+<section class="section-box" style="border: 2px solid #25D366; padding: 30px; margin: 30px 0; background-color: #eafff3; border-radius: 12px;">
+  <h2 style="text-align: center; color: #128C7E; font-size: 24px;">🔹 MÓDULO 3: Transformaciones Básicas en Power Query</h2>
+  <ul style="font-size: 18px; max-width: 800px; margin: 0 auto; padding-left: 20px; line-height: 1.6; color: #000;">
+    <li><strong>Eliminar filas y columnas innecesarias:</strong> Suprime datos irrelevantes para simplificar el conjunto y facilitar el análisis.</li>
+    <li><strong>Cambiar tipos de datos:</strong> Establece el tipo correcto (texto, número, fecha, etc.) para evitar errores en cálculos y visualizaciones.</li>
+    <li><strong>Reordenar y renombrar columnas:</strong> Mejora la comprensión del dataset y adapta la estructura a los objetivos del análisis.</li>
+    <li><strong>Filtrar y ordenar registros:</strong> Aplica criterios de selección y ordenamiento para focalizar la información útil.</li>
+    <li><strong>Limpiar datos:</strong> Elimina espacios, caracteres innecesarios o errores comunes que afectan la integridad de los datos.</li>
+    <li><strong>Reemplazar valores:</strong> Sustituye datos erróneos, vacíos o estandariza formatos (como "SÍ"/"NO" → 1/0).</li>
+    <li><strong>Transformar columnas con funciones:</strong> Manipula fechas, textos y números con funciones integradas (como `Text.Upper`, `Date.Year`, etc.).</li>
+    <li><strong>Tratar errores y valores nulos:</strong> Detecta y corrige registros problemáticos para garantizar la consistencia del modelo.</li>
+    <li><strong>Eliminar duplicados:</strong> Conserva únicamente los registros únicos, previniendo sesgos en el análisis posterior.</li>
+  </ul>
+</section>
+
+
+<section class="section-box" style="border: 2px solid #25D366; padding: 30px; margin: 30px 0; background-color: #eafff3; border-radius: 12px;">
+  <h2 style="text-align: center; color: #128C7E; font-size: 24px;">🔹 MÓDULO 4: Modelado de Datos en Power BI</h2>
+  <ul style="font-size: 18px; max-width: 800px; margin: 0 auto; padding-left: 20px; line-height: 1.6; color: #000;">
+    <li><strong>Creación de relaciones entre tablas:</strong> Definición de relaciones uno-a-muchos y muchos-a-uno mediante claves primarias y foráneas.</li>
+    <li><strong>Normalización de datos:</strong> Reducción de redundancia mediante la separación de datos en tablas lógicas bien estructuradas.</li>
+    <li><strong>Uso de "Hechos" y "Dimensiones":</strong> Separación entre tablas de métricas (hechos) y descripciones (dimensiones), base del modelado analítico.</li>
+    <li><strong>Modelado en estrella (Star Schema):</strong> Diseño simple donde una tabla de hechos se conecta directamente a múltiples tablas de dimensiones, ideal para rendimiento y facilidad de uso en Power BI.</li>
+    <li><strong>Modelado en copo de nieve (Snowflake Schema):</strong> Variante del modelo estrella donde las dimensiones están normalizadas, lo que reduce duplicación pero aumenta la complejidad.</li>
+    <li><strong>Jerarquías personalizadas:</strong> Creación de estructuras jerárquicas en dimensiones (por ejemplo: Año → Trimestre → Mes → Día) para facilitar la navegación.</li>
+    <li><strong>Uso de calendario o tabla de fechas:</strong> Implementación de una tabla calendario para permitir análisis temporal correcto con funciones DAX como `YTD`, `MTD`, etc.</li>
+    <li><strong>Direccionalidad de relaciones y propagación de filtros:</strong> Control sobre cómo los filtros afectan distintas tablas del modelo (relaciones simples y bidireccionales).</li>
+    <li><strong>Modelado eficiente para rendimiento:</strong> Prácticas como evitar columnas no usadas, comprimir datos y limitar relaciones innecesarias.</li>
+  </ul>
+</section>
+
+
+<section class="section-box" style="border: 2px solid #25D366; padding: 30px; margin: 30px 0; background-color: #eafff3; border-radius: 12px;">
+  <h2 style="text-align: center; color: #128C7E; font-size: 24px;">🔹 MÓDULO 5: Transformaciones Avanzadas en Power Query </h2>
+  <ul style="font-size: 18px; max-width: 800px; margin: 0 auto; padding-left: 20px; line-height: 1.6; color: #000;">
+    <li><strong>Combinar consultas (Merge):</strong> Une dos tablas por columnas clave, como si hicieras un BUSCARV, pero más potente y visual.</li>
+    <li><strong>Anexar consultas (Append):</strong> Agrega los registros de una tabla debajo de otra, útil para consolidar archivos o meses distintos.</li>
+    <li><strong>Dividir columnas:</strong> Separa datos por delimitadores (coma, espacio, guion) o por número de caracteres.</li>
+    <li><strong>Pivot y Unpivot:</strong> Transforma datos de formato ancho a largo (y viceversa) para análisis más dinámico.</li>
+    <li><strong>Columnas condicionales:</strong> Crea nuevas columnas usando lógica tipo "si esto, entonces aquello", sin escribir fórmulas.</li>
+    <li><strong>Columnas desde ejemplo:</strong> Enseñá a Power Query lo que querés que devuelva con ejemplos manuales, y él genera la fórmula automáticamente.</li>
+    <li><strong>Anulación de dinamización:</strong> Convierte una tabla con encabezados como meses o años en una lista plana con valores más analizables.</li>
+    <li><strong>Orden personalizado:</strong> Ordená columnas con tus propios criterios (por ejemplo, días de la semana en orden correcto).</li>
+    <li><strong>Transformaciones rápidas con clic derecho:</strong> Accedé a funciones como duplicar, extraer, dividir o eliminar desde el menú contextual.</li>
+    <li><strong>Aplicación de múltiples pasos combinados:</strong> Apilá varias transformaciones sin necesidad de editar el código detrás.</li>
+  </ul>
+</section>
+
+
+<section class="section-box" style="border: 2px solid #25D366; padding: 30px; margin: 30px 0; background-color: #eafff3; border-radius: 12px;">
+    <h2 style="text-align: center; color: #128C7E; font-size: 24px;">🔹 MÓDULO 6: Buenas Prácticas y Optimización</h2>
+    <ul style="font-size: 18px; max-width: 800px; margin: 0 auto; padding-left: 20px; line-height: 1.6; color: #000;">
+        <li><strong>Optimización de consultas:</strong> Eliminar pasos innecesarios.</li>
+        <li><strong>Optimización del modelo en Power BI:</strong> Reducción de datos, eliminar columnas no utilizadas.</li>
+        <li><strong>Desempeño y diagnóstico:</strong> Uso del Performance Analyzer en Power BI.</li>
+    </ul>
+</section>
+
+<section class="section-box" style="border: 2px solid #25D366; padding: 30px; margin: 30px 0; background-color: #eafff3; border-radius: 12px;">
+  <h2 style="text-align: center; color: #128C7E; font-size: 24px;">🔹 MÓDULO 7: Visualización y Reportes en Power BI</h2>
+  <ul style="font-size: 18px; max-width: 800px; margin: 0 auto; padding-left: 20px; line-height: 1.6; color: #000;">
+    <li><strong>Crear visualizaciones interactivas:</strong> Gráficos, mapas, tablas, KPI.</li>
+    <li><strong>Aplicación de filtros y segmentaciones:</strong> Mejorar la interacción.</li>
+    <li><strong>Medidas DAX para análisis avanzados:</strong> Uso de DAX.</li>
+    <li><strong>Paneles interactivos y dinámicos:</strong> Filtros dinámicos y slicers.</li>
+    <li><strong>Visuales con Inteligencia Artificial:</strong> Uso del Árbol de Descomposición (Decomposition Tree) y Factores Clave (Key Influencers).</li>
+    <li><strong>Q&A con lenguaje natural:</strong> Generar visualizaciones preguntando en lenguaje natural con el panel de preguntas.</li>
+    <li><strong>Copiloto de Power BI (preview):</strong> Crear visualizaciones y medidas de forma automatizada con IA generativa.</li>
+  </ul>
+</section>
+
+<section class="section-box" style="border: 2px solid #25D366; padding: 30px; margin: 30px 0; background-color: #eafff3; border-radius: 12px;">
+  <h2 style="text-align: center; color: #128C7E; font-size: 24px;">🔹 MÓDULO 8: Proyecto Final</h2>
+  <ul style="font-size: 18px; max-width: 800px; margin: 0 auto; padding-left: 20px; line-height: 1.6; color: #000;">
+    <li><strong>Cargar datos de diferentes fuentes:</strong> Importación desde Excel, CSV, SQL Server y otras fuentes conectadas.</li>
+    <li><strong>Limpiar y transformar los datos:</strong> Uso de Power Query para preparar los datos de forma eficiente.</li>
+    <li><strong>Crear relaciones entre tablas:</strong> Establecer un modelo optimizado utilizando claves y jerarquías.</li>
+    <li><strong>Diseñar visualizaciones interactivas:</strong> Construcción de paneles con gráficos, KPIs, mapas y segmentadores.</li>
+    <li><strong>Aplicar inteligencia artificial:</strong> Incluir visuales de IA como Key Influencers, Decomposition Tree y Copiloto para análisis enriquecido.</li>
+    <li><strong>Publicar en Power BI Service:</strong> Subida del informe al entorno en la nube para compartirlo con usuarios o equipos.</li>
+    <li><strong>Compartir y colaborar:</strong> Configuración de permisos, actualizaciones automáticas y trabajo colaborativo desde la web.</li>
+    <li><strong>Informes vs Dashboards:</strong> 
+      <ul style="margin-top: 10px; padding-left: 20px;">
+        <li><em><strong>Informes:</strong></em> Archivos .pbix con múltiples páginas y visualizaciones creadas en Power BI Desktop. Son interactivos y editables.</li>
+        <li><em><strong>Dashboards:</strong></em> Vistas unificadas de visualizaciones seleccionadas de uno o varios informes, creadas dentro de Power BI Service. Ideales para resúmenes ejecutivos.</li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+
+
+<section class="section-box" style="border: 2px solid #25D366; padding: 30px; margin: 30px 0; background-color: #eafff3; border-radius: 12px;">
+  <h2 style="text-align: center; color: #128C7E; font-size: 24px;">📊 Diferencias entre Informe y Dashboard en Power BI</h2>
+  <p style="font-size: 18px; max-width: 800px; margin: 0 auto 20px auto; text-align: center; color: #000;">
+    Aunque suelen usarse como sinónimos, un <strong>informe</strong> y un <strong>dashboard</strong> tienen funciones y estructuras distintas en Power BI.
+  </p>
+
+  <table style="width: 100%; max-width: 900px; margin: 0 auto; border-collapse: collapse; font-size: 17px; background-color: #fff; border: 1px solid #ccc;">
+    <thead>
+      <tr style="background-color: #dffaf0; color: #128C7E;">
+        <th style="border: 1px solid #ccc; padding: 12px;">Característica</th>
+        <th style="border: 1px solid #ccc; padding: 12px;">Informe</th>
+        <th style="border: 1px solid #ccc; padding: 12px;">Dashboard</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="border: 1px solid #ccc; padding: 10px;">¿Dónde se crea?</td>
+        <td style="border: 1px solid #ccc; padding: 10px;">Power BI Desktop</td>
+        <td style="border: 1px solid #ccc; padding: 10px;">Power BI Service</td>
+      </tr>
+      <tr>
+        <td style="border: 1px solid #ccc; padding: 10px;">Número de páginas</td>
+        <td style="border: 1px solid #ccc; padding: 10px;">Múltiples pestañas</td>
+        <td style="border: 1px solid #ccc; padding: 10px;">Una sola vista</td>
+      </tr>
+      <tr>
+        <td style="border: 1px solid #ccc; padding: 10px;">Interactividad</td>
+        <td style="border: 1px solid #ccc; padding: 10px;">Alta (drill-down, filtros cruzados)</td>
+        <td style="border: 1px solid #ccc; padding: 10px;">Baja (acceso rápido, alertas)</td>
+      </tr>
+      <tr>
+        <td style="border: 1px solid #ccc; padding: 10px;">Origen de los datos</td>
+        <td style="border: 1px solid #ccc; padding: 10px;">Directamente del modelo</td>
+        <td style="border: 1px solid #ccc; padding: 10px;">Visualizaciones ancladas desde informes</td>
+      </tr>
+      <tr>
+        <td style="border: 1px solid #ccc; padding: 10px;">Ideal para...</td>
+        <td style="border: 1px solid #ccc; padding: 10px;">Análisis detallado y exploración</td>
+        <td style="border: 1px solid #ccc; padding: 10px;">Seguimiento ejecutivo y KPIs clave</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p style="font-size: 17px; max-width: 800px; margin: 20px auto 0 auto; text-align: center; color: #000;">
+    En resumen: los <strong>informes</strong> permiten análisis profundo, mientras que los <strong>dashboards</strong> son perfectos para monitoreo rápido y compartido.
+  </p>
+</section>
+
+
+
+
+<!-- Costo del Curso Online -->
+<section class="section-box" style="border: 2px solid #25D366; padding: 30px; margin: 30px 0; background-color: #eafff3; border-radius: 10px;">
+    <h2 style="text-align: center; color: #128C7E;">💻 Costo del Curso Online</h2> 
+    
+    <p style="font-size: 18px; line-height: 1.6;">
+        <strong>Pago al contado:</strong> <span style="color: #128C7E;">300.000 Gs</span> (pago único). Incluye materiales, grabaciones y certificado.
+    </p>
+    
+    <p style="font-size: 18px; margin-top: 20px;">
+        🎉 <strong>¡Descuento para grupos!</strong> Inscribite con amigos y accedé a precios especiales:
+    </p>
+    <ul style="font-size: 17px; line-height: 1.6; padding-left: 20px; color: #333;">
+        <li>👥 <strong>2 personas:</strong> 250.000 Gs c/u</li>
+        <li>👨‍👩‍👧‍👦 <strong>3 o más personas:</strong> 200.000 Gs c/u</li>
+    </ul>
+</section>
+
+<section class="section-box" style="border: 2px solid #25D366; padding: 30px; margin: 30px 0; background-color: #eafff3; border-radius: 10px;">
+    <h2 style="text-align: center; color: #128C7E;">💳 Formas de Pago</h2>
+
+    <p style="font-size: 18px; line-height: 1.6;">
+        Podés realizar el pago mediante alias, transferencia bancaria o tarjeta.
+    </p>
+
+    <!-- Método 1: Ueno Bank (Alias) -->
+    <div style="margin-top: 20px;">
+        <h3 style="color: #128C7E;">🏦 Ueno Bank (Alias)</h3>
+        <ul style="font-size: 17px; padding-left: 20px; color: #333;">
+            <li><strong>Alias:</strong> 3584172</li>
+            <li><strong>Titular:</strong> Oscar Gonzalez Frutos</li>
+        </ul>
+    </div>
+
+    <!-- Método 2: Banco Itaú -->
+    <div style="margin-top: 25px;">
+        <h3 style="color: #128C7E;">🏦 Banco Itaú (Transferencia)</h3>
+        <ul style="font-size: 17px; padding-left: 20px; color: #333;">
+            <li><strong>Cta. N°:</strong> 720005407</li>
+            <li><strong>Titular:</strong> Oscar Gonzalez Frutos</li>
+            <li><strong>CI:</strong> 3584172</li>
+        </ul>
+    </div>
+
+    <!-- Método 3: Tarjeta -->
+    <div style="margin-top: 25px;">
+        <h3 style="color: #128C7E;">💳 Tarjeta de Crédito</h3>
+        <p style="font-size: 17px;">
+            También podés pagar con tarjeta a través del POS Virtual. Consultanos para recibir tu enlace de pago personalizado.<br>
+            <strong>✔️ Podés abonar en varias cuotas utilizando tarjeta de crédito.</strong>
+        </p>
+    </div>
+
+    <p style="font-size: 17px; font-weight: bold; margin-top: 30px;">
+        ✅ Para confirmar tu inscripción, enviá tu comprobante al WhatsApp: <span style="color: #128C7E;">0983 352 932</span>
+    </p>
+</section>
+    
+<section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f0f8ff;">
+    <h2 style="text-align: center; color: #005a9c;">📘 Nivel del Curso: ¡Desde Principiante!</h2>
+    <p style="font-size: 16px; line-height: 1.6;">
+        Este curso está pensado para que cualquier persona, incluso sin experiencia previa, pueda aprender Power BI desde cero y avanzar hasta un nivel profesional. La estructura es progresiva y se adapta a tu ritmo:
+    </p>
+    <ul style="font-size: 16px; line-height: 1.6;">
+        <li><strong>🔰 Nivel Principiante:</strong> Ideal si nunca trabajaste con Power BI o análisis de datos. Comenzamos con los conceptos clave y el entorno de trabajo.</li>
+        <li><strong>⚙️ Nivel Intermedio:</strong> Aprendé a transformar datos, modelar relaciones y aplicar técnicas de análisis más profundas.</li>
+        <li><strong>🚀 Nivel Avanzado:</strong> Dominá DAX, inteligencia de tiempo y creá dashboards interactivos de alto impacto.</li>
+    </ul>
+</section>
+
+
+<section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
+    <h2 style="text-align: center; color: #336699;">✅ Metodología</h2>
+    <ul>
+        <li>Clases en vivo a través de Zoom, facilitando la interacción directa con el instructor.</li>
+        <li>Clases grabadas disponibles para consulta posterior.</li>
+        <li>Actividades prácticas: Ejercicios y proyectos aplicados.</li>
+        <li>Asesoramiento personalizado durante y después de las sesiones.</li>
+    </ul>
+</section>
+
+<section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
+    <h2 style="text-align: center; color: #336699;">✅ Objetivos del Curso</h2>
+    <p>Al finalizar este curso, los participantes serán capaces de:</p>
+    <ul>
+        <li>🎯 Objetivo general: Aprender a importar, transformar, combinar, y optimizar datos utilizando Power Query y Power BI para crear modelos
+             de datos eficientes y dashboards interactivos que permitan un 
+            análisis avanzado y visualización efectiva de la información, asegurando una toma de decisiones rápida y precisa a través de 
+            reportes dinámicos y bien estructurados.</li>
+        
+    </ul>
+</section>
+
+    
+  
+
+
+
+<section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
+    <h2 style="text-align: center; color: #336699;">👩‍🏫 Conoce a tu Docente</h2>
+    
+    <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
+        <div style="flex-shrink: 0; text-align: center;">
+            <img src="foto.jpg" alt="Foto del docente" style="border-radius: 50%; width: 150px; height: 200px; object-fit: cover; border: 2px solid #ccc;">
+        </div>
+        
+        <div style="flex: 1; text-align: left;">
+            <p><strong>Nombre del Docente:</strong> Oscar González Frutos</p>
+            <p><strong>Lic. en:</strong> Matemática Estadística FACEN - UNA.</p>
+            <p><strong>MSc. en:</strong> Estadística Aplicada - Universidad de Granada, España (Becal).</p>
+            <p><strong>Experiencia:</strong> Más de 10 años de experiencia en Análisis de Datos y en la enseñanza de herramientas como: SQL, Excel, Power BI, R y Python.</p>
+            <p><strong>Certificaciones:</strong> Certificate in Data Science con R - HarvardX (Harvard University - En Línea).</p>
+            <p><strong>Pasión por enseñar:</strong> Comprometido en ayudarte a dominar habilidades clave y aplicarlas en proyectos reales.</p>
+            <p><strong>Experiencia docente:</strong> Ha impartido capacitaciones en herramientas de análisis de datos (R, Python, Power BI) en instituciones públicas como el <strong>Banco Central del Paraguay (BCP)</strong>, <strong>Itaipú Binacional</strong>, <strong>DGEEC</strong>, <strong>MEC</strong>, <strong>FACEN</strong>, <strong>UNA</strong> y el <strong>Ministerio de Desarrollo Social</strong>; y en organizaciones privadas como <strong>Automotor</strong>, <strong>Banco Familiar</strong>, <strong>Bancoop</strong> y <strong>Sueñolar</strong>.</p>
+            <p>
+                📎 <a href="https://www.linkedin.com/in/oscar-gonzález-frutos" target="_blank" style="color: #336699; text-decoration: none;">
+                    Conecta conmigo en LinkedIn
+                </a>
+            </p>
+        </div>
+    </div>
+
+    <div style="margin-top: 30px;">
+        <h3 style="color: #336699; text-align: center;">📸 Galería de Capacitaciones</h3>
+        <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; margin-top: 15px;">
+            <img src="f1.jpg" alt="Capacitación 1" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
+            <img src="f2.jpg" alt="Capacitación 2" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
+            <img src="f3.jpg" alt="Capacitación 3" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
+            <img src="f4.jpg" alt="Capacitación 4" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
+            <img src="f5.jpg" alt="Capacitación 5" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
+            <img src="f6.jpg" alt="Capacitación 6" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
+            <img src="f7.jpg" alt="Capacitación 7" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
+        </div>
+    </div>
+</section>
+
+
+<section class="section-box">
+    <h2 style="text-align: center; color: #336699;">  Modelo de Certificado</h2>
+    <!-- Aquí puedes agregar las imágenes -->
+    <div class="gallery">
+      <img src="modelo.jpg" alt="Curso de Power BI" style="max-width: 100%; height: auto; border-radius: 8px;">
+      </div>
+  </section>
+
+
+
+<section class="section-box">
+    <h2 style="text-align: center; color: #336699;">Ejemplos de Dasboards que aprenderás a crear</h2>
+       <!-- Aquí puedes agregar las imágenes -->
+    <div class="gallery">
+      <img src="p4.png" alt="Curso 1" style="max-width: 100%; height: auto; border-radius: 8px;">
+      <img src="p6.png" alt="Curso 1" style="max-width: 100%; height: auto; border-radius: 8px;">
+      <img src="p1.png" alt="Curso 1" style="max-width: 100%; height: auto; border-radius: 8px;">
+      <img src="p3.png" alt="Curso 1" style="max-width: 100%; height: auto; border-radius: 8px;">
+    </div>
+  </section>
+  
+  
+  <section class="section-box">
+    <h2 style="text-align: center; color: #336699;">Plantillas vacías listas para usar</h2>
+       <!-- Aquí puedes agregar las imágenes -->
+    <div class="gallery">
+      <img src="plantilla.png" alt="Curso 1" style="max-width: 100%; height: auto; border-radius: 8px;">
+      <img src="plantilla1.png" alt="Curso 1" style="max-width: 100%; height: auto; border-radius: 8px;">
+          </div>
+  </section>
+
+    </div>
+
+
+    
+    
+    
+
+    
+    <div id="dax" class="tab-content">
+        <section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
+
+<div style="text-align: center; margin-top: 20px;">
+   <img src="dax1.png" alt="Curso de Power BI" style="max-width: 100%; height: auto; border-radius: 8px;">
+</div>
+<p style="text-align: center; margin-top: 20px; font-size: 18px; color: #333; line-height: 1.6;">
+    Este curso avanzado de DAX con Power BI y Excel está diseñado para adaptarse a tus necesidades. 
+    Se ofrece en modalidad sincrónica y asincrónica, lo que te permite participar en las clases en vivo 
+    o acceder a las grabaciones para avanzar a tu propio ritmo. Además, podrás realizar los ejercicios y 
+    actividades prácticas en el horario que mejor se ajuste a tu disponibilidad.
+</p>
+
+</section>
+
+
+<section class="section-box" style="border: 2px solid #25D366; padding: 30px; margin: 30px 0; background-color: #eafff3; border-radius: 10px;">
+    <h2 style="text-align: center; color: #128C7E;">✅ Inscripción</h2>
+    <p style="text-align: center; font-size: 18px; margin-top: 10px;">
+        Completá el formulario de inscripción ahora.
+    </p>
+    <div style="text-align: center; margin-top: 20px;">
+        <a href="https://forms.gle/X2zYS8TazAS4YTxe7" target="_blank" style="display: inline-block; padding: 15px 30px; background-color: #25D366; color: white; border-radius: 50px; text-decoration: none; font-size: 18px; font-weight: bold; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+            📝 Completar formulario
+        </a>
+    </div>
+</section>
+
+
+<section class="section-box" style="border: 2px solid #25D366; padding: 30px; margin: 30px 0; background-color: #eafff3; border-radius: 10px;">
+<h2 style="text-align: center; color: #128C7E;">📲 ¿Tenés dudas o querés más info?</h2>
+<p style="text-align: center; font-size: 18px; margin-top: 10px;">
+    Escribinos ahora y recibí atención personalizada por WhatsApp.
+</p>
+<div style="text-align: center; margin-top: 20px;">
+    <a href="https://wa.me/595983352932" target="_blank" style="display: inline-block; padding: 15px 30px; background-color: #25D366; color: white; border-radius: 50px; text-decoration: none; font-size: 18px; font-weight: bold; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+        💬 Chatear por WhatsApp
+    </a>
+</div>
+<p style="text-align: center; margin-top: 15px; font-size: 15px; color: #555;">
+    O escribinos a <strong>cicap2021@gmail.com</strong>
+</p>
+</section>
+
+
+<section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
+<h2 style="text-align: center; color: #336699;">✅ Metodología</h2>
+<ul>
+   <li>Clases en vivo a través de Zoom, facilitando la interacción directa con el instructor.</li>
+   <li>Clases grabadas disponibles para consulta posterior.</li>
+   <li>Actividades prácticas: Ejercicios y proyectos aplicados.</li>
+   <li>Asesoramiento personalizado durante y después de las sesiones.</li>
+</ul>
+</section>
+
+
+
+
+    
+<section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
+    <h2 style="text-align: center; color: #336699;">📅 Fecha de Capacitación en Vivo:</h2>
+    <ul>
+      <li><strong>Fechas:</strong> 26 de abril, 3, 10 y 17 de mayo de 2025.</li>
+      <li><strong>Día:</strong> Sábados</li>
+      <li><strong>Horario:</strong> 9:00 a 11:30 hs.</li>
+    </ul>
+  </section>
+
+
+  <section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
+    <h2 style="text-align: center; color: #336699;">💰 Costo del Curso y Descuentos</h2>
+    <p><strong>Costo del Curso:</strong> 300.000 Gs (Pago Único). Incluye materiales, grabaciones y certificado.</p>
+    <p>🎉 <strong>¡Descuento para grupos!</strong> Si te inscribís en grupo, obtenés un descuento especial. ¡Contactanos para más información!</p>
+    <ul>
+        <li>2 personas: 250.000 Gs c/u</li>
+        <li>3 personas o más: 200.000 Gs c/u</li>
+    </ul>
+</section>
+
+  
+
+<section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
+    <h2 style="text-align: center; color: #336699;">✅ Formas de Pago</h2>
+    <p>Transferencia o depósito bancario:</p>
+    
+    <!-- Método 1: Banco Itaú -->
+    <div style="margin-bottom: 20px;">
+        <h3 style="color: #444;">🏦 Banco Itaú:</h3>
+        <ul style="padding-left: 20px;">
+            <li><strong>Cta. N°:</strong> 720005407</li>
+            <li><strong>Titular:</strong> Oscar Gonzalez Frutos</li>
+            <li><strong>CI:</strong> 3584172</li>
+        </ul>
+    </div>
+    
+    <!-- Alias -->
+    <div style="margin-bottom: 20px;">
+        <ul style="padding-left: 20px;">
+            <li><strong>Alias:</strong> 3584172</li>
+        </ul>
+    </div>
+
+    <!-- Método 2: Pago con Tarjeta -->
+    <div style="margin-bottom: 20px;">
+        <h3 style="color: #444;">💳 Pago con Tarjeta de Crédito/Débito:</h3>
+        <p>Podés abonar mediante POS Virtual. Consultá para recibir el enlace de pago.</p>
+    </div>
+
+    <p style="font-weight: bold; text-align: left;">✅ Para confirmar tu inscripción, por favor envía el comprobante al siguiente número: <strong>0983 352 932</strong></p>
+</section>
+
+
+<h1 style="text-align: center; color: #003366; margin-bottom: 20px;">📊Contenido del Curso</h1>
+  
+  <section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
+    <h2 style="color: #336699;">🧩 Sesión 1 – Modelado de Datos y Fundamentos Avanzados de DAX</h2>
+    <p><strong>Objetivo:</strong> Diseñar un modelo robusto que optimice los análisis de la Empresa SA.</p>
+    <ul>
+      <li>Principios del modelado estrella y buenas prácticas</li>
+      <li>Relación entre tablas (activa/inactiva) y su impacto en los cálculos</li>
+      <li>Uso de USERELATIONSHIP, CROSSFILTER, TREATAS</li>
+      <li>Modelos aplicados a datos de ventas, compras y operaciones</li>
+      <li><strong>Práctica:</strong> construir un modelo representando el flujo de ventas y entregas de Empresa SA</li>
+    </ul>
+  </section>
+  
+  <section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
+    <h2 style="color: #336699;">📈 Sesión 2 – Métricas Avanzadas para Análisis de Desempeño</h2>
+    <p><strong>Objetivo:</strong> Crear KPIs avanzados que apoyen la toma de decisiones en Empresa SA.</p>
+    <ul>
+      <li>Funciones de cálculo avanzadas: RANKX, DIVIDE, SUMX, VAR</li>
+      <li>Medidas dinámicas: clientes TOP N, productos estrella, tasas de conversión</li>
+      <li>Casos específicos: análisis de margen, rentabilidad por línea de producto</li>
+      <li><strong>Práctica:</strong> desarrollar un panel de rendimiento comercial</li>
+    </ul>
+  </section>
+  
+  <section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
+    <h2 style="color: #336699;">📆 Sesión 3 – Inteligencia de Tiempo y Contexto en DAX</h2>
+    <p><strong>Objetivo:</strong> Aplicar análisis temporales sofisticados para comparativos y tendencias.</p>
+    <ul>
+      <li>Construcción de calendarios y columnas de fecha personalizada</li>
+      <li>Funciones de inteligencia de tiempo: SAMEPERIODLASTYEAR, DATESMTD, TOTALYTD, DATEADD</li>
+      <li>Evaluación de contextos con CALCULATE, FILTER, ALL, REMOVEFILTERS</li>
+      <li><strong>Práctica:</strong> comparación YTD/LYTD, ventas acumuladas y rolling averages</li>
+    </ul>
+  </section>
+  
+  <section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
+    <h2 style="color: #336699;">⚙️ Sesión 4 – Casos Reales, Optimización y Buenas Prácticas</h2>
+    <p><strong>Objetivo:</strong> Aplicar lo aprendido a un caso real de Empresa SA, optimizando el desempeño del modelo.</p>
+    <ul>
+      <li>Análisis de desempeño con Performance Analyzer</li>
+      <li>Limpieza y optimización de medidas (uso de VAR, simplificación de filtros)</li>
+      <li><strong>Proyecto final:</strong> análisis completo con datos reales/simulados de Empresa SA
+        <ul>
+          <li>Panel financiero</li>
+          <li>Panel de operaciones/logística</li>
+          <li>Panel de ventas y forecast</li>
+        </ul>
+      </li>
+      <li>Tips para compartir modelos entre Excel y Power BI</li>
+    </ul>
+  </section>
+  
+  <section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
+    <h2 style="color: #336699;">📁 Material Incluido:</h2>
+    <ul>
+      <li>Archivos de práctica en Excel y Power BI</li>
+      <li>Presentaciones en PDF por sesión</li>
+      <li>Guía rápida de funciones DAX clave</li>
+      <li>Proyecto final con retroalimentación</li>
+      <li>Grabación de todas las sesiones en vivo</li>
+    </ul>
+  </section>   
+
+
+
+
+ 
+<section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
+    <h2 style="text-align: center; color: #336699;">👩‍🏫 Conoce a tu Docente</h2>
+    
+    <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
+        <div style="flex-shrink: 0; text-align: center;">
+            <img src="foto.jpg" alt="Foto del docente" style="border-radius: 50%; width: 150px; height: 200px; object-fit: cover; border: 2px solid #ccc;">
+        </div>
+        
+        <div style="flex: 1; text-align: left;">
+            <p><strong>Nombre del Docente:</strong> Oscar González Frutos</p>
+            <p><strong>Lic. en:</strong> Matemática Estadística FACEN - UNA.</p>
+            <p><strong>MSc. en:</strong> Estadística Aplicada - Universidad de Granada, España (Becal).</p>
+            <p><strong>Experiencia:</strong> Más de 10 años de experiencia en Análisis de Datos y en la enseñanza de herramientas como: SQL, Excel, Power BI, R y Python.</p>
+            <p><strong>Certificaciones:</strong> Certificate in Data Science con R - HarvardX (Harvard University - En Línea).</p>
+            <p><strong>Pasión por enseñar:</strong> Comprometido en ayudarte a dominar habilidades clave y aplicarlas en proyectos reales.</p>
+            <p><strong>Experiencia docente:</strong> Ha impartido capacitaciones en herramientas de análisis de datos (R, Python, Power BI) en instituciones públicas como el <strong>Banco Central del Paraguay (BCP)</strong>, <strong>Itaipú Binacional</strong>, <strong>DGEEC</strong>, <strong>MEC</strong>, <strong>FACEN</strong>, <strong>UNA</strong> y el <strong>Ministerio de Desarrollo Social</strong>; y en organizaciones privadas como <strong>Automotor</strong>, <strong>Banco Familiar</strong>, <strong>Bancoop</strong> y <strong>Sueñolar</strong>.</p>
+            <p>
+                📎 <a href="https://www.linkedin.com/in/oscar-gonzález-frutos" target="_blank" style="color: #336699; text-decoration: none;">
+                    Conecta conmigo en LinkedIn
+                </a>
+            </p>
+        </div>
+    </div>
+
+    <div style="margin-top: 30px;">
+        <h3 style="color: #336699; text-align: center;">📸 Galería de Capacitaciones</h3>
+        <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; margin-top: 15px;">
+            <img src="f1.jpg" alt="Capacitación 1" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
+            <img src="f2.jpg" alt="Capacitación 2" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
+            <img src="f3.jpg" alt="Capacitación 3" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
+            <img src="f4.jpg" alt="Capacitación 4" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
+            <img src="f5.jpg" alt="Capacitación 5" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
+            <img src="f6.jpg" alt="Capacitación 6" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
+            <img src="f7.jpg" alt="Capacitación 7" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
+        </div>
+    </div>
+</section>
+</div>
+    
+    
+
+
+<div id="dashboard" class="tab-content">
+             <section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
+    <h1 style="text-align: center; color: #336699; font-size: 2em; font-weight: bold;">Dashboard en  Power BI </h1>
+    <div style="text-align: center; margin-top: 20px;">
+        <img src="power.jpg" alt="Curso de Power BI" style="max-width: 100%; height: auto; border-radius: 8px;">
+    </div>
+    <p style="text-align: center; margin-top: 20px; font-size: 18px; color: #333; line-height: 1.6;">
+        Este curso de Dashboard en  Power BI está diseñado para adaptarse a tus necesidades. Se ofrece en modalidad sincrónica y asincrónica, lo que te permite participar en las clases en vivo o seguir las grabaciones a tu propio ritmo.
+    </p>
+    
+</section>
+
+<section class="section-box" style="border: 2px solid #25D366; padding: 30px; margin: 30px 0; background-color: #eafff3; border-radius: 12px;">
+    <h2 style="text-align: center; color: #128C7E; font-size: 24px;">🎯 ¿A quién va dirigido este curso?</h2>
+    <ul style="font-size: 18px; max-width: 800px; margin: 0 auto; padding-left: 20px; line-height: 1.6; color: #000;">
+        <li><strong>Profesionales de todas las áreas</strong> que necesitan analizar y visualizar datos para tomar mejores decisiones.</li>
+        <li><strong>Analistas, contadores, ingenieros, administradores y personal de recursos humanos</strong>, entre otros, que deseen optimizar sus reportes y automatizar procesos de análisis.</li>
+        <li><strong>Emprendedores y dueños de negocios</strong> que quieran entender el comportamiento de su empresa mediante indicadores visuales.</li>
+        <li><strong>Estudiantes y recién egresados</strong> que buscan adquirir una herramienta valiosa para el mercado laboral.</li>
+        <li><strong>Personas sin experiencia previa en Power BI</strong>, pero con conocimientos básicos de Excel y análisis de datos.</li>
+    </ul>
+</section>
+
+
+
+<section class="section-box" style="border: 2px solid #25D366; padding: 30px; margin: 30px 0; background-color: #eafff3; border-radius: 12px;">
+    <h2 style="text-align: center; color: #128C7E; font-size: 24px;">📊 ¿Querés crear un Dashboard como este?</h2>
+    <p style="text-align: center; font-size: 18px; margin: 15px 0; max-width: 700px; margin-left: auto; margin-right: auto;">
+        En este curso aprenderás a construir dashboards interactivos como el que ves aquí: visuales profesionales, dinámicos y orientados a la toma de decisiones.
+    </p>
+    <div style="text-align: center; margin-top: 25px;">
+        <a href="https://app.powerbi.com/view?r=eyJrIjoiODExN2ZmNDUtYTg4OS00MGU5LTljMGQtNDFlMTVlZTQ4NzlhIiwidCI6IjBiNjk2MDAyLWQ2YTYtNDI2Ni04OTI4LTE1ZWQ4ZDA2NDQxMCIsImMiOjR9" target="_blank" style="display: inline-block; text-decoration: none;">
+            <img src="dash.png" alt="Dashboard de ejemplo en Power BI" style="width: 60%; border-radius: 12px; box-shadow: 0 6px 10px rgba(0,0,0,0.15);">
+        </a>
+        <p style="font-size: 16px; color: #128C7E; margin-top: 15px;">
+            👉 Haz clic en la imagen para ver e interactuar con el dashboard en Power BI
+        </p>
+    </div>
+</section>
+
+
+<section class="section-box" style="border: 2px solid #25D366; padding: 30px; margin: 30px 0; background-color: #eafff3; border-radius: 10px;">
+    <h2 style="text-align: center; color: #128C7E;">✅ Inscripción</h2>
+    <p style="text-align: center; font-size: 18px; margin-top: 10px;">
+        Completá el formulario y reservá tu lugar. 
+    </p>
+    <div style="text-align: center; margin-top: 20px;">
+        <a href="https://forms.gle/HNrHighRdqPdu9v27" target="_blank" style="display: inline-block; padding: 15px 30px; background-color: #25D366; color: white; border-radius: 50px; text-decoration: none; font-size: 18px; font-weight: bold; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+            📝 Completar preinscripción
+        </a>
+    </div>
+</section>
+
+
+<section class="section-box" style="border: 2px solid #25D366; padding: 30px; margin: 30px 0; background-color: #eafff3; border-radius: 10px;">
+<h2 style="text-align: center; color: #128C7E;">📲 ¿Tenés dudas o querés más info?</h2>
+<p style="text-align: center; font-size: 18px; margin-top: 10px;">
+    Escribinos ahora y recibí atención personalizada por WhatsApp.
+</p>
+<div style="text-align: center; margin-top: 20px;">
+    <a href="https://wa.me/595983352932" target="_blank" style="display: inline-block; padding: 15px 30px; background-color: #25D366; color: white; border-radius: 50px; text-decoration: none; font-size: 18px; font-weight: bold; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+        💬 Chatear por WhatsApp
+    </a>
+</div>
+<p style="text-align: center; margin-top: 15px; font-size: 15px; color: #555;">
+    O escribinos a <strong>cicap2021@gmail.com</strong>
+</p>
+</section>
+
+<!-- Costo del Curso Online -->
+<section class="section-box" style="border: 2px solid #25D366; padding: 30px; margin: 30px 0; background-color: #eafff3; border-radius: 10px;">
+    <h2 style="text-align: center; color: #128C7E;">💻 Costo del Curso Online</h2> 
+    
+    <p style="font-size: 18px; line-height: 1.6;">
+        <strong>Pago al contado:</strong> <span style="color: #128C7E;">150.000 Gs</span> (pago único). Incluye materiales, grabaciones y certificado.
+    </p>
+   
+</section>
+
+<section class="section-box" style="border: 2px solid #25D366; padding: 30px; margin: 30px 0; background-color: #eafff3; border-radius: 10px;">
+    <h2 style="text-align: center; color: #128C7E;">💳 Formas de Pago</h2>
+
+    <p style="font-size: 18px; line-height: 1.6;">
+        Podés realizar el pago mediante alias, transferencia bancaria o tarjeta.
+    </p>
+
+    <!-- Método 1: Ueno Bank (Alias) -->
+    <div style="margin-top: 20px;">
+        <h3 style="color: #128C7E;">🏦 Ueno Bank (Alias)</h3>
+        <ul style="font-size: 17px; padding-left: 20px; color: #333;">
+            <li><strong>Alias:</strong> 3584172</li>
+            <li><strong>Titular:</strong> Oscar Gonzalez Frutos</li>
+        </ul>
+    </div>
+
+    <!-- Método 2: Banco Itaú -->
+    <div style="margin-top: 25px;">
+        <h3 style="color: #128C7E;">🏦 Banco Itaú (Transferencia)</h3>
+        <ul style="font-size: 17px; padding-left: 20px; color: #333;">
+            <li><strong>Cta. N°:</strong> 720005407</li>
+            <li><strong>Titular:</strong> Oscar Gonzalez Frutos</li>
+            <li><strong>CI:</strong> 3584172</li>
+        </ul>
+    </div>
+
+    <!-- Método 3: Tarjeta -->
+    <div style="margin-top: 25px;">
+        <h3 style="color: #128C7E;">💳 Tarjeta de Crédito</h3>
+        <p style="font-size: 17px;">
+            También podés pagar con tarjeta a través del POS Virtual. Consultanos para recibir tu enlace de pago personalizado.<br>
+            <strong>✔️ Podés abonar en varias cuotas utilizando tarjeta de crédito.</strong>
+        </p>
+    </div>
+
+    <p style="font-size: 17px; font-weight: bold; margin-top: 30px;">
+        ✅ Para confirmar tu inscripción, enviá tu comprobante al WhatsApp: <span style="color: #128C7E;">0983 352 932</span>
+    </p>
+</section>
+
+
+
+<section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
+    <h2 style="text-align: center; color: #336699;">📅 Fecha de Capacitación online en Vivo:</h2> 
+    <ul>
+        <li><strong>Horario:</strong> 19:30 a 21:30 hs.</li>
+        <li><strong>Clases:</strong> 17, 18, 21 y 24 de julio de 2025</li>
+    </ul>
+    
+</section>
+
+    
+
+<section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
+    <h2 style="text-align: center; color: #336699;">✅ Metodología</h2>
+    <ul>
+        <li>Clases en vivo a través de Zoom, facilitando la interacción directa con el instructor.</li>
+        <li>Clases grabadas disponibles para consulta posterior.</li>
+        <li>Actividades prácticas: Ejercicios y proyectos aplicados.</li>
+        <li>Asesoramiento personalizado durante y después de las sesiones.</li>
+    </ul>
+</section>
+
+    
+    
+ <h1 style="text-align: center; color: #003366; margin-bottom: 20px;">📊 Contenido del Curso - Dashboard en Power BI</h1>
+
+<!-- CLASE 1 -->
+<section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
+    <h2 style="text-align: center; color: #336699;">🟨 Clase 1 - Fundamentos y Conexión de Datos</h2>
+    <ul>
+        <li><strong>¿Qué es Power BI?:</strong> Introducción breve a la herramienta y sus componentes (Desktop, Service, Mobile).</li>
+        <li><strong>Flujo de trabajo:</strong> Conectar, transformar, modelar, visualizar y compartir.</li>
+        <li><strong>Power BI Desktop:</strong> Vistas, cinta de opciones y entorno.</li>
+        <li><strong>Conexión a fuentes de datos:</strong> Excel, bases de datos, CSV, web, etc.</li>
+        <li><strong>Uso de Power Query:</strong> Limpieza, filtrado y transformación de datos inicial.</li>
+    </ul>
+</section>
+
+<!-- CLASE 2 -->
+<section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
+    <h2 style="text-align: center; color: #336699;">🟨 Clase 2 - Modelado de Datos Profesional</h2>
+    <ul>
+        <li><strong>Modelado de Datos:</strong> Crear relaciones entre tablas, claves primarias y foráneas.</li>
+        <li><strong>Modelo estrella vs copo de nieve:</strong> Cuándo usar cada uno, ventajas y rendimiento.</li>
+        <li><strong>Optimización:</strong> Quitar columnas innecesarias, jerarquías, formatos y propiedades de los campos.</li>
+        <li><strong>Tablas de calendario:</strong> Crear una tabla de fechas y establecer relaciones.</li>
+        <li><strong>Errores comunes:</strong> Resolver problemas de ambigüedad, relaciones múltiples y duplicadas.</li>
+    </ul>
+</section>
+
+<!-- CLASE 3 -->
+<section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
+    <h2 style="text-align: center; color: #336699;">🟨 Clase 3 - DAX para Dashboards</h2>
+    <ul>
+        <li><strong>Introducción a DAX:</strong> Columnas calculadas, medidas y tablas calculadas.</li>
+        <li><strong>Contexto de fila y filtro:</strong> Cómo afectan los resultados.</li>
+        <li><strong>Medidas útiles:</strong> Suma total, promedio dinámico, conteos, porcentaje del total.</li>
+        <li><strong>Inteligencia de tiempo:</strong> Acumulados, año anterior, comparativos temporales.</li>
+        <li><strong>Buenas prácticas:</strong> Nombres claros, comentarios, evitar errores comunes.</li>
+    </ul>
+</section>
+
+<!-- CLASE 4 -->
+<section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
+    <h2 style="text-align: center; color: #336699;">🟨 Clase 4 - Creación del Dashboard Final</h2>
+    <ul>
+        <li><strong>Visualizaciones:</strong> Gráficos más usados (barras, líneas, matriz, tarjetas, mapas).</li>
+        <li><strong>Segmentadores y paneles de filtros:</strong> Crear filtros interactivos.</li>
+        <li><strong>Diseño visual:</strong> Navegación con botones, orden y coherencia visual.</li>
+        <li><strong>Historias con datos:</strong> Marcadores, interacción entre páginas e informes.</li>
+        <li><strong>Publicación:</strong> Subida a Power BI Service, compartir y ver en móvil.</li>
+    </ul>
+</section>
+
+
+<section class="section-box">
+    <h2>Tutorial de Instalación de Power BI Desktop</h2>
+    
+    <div style="margin-bottom: 16px;">
+        <h3>Pasos para la instalación:</h3>
+        <ol>
+            <li>
+                <strong>Power BI Desktop:</strong> 
+                Descarga el instalador desde el sitio oficial de <a href="https://www.microsoft.com/es-es/power-platform/products/power-bi/downloads" target="_blank">Power BI Desktop</a>. 
+                Sigue estos pasos:
+                <ul>
+                    <li>Haz clic en "Descargar" y selecciona la versión adecuada para tu sistema operativo.</li>
+                    <li>Ejecuta el instalador y sigue las instrucciones en pantalla.</li>
+                    <li>Abre Power BI Desktop y comienza a explorar sus herramientas de visualización de datos.</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Sigue el tutorial:</strong> 
+                Para una guía detallada sobre cómo instalar y configurar Power BI Desktop, mira el siguiente video.
+            </li>
+        </ol>
+    </div>
+    <div class="container">
+        <div class="gallery">
+            <iframe src="https://youtu.be/8PDvpmjzFnw?si=v18G0usHHzixeVHg" 
+                title="Tutorial de Instalación de Power BI Desktop" frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen></iframe>
+        </div>
+    </div>
+    
+</section>
+
+
+
+
+<section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
+    <h2 style="text-align: center; color: #336699;">👩‍🏫 Conoce a tu Docente</h2>
+    
+    <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
+        <div style="flex-shrink: 0; text-align: center;">
+            <img src="foto.jpg" alt="Foto del docente" style="border-radius: 50%; width: 150px; height: 200px; object-fit: cover; border: 2px solid #ccc;">
+        </div>
+        
+        <div style="flex: 1; text-align: left;">
+            <p><strong>Nombre del Docente:</strong> Oscar González Frutos</p>
+            <p><strong>Lic. en:</strong> Matemática Estadística FACEN - UNA.</p>
+            <p><strong>MSc. en:</strong> Estadística Aplicada - Universidad de Granada, España (Becal).</p>
+            <p><strong>Experiencia:</strong> Más de 10 años de experiencia en Análisis de Datos y en la enseñanza de herramientas como: SQL, Excel, Power BI, R y Python.</p>
+            <p><strong>Certificaciones:</strong> Certificate in Data Science con R - HarvardX (Harvard University - En Línea).</p>
+            <p><strong>Pasión por enseñar:</strong> Comprometido en ayudarte a dominar habilidades clave y aplicarlas en proyectos reales.</p>
+            <p><strong>Experiencia docente:</strong> Ha impartido capacitaciones en herramientas de análisis de datos (R, Python, Power BI) en instituciones públicas como el <strong>Banco Central del Paraguay (BCP)</strong>, <strong>Itaipú Binacional</strong>, <strong>DGEEC</strong>, <strong>MEC</strong>, <strong>FACEN</strong>, <strong>UNA</strong> y el <strong>Ministerio de Desarrollo Social</strong>; y en organizaciones privadas como <strong>Automotor</strong>, <strong>Banco Familiar</strong>, <strong>Bancoop</strong> y <strong>Sueñolar</strong>.</p>
+            <p>
+                📎 <a href="https://www.linkedin.com/in/oscar-gonzález-frutos" target="_blank" style="color: #336699; text-decoration: none;">
+                    Conecta conmigo en LinkedIn
+                </a>
+            </p>
+        </div>
+    </div>
+
+    <div style="margin-top: 30px;">
+        <h3 style="color: #336699; text-align: center;">📸 Galería de Capacitaciones</h3>
+        <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; margin-top: 15px;">
+            <img src="f1.jpg" alt="Capacitación 1" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
+            <img src="f2.jpg" alt="Capacitación 2" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
+            <img src="f3.jpg" alt="Capacitación 3" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
+            <img src="f4.jpg" alt="Capacitación 4" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
+            <img src="f5.jpg" alt="Capacitación 5" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
+            <img src="f6.jpg" alt="Capacitación 6" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
+            <img src="f7.jpg" alt="Capacitación 7" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
+        </div>
+    </div>
+</section>
+
+
+<section class="section-box">
+    <h2 style="text-align: center; color: #336699;">  Modelo de Certificado</h2>
+    <!-- Aquí puedes agregar las imágenes -->
+    <div class="gallery">
+      <img src="modelo.jpg" alt="Curso de Power BI" style="max-width: 100%; height: auto; border-radius: 8px;">
+      </div>
+  </section>
+
+
+
+<section class="section-box">
+    <h2 style="text-align: center; color: #336699;">Ejemplos de Dasboards que aprenderás a crear</h2>
+       <!-- Aquí puedes agregar las imágenes -->
+    <div class="gallery">
+      <img src="p4.png" alt="Curso 1" style="max-width: 100%; height: auto; border-radius: 8px;">
+      <img src="p6.png" alt="Curso 1" style="max-width: 100%; height: auto; border-radius: 8px;">
+      <img src="p1.png" alt="Curso 1" style="max-width: 100%; height: auto; border-radius: 8px;">
+      <img src="p3.png" alt="Curso 1" style="max-width: 100%; height: auto; border-radius: 8px;">
+    </div>
+  </section>
+  
+  
+  <section class="section-box">
+    <h2 style="text-align: center; color: #336699;">Plantillas vacías listas para usar</h2>
+       <!-- Aquí puedes agregar las imágenes -->
+    <div class="gallery">
+      <img src="plantilla.png" alt="Curso 1" style="max-width: 100%; height: auto; border-radius: 8px;">
+      <img src="plantilla1.png" alt="Curso 1" style="max-width: 100%; height: auto; border-radius: 8px;">
+          </div>
+  </section>
+
+    </div>
+
+
+       
+    
+
+    
+    <div id="dax" class="tab-content">
+        <section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
+
+<div style="text-align: center; margin-top: 20px;">
+   <img src="dax1.png" alt="Curso de Power BI" style="max-width: 100%; height: auto; border-radius: 8px;">
+</div>
+<p style="text-align: center; margin-top: 20px; font-size: 18px; color: #333; line-height: 1.6;">
+    Este curso avanzado de DAX con Power BI y Excel está diseñado para adaptarse a tus necesidades. 
+    Se ofrece en modalidad sincrónica y asincrónica, lo que te permite participar en las clases en vivo 
+    o acceder a las grabaciones para avanzar a tu propio ritmo. Además, podrás realizar los ejercicios y 
+    actividades prácticas en el horario que mejor se ajuste a tu disponibilidad.
+</p>
+
+</section>
+
+
+<section class="section-box" style="border: 2px solid #25D366; padding: 30px; margin: 30px 0; background-color: #eafff3; border-radius: 10px;">
+    <h2 style="text-align: center; color: #128C7E;">✅ Inscripción</h2>
+    <p style="text-align: center; font-size: 18px; margin-top: 10px;">
+        Completá el formulario de inscripción ahora.
+    </p>
+    <div style="text-align: center; margin-top: 20px;">
+        <a href="https://forms.gle/X2zYS8TazAS4YTxe7" target="_blank" style="display: inline-block; padding: 15px 30px; background-color: #25D366; color: white; border-radius: 50px; text-decoration: none; font-size: 18px; font-weight: bold; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+            📝 Completar formulario
+        </a>
+    </div>
+</section>
+
+
+<section class="section-box" style="border: 2px solid #25D366; padding: 30px; margin: 30px 0; background-color: #eafff3; border-radius: 10px;">
+<h2 style="text-align: center; color: #128C7E;">📲 ¿Tenés dudas o querés más info?</h2>
+<p style="text-align: center; font-size: 18px; margin-top: 10px;">
+    Escribinos ahora y recibí atención personalizada por WhatsApp.
+</p>
+<div style="text-align: center; margin-top: 20px;">
+    <a href="https://wa.me/595983352932" target="_blank" style="display: inline-block; padding: 15px 30px; background-color: #25D366; color: white; border-radius: 50px; text-decoration: none; font-size: 18px; font-weight: bold; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+        💬 Chatear por WhatsApp
+    </a>
+</div>
+<p style="text-align: center; margin-top: 15px; font-size: 15px; color: #555;">
+    O escribinos a <strong>cicap2021@gmail.com</strong>
+</p>
+</section>
+
+
+<section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
+<h2 style="text-align: center; color: #336699;">✅ Metodología</h2>
+<ul>
+   <li>Clases en vivo a través de Zoom, facilitando la interacción directa con el instructor.</li>
+   <li>Clases grabadas disponibles para consulta posterior.</li>
+   <li>Actividades prácticas: Ejercicios y proyectos aplicados.</li>
+   <li>Asesoramiento personalizado durante y después de las sesiones.</li>
+</ul>
+</section>
+
+
+
+
+    
+<section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
+    <h2 style="text-align: center; color: #336699;">📅 Fecha de Capacitación en Vivo:</h2>
+    <ul>
+      <li><strong>Fechas:</strong> 26 de abril, 3, 10 y 17 de mayo de 2025.</li>
+      <li><strong>Día:</strong> Sábados</li>
+      <li><strong>Horario:</strong> 9:00 a 11:30 hs.</li>
+    </ul>
+  </section>
+
+
+  <section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
+    <h2 style="text-align: center; color: #336699;">💰 Costo del Curso y Descuentos</h2>
+    <p><strong>Costo del Curso:</strong> 300.000 Gs (Pago Único). Incluye materiales, grabaciones y certificado.</p>
+    <p>🎉 <strong>¡Descuento para grupos!</strong> Si te inscribís en grupo, obtenés un descuento especial. ¡Contactanos para más información!</p>
+    <ul>
+        <li>2 personas: 250.000 Gs c/u</li>
+        <li>3 personas o más: 200.000 Gs c/u</li>
+    </ul>
+</section>
+
+  
+
+<section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
+    <h2 style="text-align: center; color: #336699;">✅ Formas de Pago</h2>
+    <p>Transferencia o depósito bancario:</p>
+    
+    <!-- Método 1: Banco Itaú -->
+    <div style="margin-bottom: 20px;">
+        <h3 style="color: #444;">🏦 Banco Itaú:</h3>
+        <ul style="padding-left: 20px;">
+            <li><strong>Cta. N°:</strong> 720005407</li>
+            <li><strong>Titular:</strong> Oscar Gonzalez Frutos</li>
+            <li><strong>CI:</strong> 3584172</li>
+        </ul>
+    </div>
+    
+    <!-- Alias -->
+    <div style="margin-bottom: 20px;">
+        <ul style="padding-left: 20px;">
+            <li><strong>Alias:</strong> 3584172</li>
+        </ul>
+    </div>
+
+    <!-- Método 2: Pago con Tarjeta -->
+    <div style="margin-bottom: 20px;">
+        <h3 style="color: #444;">💳 Pago con Tarjeta de Crédito/Débito:</h3>
+        <p>Podés abonar mediante POS Virtual. Consultá para recibir el enlace de pago.</p>
+    </div>
+
+    <p style="font-weight: bold; text-align: left;">✅ Para confirmar tu inscripción, por favor envía el comprobante al siguiente número: <strong>0983 352 932</strong></p>
+</section>
+
+
+<h1 style="text-align: center; color: #003366; margin-bottom: 20px;">📊Contenido del Curso</h1>
+  
+  <section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
+    <h2 style="color: #336699;">🧩 Sesión 1 – Modelado de Datos y Fundamentos Avanzados de DAX</h2>
+    <p><strong>Objetivo:</strong> Diseñar un modelo robusto que optimice los análisis de la Empresa SA.</p>
+    <ul>
+      <li>Principios del modelado estrella y buenas prácticas</li>
+      <li>Relación entre tablas (activa/inactiva) y su impacto en los cálculos</li>
+      <li>Uso de USERELATIONSHIP, CROSSFILTER, TREATAS</li>
+      <li>Modelos aplicados a datos de ventas, compras y operaciones</li>
+      <li><strong>Práctica:</strong> construir un modelo representando el flujo de ventas y entregas de Empresa SA</li>
+    </ul>
+  </section>
+  
+  <section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
+    <h2 style="color: #336699;">📈 Sesión 2 – Métricas Avanzadas para Análisis de Desempeño</h2>
+    <p><strong>Objetivo:</strong> Crear KPIs avanzados que apoyen la toma de decisiones en Empresa SA.</p>
+    <ul>
+      <li>Funciones de cálculo avanzadas: RANKX, DIVIDE, SUMX, VAR</li>
+      <li>Medidas dinámicas: clientes TOP N, productos estrella, tasas de conversión</li>
+      <li>Casos específicos: análisis de margen, rentabilidad por línea de producto</li>
+      <li><strong>Práctica:</strong> desarrollar un panel de rendimiento comercial</li>
+    </ul>
+  </section>
+  
+  <section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
+    <h2 style="color: #336699;">📆 Sesión 3 – Inteligencia de Tiempo y Contexto en DAX</h2>
+    <p><strong>Objetivo:</strong> Aplicar análisis temporales sofisticados para comparativos y tendencias.</p>
+    <ul>
+      <li>Construcción de calendarios y columnas de fecha personalizada</li>
+      <li>Funciones de inteligencia de tiempo: SAMEPERIODLASTYEAR, DATESMTD, TOTALYTD, DATEADD</li>
+      <li>Evaluación de contextos con CALCULATE, FILTER, ALL, REMOVEFILTERS</li>
+      <li><strong>Práctica:</strong> comparación YTD/LYTD, ventas acumuladas y rolling averages</li>
+    </ul>
+  </section>
+  
+  <section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
+    <h2 style="color: #336699;">⚙️ Sesión 4 – Casos Reales, Optimización y Buenas Prácticas</h2>
+    <p><strong>Objetivo:</strong> Aplicar lo aprendido a un caso real de Empresa SA, optimizando el desempeño del modelo.</p>
+    <ul>
+      <li>Análisis de desempeño con Performance Analyzer</li>
+      <li>Limpieza y optimización de medidas (uso de VAR, simplificación de filtros)</li>
+      <li><strong>Proyecto final:</strong> análisis completo con datos reales/simulados de Empresa SA
+        <ul>
+          <li>Panel financiero</li>
+          <li>Panel de operaciones/logística</li>
+          <li>Panel de ventas y forecast</li>
+        </ul>
+      </li>
+      <li>Tips para compartir modelos entre Excel y Power BI</li>
+    </ul>
+  </section>
+  
+  <section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
+    <h2 style="color: #336699;">📁 Material Incluido:</h2>
+    <ul>
+      <li>Archivos de práctica en Excel y Power BI</li>
+      <li>Presentaciones en PDF por sesión</li>
+      <li>Guía rápida de funciones DAX clave</li>
+      <li>Proyecto final con retroalimentación</li>
+      <li>Grabación de todas las sesiones en vivo</li>
+    </ul>
+  </section>   
+
+
+
+
+ 
+<section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
+    <h2 style="text-align: center; color: #336699;">👩‍🏫 Conoce a tu Docente</h2>
+    
+    <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
+        <div style="flex-shrink: 0; text-align: center;">
+            <img src="foto.jpg" alt="Foto del docente" style="border-radius: 50%; width: 150px; height: 200px; object-fit: cover; border: 2px solid #ccc;">
+        </div>
+        
+        <div style="flex: 1; text-align: left;">
+            <p><strong>Nombre del Docente:</strong> Oscar González Frutos</p>
+            <p><strong>Lic. en:</strong> Matemática Estadística FACEN - UNA.</p>
+            <p><strong>MSc. en:</strong> Estadística Aplicada - Universidad de Granada, España (Becal).</p>
+            <p><strong>Experiencia:</strong> Más de 10 años de experiencia en Análisis de Datos y en la enseñanza de herramientas como: SQL, Excel, Power BI, R y Python.</p>
+            <p><strong>Certificaciones:</strong> Certificate in Data Science con R - HarvardX (Harvard University - En Línea).</p>
+            <p><strong>Pasión por enseñar:</strong> Comprometido en ayudarte a dominar habilidades clave y aplicarlas en proyectos reales.</p>
+            <p><strong>Experiencia docente:</strong> Ha impartido capacitaciones en herramientas de análisis de datos (R, Python, Power BI) en instituciones públicas como el <strong>Banco Central del Paraguay (BCP)</strong>, <strong>Itaipú Binacional</strong>, <strong>DGEEC</strong>, <strong>MEC</strong>, <strong>FACEN</strong>, <strong>UNA</strong> y el <strong>Ministerio de Desarrollo Social</strong>; y en organizaciones privadas como <strong>Automotor</strong>, <strong>Banco Familiar</strong>, <strong>Bancoop</strong> y <strong>Sueñolar</strong>.</p>
+            <p>
+                📎 <a href="https://www.linkedin.com/in/oscar-gonzález-frutos" target="_blank" style="color: #336699; text-decoration: none;">
+                    Conecta conmigo en LinkedIn
+                </a>
+            </p>
+        </div>
+    </div>
+
+    <div style="margin-top: 30px;">
+        <h3 style="color: #336699; text-align: center;">📸 Galería de Capacitaciones</h3>
+        <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; margin-top: 15px;">
+            <img src="f1.jpg" alt="Capacitación 1" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
+            <img src="f2.jpg" alt="Capacitación 2" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
+            <img src="f3.jpg" alt="Capacitación 3" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
+            <img src="f4.jpg" alt="Capacitación 4" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
+            <img src="f5.jpg" alt="Capacitación 5" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
+            <img src="f6.jpg" alt="Capacitación 6" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
+            <img src="f7.jpg" alt="Capacitación 7" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
+        </div>
+    </div>
+</section>
+</div>
+    
+
+
+
+
+
+
+
+    <div id="python" class="tab-content">
+      
+    <section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
+    <div style="text-align: center; margin-top: 20px;">
+        <img src="article_03284_.webp" alt="Introducción a Ciencia de Datos con Python" style="max-width: 100%; height: auto; border-radius: 8px;">
+    </div>
+    <h1 style="text-align: center; color: #336699; font-size: 2em; font-weight: bold;">R y Python para Ciencia de Datos</h1>
+    <p style="text-align: center; margin-top: 20px; font-size: 18px; color: #333; line-height: 1.6;">
+        Este <strong>curso de  R y Python para Ciencia de Datos</strong> está diseñado para enseñarte cómo utilizar R y Python en el análisis y procesamiento de datos. 
+        Aprenderás a trabajar con bibliotecas esenciales  para manipular datos, visualizarlos y aplicar modelos de machine learning.
+        Puedes participar en <strong>modalidad sincrónica y asincrónica</strong>, adaptándose a tus necesidades de tiempo.
+    </p>
+    <p style="text-align: center; margin-top: 15px; font-size: 16px; color: #666;">
+        Este curso es ideal tanto para principiantes que desean iniciar en la ciencia de datos como para profesionales que buscan mejorar sus habilidades en análisis de datos y machine learning utilizando Python.
+        ¡Inicia tu viaje en el análisis de datos con R y Python y lleva tus habilidades al siguiente nivel!
+    </p>
+    </section>
+
+    <section class="section-box" style="border: 2px solid #25D366; padding: 30px; margin: 30px 0; background-color: #eafff3; border-radius: 10px;">
+        <h2 style="text-align: center; color: #128C7E;">✅ Inscripción</h2>
+        <p style="text-align: center; font-size: 18px; margin-top: 10px;">
+            Completá el formulario de inscripción ahora.
+        </p>
+        <div style="text-align: center; margin-top: 20px;">
+            <a href="https://forms.gle/X2zYS8TazAS4YTxe7" target="_blank" style="display: inline-block; padding: 15px 30px; background-color: #25D366; color: white; border-radius: 50px; text-decoration: none; font-size: 18px; font-weight: bold; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                📝 Completar formulario
+            </a>
+        </div>
+    </section>
+
+    
+<section class="section-box" style="border: 2px solid #25D366; padding: 30px; margin: 30px 0; background-color: #eafff3; border-radius: 10px;">
+    <h2 style="text-align: center; color: #128C7E;">📲 ¿Tenés dudas o querés más info?</h2>
+    <p style="text-align: center; font-size: 18px; margin-top: 10px;">
+        Escribinos ahora y recibí atención personalizada por WhatsApp.
+    </p>
+    <div style="text-align: center; margin-top: 20px;">
+        <a href="https://wa.me/595983352932" target="_blank" style="display: inline-block; padding: 15px 30px; background-color: #25D366; color: white; border-radius: 50px; text-decoration: none; font-size: 18px; font-weight: bold; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+            💬 Chatear por WhatsApp
+        </a>
+    </div>
+    <p style="text-align: center; margin-top: 15px; font-size: 15px; color: #555;">
+        O escribinos a <strong>cicap2021@gmail.com</strong>
+    </p>
+</section>
+
+
+<section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
+    <h2 style="text-align: center; color: #336699;">✅ Fechas de Capacitación en Vivo</h2>
+    <p>Las sesiones en vivo se llevarán a cabo en las siguientes fechas:</p>
+    <ul style="list-style-type: square; padding-left: 20px;">
+       
+       
+       
+       <li>22 de junio de 2025</li>
+       <li>29 de junio de 2025</li>
+       <li>5 de julio de 2025</li>
+       <li>12 de julio de 2025</li>
+       <li>19 de julio de 2025</li>
+       <li>26 de julio de 2025</li>
+        
+    </ul>
+    <p><strong>Días y Horarios:</strong> Sábados de 9.00 a 11.45hs</p>
+</section>
+
+
+    
+    <section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
+    <h2 style="text-align: center; color: #336699;">✅ Costo del Curso</h2>
+    
+    <p><strong>Costo del Curso:</strong> 300.000 Gs (Pago Único). Incluye materiales, grabaciones y certificado.</p>
+    <p>🎉 <strong>¡Descuento para grupos!</strong> Si te inscribes en grupo, obtén un descuento especial. ¡Contáctanos para más información!</p>
+    <ul>
+        <li>2 personas: 250.000 Gs c/u</li>
+        <li>3 personas o más: 200.000 Gs c/u</li>
+            </ul>
+</section>
+
+
+
+<section class="section-box" style="border: 2px solid #25D366; padding: 30px; margin: 30px 0; background-color: #eafff3; border-radius: 10px;">
+    <h2 style="text-align: center; color: #128C7E;">💳 Formas de Pago</h2>
+
+    <p style="font-size: 18px; line-height: 1.6;">
+        Podés realizar el pago mediante alias, transferencia bancaria o tarjeta.
+    </p>
+
+    <!-- Método 1: Ueno Bank (Alias) -->
+    <div style="margin-top: 20px;">
+        <h3 style="color: #128C7E;">🏦 Ueno Bank (Alias)</h3>
+        <ul style="font-size: 17px; padding-left: 20px; color: #333;">
+            <li><strong>Alias:</strong> 3584172</li>
+            <li><strong>Titular:</strong> Oscar Gonzalez Frutos</li>
+        </ul>
+    </div>
+
+    <!-- Método 2: Banco Itaú -->
+    <div style="margin-top: 25px;">
+        <h3 style="color: #128C7E;">🏦 Banco Itaú (Transferencia)</h3>
+        <ul style="font-size: 17px; padding-left: 20px; color: #333;">
+            <li><strong>Cta. N°:</strong> 720005407</li>
+            <li><strong>Titular:</strong> Oscar Gonzalez Frutos</li>
+            <li><strong>CI:</strong> 3584172</li>
+        </ul>
+    </div>
+
+    <!-- Método 3: Tarjeta -->
+    <div style="margin-top: 25px;">
+        <h3 style="color: #128C7E;">💳 Tarjeta de Crédito</h3>
+        <p style="font-size: 17px;">
+            También podés pagar con tarjeta a través del POS Virtual. Consultanos para recibir tu enlace de pago personalizado.<br>
+            <strong>✔️ Podés abonar en varias cuotas utilizando tarjeta de crédito.</strong>
+        </p>
+    </div>
+
+    <p style="font-size: 17px; font-weight: bold; margin-top: 30px;">
+        ✅ Para confirmar tu inscripción, enviá tu comprobante al WhatsApp: <span style="color: #128C7E;">0983 352 932</span>
+    </p>
+</section>
+
+
+
+    
+        
+<section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
+    <h2 style="text-align: center; color: #336699;">✅ Metodología</h2>
+    <ul>
+        <li>Clases en vivo a través de Zoom, facilitando la interacción directa con el instructor.</li>
+        <li>Clases grabadas disponibles para consulta posterior.</li>
+        <li>Actividades prácticas: Ejercicios y proyectos aplicados.</li>
+        <li>Asesoramiento personalizado durante y después de las sesiones.</li>
+    </ul>
+</section>
+
+
+
+      <section class="section-box">
+    <h2>Eje 1: Fundamentos de Programación y Entornos</h2>
+    <p><strong>Lenguajes y entornos:</strong> Introducción a RStudio, Jupyter Notebook y VS Code como entornos de desarrollo para ciencia de datos.</p>
+    <p><strong>Estructuras básicas:</strong> Variables, tipos de datos, operadores, condicionales y bucles.</p>
+    <p><strong>Funciones:</strong> Declaración, argumentos, retorno y buenas prácticas.</p>
+</section>
+
+<section class="section-box">
+    <h2>Eje 2: Manipulación y Limpieza de Datos (ETL)</h2>
+    <p><strong>Lectura de datos:</strong> Archivos CSV, Excel y bases de datos.</p>
+    <p><strong>Transformaciones con librerías:</strong> Uso de <code>dplyr</code>, <code>tidyr</code> en R y <code>pandas</code> en Python para filtrar, seleccionar, agrupar y ordenar datos.</p>
+    <p><strong>Limpieza:</strong> Manejo de valores nulos, duplicados, renombrado de columnas y cambio de tipos de datos.</p>
+</section>
+
+<section class="section-box">
+    <h2>Eje 3: Visualización de Datos</h2>
+    <p><strong>Visualización en R:</strong> Gráficos con <code>ggplot2</code> y visualizaciones interactivas con <code>plotly</code> o <code>shiny</code>.</p>
+    <p><strong>Visualización en Python:</strong> Uso de <code>matplotlib</code>, <code>seaborn</code> y <code>plotly</code> para gráficos exploratorios.</p>
+    <p><strong>Buenas prácticas:</strong> Elección de tipos de gráficos, etiquetas y presentación clara de datos.</p>
+</section>
+
+<section class="section-box">
+    <h2>Eje 4: Análisis Estadístico y Exploratorio (EDA)</h2>
+    <p><strong>Estadísticas descriptivas:</strong> Media, mediana, moda, desviación estándar y percentiles.</p>
+    <p><strong>Exploración de relaciones:</strong> Correlación, tablas cruzadas y análisis de distribuciones.</p>
+    <p><strong>Herramientas:</strong> <code>summary</code>, <code>psych</code> en R y <code>scipy</code>, <code>statsmodels</code> en Python.</p>
+</section>
+
+<section class="section-box">
+    <h2>Eje 5: Modelado Predictivo y Machine Learning</h2>
+    <p><strong>Introducción al aprendizaje automático:</strong> Diferencias entre modelos supervisados y no supervisados.</p>
+    <p><strong>Modelado con librerías:</strong> <code>caret</code>, <code>randomForest</code>, <code>xgboost</code> en R y <code>scikit-learn</code>, <code>xgboost</code> en Python.</p>
+    <p><strong>Evaluación de modelos:</strong> Métricas como accuracy, precision, recall y matriz de confusión.</p>
+</section>
+
+<section class="section-box">
+    <h2>Eje 6: Automatización, Reproducibilidad y Reporting</h2>
+    <p><strong>Automatización de análisis:</strong> Uso de scripts reutilizables y procesamiento por lotes.</p>
+    <p><strong>Reporting:</strong> Generación de informes en HTML, PDF y dashboards con <code>R Markdown</code>, <code>Quarto</code> y <code>Jupyter</code>.</p>
+    <p><strong>Control de versiones:</strong> Introducción a Git y GitHub para seguimiento de proyectos.</p>
+</section>
+
+
+<section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
+    <h2 style="text-align: center; color: #336699;">👩‍🏫 Conoce a tu Docente</h2>
+    
+    <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
+        <div style="flex-shrink: 0; text-align: center;">
+            <img src="foto.jpg" alt="Foto del docente" style="border-radius: 50%; width: 150px; height: 200px; object-fit: cover; border: 2px solid #ccc;">
+        </div>
+        
+        <div style="flex: 1; text-align: left;">
+            <p><strong>Nombre del Docente:</strong> Oscar González Frutos</p>
+            <p><strong>Lic. en:</strong> Matemática Estadística FACEN - UNA.</p>
+            <p><strong>MSc. en:</strong> Estadística Aplicada - Universidad de Granada, España (Becal).</p>
+            <p><strong>Experiencia:</strong> Más de 10 años de experiencia en Análisis de Datos y en la enseñanza de herramientas como: SQL, Excel, Power BI, R y Python.</p>
+            <p><strong>Certificaciones:</strong> Certificate in Data Science con R - HarvardX (Harvard University - En Línea).</p>
+            <p><strong>Pasión por enseñar:</strong> Comprometido en ayudarte a dominar habilidades clave y aplicarlas en proyectos reales.</p>
+            <p><strong>Experiencia docente:</strong> Ha impartido capacitaciones en herramientas de análisis de datos (R, Python, Power BI) en instituciones públicas como el <strong>Banco Central del Paraguay (BCP)</strong>, <strong>Itaipú Binacional</strong>, <strong>DGEEC</strong>, <strong>MEC</strong>, <strong>FACEN</strong>, <strong>UNA</strong> y el <strong>Ministerio de Desarrollo Social</strong>; y en organizaciones privadas como <strong>Automotor</strong>, <strong>Banco Familiar</strong>, <strong>Bancoop</strong> y <strong>Sueñolar</strong>.</p>
+            <p>
+                📎 <a href="https://www.linkedin.com/in/oscar-gonzález-frutos" target="_blank" style="color: #336699; text-decoration: none;">
+                    Conecta conmigo en LinkedIn
+                </a>
+            </p>
+        </div>
+    </div>
+
+    <div style="margin-top: 30px;">
+        <h3 style="color: #336699; text-align: center;">📸 Galería de Capacitaciones</h3>
+        <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; margin-top: 15px;">
+            <img src="f1.jpg" alt="Capacitación 1" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
+            <img src="f2.jpg" alt="Capacitación 2" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
+            <img src="f3.jpg" alt="Capacitación 3" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
+            <img src="f4.jpg" alt="Capacitación 4" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
+            <img src="f5.jpg" alt="Capacitación 5" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
+            <img src="f6.jpg" alt="Capacitación 6" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
+            <img src="f7.jpg" alt="Capacitación 7" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
+        </div>
+    </div>
+</section>
+
+
+
+    </div>
+
+       <div id="r" class="tab-content">
+      
+      <section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
+    <div style="text-align: center; margin-top: 20px;">
+        <img src="rr.jpg" alt="Ciencia de Datos con R" style="max-width: 100%; height: auto; border-radius: 8px;">
+    </div>
+    <p style="text-align: center; margin-top: 20px; font-size: 18px; color: #333; line-height: 1.6;">
+    <h1 style="text-align: center; color: #336699; font-size: 2em; font-weight: bold;">Ciencia de Datos con R</h1>
+    Este <strong>Curso de Ciencia de Datos con R</strong> está diseñado para enseñarte cómo utilizar R en el análisis y procesamiento de datos. 
+    Aprenderás a trabajar con paquetes esenciales como <strong>dplyr</strong>, <strong>ggplot2</strong> y <strong>caret</strong> para manipular datos, visualizarlos y aplicar modelos de machine learning.  
+    Puedes participar en <strong>modalidad sincrónica y asincrónica</strong>, adaptándose a tus necesidades de tiempo.
+</p>
+
+    <p style="text-align: center; margin-top: 15px; font-size: 16px; color: #666;">
+    Este curso es ideal tanto para principiantes que desean iniciar en la ciencia de datos como para profesionales que buscan mejorar sus habilidades en análisis de datos y machine learning utilizando R.  
+    ¡Inicia tu viaje en el análisis de datos con R y lleva tus habilidades al siguiente nivel!
+</p>
+
+</section>
+
+
+<section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
+    <h2 style="text-align: center; color: #336699;">✅ Fechas de Capacitación en Vivo</h2>
+    <p>Las sesiones en vivo se llevarán a cabo en las siguientes fechas:</p>
+    <ul style="list-style-type: square; padding-left: 20px;">
+        <li>08 de marzo de 2025</li>
+       <li>15 de marzo de 2025</li>
+       <li>22 de marzo de 2025</li>
+       <li>29 de marzo de 2025</li>
+       <li>05 de abril de 2025</li>
+       <li>12 de abril de 2025</li>
+        
+    </ul>
+    <p><strong>Días y Horarios:</strong> Sábados de 9.00 a 11.30hs</p>
+</section>
+
+
+<section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
+    <h2 style="text-align: center; color: #336699;">✅ Inscripción</h2>
+    <p>Completar el siguiente formulario: <a href="https://forms.gle/rHj7KsVs2YqAy2zz6" target="_blank">Haz clic aquí</a></p>
+    </section>
+    
+    
+  <section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
+    <h2 style="text-align: center; color: #336699;">✅ Costo del Curso</h2>
+    
+    <p><strong>Costo del Curso:</strong> 300.000 Gs (Pago Único). Incluye materiales, grabaciones y certificado.</p>
+    <p>🎉 <strong>¡Descuento para grupos!</strong> Si te inscribes en grupo, obtén un descuento especial. ¡Contáctanos para más información!</p>
+    <ul>
+        <li>2 personas: 250.000 Gs c/u</li>
+        <li>3 personas: 200.000 Gs c/u</li>
+        <li>4 o más: 150.000 Gs c/u</li>
+    </ul>
+</section>
+
+    
+        
+<section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
+    <h2 style="text-align: center; color: #336699;">✅ Metodología</h2>
+    <ul>
+        <li>Clases en vivo a través de Zoom, facilitando la interacción directa con el instructor.</li>
+        <li>Clases grabadas disponibles para consulta posterior.</li>
+        <li>Actividades prácticas: Ejercicios y proyectos aplicados.</li>
+        <li>Asesoramiento personalizado durante y después de las sesiones.</li>
+    </ul>
+</section>
+
+
+
+
+<section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
+    <h2 style="text-align: center; color: #336699;">👩‍🏫 Conoce a tu Docente</h2>
+    
+    <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
+        <div style="flex-shrink: 0; text-align: center;">
+            <img src="foto.jpg" alt="Foto del docente" style="border-radius: 50%; width: 150px; height: 200px; object-fit: cover; border: 2px solid #ccc;">
+        </div>
+        
+        <div style="flex: 1; text-align: left;">
+            <p><strong>Nombre del Docente:</strong> Oscar González Frutos</p>
+            <p><strong>Lic. en:</strong> Matemática Estadística FACEN - UNA.</p>
+            <p><strong>MSc. en:</strong> Estadística Aplicada - Universidad de Granada, España (Becal).</p>
+            <p><strong>Experiencia:</strong> Más de 10 años de experiencia en Análisis de Datos y en la enseñanza de herramientas como: SQL, Excel, Power BI, R y Python.</p>
+            <p><strong>Certificaciones:</strong> Certificate in Data Science con R - HarvardX (Harvard University - En Línea).</p>
+            <p><strong>Pasión por enseñar:</strong> Comprometido en ayudarte a dominar habilidades clave y aplicarlas en proyectos reales.</p>
+            <p><strong>Experiencia docente:</strong> Ha impartido capacitaciones en herramientas de análisis de datos (R, Python, Power BI) en instituciones públicas como el <strong>Banco Central del Paraguay (BCP)</strong>, <strong>Itaipú Binacional</strong>, <strong>DGEEC</strong>, <strong>MEC</strong>, <strong>FACEN</strong>, <strong>UNA</strong> y el <strong>Ministerio de Desarrollo Social</strong>; y en organizaciones privadas como <strong>Automotor</strong>, <strong>Banco Familiar</strong>, <strong>Bancoop</strong> y <strong>Sueñolar</strong>.</p>
+            <p>
+                📎 <a href="https://www.linkedin.com/in/oscar-gonzález-frutos" target="_blank" style="color: #336699; text-decoration: none;">
+                    Conecta conmigo en LinkedIn
+                </a>
+            </p>
+        </div>
+    </div>
+
+    <div style="margin-top: 30px;">
+        <h3 style="color: #336699; text-align: center;">📸 Galería de Capacitaciones</h3>
+        <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; margin-top: 15px;">
+            <img src="f1.jpg" alt="Capacitación 1" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
+            <img src="f2.jpg" alt="Capacitación 2" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
+            <img src="f3.jpg" alt="Capacitación 3" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
+            <img src="f4.jpg" alt="Capacitación 4" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
+            <img src="f5.jpg" alt="Capacitación 5" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
+            <img src="f6.jpg" alt="Capacitación 6" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
+            <img src="f7.jpg" alt="Capacitación 7" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
+        </div>
+    </div>
+</section>
+
+
+      
+        <section class="section-box">
+           <h2>1. Introducción a R como Lenguaje de Ciencia de Datos</h2>
+<ul>
+    <li><strong>Historia y desarrollo de R</strong>: Diseñado para el análisis estadístico, R ofrece funciones y bibliotecas optimizadas para tareas de análisis, visualización y modelado, posicionándose como una herramienta clave en la ciencia de datos.</li>
+    <li><strong>Ventajas en ciencia de datos</strong>: R destaca por su capacidad de manejar tareas estadísticas complejas, crear visualizaciones avanzadas y generar informes reproducibles.</li>
+    <li><strong>Entorno de desarrollo RStudio</strong>: Una plataforma potente que permite trabajar de manera eficiente en proyectos de análisis y ciencia de datos, integrando herramientas esenciales.</li>
+</ul>
+
+<h2>2. Manipulación de Datos</h2>
+<ul>
+    <li><strong>Estructuras de datos en R</strong>: Introducción a vectores, listas, data frames y matrices, bases fundamentales para la manipulación eficiente de datos en R.</li>
+    <li><strong>Uso de dplyr y tidyverse</strong>: Exploración del tidyverse, un conjunto de paquetes que optimizan el manejo de datos. Enfoque en dplyr para realizar tareas como filtrar, seleccionar, mutar y agrupar datos de forma intuitiva.</li>
+</ul>
+
+<h2>3. Visualización de Datos</h2>
+<ul>
+    <li><strong>El paquete ggplot2</strong>: Creación de visualizaciones personalizadas utilizando la gramática de gráficos. Aprender a combinar capas, estética y geometría para desarrollar visualizaciones impactantes.</li>
+    <li><strong>Aplicación en Exploratory Data Analysis (EDA)</strong>: Uso de visualizaciones para explorar patrones, relaciones y anomalías en los datos de manera rápida y eficiente.</li>
+</ul>
+
+<h2>4. Programación Funcional en R</h2>
+<ul>
+    <li><strong>Automatización con funciones</strong>: Diseño de funciones personalizadas para reducir la repetición de código y mejorar la eficiencia en los análisis.</li>
+    <li><strong>Programación funcional con purrr</strong>: Uso del paquete purrr para aplicar funciones de manera iterativa sobre estructuras de datos, optimizando procesos y mejorando la gestión de datos.</li>
+</ul>
+
+<h2>5. Modelado Estadístico</h2>
+<ul>
+    <li><strong>Modelos de regresión y clasificación</strong>: Implementación de modelos como regresión lineal y logística, entre otros modelos predictivos.</li>
+    <li><strong>Evaluación e interpretación de modelos</strong>: Análisis de la precisión, ajuste y estadísticas clave para generar insights útiles en proyectos de ciencia de datos.</li>
+</ul>
+
+<h2>6. Documentación y Reportes Reproducibles</h2>
+<ul>
+    <li><strong>Creación de reportes con R Markdown</strong>: Generación de documentos reproducibles en formatos como HTML, PDF o Word, integrando código, análisis y visualizaciones.</li>
+    <li><strong>Buenas prácticas en análisis reproducible</strong>: Garantía de transparencia y facilidad para replicar resultados, mejorando la colaboración en proyectos de ciencia de datos.</li>
+</ul>
+        </section>
+
+    
+   <section class="section-box">
+    <h2 style="text-align: center; color: #336699;">  Modelo de Certificado</h2>
+    <!-- Aquí puedes agregar las imágenes -->
+    <div class="gallery">
+      <img src="modelo.jpg" alt="Curso de Power BI" style="max-width: 100%; height: auto; border-radius: 8px;">
+      </div>
+  </section>
+  
+  
+  <section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
+    <h2 style="text-align: center; color: #336699;">✅ Formas de Pago</h2>
+    <p>Puedes realizar tu pago mediante las siguientes opciones:</p>
+    
+    <!-- Método 1: Banco Continental -->
+    <div style="margin-bottom: 20px;">
+        <h3 style="color: #444;">🏦 Transferencia Bancaria: Banco Continental</h3>
+        <ul style="padding-left: 20px;">
+            <li><strong>Cta. N°:</strong> 0130289706</li>
+            <li><strong>Titular:</strong> Oscar Gonzalez Frutos</li>
+            <li><strong>CI:</strong> 3584172</li>
+        </ul>
+    </div>
+    
+    <!-- Método 2: Banco Itaú -->
+    <div style="margin-bottom: 20px;">
+        <h3 style="color: #444;">🏦 Transferencia Bancaria: Banco Itaú</h3>
+        <ul style="padding-left: 20px;">
+            <li><strong>Cta. N°:</strong> 720005407</li>
+            <li><strong>Titular:</strong> Oscar Gonzalez Frutos</li>
+            <li><strong>CI:</strong> 3584172</li>
+        </ul>
+    </div>
+    
+    <!-- Método 3: Giros Tigo -->
+    <div style="margin-bottom: 20px;">
+        <h3 style="color: #444;">📲 Giros Tigo</h3>
+        <p><strong>Número:</strong> 0983 352 932</p>
+    </div>
+    
+    <p style="font-weight: bold; text-align: left;">✅ Para confirmar tu inscripción, por favor envía el comprobante al siguiente número: <strong>0983 352 932</strong></p>
+</section>
+    </div>
+   
+   
+
+    <div id="sql" class="tab-content">
+        <section class="section-box">
+            
+        
+        
+        
+        <h1 style="text-align: center; color: #003366;">SQL Server para Business Intelligence</h1>
+        
+        <div style="text-align: center; margin-bottom: 20px;">
+            <img src="sqll.png" alt="SQL Server" style="max-width: 100%; height: auto; border-radius: 8px;">
+        </div>
+        
+      
+
+
+        
+        <section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9; border-radius: 8px;">
+            <h2 style="text-align: center; color: #336699;">📅 Fecha de Capacitación en Vivo:</h2>
+            <ul style="list-style-type: none; padding: 0; color: #444;">
+                <li style="margin: 10px 0;"><strong>Fecha de Inicio:</strong> 18 de junio de 2025.</li>
+                <li style="margin: 10px 0;"><strong>Días:</strong> Miércoles  (5 sesiones en vivo)</li>
+                <li style="margin: 10px 0;"><strong>Horario:</strong> 19:30 a 21:30 hs.</li>
+            </ul>
+        </section>
+
+
+        
+<section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
+    <h2 style="text-align: center; color: #336699;">✅ Metodología</h2>
+    <ul>
+        <li>Clases en vivo a través de Zoom, facilitando la interacción directa con el instructor.</li>
+        <li>Clases grabadas disponibles para consulta posterior.</li>
+        <li>Actividades prácticas: Ejercicios y proyectos aplicados.</li>
+        <li>Asesoramiento personalizado durante y después de las sesiones.</li>
+    </ul>
+</section>
+
+
+<section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
+    <h2 style="text-align: center; color: #336699;">✅ Costo del Curso</h2>
+    
+    <p><strong>Costo del Curso:</strong> 350.000 Gs (Pago Único). Incluye materiales, grabaciones y certificado.</p>
+    <p>🎉 <strong>¡Descuento para grupos!</strong> Si te inscribes en grupo, obtén un descuento especial. ¡Contáctanos para más información!</p>
+    <ul>
+        <li>2 personas: 250.000 Gs c/u</li>
+        <li>3 personas o más: 200.000 Gs c/u</li>
+            </ul>
+
+<section>
+        <h2>Sección 1: Introducción</h2>
+        <ul>
+            <li>¿Qué es MySQL?</li>
+            <li>Importancia de las bases de datos relacionales en el manejo de datos.</li>
+            <li>Casos de uso de MySQL en la industria.</li>
+            <li>Diferencias entre MySQL y otros motores de bases de datos.</li>
+        </ul>
+    </section>
+    
+    <section>
+        <h2>Sección 2: Descarga e Instalación de MySQL Server</h2>
+        <ul>
+            <li>Guía paso a paso para descargar MySQL Server.</li>
+            <li>Instalación en Windows, Mac y Linux.</li>
+            <li>Configuración inicial de MySQL Server.</li>
+            <li>Resolución de errores comunes durante la instalación.</li>
+        </ul>
+    </section>
+    
+    <section>
+        <h2>Sección 3: Desarrollo del Entorno de trabajo en MySQL Workbench</h2>
+        <ul>
+            <li>Introducción a MySQL Workbench.</li>
+            <li>Configuración de conexiones a bases de datos.</li>
+            <li>Navegación por las herramientas principales de MySQL Workbench.</li>
+            <li>Primeros pasos: Creación de una base de datos simple.</li>
+        </ul>
+    </section>
+    
+    <section>
+        <h2>Sección 4: Desarrollo de nuestra Base de Datos, Tablas, Vistas, Procedimientos...</h2>
+        <ul>
+            <li>Diseño y creación de bases de datos.</li>
+            <li>Uso de comandos CREATE DATABASE y CREATE TABLE.</li>
+            <li>Tipos de datos en MySQL (VARCHAR, INT, DATE, etc.).</li>
+            <li>Creación de relaciones entre tablas: Claves primarias y foráneas.</li>
+        </ul>
+    </section>
+    
+    <section>
+        <h2>Sección 5: Mantenimiento de datos a las tablas de MySQL</h2>
+        <ul>
+            <li>Comandos básicos: INSERT, UPDATE, DELETE.</li>
+            <li>Uso de transacciones para mantener la integridad de los datos.</li>
+            <li>Exportación e importación de datos en MySQL.</li>
+            <li>Resolución de conflictos y manejo de errores.</li>
+        </ul>
+    </section>
+    
+    <section>
+        <h2>Sección 6: Operadores y Funciones</h2>
+        <ul>
+            <li>Operadores aritméticos, de comparación y lógicos.</li>
+            <li>Funciones de agregación: SUM(), AVG(), COUNT(), etc.</li>
+            <li>Funciones de texto: CONCAT(), SUBSTRING(), etc.</li>
+            <li>Funciones de fecha y hora: NOW(), DATE_FORMAT(), etc.</li>
+        </ul>
+    </section>
+    
+    <section>
+        <h2>Sección 7: Creación de Vistas</h2>
+        <ul>
+            <li>¿Qué son las vistas en MySQL?</li>
+            <li>Creación y administración de vistas con CREATE VIEW.</li>
+            <li>Ventajas y limitaciones del uso de vistas.</li>
+            <li>Ejemplos prácticos de vistas en escenarios reales.</li>
+        </ul>
+    </section>
+    
+    <section>
+        <h2>Sección 8: Trabajaremos con mayor detalle la Sentencia SQL SELECT</h2>
+        <ul>
+            <li>Uso avanzado de SELECT: Filtrados con WHERE.</li>
+            <li>Ordenación de resultados con ORDER BY.</li>
+            <li>Agrupación de datos con GROUP BY.</li>
+            <li>Subconsultas y combinaciones (JOIN).</li>
+        </ul>
+    </section>
+    
+    <section>
+        <h2>Sección 9: Procedimientos Almacenados</h2>
+        <ul>
+            <li>Introducción a los procedimientos almacenados.</li>
+            <li>Creación y ejecución de procedimientos con CREATE PROCEDURE.</li>
+            <li>Uso de parámetros en procedimientos.</li>
+            <li>Casos prácticos de automatización de tareas.</li>
+        </ul>
+    </section>
+    
+    <section>
+        <h2>Sección 10: Funciones</h2>
+        <ul>
+            <li>Diferencia entre funciones y procedimientos almacenados.</li>
+            <li>Creación de funciones definidas por el usuario.</li>
+            <li>Ejemplos de funciones personalizadas para cálculos específicos.</li>
+            <li>Mejores prácticas en el uso de funciones.</li>
+        </ul>
+    </section>
+    
+    <section>
+        <h2>Sección 11: Triggers</h2>
+        <ul>
+            <li>¿Qué son los triggers en MySQL?</li>
+            <li>Creación de triggers con CREATE TRIGGER.</li>
+            <li>Tipos de triggers: BEFORE y AFTER.</li>
+            <li>Aplicaciones prácticas de triggers en el manejo de datos.</li>
+        </ul>
+    </section>
+    
+    
+   
+<section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
+    <h2 style="text-align: center; color: #336699;">👩‍🏫 Conoce a tu Docente</h2>
+    
+    <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
+        <div style="flex-shrink: 0; text-align: center;">
+            <img src="foto.jpg" alt="Foto del docente" style="border-radius: 50%; width: 150px; height: 200px; object-fit: cover; border: 2px solid #ccc;">
+        </div>
+        
+        <div style="flex: 1; text-align: left;">
+            <p><strong>Nombre del Docente:</strong> Oscar González Frutos</p>
+            <p><strong>Lic. en:</strong> Matemática Estadística FACEN - UNA.</p>
+            <p><strong>MSc. en:</strong> Estadística Aplicada - Universidad de Granada, España (Becal).</p>
+            <p><strong>Experiencia:</strong> Más de 10 años de experiencia en Análisis de Datos y en la enseñanza de herramientas como: SQL, Excel, Power BI, R y Python.</p>
+            <p><strong>Certificaciones:</strong> Certificate in Data Science con R - HarvardX (Harvard University - En Línea).</p>
+            <p><strong>Pasión por enseñar:</strong> Comprometido en ayudarte a dominar habilidades clave y aplicarlas en proyectos reales.</p>
+            <p><strong>Experiencia docente:</strong> Ha impartido capacitaciones en herramientas de análisis de datos (R, Python, Power BI) en instituciones públicas como el <strong>Banco Central del Paraguay (BCP)</strong>, <strong>Itaipú Binacional</strong>, <strong>DGEEC</strong>, <strong>MEC</strong>, <strong>FACEN</strong>, <strong>UNA</strong> y el <strong>Ministerio de Desarrollo Social</strong>; y en organizaciones privadas como <strong>Automotor</strong>, <strong>Banco Familiar</strong>, <strong>Bancoop</strong> y <strong>Sueñolar</strong>.</p>
+            <p>
+                📎 <a href="https://www.linkedin.com/in/oscar-gonzález-frutos" target="_blank" style="color: #336699; text-decoration: none;">
+                    Conecta conmigo en LinkedIn
+                </a>
+            </p>
+        </div>
+    </div>
+
+    <div style="margin-top: 30px;">
+        <h3 style="color: #336699; text-align: center;">📸 Galería de Capacitaciones</h3>
+        <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; margin-top: 15px;">
+            <img src="f1.jpg" alt="Capacitación 1" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
+            <img src="f2.jpg" alt="Capacitación 2" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
+            <img src="f3.jpg" alt="Capacitación 3" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
+            <img src="f4.jpg" alt="Capacitación 4" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
+            <img src="f5.jpg" alt="Capacitación 5" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
+            <img src="f6.jpg" alt="Capacitación 6" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
+            <img src="f7.jpg" alt="Capacitación 7" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
+        </div>
+    </div>
+</section>
+
+        
+        <section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
+    <h2 style="text-align: center; color: #336699;">✅ Formas de Pago</h2>
+    <p>Puedes realizar tu pago mediante las siguientes opciones:</p>
+    
+    <!-- Método 1: Banco Continental -->
+    <div style="margin-bottom: 20px;">
+        <h3 style="color: #444;">🏦 Transferencia Bancaria: Banco Continental</h3>
+        <ul style="padding-left: 20px;">
+            <li><strong>Cta. N°:</strong> 0130289706</li>
+            <li><strong>Titular:</strong> Oscar Gonzalez Frutos</li>
+            <li><strong>CI:</strong> 3584172</li>
+        </ul>
+    </div>
+    
+    <!-- Método 2: Banco Itaú -->
+    <div style="margin-bottom: 20px;">
+        <h3 style="color: #444;">🏦 Transferencia Bancaria: Banco Itaú</h3>
+        <ul style="padding-left: 20px;">
+            <li><strong>Cta. N°:</strong> 720005407</li>
+            <li><strong>Titular:</strong> Oscar Gonzalez Frutos</li>
+            <li><strong>CI:</strong> 3584172</li>
+        </ul>
+    </div>
+    
+    <!-- Método 3: Giros Tigo -->
+    <div style="margin-bottom: 20px;">
+        <h3 style="color: #444;">📲 Giros Tigo</h3>
+        <p><strong>Número:</strong> 0983 352 932</p>
+    </div>
+    
+    <p style="font-weight: bold; text-align: left;">✅ Para confirmar tu inscripción, por favor envía el comprobante al siguiente número: <strong>0983 352 932</strong></p>
+</section>
+        
+    </div>
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    <div id="galeria" class="tab-content">
+ 
+ <section class="section-box">
+    <h2>Videos</h2>
+    <p>Descubre momentos destacados de nuestros cursos a través de estos videos. Aprende más sobre nuestra metodología y la experiencia educativa que ofrecemos.</p>
+    <div class="gallery" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; border-radius: 8px;">
+        <iframe src="https://www.youtube.com/embed/g57TDRJERvo" 
+            title="Video del curso" frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen 
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 8px;"></iframe>
+    </div>
+</section>
+
+
+
+
+
+<section class="section-box">
+    <h2>Informes</h2>
+    <p>Ejemplos creados en clase. Explora e interactúa con el informe dinámico para descubrir los datos de una forma práctica y visual.</p>
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; border-radius: 8px;">
+        <iframe title="modelo_estrella_medidas_informe" 
+            src="https://app.powerbi.com/view?r=eyJrIjoiODExN2ZmNDUtYTg4OS00MGU5LTljMGQtNDFlMTVlZTQ4NzlhIiwidCI6IjBiNjk2MDAyLWQ2YTYtNDI2Ni04OTI4LTE1ZWQ4ZDA2NDQxMCIsImMiOjR9" 
+            frameborder="0" allowfullscreen 
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+    </div>
+</section>
+
+<section class="section-box">
+    <h2>Informes</h2>
+    <p>Ejemplos creados en clase. Explora e interactúa con el informe dinámico para descubrir los datos de una forma práctica y visual.</p>
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; border-radius: 8px;">
+        <iframe 
+            title="Informe_Ventas_Final" 
+            src="https://app.powerbi.com/view?r=eyJrIjoiMGM4ZjAxZWYtMzkwNS00ZWRjLWI5YjktMzE1MzE4ZmI2YTQ2IiwidCI6IjBiNjk2MDAyLWQ2YTYtNDI2Ni04OTI4LTE1ZWQ4ZDA2NDQxMCIsImMiOjR9" 
+            frameborder="0" 
+            allowfullscreen="true"
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+    </div>
+</section>
+
+
+     
+      
+      
+      
+      
+  <section class="section-box">
+    <h2>Fotos</h2>
+    <p>Explora momentos destacados de nuestros cursos anteriores y conoce más sobre nuestra comunidad educativa.</p>
+    <!-- Aquí puedes agregar las imágenes -->
+    <div class="gallery">
+      <img src="curso1.jpg" alt="Curso 1" style="max-width: 100%; height: auto; border-radius: 8px;">
+      <img src="curso2.jpg" alt="Curso 2" style="max-width: 100%; height: auto; border-radius: 8px;">
+      <img src="curso3.jpg" alt="Curso 3" style="max-width: 100%; height: auto; border-radius: 8px;">
+      <img src="curso4.jpg" alt="Curso 1" style="max-width: 100%; height: auto; border-radius: 8px;">
+      <img src="curso5.jpg" alt="Curso 2" style="max-width: 100%; height: auto; border-radius: 8px;">
+      <img src="curso6.jpg" alt="Curso 3" style="max-width: 100%; height: auto; border-radius: 8px;">
+      <img src="curso7.jpg" alt="Curso 3" style="max-width: 100%; height: auto; border-radius: 8px;">
+    </div>
+  </section>
+</div>
+
+
+
+
+
+
+    
+    
+    
+    
+
+    <script>
+        function openTab(event, tabName) {
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(tabContent => {
+                tabContent.classList.remove('active');
+            });
+
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            document.getElementById(tabName).classList.add('active');
+            event.currentTarget.classList.add('active');
+
+            // Actualizar URL con el hash
+            window.location.hash = tabName;
+        }
+
+        // Mantener la pestaña activa al cargar la página
+        window.addEventListener('DOMContentLoaded', () => {
+            const hash = window.location.hash.substring(1);
+            if (hash) {
+                const activeTab = document.querySelector(`.tab[onclick="openTab(event, '${hash}')"]`);
+                if (activeTab) {
+                    activeTab.click();
+                }
+            }
+        });
+    </script>
+<footer class="footer" style="background-color: #336699; color: #fff; text-align: center; padding: 10px; margin-top: 30px;">
+    <p><strong>Teléfono:</strong> 0983 352 932</p>
+    <p><strong>Correo Electrónico:</strong> <a href="mailto:cicap2021@gmail.com" style="color: #ffdd44;">cicap2021@gmail.com</a></p>
+    <p><a href="https://www.facebook.com/cicap2021" target="_blank">facebook</a></p>
+    <p><a href="https://www.instagram.com/cicap2024/" target="_blank">instagram</a></p>
+    <p><strong>Asunción - Paraguay</strong></p>
+</footer>
+</body>
+</html>
