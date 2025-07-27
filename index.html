@@ -468,7 +468,6 @@
     </ul>
 </section>
 
-
 <section class="section-box" style="border: 2px solid #25D366; padding: 30px; margin: 30px 0; background-color: #eafff3; border-radius: 10px;">
   <h2 style="text-align: center; color: #128C7E;">✅ Inscripción</h2>
   <p style="text-align: center; font-size: 18px; margin-top: 10px;">
@@ -476,10 +475,26 @@
   </p>
 
   <form action="https://formspree.io/f/xnnzdevj" method="POST" style="max-width: 500px; margin: 20px auto;">
+    
     <input type="text" name="nombre" placeholder="Nombre completo" required style="width: 100%; padding: 12px; margin-bottom: 15px; border-radius: 5px; border: 1px solid #ccc;">
+    
     <input type="email" name="email" placeholder="Correo electrónico" required style="width: 100%; padding: 12px; margin-bottom: 15px; border-radius: 5px; border: 1px solid #ccc;">
+    
     <input type="tel" name="telefono" placeholder="Teléfono" required style="width: 100%; padding: 12px; margin-bottom: 15px; border-radius: 5px; border: 1px solid #ccc;">
     
+    <!-- Cursos disponibles -->
+    <select name="curso" required style="width: 100%; padding: 12px; margin-bottom: 15px; border-radius: 5px; border: 1px solid #ccc;">
+      <option value="">Seleccioná el curso</option>
+      <option value="Report y Dashboard con Power BI">Report y Dashboard con Power BI</option>
+      <option value="DAX Aplicado">DAX Aplicado: Análisis de Datos en Power BI y Excel</option>
+      <option value="PYTHON">PYTHON</option>
+      <option value="Excel Power Query y Power Pivot">Análisis de Datos Moderno con Excel: Power Query y Power Pivot</option>
+      <option value="SQL">SQL</option>
+    </select>
+
+    <!-- Comentarios opcionales -->
+    <textarea name="comentarios" placeholder="Comentarios o consultas" rows="4" style="width: 100%; padding: 12px; margin-bottom: 15px; border-radius: 5px; border: 1px solid #ccc;"></textarea>
+
     <button type="submit" style="width: 100%; padding: 15px; background-color: #25D366; color: white; font-size: 18px; font-weight: bold; border: none; border-radius: 50px; cursor: pointer;">
       📝 Enviar inscripción
     </button>
