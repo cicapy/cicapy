@@ -1680,11 +1680,13 @@
 
     <div id="python" class="tab-content">
       
-    <section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
+    <!-- Bloque con la imagen -->
+<section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
     <div style="text-align: center; margin-top: 20px;">
-        <img src="images/flyer.png" alt="Data Pro: Ciencia de Datos e IA con Python y GitHub" style="max-width: 100%; height: auto; border-radius: 8px;">
+        <img src="images/flyer.png" alt="Data Pro: Ciencia de Datos e IA con Python y GitHub" 
+             style="max-width: 100%; height: auto; border-radius: 8px;">
     </div>
-    
+
     <p style="text-align: center; margin-top: 20px; font-size: 18px; color: #333; line-height: 1.6;">
         El <strong>curso Data Pro: Ciencia de Datos e IA con Python y GitHub</strong> está diseñado para que domines el análisis de datos, la inteligencia artificial y el control de versiones.
         Aprenderás a trabajar con <strong>Python</strong> y sus bibliotecas clave para manipular datos, visualizarlos, aplicar modelos estadísticos y de IA, además de publicar tus resultados en la web mediante <strong>GitHub Pages</strong>.
@@ -1696,59 +1698,70 @@
     </p>
 </section>
 
-  <!-- Formulario embebido -->
-<div style="margin-top: 25px; background-color: #fff; border: 1px solid #25D366; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); overflow: hidden;">
-  <div style="padding: 16px; background-color: #eafff3; border-bottom: 1px solid #25D366;">
+<!-- Bloque con el video -->
+<section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px;">
+        <iframe src="https://www.youtube.com/embed/Ywk3pM23Ixk" 
+            title="Curso Data Pro: Ciencia de Datos e IA con Python y GitHub"
+            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen 
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 8px;">
+        </iframe>
+    </div>
+</section>
+
+
+
+
+
+  <div style="text-align: center; margin-top: 25px;">
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLScU_H04-FaDKlgK6MhO8rG69brzpzjj8MFCVblBgt_IglBNSQ/viewform?usp=sharing" 
+     id="showFormBtn"
+     target="_blank" 
+     style="background-color: #25D366; color: white; padding: 15px 30px; text-decoration: none; border-radius: 50px; font-weight: bold; font-size: 18px; display: inline-block; box-shadow: 0 4px 8px rgba(0,0,0,0.2); transition: all 0.2s ease;">
+    👉 ¡Inscribirme Ahora!
+  </a>
+</div>
+
+<div id="formContainer" style="display: none; margin-top: 25px; background-color: #f0fdf4; border: 1px solid #25D366; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); overflow: hidden;">
+  <div style="padding: 16px; background-color: #dcfce7; border-bottom: 1px solid #25D366;">
     <h3 style="margin: 0; font-weight: bold; color: #128C7E;">🧾 Formulario de inscripción</h3>
     <p style="font-size: 14px; color: #555; margin-top: 6px;">
       Si no podés visualizarlo correctamente, 
       <a href="https://docs.google.com/forms/d/e/1FAIpQLScU_H04-FaDKlgK6MhO8rG69brzpzjj8MFCVblBgt_IglBNSQ/viewform?usp=sharing&ouid=103409875910418921525" 
          target="_blank" style="color:#25D366; text-decoration: underline;">
-         abrilo en una pestaña nueva
+        abrilo en una pestaña nueva
       </a>.
     </p>
   </div>
-  <div style="background-color: #eafff3; padding: 15px;">
-    <div style="background: #fff; padding: 12px; border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,0.08); max-width: 920px; margin: auto;">
-      <!-- Botón expandir/reducir -->
-      <div style="text-align: right; margin-bottom: 8px;">
-        <button id="toggleFormHeight"
-                style="background-color: #25D366; color: #fff; border: none; border-radius: 50px; padding: 6px 14px; font-size: 14px; font-weight: bold; cursor: pointer;">
-          🔽 Expandir
-        </button>
-      </div>
-      <!-- Iframe -->
-      <iframe id="formIframe"
-        title="Inscripción Data Pro"
-        src="https://docs.google.com/forms/d/e/1FAIpQLScU_H04-FaDKlgK6MhO8rG69brzpzjj8MFCVblBgt_IglBNSQ/viewform?embedded=true"
-        style="width:100%; height:520px; border:none; border-radius:10px; display:block; transition:height 0.3s ease;">
-      </iframe>
-    </div>
+  <div style="padding: 15px;">
+    <iframe
+      title="Inscripción Data Pro"
+      src="https://docs.google.com/forms/d/e/1FAIpQLScU_H04-FaDKlgK6MhO8rG69brzpzjj8MFCVblBgt_IglBNSQ/viewform?embedded=true"
+      style="width:100%; height:800px; border:none; border-radius:10px; display:block;">
+    </iframe>
   </div>
 </div>
 
 <script>
   (function () {
-    const btn = document.getElementById('toggleFormHeight');
-    const iframe = document.getElementById('formIframe');
-    let expanded = false;
+    const showButton = document.getElementById('showFormBtn');
+    const formContainer = document.getElementById('formContainer');
 
-    btn.addEventListener('click', function () {
-      expanded = !expanded;
-      iframe.style.height = expanded ? '860px' : '520px';
-      btn.textContent = expanded ? '🔼 Reducir' : '🔽 Expandir';
-    });
+    if (showButton && formContainer) {
+      showButton.addEventListener('click', function (event) {
+        // Previene que el link se abra en una nueva pestaña inmediatamente
+        event.preventDefault(); 
+        
+        // Muestra el contenedor del formulario
+        formContainer.style.display = 'block';
+        
+        // Oculta el botón de inscripción
+        showButton.style.display = 'none';
+      });
+    }
   })();
 </script>
-
-
-</div>
-
-    </div>
-  </div>
-
-  </p>
-</section>
 
     
 <section class="section-box" style="border: 2px solid #25D366; padding: 30px; margin: 30px 0; background-color: #eafff3; border-radius: 10px;">
