@@ -1696,39 +1696,58 @@
     </p>
 </section>
 
-    
-<section class="section-box" style="border: 2px solid #25D366; padding: 30px; margin: 30px 0; background-color: #eafff3; border-radius: 10px;">
-  <h2 style="text-align: center; color: #128C7E;">✅ Inscripción</h2>
-  <p style="text-align: center; font-size: 18px; margin-top: 10px;">
-    Completá el formulario y reservá tu lugar.
+  <!-- Formulario embebido -->
+<div style="margin-top: 25px; background-color: #fff; border: 1px solid #25D366; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); overflow: hidden;">
+  <div style="padding: 16px; background-color: #eafff3; border-bottom: 1px solid #25D366;">
+    <h3 style="margin: 0; font-weight: bold; color: #128C7E;">🧾 Formulario de inscripción</h3>
+    <p style="font-size: 14px; color: #555; margin-top: 6px;">
+      Si no podés visualizarlo correctamente, 
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLScU_H04-FaDKlgK6MhO8rG69brzpzjj8MFCVblBgt_IglBNSQ/viewform?usp=sharing&ouid=103409875910418921525" 
+         target="_blank" style="color:#25D366; text-decoration: underline;">
+         abrilo en una pestaña nueva
+      </a>.
+    </p>
+  </div>
+  <div style="background-color: #eafff3; padding: 15px;">
+    <div style="background: #fff; padding: 12px; border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,0.08); max-width: 920px; margin: auto;">
+      <!-- Botón expandir/reducir -->
+      <div style="text-align: right; margin-bottom: 8px;">
+        <button id="toggleFormHeight"
+                style="background-color: #25D366; color: #fff; border: none; border-radius: 50px; padding: 6px 14px; font-size: 14px; font-weight: bold; cursor: pointer;">
+          🔽 Expandir
+        </button>
+      </div>
+      <!-- Iframe -->
+      <iframe id="formIframe"
+        title="Inscripción Data Pro"
+        src="https://docs.google.com/forms/d/e/1FAIpQLScU_H04-FaDKlgK6MhO8rG69brzpzjj8MFCVblBgt_IglBNSQ/viewform?embedded=true"
+        style="width:100%; height:520px; border:none; border-radius:10px; display:block; transition:height 0.3s ease;">
+      </iframe>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function () {
+    const btn = document.getElementById('toggleFormHeight');
+    const iframe = document.getElementById('formIframe');
+    let expanded = false;
+
+    btn.addEventListener('click', function () {
+      expanded = !expanded;
+      iframe.style.height = expanded ? '860px' : '520px';
+      btn.textContent = expanded ? '🔼 Reducir' : '🔽 Expandir';
+    });
+  })();
+</script>
+
+
+</div>
+
+    </div>
+  </div>
+
   </p>
-
-  <form action="https://formspree.io/f/xnnzdevj" method="POST" style="max-width: 500px; margin: 20px auto;">
-    
-    <input type="text" name="nombre" placeholder="Nombre completo" required style="width: 100%; padding: 12px; margin-bottom: 15px; border-radius: 5px; border: 1px solid #ccc;">
-    
-    <input type="email" name="email" placeholder="Correo electrónico" required style="width: 100%; padding: 12px; margin-bottom: 15px; border-radius: 5px; border: 1px solid #ccc;">
-    
-    <input type="tel" name="telefono" placeholder="Teléfono" required style="width: 100%; padding: 12px; margin-bottom: 15px; border-radius: 5px; border: 1px solid #ccc;">
-    
-    <!-- Cursos disponibles -->
-    <select name="curso" required style="width: 100%; padding: 12px; margin-bottom: 15px; border-radius: 5px; border: 1px solid #ccc;">
-      <option value="">Seleccioná el curso</option>
-     <option value="Data Pro: Ciencia de Datos e IA con Python y GitHub">Data Pro: Ciencia de Datos e IA con Python y GitHub</option>
-      <option value="Report y Dashboard con Power BI">Report y Dashboard con Power BI</option>
-      <option value="DAX Aplicado">DAX Aplicado: Análisis de Datos en Power BI y Excel</option>
-      <option value="PYTHON">PYTHON</option>
-      <option value="Excel Power Query y Power Pivot">Análisis de Datos Moderno con Excel: Power Query y Power Pivot</option>
-      <option value="SQL">SQL</option>
-    </select>
-
-    <!-- Comentarios opcionales -->
-    <textarea name="comentarios" placeholder="Comentarios o consultas" rows="4" style="width: 100%; padding: 12px; margin-bottom: 15px; border-radius: 5px; border: 1px solid #ccc;"></textarea>
-
-    <button type="submit" style="width: 100%; padding: 15px; background-color: #25D366; color: white; font-size: 18px; font-weight: bold; border: none; border-radius: 50px; cursor: pointer;">
-      📝 Enviar inscripción
-    </button>
-  </form>
 </section>
 
     
@@ -1755,10 +1774,11 @@
        
        
        
-       <li>16 de agosto de 2025</li>
+       
        <li>23 de agosto de 2025</li>
        <li>30 de agosto de 2025</li>
-       <li>03 de setiembre de 2025</li>
+       <li>06 de setiembre de 2025</li>
+       <li>13 de setiembre de 2025</li>
         
     </ul>
     <p><strong>Días y Horarios:</strong> Sábados de 9.00 a 11.45hs</p>
