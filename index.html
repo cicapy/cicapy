@@ -190,680 +190,560 @@
     </div>
   </section>
 </div>
+<div id="excel" class="tab-content">
+  <style>
+    /* ====== Estilos scoped al tab #excel ====== */
+    #excel { --primary: #336699; --ink: #222; --muted: #666; --bg: #f7f9fb; --card: #ffffff; --accent: #25D366; }
+    #excel .wrap { max-width: 1100px; margin: 0 auto; padding: 24px; }
+    #excel .title { text-align: center; color: var(--primary); font-size: clamp(1.6rem, 2.4vw, 2.2rem); font-weight: 800; line-height: 1.15; }
+    #excel .subtitle { text-align: center; color: var(--ink); font-size: 1.05rem; margin: 12px auto 0; max-width: 850px; line-height: 1.6; }
+    #excel .hero { background: var(--bg); border: 1px solid #e5eaf0; border-radius: 14px; padding: 20px; box-shadow: 0 1px 8px rgba(0,0,0,0.03); }
+    #excel .hero img { width: 100%; height: auto; border-radius: 10px; }
+    #excel .badges { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 14px 0 4px; }
+    #excel .badge { background: #eaf2fb; color: var(--primary); padding: 6px 10px; border-radius: 20px; font-size: .85rem; font-weight: 700; border: 1px solid #d6e6fa; }
 
+    #excel .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    #excel .card { background: var(--card); border: 1px solid #e7ebf0; border-radius: 12px; padding: 18px; box-shadow: 0 2px 10px rgba(0,0,0,0.04); }
+    #excel .card h2, #excel .card h3 { color: var(--primary); margin: 0 0 10px; font-size: 1.25rem; }
+    #excel .card p { color: var(--ink); line-height: 1.6; margin: 6px 0 0; }
+    #excel ul { margin: 8px 0 0 18px; }
+    #excel li { margin: 4px 0; line-height: 1.55; }
 
+    /* Timeline 5 sesiones */
+    #excel .timeline { display: grid; grid-template-columns: 1fr; gap: 12px; }
+    #excel .step { position: relative; padding: 14px 14px 14px 52px; border: 1px dashed #d9e3ef; border-radius: 12px; background: #fcfdff; }
+    #excel .step::before { content: attr(data-n); position: absolute; left: 14px; top: 14px; width: 28px; height: 28px; display: grid; place-items: center; border-radius: 50%; background: var(--primary); color: #fff; font-weight: 800; font-size: .95rem; }
+    #excel .step h4 { margin: 0 0 6px; color: var(--ink); font-size: 1.05rem; }
+    #excel .pill { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: .8rem; border: 1px solid #e2e8f0; color: #435; background: #f6f8fb; margin-right: 6px; }
 
-    <div id="excel" class="tab-content">
-      
-      <section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
-    <h1 style="text-align: center; color: #336699; font-size: 2em; font-weight: bold;">Análisis de Datos Modernos con EXCEL: Power Query y Power Pivot</h1>
-    <div style="text-align: center; margin-top: 10px;">
-        <img src="images/pivot.png" alt="Curso de Power BI" style="max-width: 100%; height: auto; border-radius: 8px;">
-    </div>
-    <p style="text-align: center; margin-top: 20px; font-size: 18px; color: #333; line-height: 1.6;">
-        Este curso está diseñado para adaptarse a tus necesidades. Se ofrece en <strong>modalidad sincrónica y asincrónica</strong>, 
-        lo que te permite participar en las clases en vivo o seguir las grabaciones a tu propio ritmo. 
-        Además, podrás completar las tareas y ejercicios cuando más te convenga.
-    </p>
-    <p style="text-align: center; margin-top: 15px; font-size: 16px; color: #666;">
-        Este curso está diseñado para capacitarte en el uso avanzado de Excel, incluyendo herramientas como Power Query y Power Pivot, para el análisis y la visualización de datos. Aprenderás a importar datos desde múltiples fuentes, transformarlos, modelarlos y crear informes dinámicos y dashboards interactivos.
-    </p>
+    /* Tracks por sector */
+    #excel .tracks { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    #excel .track { background: #ffffff; border: 1px solid #e7ebf0; border-radius: 12px; padding: 14px; }
+    #excel .track h4 { margin: 0 0 6px; color: var(--primary); font-size: 1rem; }
 
+    /* Perfiles */
+    #excel .personas { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    #excel .persona { background: #ffffff; border: 1px solid #e7ebf0; border-radius: 12px; padding: 14px; }
+    #excel .persona h4 { margin: 0 0 6px; color: var(--primary); font-size: 1rem; }
 
-<section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
-    <h2 style="text-align: center; color: #336699;">✅ Metodología</h2>
-    <ul>
-        <li>Clases en vivo a través de Zoom, facilitando la interacción directa con el instructor.</li>
-        <li>Clases grabadas disponibles para consulta posterior.</li>
-        <li>Actividades prácticas: Ejercicios y proyectos aplicados.</li>
-        <li>Asesoramiento personalizado durante y después de las sesiones.</li>
-    </ul>
-</section>
+    /* CTA */
+    #excel .cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 14px; }
+    #excel .button { display: inline-flex; align-items: center; gap: 8px; padding: 12px 18px; border-radius: 999px; border: 1px solid #dfe7ef; background: #fff; color: var(--primary); font-weight: 800; text-decoration: none; }
+    #excel .button--accent { background: var(--accent); color: #fff; border-color: var(--accent); }
 
-<section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
-    <h2 style="text-align: center; color: #336699;">📅 Fecha de Capacitación en Vivo:</h2>
-    <ul>
-        <li><strong>Fechas:</strong> mayo a junio de 2025.</li>
-        <li><strong>Horario:</strong> 19:30 a 21:40 hs.</li>
-        
-    </ul>
-</section>
-
-
-
-<section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
-    <h2 style="text-align: center; color: #336699;">✅ Costo del Curso</h2>
-    
-    <p><strong>Costo del Curso:</strong> 300.000 Gs (Pago Único). Incluye materiales, grabaciones y certificado.</p>
-    <p>🎉 <strong>¡Descuento para grupos!</strong> Si te inscribes en grupo, obtén un descuento especial. ¡Contáctanos para más información!</p>
-    <ul>
-        <li>2 personas: 250.000 Gs c/u</li>
-        <li>3 personas: 200.000 Gs c/u</li>
-        <li>4 o más: 150.000 Gs c/u</li>
-    </ul>
-</section>
-
-
-
-<section class="section-box" style="border: 2px solid #25D366; padding: 30px; margin: 30px 0; background-color: #eafff3; border-radius: 10px;">
-  <h2 style="text-align: center; color: #128C7E;">✅ Inscripción</h2>
-  <p style="text-align: center; font-size: 18px; margin-top: 10px;">
-    Completá el formulario y reservá tu lugar.
-  </p>
-
-  <form action="https://formspree.io/f/xnnzdevj" method="POST" style="max-width: 500px; margin: 20px auto;">
-    
-    <input type="text" name="nombre" placeholder="Nombre completo" required style="width: 100%; padding: 12px; margin-bottom: 15px; border-radius: 5px; border: 1px solid #ccc;">
-    
-    <input type="email" name="email" placeholder="Correo electrónico" required style="width: 100%; padding: 12px; margin-bottom: 15px; border-radius: 5px; border: 1px solid #ccc;">
-    
-    <input type="tel" name="telefono" placeholder="Teléfono" required style="width: 100%; padding: 12px; margin-bottom: 15px; border-radius: 5px; border: 1px solid #ccc;">
-    
-    <!-- Cursos disponibles -->
-    <select name="curso" required style="width: 100%; padding: 12px; margin-bottom: 15px; border-radius: 5px; border: 1px solid #ccc;">
-      <option value="">Seleccioná el curso</option>
-      <option value="Report y Dashboard con Power BI">Report y Dashboard con Power BI</option>
-      <option value="DAX Aplicado">DAX Aplicado: Análisis de Datos en Power BI y Excel</option>
-      <option value="PYTHON">PYTHON</option>
-      <option value="Excel Power Query y Power Pivot">Análisis de Datos Moderno con Excel: Power Query y Power Pivot</option>
-      <option value="SQL">SQL</option>
-    </select>
-
-    <!-- Comentarios opcionales -->
-    <textarea name="comentarios" placeholder="Comentarios o consultas" rows="4" style="width: 100%; padding: 12px; margin-bottom: 15px; border-radius: 5px; border: 1px solid #ccc;"></textarea>
-
-    <button type="submit" style="width: 100%; padding: 15px; background-color: #25D366; color: white; font-size: 18px; font-weight: bold; border: none; border-radius: 50px; cursor: pointer;">
-      📝 Enviar inscripción
-    </button>
-  </form>
-</section>
-
-
-<section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
-    <h2 style="text-align: center; color: #336699;">✅ Formas de Pago</h2>
-    <p>Transferencia o depósito bancario:</p>
-    
-    <!-- Método 1: Banco Itaú -->
-    <div style="margin-bottom: 20px;">
-        <h3 style="color: #444;">🏦 Banco Itaú:</h3>
-        <ul style="padding-left: 20px;">
-            <li><strong>Cta. N°:</strong> 720005407</li>
-            <li><strong>Titular:</strong> Oscar Gonzalez Frutos</li>
-            <li><strong>CI:</strong> 3584172</li>
-        </ul>
-    </div>
-    
-    <!-- Alias -->
-    <div style="margin-bottom: 20px;">
-        <ul style="padding-left: 20px;">
-            <li><strong>Alias:</strong> 3584172</li>
-        </ul>
-    </div>
-
-    <!-- Método 2: Pago con Tarjeta -->
-    <div style="margin-bottom: 20px;">
-        <h3 style="color: #444;">💳 Pago con Tarjeta de Crédito/Débito:</h3>
-        <p>Podés abonar mediante POS Virtual. Consultá para recibir el enlace de pago.</p>
-    </div>
-
-    <p style="font-weight: bold; text-align: left;">✅ Para confirmar tu inscripción, por favor envía el comprobante al siguiente número: <strong>0983 352 932</strong></p>
-</section>
-
-
-
-
-<section id="web-personal" style="margin-top: 60px;">
-    <h2 style="text-align: center; color: #336699;">👨‍🏫 Capacitador</h2>
-
-    <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
-        <div style="flex-shrink: 0; text-align: center;">
-            <img src="images/foto.jpg" alt="Foto del docente" style="border-radius: 50%; width: 150px; height: 200px; object-fit: cover; border: 2px solid #ccc;">
-        </div>
-
-        <div style="flex: 1; text-align: left;">
-            <p><strong>Nombre del Docente:</strong> Oscar González Frutos</p>
-            <p><strong>Lic. en:</strong> Matemática Estadística FACEN - UNA.</p>
-            <p><strong>MSc. en:</strong> Estadística Aplicada - Universidad de Granada, España (Becal).</p>
-            <p><strong>Experiencia:</strong> Más de 10 años en Análisis de Datos y docencia en SQL, Excel, Power BI, R y Python.</p>
-            <p><strong>Certificaciones:</strong> Certificate in Data Science con R - HarvardX (Harvard University - En Línea).</p>
-            <p><strong>Pasión por enseñar:</strong> Comprometido en ayudarte a dominar habilidades clave y aplicarlas en proyectos reales.</p>
-            <p><strong>Experiencia docente:</strong> Ha impartido capacitaciones en herramientas de análisis de datos en instituciones públicas como el <strong>Banco Central del Paraguay (BCP)</strong>, <strong>Itaipú Binacional</strong>, <strong>DGEEC</strong>, <strong>MEC</strong>, <strong>FACEN</strong>, <strong>UNA</strong> y el <strong>Ministerio de Desarrollo Social</strong>; y en organizaciones privadas como <strong>Automotor</strong>, <strong>Banco Familiar</strong>, <strong>Bancoop</strong> y <strong>Sueñolar</strong>.</p>
-            <p>
-                🌐 <a href="https://oscar-pry.github.io/web_personal/" target="_blank" style="color: #336699; text-decoration: none;">
-                    Ir a la Web Personal
-                </a>
-            </p>
-            <p>
-                📎 <a href="https://www.linkedin.com/in/oscar-gonzález-frutos" target="_blank" style="color: #336699; text-decoration: none;">
-                    Conecta conmigo en LinkedIn
-                </a>
-            </p>
-        </div>
-    </div>
-
-    <div style="margin-top: 30px;">
-        <h3 style="color: #336699; text-align: center;">📸 Galería de Capacitaciones</h3>
-        <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; margin-top: 15px;">
-            <img src="images/f1.jpg" alt="Capacitación 1" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
-            <img src="images/f2.jpg" alt="Capacitación 2" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
-            <img src="images/f3.jpg" alt="Capacitación 3" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
-            <img src="images/f4.jpg" alt="Capacitación 4" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
-            <img src="images/f5.jpg" alt="Capacitación 5" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
-            <img src="images/f6.jpg" alt="Capacitación 6" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
-            <img src="images/f7.jpg" alt="Capacitación 7" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
-        </div>
-    </div>
-</section>
-<style>
-/* Responsividad para pantallas más pequeñas */
-@media (max-width: 768px) {
-    .section-box div {
-        flex-basis: 100%; /* Cada sección ocupa todo el ancho */
-        text-align: center; /* Centrar contenido */
+    /* Responsive */
+    @media (max-width: 980px){
+      #excel .grid { grid-template-columns: 1fr; }
+      #excel .tracks { grid-template-columns: repeat(2, 1fr); }
+      #excel .personas { grid-template-columns: repeat(2, 1fr); }
     }
-    .section-box img {
-        margin: 0 auto; /* Centrar imagen */
+    @media (max-width: 640px){
+      #excel .tracks, #excel .personas { grid-template-columns: 1fr; }
     }
-}
-</style>
+  </style>
 
-    
-    
-
-     <section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
-        <h2>Contenido del Curso</h2>
-       
-    </section>
-    
-    
-    <section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
-    <h3>Parte Introductoria: Funcionalidades Básicas de Excel</h3>
-    <ul>
-        <li><strong>Interfaz de Excel:</strong> Descripción de las principales pestañas y herramientas, incluyendo la barra de fórmulas y la navegación en hojas de cálculo.</li>
-        <li><strong>Funciones y Fórmulas Básicas:</strong> Uso de funciones como Suma, Promedio, Máximo, Mínimo, referencias absolutas y relativas ($), y fórmulas condicionales como SI, CONTAR.SI, y SUMAR.SI.</li>
-        <li><strong>Formateo de Datos:</strong> Aplicación de estilos de celdas, formatos de números, bordes, filtros y ordenamiento de datos.</li>
-        <li><strong>Gráficos Básicos:</strong> Creación de gráficos de columnas, líneas y circulares, incluyendo ajustes de títulos, ejes y leyendas.</li>
-        <li><strong>Introducción a Tablas:</strong> Creación y manejo de tablas en Excel, aprovechando filtros, estilos y referencias estructuradas.</li>
-    </ul>
-</section>
-
-
-     <section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
-               <h2>Power Query</h2>
-    <div style="text-align: center; margin-bottom: 20px;">
-        <img src="images/query.png" alt="Power Query" style="max-width: 100%; height: auto; border: 1px solid #ddd; padding: 10px;">
+  <div class="wrap">
+    <!-- HERO -->
+    <div class="hero card">
+      <h1 class="title">Análisis de Datos Moderno con <b>Excel</b>: Power Query + Power Pivot</h1>
+      <p class="subtitle">Programa intensivo de <b>5 sesiones  para convertir hojas sueltas en <b>modelos confiables</b>, automatizar la limpieza de datos y construir <b>dashboards accionables</b>. Casos por sector: <b>Finanzas</b>, <b>Marketing</b>, <b>Tecnología</b>, <b>Educación</b>. Pensado para <b>principiantes</b>, <b>profesionales</b>, <b>gerentes</b> y <b>analistas de datos</b>.</p>
+      <div class="badges">
+        <span class="badge">Finanzas</span>
+        <span class="badge">Marketing</span>
+        <span class="badge">Tecnología</span>
+        <span class="badge">Educación</span>
+        <span class="badge">Principiantes</span>
+        <span class="badge">Profesionales</span>
+        <span class="badge">Gerentes</span>
+        <span class="badge">Analistas de Datos</span>
+      </div>
+      <img src="images/pivot.png" alt="Curso Excel Power Query & Power Pivot" />
+      <div class="cta">
+        <a class="button button--accent" href="#inscripcion">📝 Inscribirme ahora</a>
+        <a class="button" href="#programa">📚 Ver programa</a>
+      </div>
     </div>
-    <p>
-        Con Power Query, puede buscar orígenes de datos, realizar conexiones y, a continuación, dar forma a esos datos 
-        (por ejemplo, quitar una columna, cambiar un tipo de datos o combinar tablas) de maneras que se ajusten a sus 
-        necesidades. Después, puede cargar la consulta en Excel para crear gráficos e informes.
-    </p>
-    <p>Hay cuatro fases principales para usar Power Query:</p>
-    <ul>
-        <li><strong>Conectar:</strong> Importe y realice conexiones a datos en la nube, en un servicio o localmente.</li>
-        <li><strong>Transformar:</strong> Dé forma a los datos para satisfacer sus necesidades, mientras que el origen original permanece inalterado.</li>
-        <li><strong>Combinar:</strong> Integre datos desde varios orígenes para obtener una vista única de los datos.</li>
-        <li><strong>Cargar:</strong> Complete la consulta y guárdela en una hoja de cálculo o un modelo de datos.</li>
-    </ul>
-     <h3>Tema 1: Introducción y Preparación de Datos con Power Query</h3>
-        <ul>
-            <li>Introducción a Power Query y su uso en el análisis de datos.</li>
-            <li>Importación de datos desde TXT, CSV, Excel y bases de datos.</li>
-            <li>Transformaciones básicas: limpieza, filtrado y ordenamiento de datos.</li>
-            <li>Carga de datos procesados a Excel.</li>
-        </ul>
-    </section>
 
-     <section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
-       
-       <h3>Power Pivot</h3>
-    <div style="text-align: center; margin-bottom: 20px;">
-        <img src="images/pivot1.jpg" alt="Power Pivot" style="max-width: 100%; height: auto; border: 1px solid #ddd; padding: 10px;">
-    </div>
-    <p>
-        Power Pivot es una herramienta de modelado de datos que permite integrar grandes volúmenes de datos de múltiples 
-        fuentes, establecer relaciones entre ellos y crear cálculos avanzados utilizando DAX (Data Analysis Expressions). 
-        Con Power Pivot, puedes crear modelos de datos robustos y flexibles que mejoran el análisis y la visualización.
-    </p>
-    <p>Las principales funcionalidades de Power Pivot incluyen:</p>
-    <ul>
-        <li><strong>Integración de Datos:</strong> Importa datos de diferentes orígenes y combínalos en un modelo unificado.</li>
-        <li><strong>Relaciones entre Tablas:</strong> Crea relaciones entre múltiples tablas para realizar análisis complejos.</li>
-        <li><strong>Cálculos Avanzados:</strong> Utiliza medidas y columnas calculadas para obtener resultados personalizados con DAX.</li>
-        <li><strong>Optimización de Modelos:</strong> Simplifica y optimiza el modelo para mejorar el rendimiento en análisis y visualizaciones.</li>
-    </ul>
-        <h3>Tema 2: Modelado de Datos con Power Pivot</h3>
+    <!-- Modalidad & Metodología -->
+    <div class="grid" style="margin-top:16px;">
+      <section class="card">
+        <h2>Metodología</h2>
         <ul>
-            <li>Qué es Power Pivot y cómo usarlo para modelos de datos.</li>
-            <li>Creación de relaciones entre tablas y jerarquías.</li>
-            <li>Introducción a DAX: funciones básicas como SUM, AVERAGE y COUNT.</li>
-            <li>Buenas prácticas para optimizar el modelo de datos.</li>
+          <li>Clases en vivo por Zoom + grabaciones on‑demand.</li>
+          <li>Aprendizaje <b>hands‑on</b> con datasets reales por sector.</li>
+          <li>Proyecto guiado: unificás extracción ▶︎ modelado ▶︎ dashboard.</li>
+          <li>Soporte y asesoría personalizada durante y después del curso.</li>
         </ul>
-    </section>
-
-     <section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
-        <h3>Tema 3: Cálculos y Análisis Avanzados con DAX</h3>
-        <ul>
-            <li>Funciones avanzadas de DAX: CALCULATE, FILTER, ALL.</li>
-            <li>Cálculos temporales (YTD, MTD, variaciones interanuales).</li>
-            <li>Creación de tablas dinámicas desde Power Pivot.</li>
-            <li>Optimización del modelo de datos para análisis más complejos.</li>
-        </ul>
-    </section>
-
-     <section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
-        <h3>Tema 4: Visualización y Presentación de Informes</h3>
-        <ul>
-            <li>Creación de dashboards en Excel: gráficos avanzados y segmentadores.</li>
-            <li>Diseño profesional y formateo de informes.</li>
-            <li>Automatización y actualización automática de datos.</li>
-            <li>Caso práctico: integración completa del flujo de trabajo.</li>
-        </ul>
-    </section>
-
-    <section class="section-box">
-        <h2 style="text-align: center; color: #336699;">Ejemplos de Dasboards creados en clase</h2>
-           <!-- Aquí puedes agregar las imágenes -->
-        <div class="gallery">
-          <img src="images/informe.jpg" alt="Curso 1" style="max-width: 100%; height: auto; border-radius: 8px;">
-          <img src="images/p4.png" alt="Curso 1" style="max-width: 100%; height: auto; border-radius: 8px;">
-          
-        </div>
       </section>
-    
-    
-    
+      <section class="card">
+        <h2>Modalidad</h2>
+        <ul>
+          <li><b>Sincrónica</b> y <b>asincrónica</b> (grabaciones + materiales).</li>
+          <li>Duración total: (5 sesiones × 120 min).</li>
+          <li>Horarios a coordinar con el grupo/empresa.</li>
+          <li>Incluye <b>certificado</b> y repositorio de recursos.</li>
+        </ul>
+      </section>
+    </div>
+
+    <!-- Programa 5 sesiones -->
+    <section id="programa" class="card">
+      <h2>Programa — 5 sesiones </h2>
+      <div class="timeline">
+        <div class="step" data-n="1">
+          <h4>Excel para análisis + Primer ETL con Power Query</h4>
+          <p><span class="pill">Fundamentos</span><span class="pill">Limpieza</span><span class="pill">Calidad de datos</span></p>
+          <ul>
+            <li>Buenas prácticas en libros, tablas y referencias estructuradas.</li>
+            <li>Conectar a CSV/TXT/Excel; perfiles y tipos; remover nulos, recortar, normalizar.</li>
+            <li>Entregable: <b>pipeline de limpieza</b> repetible (Query).</li>
+          </ul>
+        </div>
+        <div class="step" data-n="2">
+          <h4>Power Query en acción: combinar, transformar y calendarizar</h4>
+          <p><span class="pill">Merges</span><span class="pill">Parametros</span><span class="pill">Funciones</span></p>
+          <ul>
+            <li>Uniones (merge/append), tablas de dimensiones, normalización de fechas.</li>
+            <li>Parámetros y funciones para automatizar tareas recurrentes.</li>
+            <li>Entregable: <b>dataset limpio y unificado</b> listo para el modelo.</li>
+          </ul>
+        </div>
+        <div class="step" data-n="3">
+          <h4>Power Pivot: modelo relacional y DAX básico</h4>
+          <p><span class="pill">Relaciones</span><span class="pill">Medidas</span><span class="pill">Calendario</span></p>
+          <ul>
+            <li>Relaciones 1‑* y *‑* controladas, direcciones de filtro.</li>
+            <li>Calendario de fechas, columnas calculadas vs. medidas.</li>
+            <li>DAX esencial: <code>SUM</code>, <code>COUNTROWS</code>, <code>DIVIDE</code>, <code>IF</code>, <code>VAR</code>.</li>
+          </ul>
+        </div>
+        <div class="step" data-n="4">
+          <h4>DAX intermedio: contexto, CALCULATE y time‑intelligence</h4>
+          <p><span class="pill">Contexto</span><span class="pill">Filtros</span><span class="pill">YTD/MTD</span></p>
+          <ul>
+            <li>Contexto de fila vs. filtro, <code>CALCULATE</code>, <code>FILTER</code>, <code>ALL</code>.</li>
+            <li>Variaciones interanuales, crecimiento, % contribución, KPI semáforos.</li>
+            <li>Entregable: <b>paquete de medidas reutilizables</b>.</li>
+          </ul>
+        </div>
+        <div class="step" data-n="5">
+          <h4>Dashboard ejecutivo en Excel + actualización automática</h4>
+          <p><span class="pill">Segmentadores</span><span class="pill">Diseño</span><span class="pill">Automatización</span></p>
+          <ul>
+            <li>Tablas dinámicas conectadas al modelo, gráficos avanzados y segmentadores.</li>
+            <li>Diseño profesional (tipografía, paleta, layout) y storytelling de datos.</li>
+            <li>Refresh controlado: actualizar todo con un clic. <b>Presentación final del proyecto</b>.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tracks por sector (casos prácticos) -->
+    <section class="card">
+      <h2>Casos prácticos por sector</h2>
+      <div class="tracks">
+        <div class="track">
+          <h4>💼 Finanzas</h4>
+          <ul>
+            <li>Ventas/Compras + IVA, aging de cuentas, flujo mensual.</li>
+            <li>Márgenes, presupuesto vs. real, variaciones y % contribución.</li>
+            <li>Dashboard: <b>Estado de resultados</b> y <b>cash flow</b> con segmentadores.</li>
+          </ul>
+        </div>
+        <div class="track">
+          <h4>📣 Marketing</h4>
+          <ul>
+            <li>Embudo de campañas: impresiones ▶︎ clics ▶︎ leads ▶︎ ventas.</li>
+            <li>CAC, ROAS, LTV, cohortes por mes de adquisición.</li>
+            <li>Dashboard: <b>Desempeño de campañas</b> y <b>cohortes</b>.</li>
+          </ul>
+        </div>
+        <div class="track">
+          <h4>🛠️ Tecnología</h4>
+          <ul>
+            <li>Tickets: tiempo de resolución, SLA, severidad, backlog.</li>
+            <li>Disponibilidad mensual (% uptime) y incidentes por servicio.</li>
+            <li>Dashboard: <b>Operaciones & SLA</b>.</li>
+          </ul>
+        </div>
+        <div class="track">
+          <h4>🏫 Educación</h4>
+          <ul>
+            <li>Asistencia, calificaciones, tasas de aprobación/retención.</li>
+            <li>Brechas por curso/sección, evolución trimestral.</li>
+            <li>Dashboard: <b>Desempeño académico</b>.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Rutas por perfil -->
+    <section class="card">
+      <h2>Ruta sugerida por perfil</h2>
+      <div class="personas">
+        <div class="persona">
+          <h4>🧭 Gerentes</h4>
+          <ul>
+            <li>Lectura de KPI y storytelling de datos.</li>
+            <li>Plantillas ejecutivas listas para presentar.</li>
+          </ul>
+        </div>
+        <div class="persona">
+          <h4>🧑‍💼 Profesionales</h4>
+          <ul>
+            <li>Automatizar reportes recurrentes con Query + Pivot.</li>
+            <li>Checklist de calidad y reutilización.</li>
+          </ul>
+        </div>
+        <div class="persona">
+          <h4>📊 Analistas</h4>
+          <ul>
+            <li>Modelado relacional sólido y paquete DAX intermedio.</li>
+            <li>Métricas avanzadas por sector.</li>
+          </ul>
+        </div>
+        <div class="persona">
+          <h4>🌱 Principiantes</h4>
+          <ul>
+            <li>Fundamentos de Excel para análisis (tablas, gráficos, atajos).</li>
+            <li>Guías paso a paso y datasets de práctica.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Logística -->
+    <div class="grid">
+      <section class="card">
+        <h2>Requisitos</h2>
+        <ul>
+          <li>Excel para Windows con <b>Power Query</b> y <b>Power Pivot</b> habilitados.</li>
+          <li>Conocimientos básicos de Excel (sumas, filtros) son suficientes.</li>
+          <li>Para Mac: revisar compatibilidad de Power Pivot antes de inscribirte.</li>
+        </ul>
+      </section>
+      <section class="card">
+        <h2>Incluye</h2>
+        <ul>
+          <li>Materiales, datasets, plantillas y grabaciones.</li>
+          <li>Certificado de participación.</li>
+          <li>Soporte post‑curso por 15 días.</li>
+        </ul>
+      </section>
+    </div>
+
+    <!-- Fechas & Costo -->
+    <div class="grid">
+      <section class="card">
+        <h2>Fechas y horario (en vivo)</h2>
+        <ul>
+          <li><b>Días:</b> <b>martes</b></li>
+          <li><b>Fechas:</b> 4, 11, 18 y 25 de noviembre; <b>2 de diciembre</b> de 2025.</li>
+          <li><b>Horario:</b> 19:30–21:30 (2 h, GMT-3).</li>
+          <li><b>Duración total:</b> 5 sesiones.</li>
+        </ul>
+      </section>
+      <section class="card">
+        <h2>Inversión</h2>
+        <p><b>300.000 Gs</b> (pago único). Incluye materiales, grabaciones y certificado.</p>
+        <ul>
+          <li>2 personas: <b>250.000 Gs c/u</b></li>
+          <li>3 personas y más: <b>200.000 Gs c/u</b></li>
+        </ul>
+      </section>
+    </div>
+
+    <!-- Formulario de inscripción -->
+    <section id="inscripcion" class="card">
+      <h2>Inscripción</h2>
+      <p>Completá el formulario y reservá tu lugar. Recibirás la confirmación por correo.</p>
+      <form action="https://formspree.io/f/xnnzdevj" method="POST" style="max-width: 520px; margin: 0 auto;">
+        <input type="text" name="nombre" placeholder="Nombre completo" required style="width:100%; padding:12px; margin:6px 0; border-radius:8px; border:1px solid #d7dde5;">
+        <input type="email" name="email" placeholder="Correo electrónico" required style="width:100%; padding:12px; margin:6px 0; border-radius:8px; border:1px solid #d7dde5;">
+        <input type="tel" name="telefono" placeholder="Teléfono" required style="width:100%; padding:12px; margin:6px 0; border-radius:8px; border:1px solid #d7dde5;">
+        <select name="curso" required style="width:100%; padding:12px; margin:6px 0; border-radius:8px; border:1px solid #d7dde5;">
+          <option value="">Seleccioná el curso</option>
+          <option value="Report y Dashboard con Power BI">Report y Dashboard con Power BI</option>
+          <option value="DAX Aplicado">DAX Aplicado: Análisis de Datos en Power BI y Excel</option>
+          <option value="PYTHON">PYTHON</option>
+          <option value="Excel Power Query y Power Pivot" selected>Excel: Power Query y Power Pivot</option>
+          <option value="SQL">SQL</option>
+        </select>
+        <textarea name="comentarios" placeholder="Comentarios o consultas" rows="4" style="width:100%; padding:12px; margin:6px 0 12px; border-radius:8px; border:1px solid #d7dde5;"></textarea>
+        <button type="submit" class="button button--accent" style="width:100%; justify-content:center;">📝 Enviar inscripción</button>
+      </form>
+    </section>
+
+    <!-- Pagos -->
+    <section class="card">
+      <h2>Formas de pago</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>🏦 Transferencia / Depósito</h3>
+          <ul>
+            <li><b>Banco Itaú</b></li>
+            <li><b>Cta. Nº:</b> 720005407</li>
+            <li><b>Titular:</b> Oscar Gonzalez Frutos</li>
+            <li><b>CI:</b> 3584172</li>
+            <li><b>Alias:</b> 3584172</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>💳 Tarjeta de crédito / débito</h3>
+          <p>Podés abonar mediante POS virtual. Solicitá el enlace de pago.</p>
+        </div>
+      </div>
+      <p style="margin-top:10px; font-weight:700;">Para confirmar tu inscripción enviá el comprobante a <b>0983 352 932</b>.</p>
+    </section>
+
+    <!-- Capacitador -->
+    <section class="card">
+      <h2>👨‍🏫 Capacitador</h2>
+      <div class="grid">
+        <div class="card" style="text-align:center;">
+          <img src="images/foto.jpg" alt="Foto del docente" style="border-radius:12px; width: 180px; height: 220px; object-fit: cover; border: 1px solid #e7ebf0; margin: 0 auto; display:block;" />
+          <p style="margin-top:8px;"><b>Oscar González Frutos</b></p>
+        </div>
+        <div class="card">
+          <ul>
+            <li>Lic. en Matemática Estadística — FACEN‑UNA.</li>
+            <li>MSc. en Estadística Aplicada — Univ. de Granada (Becal).</li>
+            <li>10+ años enseñando SQL, Excel, Power BI, R y Python.</li>
+            <li>Certificación: Data Science con R — HarvardX.</li>
+            <li>Experiencia dictando en BCP, Itaipú, DGEEC, MEC, FACEN‑UNA, MDS; y en sector privado (Automotor, Banco Familiar, Bancoop, Sueñolar).</li>
+          </ul>
+          <p>
+            🌐 <a href="https://oscar-pry.github.io/web_personal/" target="_blank" style="color:var(--primary);">Web personal</a> ·
+            🔗 <a href="https://www.linkedin.com/in/oscar-gonzález-frutos" target="_blank" style="color:var(--primary);">LinkedIn</a>
+          </p>
+        </div>
+      </div>
+      <h3 style="margin-top:12px; color:var(--primary);">📸 Galería</h3>
+      <div style="display:flex; flex-wrap:wrap; gap:10px; justify-content:center;">
+        <img src="images/f1.jpg" alt="Capacitación 1" style="width:260px; height:160px; object-fit:cover; border-radius:10px; border:1px solid #e7ebf0;"/>
+        <img src="images/f2.jpg" alt="Capacitación 2" style="width:260px; height:160px; object-fit:cover; border-radius:10px; border:1px solid #e7ebf0;"/>
+        <img src="images/f3.jpg" alt="Capacitación 3" style="width:260px; height:160px; object-fit:cover; border-radius:10px; border:1px solid #e7ebf0;"/>
+        <img src="images/f4.jpg" alt="Capacitación 4" style="width:260px; height:160px; object-fit:cover; border-radius:10px; border:1px solid #e7ebf0;"/>
+        <img src="images/f5.jpg" alt="Capacitación 5" style="width:260px; height:160px; object-fit:cover; border-radius:10px; border:1px solid #e7ebf0;"/>
+        <img src="images/f6.jpg" alt="Capacitación 6" style="width:260px; height:160px; object-fit:cover; border-radius:10px; border:1px solid #e7ebf0;"/>
+        <img src="images/f7.jpg" alt="Capacitación 7" style="width:260px; height:160px; object-fit:cover; border-radius:10px; border:1px solid #e7ebf0;"/>
+      </div>
+    </section>
+  </div>
 </div>
 
 
+<div id="powerbi" class="tab-content">
+  <style>
+    /* ====== Estilos al estilo del tab EXCEL (wrap/hero/timeline/cards) ====== */
+    #powerbi { --primary:#336699; --ink:#222; --muted:#666; --bg:#f7f9fb; --card:#ffffff; --accent:#25D366; }
+    #powerbi .wrap { max-width:1100px; margin:0 auto; padding:24px; }
+    #powerbi .title { text-align:center; color:var(--primary); font-size:clamp(1.6rem,2.4vw,2.2rem); font-weight:800; line-height:1.15; }
+    #powerbi .subtitle { text-align:center; color:var(--ink); font-size:1.05rem; margin:12px auto 0; max-width:850px; line-height:1.6; }
+    #powerbi .hero { background:var(--bg); border:1px solid #e5eaf0; border-radius:14px; padding:20px; box-shadow:0 1px 8px rgba(0,0,0,.03); }
+    #powerbi .hero img { width:100%; height:auto; border-radius:10px; }
+    #powerbi .badges { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin:14px 0 4px; }
+    #powerbi .badge { background:#eaf2fb; color:var(--primary); padding:6px 10px; border-radius:20px; font-size:.85rem; font-weight:700; border:1px solid #d6e6fa; }
+    #powerbi .cta { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:14px; }
+    #powerbi .button { display:inline-flex; align-items:center; gap:8px; padding:12px 18px; border-radius:999px; border:1px solid #dfe7ef; background:#fff; color:var(--primary); font-weight:800; text-decoration:none; }
+    #powerbi .button--accent { background:var(--accent); color:#fff; border-color:var(--accent); }
 
+    #powerbi .grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+    #powerbi .card { background:var(--card); border:1px solid #e7ebf0; border-radius:12px; padding:18px; box-shadow:0 2px 10px rgba(0,0,0,.04); }
+    #powerbi .card h2, #powerbi .card h3 { color:var(--primary); margin:0 0 10px; font-size:1.25rem; }
+    #powerbi .card p { color:var(--ink); line-height:1.6; margin:6px 0 0; }
+    #powerbi ul { margin:8px 0 0 18px; }
+    #powerbi li { margin:4px 0; line-height:1.55; }
 
-    <div id="powerbi" class="tab-content">
-             <section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
-    <h1 style="text-align: center; color: #336699; font-size: 2em; font-weight: bold;">Curso Completo de Report y Dashboard con Power BI </h1>
-    <div style="text-align: center; margin-top: 20px;">
-        <img src="images/power.jpg" alt="Curso de Power BI" style="max-width: 100%; height: auto; border-radius: 8px;">
-    </div>
-    <p style="text-align: center; margin-top: 20px; font-size: 18px; color: #333; line-height: 1.6;">
-        Este curso de Report y Dashboard con Power BI está diseñado para adaptarse a tus necesidades. Se ofrece en modalidad sincrónica y asincrónica, lo que te permite participar en las clases en vivo o seguir las grabaciones a tu propio ritmo.
-    </p>
-    <p style="text-align: center; margin-top: 15px; font-size: 16px; color: #666;">
-        ¡No importa si eres principiante o ya tienes experiencia! Este curso está diseñado para ayudarte a mejorar tus habilidades de análisis de datos con Power BI.
-    </p>
-</section>
+    /* Timeline 5 sesiones */
+    #powerbi .timeline { display:grid; grid-template-columns:1fr; gap:12px; }
+    #powerbi .step { position:relative; padding:14px 14px 14px 52px; border:1px dashed #d9e3ef; border-radius:12px; background:#fcfdff; }
+    #powerbi .step::before { content:attr(data-n); position:absolute; left:14px; top:14px; width:28px; height:28px; display:grid; place-items:center; border-radius:50%; background:var(--primary); color:#fff; font-weight:800; font-size:.95rem; }
+    #powerbi .step h4 { margin:0 0 6px; color:var(--ink); font-size:1.05rem; }
+    #powerbi .pill { display:inline-block; padding:2px 8px; border-radius:999px; font-size:.8rem; border:1px solid #e2e8f0; color:#435; background:#f6f8fb; margin-right:6px; }
 
-<section class="section-box" style="border: 2px solid #25D366; padding: 30px; margin: 30px 0; background-color: #eafff3; border-radius: 12px;">
-    <h2 style="text-align: center; color: #128C7E; font-size: 24px;">🎯 ¿A quién va dirigido este curso?</h2>
-    <ul style="font-size: 18px; max-width: 800px; margin: 0 auto; padding-left: 20px; line-height: 1.6; color: #000;">
-        <li><strong>Profesionales de todas las áreas</strong> que necesitan analizar y visualizar datos para tomar mejores decisiones.</li>
-        <li><strong>Analistas, contadores, ingenieros, administradores y personal de recursos humanos</strong>, entre otros, que deseen optimizar sus reportes y automatizar procesos de análisis.</li>
-        <li><strong>Emprendedores y dueños de negocios</strong> que quieran entender el comportamiento de su empresa mediante indicadores visuales.</li>
-        <li><strong>Estudiantes y recién egresados</strong> que buscan adquirir una herramienta valiosa para el mercado laboral.</li>
-        <li><strong>Personas sin experiencia previa en Power BI</strong>, pero con conocimientos básicos de Excel y análisis de datos.</li>
-    </ul>
-</section>
+    @media (max-width:980px){ #powerbi .grid{ grid-template-columns:1fr; } }
+  </style>
 
-<section class="section-box" style="border: 2px solid #25D366; padding: 30px; margin: 30px 0; background-color: #eafff3; border-radius: 10px;">
-  <h2 style="text-align: center; color: #128C7E;">✅ Inscripción</h2>
-  <p style="text-align: center; font-size: 18px; margin-top: 10px;">
-    Completá el formulario y reservá tu lugar.
-  </p>
-
-  <form action="https://formspree.io/f/xnnzdevj" method="POST" style="max-width: 500px; margin: 20px auto;">
-    
-    <input type="text" name="nombre" placeholder="Nombre completo" required style="width: 100%; padding: 12px; margin-bottom: 15px; border-radius: 5px; border: 1px solid #ccc;">
-    
-    <input type="email" name="email" placeholder="Correo electrónico" required style="width: 100%; padding: 12px; margin-bottom: 15px; border-radius: 5px; border: 1px solid #ccc;">
-    
-    <input type="tel" name="telefono" placeholder="Teléfono" required style="width: 100%; padding: 12px; margin-bottom: 15px; border-radius: 5px; border: 1px solid #ccc;">
-    
-    <!-- Cursos disponibles -->
-    <select name="curso" required style="width: 100%; padding: 12px; margin-bottom: 15px; border-radius: 5px; border: 1px solid #ccc;">
-      <option value="">Seleccioná el curso</option>
-      <option value="Report y Dashboard con Power BI">Report y Dashboard con Power BI</option>
-      <option value="DAX Aplicado">DAX Aplicado: Análisis de Datos en Power BI y Excel</option>
-      <option value="PYTHON">PYTHON</option>
-      <option value="Excel Power Query y Power Pivot">Análisis de Datos Moderno con Excel: Power Query y Power Pivot</option>
-      <option value="SQL">SQL</option>
-    </select>
-
-    <!-- Comentarios opcionales -->
-    <textarea name="comentarios" placeholder="Comentarios o consultas" rows="4" style="width: 100%; padding: 12px; margin-bottom: 15px; border-radius: 5px; border: 1px solid #ccc;"></textarea>
-
-    <button type="submit" style="width: 100%; padding: 15px; background-color: #25D366; color: white; font-size: 18px; font-weight: bold; border: none; border-radius: 50px; cursor: pointer;">
-      📝 Enviar inscripción
-    </button>
-  </form>
-</section>
-
-
-
-<section class="section-box" style="border: 2px solid #25D366; padding: 30px; margin: 30px 0; background-color: #eafff3; border-radius: 10px;">
-  <h2 style="text-align: center; color: #128C7E;">📲 ¿Tenés dudas o querés más info?</h2>
-  <p style="text-align: center; font-size: 18px; margin-top: 10px;">
-    Escribinos ahora y recibí atención personalizada por WhatsApp.
-  </p>
-  <p style="text-align: center; font-size: 16px; margin-top: 10px; color: #333;">
-    🎥 Solicitá una primera grabación por WhatsApp para probar la clase sin compromiso.
-  </p>
-  <div style="text-align: center; margin-top: 20px;">
-    <a href="https://wa.me/595983352932" target="_blank" style="display: inline-block; padding: 15px 30px; background-color: #25D366; color: white; border-radius: 50px; text-decoration: none; font-size: 18px; font-weight: bold; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-      💬 Chatear por WhatsApp
-    </a>
-  </div>
-  <p style="text-align: center; margin-top: 15px; font-size: 15px; color: #555;">
-    O escribinos a <strong>cicap2021@gmail.com</strong>
-  </p>
-</section>
-
-
-
-
-<section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
-    <h2 style="text-align: center; color: #336699;">📅 Fecha de Capacitación online en Vivo:</h2> 
-    <ul>
-        <li><strong>Fecha de inicio:</strong> Miércoles 12 de agosto de 2025.</li>
-        <li><strong>Horario:</strong> 19:30 a 21:30 hs.</li>
-        <li><strong>Clases en vivo por Zoom:</strong> 12, 13, 19, 20, 26, 27 de agosto y 2 de setiembre de 2025</li>
-        <li><strong>Día:</strong> Martes y Miércoles</li>
-    </ul>
-    
-</section>
-
-   
-<section class="section-box" style="border: 2px solid #25D366; padding: 30px; margin: 30px 0; background-color: #eafff3; border-radius: 12px;">
-  <h2 style="text-align: center; color: #128C7E; font-size: 24px;">📘 Nivel del Curso: ¡Desde Principiante hasta Avanzado!</h2>
-  <p style="font-size: 18px; max-width: 800px; margin: 0 auto; line-height: 1.6; color: #000; text-align: center;">
-    Este curso está diseñado para llevarte paso a paso desde cero hasta dominar Power BI a nivel profesional. 
-    <strong>No se requieren conocimientos previos</strong>, ya que comenzamos con lo más básico y avanzamos gradualmente a técnicas de análisis de datos avanzadas.
-  </p>
-  <ul style="font-size: 18px; max-width: 800px; margin: 20px auto 0; padding-left: 20px; line-height: 1.6; color: #000;">
-    <li>🔰 <strong>Nivel Principiante:</strong> Ideal si nunca trabajaste con Power BI. Aprendé los conceptos fundamentales y familiarizate con el entorno de trabajo.</li>
-    <li>⚙️ <strong>Nivel Intermedio:</strong> Transformación y modelado de datos, creación de relaciones, uso de filtros y medidas.</li>
-    <li>🚀 <strong>Nivel Avanzado:</strong> DAX avanzado, inteligencia de tiempo, diseño de dashboards interactivos, visuales con IA y publicación en la nube.</li>
-  </ul>
-</section>
-
-  
-  <header style="text-align: center; margin-bottom: 40px;">
-    <h1>📘 Report y Dashboard en Power BI</h1>
-    <p style="font-size: 18px; color: #555;">
-        Aprende a crear reportes y dashboards interactivos con Power BI, desde la importación de datos hasta la visualización avanzada.
-    </p>
-</header>
-
-<section class="section-box" style="border: 2px solid #25D366; padding: 30px; margin: 30px 0; background-color: #eafff3; border-radius: 12px;">
-    <h2 style="text-align: center; color: #128C7E; font-size: 24px;">🔹 MÓDULO 1: Introducción a Power Query y Power BI</h2>
-    <ul style="font-size: 18px; max-width: 800px; margin: 0 auto; padding-left: 20px; line-height: 1.6; color: #000;">
-        <li><strong>Qué es Power Query y Power BI:</strong> Diferencias entre Power Query (transformación de datos) y Power BI (visualización y análisis).</li>
-        <li><strong>Casos de uso de Power Query en Excel y Power BI:</strong> Aplicaciones y herramientas.</li>
-        <li><strong>Acceso a Power Query desde Power BI:</strong> Navegación y acceso directo.</li>
-        <li><strong>Navegación del entorno de Power BI:</strong> Panel de consultas, editor de informes.</li>
-    </ul>
-</section>
-
-<section class="section-box" style="border: 2px solid #25D366; padding: 30px; margin: 30px 0; background-color: #eafff3; border-radius: 12px;">
-    <h2 style="text-align: center; color: #128C7E; font-size: 24px;">🔹 MÓDULO 2: Importar y Conectar Datos en Power Query</h2>
-    <ul style="font-size: 18px; max-width: 800px; margin: 0 auto; padding-left: 20px; line-height: 1.6; color: #000;">
-        <li><strong>Importar datos desde:</strong> Archivos Excel, CSV, Bases de datos (SQL Server, Access), Web y APIs, Carpetas (consolidación de archivos).</li>
-        <li><strong>Opciones de carga:</strong> Solo conexión, tabla, y tabla dinámica.</li>
-    </ul>
-</section>
-
-<section class="section-box" style="border: 2px solid #25D366; padding: 30px; margin: 30px 0; background-color: #eafff3; border-radius: 12px;">
-  <h2 style="text-align: center; color: #128C7E; font-size: 24px;">🔹 MÓDULO 3: Transformaciones Básicas en Power Query</h2>
-  <ul style="font-size: 18px; max-width: 800px; margin: 0 auto; padding-left: 20px; line-height: 1.6; color: #000;">
-    <li><strong>Eliminar filas y columnas innecesarias:</strong> Suprime datos irrelevantes para simplificar el conjunto y facilitar el análisis.</li>
-    <li><strong>Cambiar tipos de datos:</strong> Establece el tipo correcto (texto, número, fecha, etc.) para evitar errores en cálculos y visualizaciones.</li>
-    <li><strong>Reordenar y renombrar columnas:</strong> Mejora la comprensión del dataset y adapta la estructura a los objetivos del análisis.</li>
-    <li><strong>Filtrar y ordenar registros:</strong> Aplica criterios de selección y ordenamiento para focalizar la información útil.</li>
-    <li><strong>Limpiar datos:</strong> Elimina espacios, caracteres innecesarios o errores comunes que afectan la integridad de los datos.</li>
-    <li><strong>Reemplazar valores:</strong> Sustituye datos erróneos, vacíos o estandariza formatos (como "SÍ"/"NO" → 1/0).</li>
-    <li><strong>Transformar columnas con funciones:</strong> Manipula fechas, textos y números con funciones integradas (como `Text.Upper`, `Date.Year`, etc.).</li>
-    <li><strong>Tratar errores y valores nulos:</strong> Detecta y corrige registros problemáticos para garantizar la consistencia del modelo.</li>
-    <li><strong>Eliminar duplicados:</strong> Conserva únicamente los registros únicos, previniendo sesgos en el análisis posterior.</li>
-  </ul>
-</section>
-
-
-<section class="section-box" style="border: 2px solid #25D366; padding: 30px; margin: 30px 0; background-color: #eafff3; border-radius: 12px;">
-  <h2 style="text-align: center; color: #128C7E; font-size: 24px;">🔹 MÓDULO 4: Modelado de Datos en Power BI</h2>
-  <ul style="font-size: 18px; max-width: 800px; margin: 0 auto; padding-left: 20px; line-height: 1.6; color: #000;">
-    <li><strong>Creación de relaciones entre tablas:</strong> Definición de relaciones uno-a-muchos y muchos-a-uno mediante claves primarias y foráneas.</li>
-    <li><strong>Normalización de datos:</strong> Reducción de redundancia mediante la separación de datos en tablas lógicas bien estructuradas.</li>
-    <li><strong>Uso de "Hechos" y "Dimensiones":</strong> Separación entre tablas de métricas (hechos) y descripciones (dimensiones), base del modelado analítico.</li>
-    <li><strong>Modelado en estrella (Star Schema):</strong> Diseño simple donde una tabla de hechos se conecta directamente a múltiples tablas de dimensiones, ideal para rendimiento y facilidad de uso en Power BI.</li>
-    <li><strong>Modelado en copo de nieve (Snowflake Schema):</strong> Variante del modelo estrella donde las dimensiones están normalizadas, lo que reduce duplicación pero aumenta la complejidad.</li>
-    <li><strong>Jerarquías personalizadas:</strong> Creación de estructuras jerárquicas en dimensiones (por ejemplo: Año → Trimestre → Mes → Día) para facilitar la navegación.</li>
-    <li><strong>Uso de calendario o tabla de fechas:</strong> Implementación de una tabla calendario para permitir análisis temporal correcto con funciones DAX como `YTD`, `MTD`, etc.</li>
-    <li><strong>Direccionalidad de relaciones y propagación de filtros:</strong> Control sobre cómo los filtros afectan distintas tablas del modelo (relaciones simples y bidireccionales).</li>
-    <li><strong>Modelado eficiente para rendimiento:</strong> Prácticas como evitar columnas no usadas, comprimir datos y limitar relaciones innecesarias.</li>
-  </ul>
-</section>
-
-
-<section class="section-box" style="border: 2px solid #25D366; padding: 30px; margin: 30px 0; background-color: #eafff3; border-radius: 12px;">
-  <h2 style="text-align: center; color: #128C7E; font-size: 24px;">🔹 MÓDULO 5: Transformaciones Avanzadas en Power Query </h2>
-  <ul style="font-size: 18px; max-width: 800px; margin: 0 auto; padding-left: 20px; line-height: 1.6; color: #000;">
-    <li><strong>Combinar consultas (Merge):</strong> Une dos tablas por columnas clave, como si hicieras un BUSCARV, pero más potente y visual.</li>
-    <li><strong>Anexar consultas (Append):</strong> Agrega los registros de una tabla debajo de otra, útil para consolidar archivos o meses distintos.</li>
-    <li><strong>Dividir columnas:</strong> Separa datos por delimitadores (coma, espacio, guion) o por número de caracteres.</li>
-    <li><strong>Pivot y Unpivot:</strong> Transforma datos de formato ancho a largo (y viceversa) para análisis más dinámico.</li>
-    <li><strong>Columnas condicionales:</strong> Crea nuevas columnas usando lógica tipo "si esto, entonces aquello", sin escribir fórmulas.</li>
-    <li><strong>Columnas desde ejemplo:</strong> Enseñá a Power Query lo que querés que devuelva con ejemplos manuales, y él genera la fórmula automáticamente.</li>
-    <li><strong>Anulación de dinamización:</strong> Convierte una tabla con encabezados como meses o años en una lista plana con valores más analizables.</li>
-    <li><strong>Orden personalizado:</strong> Ordená columnas con tus propios criterios (por ejemplo, días de la semana en orden correcto).</li>
-    <li><strong>Transformaciones rápidas con clic derecho:</strong> Accedé a funciones como duplicar, extraer, dividir o eliminar desde el menú contextual.</li>
-    <li><strong>Aplicación de múltiples pasos combinados:</strong> Apilá varias transformaciones sin necesidad de editar el código detrás.</li>
-  </ul>
-</section>
-
-
-<section class="section-box" style="border: 2px solid #25D366; padding: 30px; margin: 30px 0; background-color: #eafff3; border-radius: 12px;">
-    <h2 style="text-align: center; color: #128C7E; font-size: 24px;">🔹 MÓDULO 6: Buenas Prácticas y Optimización</h2>
-    <ul style="font-size: 18px; max-width: 800px; margin: 0 auto; padding-left: 20px; line-height: 1.6; color: #000;">
-        <li><strong>Optimización de consultas:</strong> Eliminar pasos innecesarios.</li>
-        <li><strong>Optimización del modelo en Power BI:</strong> Reducción de datos, eliminar columnas no utilizadas.</li>
-        <li><strong>Desempeño y diagnóstico:</strong> Uso del Performance Analyzer en Power BI.</li>
-    </ul>
-</section>
-
-<section class="section-box" style="border: 2px solid #25D366; padding: 30px; margin: 30px 0; background-color: #eafff3; border-radius: 12px;">
-  <h2 style="text-align: center; color: #128C7E; font-size: 24px;">🔹 MÓDULO 7: Visualización y Reportes en Power BI</h2>
-  <ul style="font-size: 18px; max-width: 800px; margin: 0 auto; padding-left: 20px; line-height: 1.6; color: #000;">
-    <li><strong>Crear visualizaciones interactivas:</strong> Gráficos, mapas, tablas, KPI.</li>
-    <li><strong>Aplicación de filtros y segmentaciones:</strong> Mejorar la interacción.</li>
-    <li><strong>Medidas DAX para análisis avanzados:</strong> Uso de DAX.</li>
-    <li><strong>Paneles interactivos y dinámicos:</strong> Filtros dinámicos y slicers.</li>
-    <li><strong>Visuales con Inteligencia Artificial:</strong> Uso del Árbol de Descomposición (Decomposition Tree) y Factores Clave (Key Influencers).</li>
-    <li><strong>Q&A con lenguaje natural:</strong> Generar visualizaciones preguntando en lenguaje natural con el panel de preguntas.</li>
-    <li><strong>Copiloto de Power BI (preview):</strong> Crear visualizaciones y medidas de forma automatizada con IA generativa.</li>
-  </ul>
-</section>
-
-<section class="section-box" style="border: 2px solid #25D366; padding: 30px; margin: 30px 0; background-color: #eafff3; border-radius: 12px;">
-  <h2 style="text-align: center; color: #128C7E; font-size: 24px;">🔹 MÓDULO 8: Proyecto Final</h2>
-  <ul style="font-size: 18px; max-width: 800px; margin: 0 auto; padding-left: 20px; line-height: 1.6; color: #000;">
-    <li><strong>Cargar datos de diferentes fuentes:</strong> Importación desde Excel, CSV, SQL Server y otras fuentes conectadas.</li>
-    <li><strong>Limpiar y transformar los datos:</strong> Uso de Power Query para preparar los datos de forma eficiente.</li>
-    <li><strong>Crear relaciones entre tablas:</strong> Establecer un modelo optimizado utilizando claves y jerarquías.</li>
-    <li><strong>Diseñar visualizaciones interactivas:</strong> Construcción de paneles con gráficos, KPIs, mapas y segmentadores.</li>
-    <li><strong>Aplicar inteligencia artificial:</strong> Incluir visuales de IA como Key Influencers, Decomposition Tree y Copiloto para análisis enriquecido.</li>
-    <li><strong>Publicar en Power BI Service:</strong> Subida del informe al entorno en la nube para compartirlo con usuarios o equipos.</li>
-    <li><strong>Compartir y colaborar:</strong> Configuración de permisos, actualizaciones automáticas y trabajo colaborativo desde la web.</li>
-    <li><strong>Informes vs Dashboards:</strong> 
-      <ul style="margin-top: 10px; padding-left: 20px;">
-        <li><em><strong>Informes:</strong></em> Archivos .pbix con múltiples páginas y visualizaciones creadas en Power BI Desktop. Son interactivos y editables.</li>
-        <li><em><strong>Dashboards:</strong></em> Vistas unificadas de visualizaciones seleccionadas de uno o varios informes, creadas dentro de Power BI Service. Ideales para resúmenes ejecutivos.</li>
-      </ul>
-    </li>
-  </ul>
-</section>
-
-
-<!-- Costo del Curso Online -->
-<section class="section-box" style="border: 2px solid #25D366; padding: 30px; margin: 30px 0; background-color: #eafff3; border-radius: 10px;">
-    <h2 style="text-align: center; color: #128C7E;">💻 Costo del Curso Online</h2> 
-    
-    <p style="font-size: 18px; line-height: 1.6;">
-        <strong>Pago al contado:</strong> <span style="color: #128C7E;">250.000 Gs</span> (pago único). Incluye materiales, grabaciones y certificado.
-    </p>
-    
-    <p style="font-size: 18px; margin-top: 20px;">
-        🎉 <strong>¡Descuento para grupos!</strong> Inscribite con amigos y accedé a precios especiales:
-    </p>
-    <ul style="font-size: 17px; line-height: 1.6; padding-left: 20px; color: #333;">
-        <li>👨‍👩‍👧‍👦 <strong>2 personas:</strong> 200.000 Gs c/u</li>
-              <li>👨‍👩‍👧‍👦 <strong>3 o más personas:</strong> 150.000 Gs c/u</li>
-    </ul>
-</section>
-
-<section class="section-box" style="border: 2px solid #25D366; padding: 30px; margin: 30px 0; background-color: #eafff3; border-radius: 10px;">
-    <h2 style="text-align: center; color: #128C7E;">💳 Formas de Pago</h2>
-
-    <p style="font-size: 18px; line-height: 1.6;">
-        Podés realizar el pago mediante alias, transferencia bancaria o tarjeta.
-    </p>
-
-    <!-- Método 1: Ueno Bank (Alias) -->
-    <div style="margin-top: 20px;">
-        <h3 style="color: #128C7E;">🏦 Ueno Bank (Alias)</h3>
-        <ul style="font-size: 17px; padding-left: 20px; color: #333;">
-            <li><strong>Alias:</strong> 3584172</li>
-            <li><strong>Titular:</strong> Oscar Gonzalez Frutos</li>
-        </ul>
-    </div>
-
-    <!-- Método 2: Banco Itaú -->
-    <div style="margin-top: 25px;">
-        <h3 style="color: #128C7E;">🏦 Banco Itaú (Transferencia)</h3>
-        <ul style="font-size: 17px; padding-left: 20px; color: #333;">
-            <li><strong>Cta. N°:</strong> 720005407</li>
-            <li><strong>Titular:</strong> Oscar Gonzalez Frutos</li>
-            <li><strong>CI:</strong> 3584172</li>
-        </ul>
-    </div>
-
-    <!-- Método 3: Tarjeta -->
-    <div style="margin-top: 25px;">
-        <h3 style="color: #128C7E;">💳 Tarjeta de Crédito</h3>
-        <p style="font-size: 17px;">
-            También podés pagar con tarjeta a través del POS Virtual. Consultanos para recibir tu enlace de pago personalizado.<br>
-            <strong>✔️ Podés abonar en varias cuotas utilizando tarjeta de crédito.</strong>
-        </p>
-    </div>
-
-    <p style="font-size: 17px; font-weight: bold; margin-top: 30px;">
-        ✅ Para confirmar tu inscripción, enviá tu comprobante al WhatsApp: <span style="color: #128C7E;">0983 352 932</span>
-    </p>
-</section>
- 
-
-<section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
-    <h2 style="text-align: center; color: #336699;">✅ Metodología</h2>
-    <ul>
-        <li>Clases en vivo a través de Zoom, facilitando la interacción directa con el instructor.</li>
-        <li>Clases grabadas disponibles para consulta posterior.</li>
-        <li>Actividades prácticas: Ejercicios y proyectos aplicados.</li>
-        <li>Asesoramiento personalizado durante y después de las sesiones.</li>
-    </ul>
-</section>
-
-<section class="section-box" style="border: 1px solid #ccc; padding: 20px; margin: 20px 0; background-color: #f9f9f9;">
-    <h2 style="text-align: center; color: #336699;">✅ Objetivos del Curso</h2>
-    <p>Al finalizar este curso, los participantes serán capaces de:</p>
-    <ul>
-        <li>🎯 Objetivo general: Aprender a importar, transformar, combinar, y optimizar datos utilizando Power Query y Power BI para crear modelos
-             de datos eficientes y dashboards interactivos que permitan un 
-            análisis avanzado y visualización efectiva de la información, asegurando una toma de decisiones rápida y precisa a través de 
-            reportes dinámicos y bien estructurados.</li>
-        
-    </ul>
-</section>
-
-    
-  
-
-
-
-<section id="web-personal" style="margin-top: 60px;">
-    <h2 style="text-align: center; color: #336699;">👨‍🏫 Docente</h2>
-
-    <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
-        <div style="flex-shrink: 0; text-align: center;">
-            <img src="images/foto.jpg" alt="Foto del docente" style="border-radius: 50%; width: 150px; height: 200px; object-fit: cover; border: 2px solid #ccc;">
-        </div>
-
-        <div style="flex: 1; text-align: left;">
-            <p><strong>Nombre del Docente:</strong> Oscar González Frutos</p>
-            <p><strong>Lic. en:</strong> Matemática Estadística FACEN - UNA.</p>
-            <p><strong>MSc. en:</strong> Estadística Aplicada - Universidad de Granada, España (Becal).</p>
-            <p><strong>Experiencia:</strong> Más de 10 años en Análisis de Datos y docencia en SQL, Excel, Power BI, R y Python.</p>
-            <p><strong>Certificaciones:</strong> Certificate in Data Science con R - HarvardX (Harvard University - En Línea).</p>
-            <p><strong>Pasión por enseñar:</strong> Comprometido en ayudarte a dominar habilidades clave y aplicarlas en proyectos reales.</p>
-            <p><strong>Experiencia docente:</strong> Ha impartido capacitaciones en herramientas de análisis de datos en instituciones públicas como el <strong>Banco Central del Paraguay (BCP)</strong>, <strong>Itaipú Binacional</strong>, <strong>DGEEC</strong>, <strong>MEC</strong>, <strong>FACEN</strong>, <strong>UNA</strong> y el <strong>Ministerio de Desarrollo Social</strong>; y en organizaciones privadas como <strong>Automotor</strong>, <strong>Banco Familiar</strong>, <strong>Bancoop</strong> y <strong>Sueñolar</strong>.</p>
-            <p>
-                🌐 <a href="https://oscar-pry.github.io/web_personal/" target="_blank" style="color: #336699; text-decoration: none;">
-                    Ir a la Web Personal
-                </a>
-            </p>
-            <p>
-                📎 <a href="https://www.linkedin.com/in/oscar-gonzález-frutos" target="_blank" style="color: #336699; text-decoration: none;">
-                    Conecta conmigo en LinkedIn
-                </a>
-            </p>
-        </div>
-    </div>
-
-    <div style="margin-top: 30px;">
-        <h3 style="color: #336699; text-align: center;">📸 Galería de Capacitaciones</h3>
-        <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; margin-top: 15px;">
-            <img src="images/f1.jpg" alt="Capacitación 1" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
-            <img src="images/f2.jpg" alt="Capacitación 2" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
-            <img src="images/f3.jpg" alt="Capacitación 3" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
-            <img src="images/f4.jpg" alt="Capacitación 4" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
-            <img src="images/f5.jpg" alt="Capacitación 5" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
-            <img src="images/f6.jpg" alt="Capacitación 6" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
-            <img src="images/f7.jpg" alt="Capacitación 7" style="width: 300px; height: 180px; object-fit: cover; border: 1px solid #ccc; border-radius: 10px;">
-        </div>
-    </div>
-</section>
-
-
-<section class="section-box">
-    <h2 style="text-align: center; color: #336699;">  Modelo de Certificado</h2>
-    <!-- Aquí puedes agregar las imágenes -->
-    <div class="gallery">
-      <img src="images/modelo.jpg" alt="Curso de Power BI" style="max-width: 100%; height: auto; border-radius: 8px;">
+  <div class="wrap">
+    <!-- HERO -->
+    <div class="hero card">
+      <h1 class="title">Report y Dashboard con <b>Power BI</b> — Programa intensivo </h1>
+      <p class="subtitle">Power BI: ingestión ▶︎ transformación ▶︎ modelado ▶︎ DAX ▶︎ visualización y publicación.</p>
+      <div class="badges">
+        <span class="badge">Finanzas</span><span class="badge">Marketing</span><span class="badge">Tecnología</span><span class="badge">Educación</span>
       </div>
-  </section>
-
-
-
-<section class="section-box">
-    <h2 style="text-align: center; color: #336699;">Ejemplos de Dasboards que aprenderás a crear</h2>
-       <!-- Aquí puedes agregar las imágenes -->
-    <div class="gallery">
-      <img src="images/p4.png" alt="Curso 1" style="max-width: 100%; height: auto; border-radius: 8px;">
-      <img src="images/p6.png" alt="Curso 1" style="max-width: 100%; height: auto; border-radius: 8px;">
-      <img src="images/p1.png" alt="Curso 1" style="max-width: 100%; height: auto; border-radius: 8px;">
-      <img src="images/p3.png" alt="Curso 1" style="max-width: 100%; height: auto; border-radius: 8px;">
-    </div>
-  </section>
-  
-  
-  <section class="section-box">
-    <h2 style="text-align: center; color: #336699;">Plantillas vacías listas para usar</h2>
-       <!-- Aquí puedes agregar las imágenes -->
-    <div class="gallery">
-      <img src="images/plantilla.png" alt="Curso 1" style="max-width: 100%; height: auto; border-radius: 8px;">
-      <img src="images/plantilla1.png" alt="Curso 1" style="max-width: 100%; height: auto; border-radius: 8px;">
-          </div>
-  </section>
-
+      <img src="images/power.jpg" alt="Curso Power BI" />
+      <div class="cta">
+        <a class="button button--accent" href="#inscripcion">📝 Inscribirme ahora</a>
+        <a class="button" href="#programa">📚 Ver programa</a>
+      </div>
     </div>
 
+    <!-- Metodología & Modalidad -->
+    <div class="grid" style="margin-top:16px;">
+      <section class="card">
+        <h2>Metodología</h2>
+        <ul>
+          <li>Clases en vivo por Zoom + grabaciones on-demand.</li>
+          <li>Aprendizaje <b>hands-on</b> con datasets reales por sector.</li>
+          <li>Proyecto guiado: extracción ▶︎ modelado ▶︎ dashboard.</li>
+          <li>Soporte y asesoría personalizada.</li>
+        </ul>
+      </section>
+      <section class="card">
+        <h2>Modalidad</h2>
+        <ul>
+          <li><b>Sincrónica</b> y <b>asincrónica</b> (materiales + grabaciones).</li>
+          <li>Duración total: <b>(5 sesiones).</li>
+          <li>Incluye <b>certificado</b> y repositorio de recursos.</li>
+        </ul>
+      </section>
+    </div>
 
+
+    <section class="card" id="audiencia">
+  <h2>🎯 ¿A quién va dirigido este curso?</h2>
+  <ul>
+    <li><b>Profesionales de todas las áreas</b> que necesitan analizar y visualizar datos para tomar mejores decisiones.</li>
+    <li><b>Analistas, contadores, ingenieros, administradores y personal de recursos humanos</b>, entre otros, que deseen optimizar sus reportes y automatizar procesos de análisis.</li>
+    <li><b>Emprendedores y dueños de negocios</b> que quieran entender el comportamiento de su empresa mediante indicadores visuales.</li>
+    <li><b>Estudiantes y recién egresados</b> que buscan adquirir una herramienta valiosa para el mercado laboral.</li>
+    <li><b>Personas sin experiencia previa en Power BI</b>, pero con conocimientos básicos de Excel y análisis de datos.</li>
+  </ul>
+</section>
+
+
+    <!-- Programa 5 sesiones (secuencia lógica) -->
+    <section id="programa" class="card">
+      <h2>Programa — 5 sesiones</h2>
+      <div class="timeline">
+        <div class="step" data-n="1">
+          <h4>Power BI en el ciclo analítico + Conectar e importar</h4>
+          <p><span class="pill">Introducción</span><span class="pill">Fuentes</span><span class="pill">Buenas prácticas</span></p>
+          <ul>
+            <li>Flujo: obtener → transformar → modelar → visualizar → publicar.</li>
+            <li>Fuentes: Excel/CSV, SQL Server/Access, Web/APIs, carpetas (consolidación).</li>
+            <li>Modos de carga, nomenclatura y organización.</li>
+          </ul>
+        </div>
+        <div class="step" data-n="2">
+          <h4>Power Query — Transformaciones básicas</h4>
+          <p><span class="pill">Limpieza</span><span class="pill">Tipos</span><span class="pill">Calidad</span></p>
+          <ul>
+            <li>Eliminar columnas/filas, tipos de datos, filtrar/ordenar.</li>
+            <li>Limpiar y reemplazar valores; tratar errores y nulos; duplicados.</li>
+            <li>Funciones de texto/fecha/número (p. ej., <code>Text.Upper</code>, <code>Date.Year</code>).</li>
+          </ul>
+        </div>
+        <div class="step" data-n="3">
+          <h4>Power Query avanzado + Modelado</h4>
+          <p><span class="pill">Merge/Append</span><span class="pill">Pivot/Unpivot</span><span class="pill">Modelo estrella</span></p>
+          <ul>
+            <li>Merge/Append, dividir columnas, columnas condicionales y desde ejemplo.</li>
+            <li>Unpivot, parámetros y funciones reutilizables.</li>
+            <li>Hechos/Dimensiones, relaciones y tabla de fechas.</li>
+          </ul>
+        </div>
+        <div class="step" data-n="4">
+          <h4>DAX básico</h4>
+          <p><span class="pill">Contexto</span><span class="pill">Medidas</span><span class="pill">Buenas prácticas</span></p>
+          <ul>
+            <li>Columnas calculadas vs. medidas; contexto de fila vs. filtro.</li>
+            <li><code>SUM</code>, <code>COUNTROWS</code>, <code>AVERAGE</code>, <code>DIVIDE</code>, <code>IF</code>, <code>VAR</code>.</li>
+            <li>Estructura y carpetas de medidas.</li>
+          </ul>
+        </div>
+        <div class="step" data-n="5">
+          <h4>DAX intermedio + Visualización y Publicación</h4>
+          <p><span class="pill">CALCULATE</span><span class="pill">Time-Intelligence</span><span class="pill">Service</span></p>
+          <ul>
+            <li><code>CALCULATE</code>, <code>FILTER</code>, <code>ALL</code>, variaciones interanuales, % contribución.</li>
+            <li>Gráficos avanzados, slicers, visuales con IA, Q&A.</li>
+            <li>Publicación en Power BI Service, compartir y refresh programado.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Fechas & Costo (mismo layout de EXCEL) -->
+    <div class="grid">
+      <section class="card">
+        <h2>Fechas y horario (en vivo)</h2>
+        <ul>
+          <li><b>Días:</b> <b>miércoles</b></li>
+          <li><b>Fechas:</b> 5, 12, 19 y 26 de noviembre; <b>3 de diciembre</b> de 2025.</li>
+          <li><b>Horario:</b> 19:30–21:30 (2 h, GMT-3).</li>
+          <li><b>Duración total:</b> 5 sesiones .</li>
+        </ul>
+      </section>
+      <section class="card">
+        <h2>Inversión</h2>
+        <p><b>350.000 Gs</b> (pago único). Incluye materiales, grabaciones y certificado.</p>
+        <ul>
+          <li>2 personas: <b>300.000 Gs c/u</b></li>
+          <li>3 personas y más: <b>250.000 Gs c/u</b></li>
+        </ul>
+      </section>
+    </div>
+
+    <!-- Inscripción -->
+    <section id="inscripcion" class="card">
+      <h2>Inscripción</h2>
+      <p>Completá el formulario y reservá tu lugar. Recibirás la confirmación por correo.</p>
+      <form action="https://formspree.io/f/xnnzdevj" method="POST" style="max-width:520px; margin:0 auto;">
+        <input type="text" name="nombre" placeholder="Nombre completo" required style="width:100%; padding:12px; margin:6px 0; border-radius:8px; border:1px solid #d7dde5;">
+        <input type="email" name="email" placeholder="Correo electrónico" required style="width:100%; padding:12px; margin:6px 0; border-radius:8px; border:1px solid #d7dde5;">
+        <input type="tel" name="telefono" placeholder="Teléfono" required style="width:100%; padding:12px; margin:6px 0; border-radius:8px; border:1px solid #d7dde5;">
+        <select name="curso" required style="width:100%; padding:12px; margin:6px 0; border-radius:8px; border:1px solid #d7dde5;">
+          <option value="">Seleccioná el curso</option>
+          <option value="Report y Dashboard con Power BI" selected>Report y Dashboard con Power BI</option>
+          <option value="DAX Aplicado">DAX Aplicado: Análisis de Datos en Power BI y Excel</option>
+          <option value="PYTHON">PYTHON</option>
+          <option value="Excel Power Query y Power Pivot">Excel: Power Query y Power Pivot</option>
+          <option value="SQL">SQL</option>
+        </select>
+        <textarea name="comentarios" placeholder="Comentarios o consultas" rows="4" style="width:100%; padding:12px; margin:6px 0 12px; border-radius:8px; border:1px solid #d7dde5;"></textarea>
+        <button type="submit" class="button button--accent" style="width:100%; justify-content:center;">📝 Enviar inscripción</button>
+      </form>
+    </section>
+
+
+    <!-- Capacitador -->
+    <section class="card">
+      <h2>👨‍🏫 Capacitador</h2>
+      <div class="grid">
+        <div class="card" style="text-align:center;">
+          <img src="images/foto.jpg" alt="Foto del docente" style="border-radius:12px; width: 180px; height: 220px; object-fit: cover; border: 1px solid #e7ebf0; margin: 0 auto; display:block;" />
+          <p style="margin-top:8px;"><b>Oscar González Frutos</b></p>
+        </div>
+        <div class="card">
+          <ul>
+            <li>Lic. en Matemática Estadística — FACEN‑UNA.</li>
+            <li>MSc. en Estadística Aplicada — Univ. de Granada (Becal).</li>
+            <li>10+ años enseñando SQL, Excel, Power BI, R y Python.</li>
+            <li>Certificación: Data Science con R — HarvardX.</li>
+            <li>Experiencia dictando en BCP, Itaipú, DGEEC, MEC, FACEN‑UNA, MDS; y en sector privado (Automotor, Banco Familiar, Bancoop, Sueñolar).</li>
+          </ul>
+          <p>
+            🌐 <a href="https://oscar-pry.github.io/web_personal/" target="_blank" style="color:var(--primary);">Web personal</a> ·
+            🔗 <a href="https://www.linkedin.com/in/oscar-gonzález-frutos" target="_blank" style="color:var(--primary);">LinkedIn</a>
+          </p>
+        </div>
+      </div>
+      <h3 style="margin-top:12px; color:var(--primary);">📸 Galería</h3>
+      <div style="display:flex; flex-wrap:wrap; gap:10px; justify-content:center;">
+        <img src="images/f1.jpg" alt="Capacitación 1" style="width:260px; height:160px; object-fit:cover; border-radius:10px; border:1px solid #e7ebf0;"/>
+        <img src="images/f2.jpg" alt="Capacitación 2" style="width:260px; height:160px; object-fit:cover; border-radius:10px; border:1px solid #e7ebf0;"/>
+        <img src="images/f3.jpg" alt="Capacitación 3" style="width:260px; height:160px; object-fit:cover; border-radius:10px; border:1px solid #e7ebf0;"/>
+        <img src="images/f4.jpg" alt="Capacitación 4" style="width:260px; height:160px; object-fit:cover; border-radius:10px; border:1px solid #e7ebf0;"/>
+        <img src="images/f5.jpg" alt="Capacitación 5" style="width:260px; height:160px; object-fit:cover; border-radius:10px; border:1px solid #e7ebf0;"/>
+        <img src="images/f6.jpg" alt="Capacitación 6" style="width:260px; height:160px; object-fit:cover; border-radius:10px; border:1px solid #e7ebf0;"/>
+        <img src="images/f7.jpg" alt="Capacitación 7" style="width:260px; height:160px; object-fit:cover; border-radius:10px; border:1px solid #e7ebf0;"/>
+      </div>
+    </section>
+  </div>
+</div>
     
     
 
@@ -1952,7 +1832,7 @@
 
     <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
         <div style="flex-shrink: 0; text-align: center;">
-            <img src="images/foto.jpg" alt="Foto del docente" style="border-radius: 50%; width: 150px; height: 200px; object-fit: cover; border: 2px solid #ccc;">
+            <img src="images/foto.jpeg" alt="Foto del docente" style="border-radius: 50%; width: 150px; height: 200px; object-fit: cover; border: 2px solid #ccc;">
         </div>
 
         <div style="flex: 1; text-align: left;">
