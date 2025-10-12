@@ -85,7 +85,7 @@
     <div class="tab" onclick="openTab(event, 'excel')">Excel</div>
     
     <div class="tab" onclick="openTab(event, 'powerbi')">Report y Dashboard con Power BI </div>
-    <div class="tab" onclick="openTab(event, 'dax')">DAX</div>
+    <!--<div class="tab" onclick="openTab(event, 'dax')">DAX</div></div>-->
    <!-- <div class="tab" onclick="openTab(event, 'dashboard')">Dashboard en Power BI</div>-->
     <div class="tab" onclick="openTab(event, 'python')">Python & Git & GitHub</div>
     
@@ -453,43 +453,43 @@
       </section>
     </div>
 
-    <!-- Inscripción -->
+ <!-- Inscripción (envío por fetch, sin salir de la página) -->
 <section id="inscripcion" class="card">
   <h2>Inscripción</h2>
 
-  <!-- Promo -->
   <div style="background:#fff7e6; border:1px dashed #f4a261; padding:12px; border-radius:10px; margin:10px 0;">
     🎁 <strong>Promo activa:</strong>
     <ul style="margin:6px 0 0 16px; padding:0;">
       <li>Si elegís <strong>2 cursos</strong>: <strong>40% de descuento</strong> en el segundo.</li>
-      <li>Si elegís <strong>3 cursos</strong>: <strong>40% de descuento</strong> en el segundo <em>y</em> en el tercero. </li>
+      <li>Si elegís <strong>3 cursos</strong>: <strong>40% de descuento</strong> en el segundo <em>y</em> en el tercero.</li>
     </ul>
     <small style="display:block; margin-top:6px;">No acumulable con otras promociones.</small>
   </div>
 
   <p>Completá el formulario y reservá tu lugar. Recibirás la confirmación por correo.</p>
 
-  <form action="https://formspree.io/f/xnnzdevj" method="POST" style="max-width:520px; margin:0 auto;">
+  <!-- Sin action: lo maneja fetch -->
+  <form id="form-insc" style="max-width:520px; margin:0 auto;">
     <input type="text" name="nombre" placeholder="Nombre completo" required style="width:100%; padding:12px; margin:6px 0; border-radius:8px; border:1px solid #d7dde5;">
     <input type="email" name="email" placeholder="Correo electrónico" required style="width:100%; padding:12px; margin:6px 0; border-radius:8px; border:1px solid #d7dde5;">
     <input type="tel" name="telefono" placeholder="Teléfono" required style="width:100%; padding:12px; margin:6px 0; border-radius:8px; border:1px solid #d7dde5;">
 
-    <!-- Cursos (multi-selección con checkboxes) -->
+    <!-- Cursos (checkboxes; name="cursos" múltiple) -->
     <div style="width:100%; padding:12px; margin:6px 0; border-radius:8px; border:1px solid #d7dde5; background:#fff;">
       <label style="display:block; font-weight:600; margin-bottom:6px;">Seleccioná los cursos (podés elegir más de uno)</label>
 
       <label style="display:flex; align-items:center; gap:8px; margin:6px 0;">
-        <input type="checkbox" name="cursos[]" value="Report y Dashboard con Power BI" checked>
+        <input type="checkbox" name="cursos" value="Report y Dashboard con Power BI" checked>
         <span>Report y Dashboard con Power BI</span>
       </label>
 
       <label style="display:flex; align-items:center; gap:8px; margin:6px 0;">
-        <input type="checkbox" name="cursos[]" value="Análisis de Datos Moderno con Excel: Power Query + Power Pivot">
+        <input type="checkbox" name="cursos" value="Análisis de Datos Moderno con Excel: Power Query + Power Pivot">
         <span>Análisis de Datos Moderno con Excel: Power Query + Power Pivot</span>
       </label>
 
       <label style="display:flex; align-items:center; gap:8px; margin:6px 0;">
-        <input type="checkbox" name="cursos[]" value="SQL">
+        <input type="checkbox" name="cursos" value="SQL">
         <span>SQL</span>
       </label>
 
@@ -500,25 +500,28 @@
 
     <textarea name="comentarios" placeholder="Comentarios o consultas" rows="4" style="width:100%; padding:12px; margin:6px 0 12px; border-radius:8px; border:1px solid #d7dde5;"></textarea>
 
-    <!-- Campos ocultos para enviar a Formspree -->
+    <!-- Campos ocultos de promo -->
     <input type="hidden" name="promo" id="promo" value="No">
     <input type="hidden" name="cantidad_cursos_seleccionados" id="cant-cursos" value="1">
 
-    <button type="submit" class="button button--accent" style="width:100%; justify-content:center;">📝 Enviar inscripción</button>
+    <button id="btn-enviar" type="submit" class="button button--accent" style="width:100%; justify-content:center;">📝 Enviar inscripción</button>
+    <div id="msg-insc" role="status" style="margin-top:10px; font-size:0.95rem;"></div>
   </form>
 
-  <!-- Lógica de la promo (solo interfaz) -->
   <script>
     (function(){
-      const checks = Array.from(document.querySelectorAll('input[name="cursos[]"]'));
-      const aviso = document.getElementById('promo-aviso');
+      // 🔗 TU endpoint /exec (cambiá si redeployás)
+      const URL_APPS_SCRIPT = 'https://script.google.com/macros/s/AKfycbzumz937-h3CCYsmmidpYiy0atY3DFZ7OwjJ3IbgZDoHTuGNEetTaNRpXwCfzvR_dlQDw/exec';
+
+      // --- Lógica de promo ---
+      const checks = Array.from(document.querySelectorAll('input[name="cursos"]'));
+      const aviso  = document.getElementById('promo-aviso');
       const promoInput = document.getElementById('promo');
-      const cantInput = document.getElementById('cant-cursos');
+      const cantInput  = document.getElementById('cant-cursos');
 
       function actualizarPromo(){
         const seleccionadas = checks.filter(c => c.checked).length;
         cantInput.value = String(seleccionadas);
-
         if (seleccionadas === 1) {
           aviso.textContent = '💡 Si elegís 2 cursos: 40% OFF en el segundo. Si elegís 3 cursos: 40% OFF también en el tercero.';
           promoInput.value = 'No';
@@ -530,12 +533,42 @@
           promoInput.value = 'Sí - 40% en 2º y 3º curso';
         }
       }
-
       checks.forEach(c => c.addEventListener('change', actualizarPromo));
       actualizarPromo();
+
+      // --- Envío por fetch (sin salir de la página) ---
+      const form = document.getElementById('form-insc');
+      const btn  = document.getElementById('btn-enviar');
+      const msg  = document.getElementById('msg-insc');
+
+      form.addEventListener('submit', async (ev) => {
+        ev.preventDefault();
+        msg.textContent = '';
+        btn.disabled = true; btn.textContent = 'Enviando…';
+
+        try {
+          const fd = new FormData(form);
+          await fetch(URL_APPS_SCRIPT, { method: 'POST', body: fd, mode: 'no-cors' });
+          msg.style.color = '#157347';
+          msg.innerHTML = '✅ <strong>¡Gracias!</strong> Tu inscripción fue enviada.';
+          form.reset();
+          actualizarPromo();
+        } catch (err) {
+          console.error(err);
+          msg.style.color = '#b02a37';
+          msg.textContent = '❌ Ocurrió un error al enviar. Probá de nuevo.';
+        } finally {
+          btn.disabled = false; btn.textContent = '📝 Enviar inscripción';
+        }
+      });
     })();
   </script>
 </section>
+
+
+
+
+
 
 <!-- Pagos -->
 <section class="card" id="pagos">
@@ -688,7 +721,6 @@
   </div>
 </div>
 
-
 <div id="powerbi" class="tab-content">
   <style>
     /* ====== Estilos al estilo del tab EXCEL (wrap/hero/timeline/cards) ====== */
@@ -751,24 +783,22 @@
         <h2>Modalidad</h2>
         <ul>
           <li><b>Sincrónica</b> y <b>asincrónica</b> (materiales + grabaciones).</li>
-          <li>Duración total: <b>(5 sesiones).</li>
+          <li><b>Duración total:</b> (5 sesiones).</li> <!-- fix etiqueta <b> -->
           <li>Incluye <b>certificado</b> y repositorio de recursos.</li>
         </ul>
       </section>
     </div>
 
-
     <section class="card" id="audiencia">
-  <h2>🎯 ¿A quién va dirigido este curso?</h2>
-  <ul>
-    <li><b>Profesionales de todas las áreas</b> que necesitan analizar y visualizar datos para tomar mejores decisiones.</li>
-    <li><b>Analistas, contadores, ingenieros, administradores y personal de recursos humanos</b>, entre otros, que deseen optimizar sus reportes y automatizar procesos de análisis.</li>
-    <li><b>Emprendedores y dueños de negocios</b> que quieran entender el comportamiento de su empresa mediante indicadores visuales.</li>
-    <li><b>Estudiantes y recién egresados</b> que buscan adquirir una herramienta valiosa para el mercado laboral.</li>
-    <li><b>Personas sin experiencia previa en Power BI</b>, pero con conocimientos básicos de Excel y análisis de datos.</li>
-  </ul>
-</section>
-
+      <h2>🎯 ¿A quién va dirigido este curso?</h2>
+      <ul>
+        <li><b>Profesionales de todas las áreas</b> que necesitan analizar y visualizar datos para tomar mejores decisiones.</li>
+        <li><b>Analistas, contadores, ingenieros, administradores y personal de recursos humanos</b>, entre otros, que deseen optimizar sus reportes y automatizar procesos de análisis.</li>
+        <li><b>Emprendedores y dueños de negocios</b> que quieran entender el comportamiento de su empresa mediante indicadores visuales.</li>
+        <li><b>Estudiantes y recién egresados</b> que buscan adquirir una herramienta valiosa para el mercado laboral.</li>
+        <li><b>Personas sin experiencia previa en Power BI</b>, pero con conocimientos básicos de Excel y análisis de datos.</li>
+      </ul>
+    </section>
 
     <!-- Programa 5 sesiones (secuencia lógica) -->
     <section id="programa" class="card">
@@ -843,205 +873,243 @@
       </section>
     </div>
 
-  <!-- Inscripción -->
-<section id="inscripcion" class="card">
-  <h2>Inscripción</h2>
+    <!-- Inscripción (envío por fetch, sin salir de la página) -->
+    <section id="inscripcion" class="card">
+      <h2>Inscripción</h2>
 
-  <!-- Promo -->
-  <div style="background:#fff7e6; border:1px dashed #f4a261; padding:12px; border-radius:10px; margin:10px 0;">
-    🎁 <strong>Promo activa:</strong>
-    <ul style="margin:6px 0 0 16px; padding:0;">
-      <li>Si elegís <strong>2 cursos</strong>: <strong>40% de descuento</strong> en el segundo.</li>
-      <li>Si elegís <strong>3 cursos</strong>: <strong>40% de descuento</strong> en el segundo <em>y</em> en el tercero. </li>
-    </ul>
-    <small style="display:block; margin-top:6px;">No acumulable con otras promociones.</small>
-  </div>
+      <div style="background:#fff7e6; border:1px dashed #f4a261; padding:12px; border-radius:10px; margin:10px 0;">
+        🎁 <strong>Promo activa:</strong>
+        <ul style="margin:6px 0 0 16px; padding:0;">
+          <li>Si elegís <strong>2 cursos</strong>: <strong>40% de descuento</strong> en el segundo.</li>
+          <li>Si elegís <strong>3 cursos</strong>: <strong>40% de descuento</strong> en el segundo <em>y</em> en el tercero.</li>
+        </ul>
+        <small style="display:block; margin-top:6px;">No acumulable con otras promociones.</small>
+      </div>
 
-  <p>Completá el formulario y reservá tu lugar. Recibirás la confirmación por correo.</p>
+      <p>Completá el formulario y reservá tu lugar. Recibirás la confirmación por correo.</p>
 
-  <form action="https://formspree.io/f/xnnzdevj" method="POST" style="max-width:520px; margin:0 auto;">
-    <input type="text" name="nombre" placeholder="Nombre completo" required style="width:100%; padding:12px; margin:6px 0; border-radius:8px; border:1px solid #d7dde5;">
-    <input type="email" name="email" placeholder="Correo electrónico" required style="width:100%; padding:12px; margin:6px 0; border-radius:8px; border:1px solid #d7dde5;">
-    <input type="tel" name="telefono" placeholder="Teléfono" required style="width:100%; padding:12px; margin:6px 0; border-radius:8px; border:1px solid #d7dde5;">
+      <!-- Sin action: lo maneja fetch -->
+      <form id="form-insc" style="max-width:520px; margin:0 auto;">
+        <input type="text" name="nombre" placeholder="Nombre completo" required style="width:100%; padding:12px; margin:6px 0; border-radius:8px; border:1px solid #d7dde5;">
+        <input type="email" name="email" placeholder="Correo electrónico" required style="width:100%; padding:12px; margin:6px 0; border-radius:8px; border:1px solid #d7dde5;">
+        <input type="tel" name="telefono" placeholder="Teléfono" required style="width:100%; padding:12px; margin:6px 0; border-radius:8px; border:1px solid #d7dde5;">
 
-    <!-- Cursos (multi-selección con checkboxes) -->
-    <div style="width:100%; padding:12px; margin:6px 0; border-radius:8px; border:1px solid #d7dde5; background:#fff;">
-      <label style="display:block; font-weight:600; margin-bottom:6px;">Seleccioná los cursos (podés elegir más de uno)</label>
+        <!-- Cursos (checkboxes; name="cursos" múltiple) -->
+        <div style="width:100%; padding:12px; margin:6px 0; border-radius:8px; border:1px solid #d7dde5; background:#fff;">
+          <label style="display:block; font-weight:600; margin-bottom:6px;">Seleccioná los cursos (podés elegir más de uno)</label>
 
-      <label style="display:flex; align-items:center; gap:8px; margin:6px 0;">
-        <input type="checkbox" name="cursos[]" value="Report y Dashboard con Power BI" checked>
-        <span>Report y Dashboard con Power BI</span>
-      </label>
+          <label style="display:flex; align-items:center; gap:8px; margin:6px 0;">
+            <input type="checkbox" name="cursos" value="Report y Dashboard con Power BI" checked>
+            <span>Report y Dashboard con Power BI</span>
+          </label>
 
-      <label style="display:flex; align-items:center; gap:8px; margin:6px 0;">
-        <input type="checkbox" name="cursos[]" value="Análisis de Datos Moderno con Excel: Power Query + Power Pivot">
-        <span>Análisis de Datos Moderno con Excel: Power Query + Power Pivot</span>
-      </label>
+          <label style="display:flex; align-items:center; gap:8px; margin:6px 0;">
+            <input type="checkbox" name="cursos" value="Análisis de Datos Moderno con Excel: Power Query + Power Pivot">
+            <span>Análisis de Datos Moderno con Excel: Power Query + Power Pivot</span>
+          </label>
 
-      <label style="display:flex; align-items:center; gap:8px; margin:6px 0;">
-        <input type="checkbox" name="cursos[]" value="SQL">
-        <span>SQL</span>
-      </label>
+          <label style="display:flex; align-items:center; gap:8px; margin:6px 0;">
+            <input type="checkbox" name="cursos" value="SQL">
+            <span>SQL</span>
+          </label>
 
-      <small id="promo-aviso" style="display:block; margin-top:8px; color:#7a869a;">
-        💡 Si elegís 2 cursos: 40% OFF en el segundo. Si elegís 3 cursos: 40% OFF también en el tercero.
-      </small>
-    </div>
+          <small id="promo-aviso" style="display:block; margin-top:8px; color:#7a869a;">
+            💡 Si elegís 2 cursos: 40% OFF en el segundo. Si elegís 3 cursos: 40% OFF también en el tercero.
+          </small>
+        </div>
 
-    <textarea name="comentarios" placeholder="Comentarios o consultas" rows="4" style="width:100%; padding:12px; margin:6px 0 12px; border-radius:8px; border:1px solid #d7dde5;"></textarea>
+        <textarea name="comentarios" placeholder="Comentarios o consultas" rows="4" style="width:100%; padding:12px; margin:6px 0 12px; border-radius:8px; border:1px solid #d7dde5;"></textarea>
 
-    <!-- Campos ocultos para enviar a Formspree -->
-    <input type="hidden" name="promo" id="promo" value="No">
-    <input type="hidden" name="cantidad_cursos_seleccionados" id="cant-cursos" value="1">
+        <!-- Campos ocultos de promo -->
+        <input type="hidden" name="promo" id="promo" value="No">
+        <input type="hidden" name="cantidad_cursos_seleccionados" id="cant-cursos" value="1">
 
-    <button type="submit" class="button button--accent" style="width:100%; justify-content:center;">📝 Enviar inscripción</button>
-  </form>
+        <button id="btn-enviar" type="submit" class="button button--accent" style="width:100%; justify-content:center;">📝 Enviar inscripción</button>
+        <div id="msg-insc" role="status" style="margin-top:10px; font-size:0.95rem;"></div>
+      </form>
 
-  <!-- Lógica de la promo (solo interfaz) -->
-  <script>
-    (function(){
-      const checks = Array.from(document.querySelectorAll('input[name="cursos[]"]'));
-      const aviso = document.getElementById('promo-aviso');
-      const promoInput = document.getElementById('promo');
-      const cantInput = document.getElementById('cant-cursos');
+      <script>
+        (function(){
+          const root = document.getElementById('powerbi');
+          if (!root) return;
 
-      function actualizarPromo(){
-        const seleccionadas = checks.filter(c => c.checked).length;
-        cantInput.value = String(seleccionadas);
+          // 🔗 TU endpoint /exec (cambiá si redeployás)
+          const URL_APPS_SCRIPT = 'https://script.google.com/macros/s/AKfycbzumz937-h3CCYsmmidpYiy0atY3DFZ7OwjJ3IbgZDoHTuGNEetTaNRpXwCfzvR_dlQDw/exec';
 
-        if (seleccionadas === 1) {
-          aviso.textContent = '💡 Si elegís 2 cursos: 40% OFF en el segundo. Si elegís 3 cursos: 40% OFF también en el tercero.';
-          promoInput.value = 'No';
-        } else if (seleccionadas === 2) {
-          aviso.textContent = '✅ ¡Genial! Se aplicará 40% OFF en el segundo curso.';
-          promoInput.value = 'Sí - 40% en 2º curso';
-        } else if (seleccionadas >= 3) {
-          aviso.textContent = '✅ ¡Top! Se aplicará 40% OFF en el segundo y tercer curso.';
-          promoInput.value = 'Sí - 40% en 2º y 3º curso';
+          const form = root.querySelector('#form-insc');
+          if (!form) return;
+
+          // --- Lógica de promo (scoped al formulario) ---
+          const checks = Array.from(form.querySelectorAll('input[name="cursos"]'));
+          const aviso  = root.querySelector('#promo-aviso');
+          const promoInput = root.querySelector('#promo');
+          const cantInput  = root.querySelector('#cant-cursos');
+
+          function actualizarPromo(){
+            const seleccionadas = checks.filter(c => c.checked).length;
+            if (cantInput) cantInput.value = String(seleccionadas);
+
+            if (!aviso || !promoInput) return;
+
+            if (seleccionadas === 1) {
+              aviso.textContent = '💡 Si elegís 2 cursos: 40% OFF en el segundo. Si elegís 3 cursos: 40% OFF también en el tercero.';
+              promoInput.value = 'No';
+            } else if (seleccionadas === 2) {
+              aviso.textContent = '✅ ¡Genial! Se aplicará 40% OFF en el segundo curso.';
+              promoInput.value = 'Sí - 40% en 2º curso';
+            } else if (seleccionadas >= 3) {
+              aviso.textContent = '✅ ¡Top! Se aplicará 40% OFF en el segundo y tercer curso.';
+              promoInput.value = 'Sí - 40% en 2º y 3º curso';
+            }
+          }
+          checks.forEach(c => c.addEventListener('change', actualizarPromo));
+          actualizarPromo();
+
+          // --- Envío por fetch (sin salir de la página) ---
+          const btn  = root.querySelector('#btn-enviar');
+          const msg  = root.querySelector('#msg-insc');
+
+          form.addEventListener('submit', async (ev) => {
+            ev.preventDefault();
+            if (msg) msg.textContent = '';
+            if (btn) { btn.disabled = true; btn.textContent = 'Enviando…'; }
+
+            try {
+              const fd = new FormData(form);
+              await fetch(URL_APPS_SCRIPT, { method: 'POST', body: fd, mode: 'no-cors' });
+              if (msg) {
+                msg.style.color = '#157347';
+                msg.innerHTML = '✅ <strong>¡Gracias!</strong> Tu inscripción fue enviada.';
+              }
+              form.reset();
+              actualizarPromo();
+            } catch (err) {
+              console.error(err);
+              if (msg) {
+                msg.style.color = '#b02a37';
+                msg.textContent = '❌ Ocurrió un error al enviar. Probá de nuevo.';
+              }
+            } finally {
+              if (btn) { btn.disabled = false; btn.textContent = '📝 Enviar inscripción'; }
+            }
+          });
+        })();
+      </script>
+    </section>
+
+    <!-- Pagos -->
+    <section class="card" id="pagos">
+      <h2>Formas de pago</h2>
+
+      <div class="grid">
+        <!-- Transferencia -->
+        <div class="card">
+          <h3>🏦 Transferencia / Depósito</h3>
+          <ul id="datos-transferencia" style="list-style: none; padding-left: 0;">
+            <li><b>Banco:</b> <span data-copy="banco">Itaú</span></li>
+            <li>
+              <b>Cta. Nº:</b> <span data-copy="cta">720005407</span>
+              <button type="button" data-target="cta" class="btn-copy">Copiar</button>
+            </li>
+            <li>
+              <b>Titular:</b> <span data-copy="titular">Oscar Gonzalez Frutos</span>
+              <button type="button" data-target="titular" class="btn-copy">Copiar</button>
+            </li>
+            <li>
+              <b>CI:</b> <span data-copy="ci">3584172</span>
+              <button type="button" data-target="ci" class="btn-copy">Copiar</button>
+            </li>
+            <li>
+              <b>Alias:</b> <span data-copy="alias">3584172</span>
+              <button type="button" data-target="alias" class="btn-copy">Copiar</button>
+            </li>
+          </ul>
+
+          <button type="button" class="btn-copy-all" data-copy-all="#datos-transferencia">Copiar todos los datos</button>
+        </div>
+
+        <!-- Tarjeta -->
+        <div class="card">
+          <h3>💳 Tarjeta de crédito / débito</h3>
+          <p>Podés abonar mediante POS virtual. Solicitá el enlace de pago.</p>
+          <a
+            href="https://wa.me/595983352932?text=Hola%20%F0%9F%91%8B%20quiero%20el%20link%20de%20pago%20(POS%20virtual)%20para%20inscribirme%20a%20los%20cursos."
+            class="button button--accent"
+            target="_blank" rel="noopener"
+            style="display:inline-flex; align-items:center; gap:8px;"
+          >Solicitar link por WhatsApp</a>
+        </div>
+      </div>
+
+      <p style="margin-top:10px; font-weight:700;">
+        Para confirmar tu inscripción enviá el comprobante a
+        <a href="https://wa.me/595983352932?text=Hola%2C%20adjunto%20mi%20comprobante%20de%20pago%20para%20la%20inscripci%C3%B3n." target="_blank" rel="noopener"><b>0983 352 932</b></a>
+        o llamá al <a href="tel:+595983352932">+595 983 352 932</a>.
+      </p>
+
+      <!-- Toast de copiado -->
+      <div id="copy-toast" aria-live="polite" style="display:none; position:fixed; bottom:16px; left:50%; transform:translateX(-50%); background:#111; color:#fff; padding:8px 12px; border-radius:8px; font-size:0.9rem;">
+        ¡Copiado!
+      </div>
+    </section>
+
+    <script>
+      (function(){
+        const scope = document.querySelector('#powerbi #pagos');
+        if (!scope) return;
+
+        const toast = scope.querySelector('#copy-toast');
+
+        function showToast(msg='¡Copiado!'){
+          if(!toast) return;
+          toast.textContent = msg;
+          toast.style.display = 'block';
+          clearTimeout(showToast._t);
+          showToast._t = setTimeout(()=> toast.style.display='none', 1400);
         }
-      }
 
-      checks.forEach(c => c.addEventListener('change', actualizarPromo));
-      actualizarPromo();
-    })();
-  </script>
-</section>
+        function copiarTexto(texto){
+          if (!navigator.clipboard) {
+            const ta = document.createElement('textarea');
+            ta.value = texto;
+            document.body.appendChild(ta);
+            ta.select();
+            try { document.execCommand('copy'); } catch(e){}
+            document.body.removeChild(ta);
+            showToast();
+            return;
+          }
+          navigator.clipboard.writeText(texto).then(()=> showToast());
+        }
 
-<!-- Pagos -->
-<section class="card" id="pagos">
-  <h2>Formas de pago</h2>
-
-  <div class="grid">
-    <!-- Transferencia -->
-    <div class="card">
-      <h3>🏦 Transferencia / Depósito</h3>
-      <ul id="datos-transferencia" style="list-style: none; padding-left: 0;">
-        <li><b>Banco:</b> <span data-copy="banco">Itaú</span></li>
-        <li>
-          <b>Cta. Nº:</b> <span data-copy="cta">720005407</span>
-          <button type="button" data-target="cta" class="btn-copy">Copiar</button>
-        </li>
-        <li>
-          <b>Titular:</b> <span data-copy="titular">Oscar Gonzalez Frutos</span>
-          <button type="button" data-target="titular" class="btn-copy">Copiar</button>
-        </li>
-        <li>
-          <b>CI:</b> <span data-copy="ci">3584172</span>
-          <button type="button" data-target="ci" class="btn-copy">Copiar</button>
-        </li>
-        <li>
-          <b>Alias:</b> <span data-copy="alias">3584172</span>
-          <button type="button" data-target="alias" class="btn-copy">Copiar</button>
-        </li>
-      </ul>
-
-      <button type="button" class="btn-copy-all" data-copy-all="#datos-transferencia">Copiar todos los datos</button>
-      
-    </div>
-
-    <!-- Tarjeta -->
-    <div class="card">
-      <h3>💳 Tarjeta de crédito / débito</h3>
-      <p>Podés abonar mediante POS virtual. Solicitá el enlace de pago.</p>
-      <a
-        href="https://wa.me/595983352932?text=Hola%20%F0%9F%91%8B%20quiero%20el%20link%20de%20pago%20(POS%20virtual)%20para%20inscribirme%20a%20los%20cursos."
-        class="button button--accent"
-        target="_blank" rel="noopener"
-        style="display:inline-flex; align-items:center; gap:8px;"
-      >Solicitar link por WhatsApp</a>
-    </div>
-  </div>
-
-  <p style="margin-top:10px; font-weight:700;">
-    Para confirmar tu inscripción enviá el comprobante a
-    <a href="https://wa.me/595983352932?text=Hola%2C%20adjunto%20mi%20comprobante%20de%20pago%20para%20la%20inscripci%C3%B3n." target="_blank" rel="noopener"><b>0983 352 932</b></a>
-    o llamá al <a href="tel:+595983352932">+595 983 352 932</a>.
-  </p>
-
-  <!-- Toast de copiado -->
-  <div id="copy-toast" aria-live="polite" style="display:none; position:fixed; bottom:16px; left:50%; transform:translateX(-50%); background:#111; color:#fff; padding:8px 12px; border-radius:8px; font-size:0.9rem;">
-    ¡Copiado!
-  </div>
-</section>
-
-<script>
-  (function(){
-    const toast = document.getElementById('copy-toast');
-
-    function showToast(msg='¡Copiado!'){
-      if(!toast) return;
-      toast.textContent = msg;
-      toast.style.display = 'block';
-      clearTimeout(showToast._t);
-      showToast._t = setTimeout(()=> toast.style.display='none', 1400);
-    }
-
-    function copiarTexto(texto){
-      if (!navigator.clipboard) {
-        const ta = document.createElement('textarea');
-        ta.value = texto;
-        document.body.appendChild(ta);
-        ta.select();
-        try { document.execCommand('copy'); } catch(e){}
-        document.body.removeChild(ta);
-        showToast();
-        return;
-      }
-      navigator.clipboard.writeText(texto).then(()=> showToast());
-    }
-
-    // Botones individuales
-    document.querySelectorAll('.btn-copy[data-target]').forEach(btn=>{
-      btn.addEventListener('click', ()=>{
-        const target = btn.getAttribute('data-target');
-        const span = document.querySelector(`[data-copy="${target}"]`);
-        if (span) copiarTexto(span.textContent.trim());
-        btn.textContent = '¡Copiado!';
-        setTimeout(()=> btn.textContent = 'Copiar', 1200);
-      });
-    });
-
-    // Copiar todos
-    document.querySelectorAll('[data-copy-all]').forEach(btn=>{
-      btn.addEventListener('click', ()=>{
-        const selector = btn.getAttribute('data-copy-all');
-        const cont = document.querySelector(selector);
-        if(!cont) return;
-        const pares = Array.from(cont.querySelectorAll('[data-copy]')).map(s=>{
-          const label = s.previousSibling && s.previousSibling.nodeType === 3
-            ? s.previousSibling.textContent.replace(':','').trim()
-            : (s.closest('li')?.querySelector('b')?.textContent.replace(':','').trim() || 'Dato');
-          return `${label}: ${s.textContent.trim()}`;
+        // Botones individuales
+        scope.querySelectorAll('.btn-copy[data-target]').forEach(btn=>{
+          btn.addEventListener('click', ()=>{
+            const target = btn.getAttribute('data-target');
+            const span = scope.querySelector(`[data-copy="${target}"]`);
+            if (span) copiarTexto(span.textContent.trim());
+            btn.textContent = '¡Copiado!';
+            setTimeout(()=> btn.textContent = 'Copiar', 1200);
+          });
         });
-        copiarTexto(pares.join('\n'));
-        btn.textContent = '¡Datos copiados!';
-        setTimeout(()=> btn.textContent = 'Copiar todos los datos', 1200);
-      });
-    });
-  })();
-</script>
 
-
+        // Copiar todos
+        scope.querySelectorAll('[data-copy-all]').forEach(btn=>{
+          btn.addEventListener('click', ()=>{
+            const selector = btn.getAttribute('data-copy-all');
+            const cont = scope.querySelector(selector);
+            if(!cont) return;
+            const pares = Array.from(cont.querySelectorAll('[data-copy]')).map(s=>{
+              const label = s.closest('li')?.querySelector('b')?.textContent.replace(':','').trim() || 'Dato';
+              return `${label}: ${s.textContent.trim()}`;
+            });
+            copiarTexto(pares.join('\n'));
+            btn.textContent = '¡Datos copiados!';
+            setTimeout(()=> btn.textContent = 'Copiar todos los datos', 1200);
+          });
+        });
+      })();
+    </script>
 
     <!-- Capacitador -->
     <section class="card">
@@ -1053,11 +1121,11 @@
         </div>
         <div class="card">
           <ul>
-            <li>Lic. en Matemática Estadística — FACEN‑UNA.</li>
+            <li>Lic. en Matemática Estadística — FACEN-UNA.</li>
             <li>MSc. en Estadística Aplicada — Univ. de Granada (Becal).</li>
             <li>10+ años enseñando SQL, Excel, Power BI, R y Python.</li>
             <li>Certificación: Data Science con R — HarvardX.</li>
-            <li>Experiencia dictando en BCP, Itaipú, DGEEC, MEC, FACEN‑UNA, MDS; y en sector privado (Automotor, Banco Familiar, Bancoop, Sueñolar).</li>
+            <li>Experiencia dictando en BCP, Itaipú, DGEEC, MEC, FACEN-UNA, MDS; y en sector privado (Automotor, Banco Familiar, Bancoop, Sueñolar).</li>
           </ul>
           <p>
             🌐 <a href="https://oscar-pry.github.io/web_personal/" target="_blank" style="color:var(--primary);">Web personal</a> ·
@@ -1078,7 +1146,7 @@
     </section>
   </div>
 </div>
-    
+
     
 
     
