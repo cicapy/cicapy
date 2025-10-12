@@ -720,10 +720,9 @@
     </section>
   </div>
 </div>
-
 <div id="powerbi" class="tab-content">
   <style>
-    /* ====== Estilos al estilo del tab EXCEL (wrap/hero/timeline/cards) ====== */
+    /* ====== Estilos del tab ====== */
     #powerbi { --primary:#336699; --ink:#222; --muted:#666; --bg:#f7f9fb; --card:#ffffff; --accent:#25D366; }
     #powerbi .wrap { max-width:1100px; margin:0 auto; padding:24px; }
     #powerbi .title { text-align:center; color:var(--primary); font-size:clamp(1.6rem,2.4vw,2.2rem); font-weight:800; line-height:1.15; }
@@ -735,21 +734,20 @@
     #powerbi .cta { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:14px; }
     #powerbi .button { display:inline-flex; align-items:center; gap:8px; padding:12px 18px; border-radius:999px; border:1px solid #dfe7ef; background:#fff; color:var(--primary); font-weight:800; text-decoration:none; }
     #powerbi .button--accent { background:var(--accent); color:#fff; border-color:var(--accent); }
-
     #powerbi .grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
     #powerbi .card { background:var(--card); border:1px solid #e7ebf0; border-radius:12px; padding:18px; box-shadow:0 2px 10px rgba(0,0,0,.04); }
     #powerbi .card h2, #powerbi .card h3 { color:var(--primary); margin:0 0 10px; font-size:1.25rem; }
     #powerbi .card p { color:var(--ink); line-height:1.6; margin:6px 0 0; }
     #powerbi ul { margin:8px 0 0 18px; }
     #powerbi li { margin:4px 0; line-height:1.55; }
-
-    /* Timeline 5 sesiones */
+    /* Timeline */
     #powerbi .timeline { display:grid; grid-template-columns:1fr; gap:12px; }
     #powerbi .step { position:relative; padding:14px 14px 14px 52px; border:1px dashed #d9e3ef; border-radius:12px; background:#fcfdff; }
     #powerbi .step::before { content:attr(data-n); position:absolute; left:14px; top:14px; width:28px; height:28px; display:grid; place-items:center; border-radius:50%; background:var(--primary); color:#fff; font-weight:800; font-size:.95rem; }
     #powerbi .step h4 { margin:0 0 6px; color:var(--ink); font-size:1.05rem; }
     #powerbi .pill { display:inline-block; padding:2px 8px; border-radius:999px; font-size:.8rem; border:1px solid #e2e8f0; color:#435; background:#f6f8fb; margin-right:6px; }
-
+    /* Anclas: margen para header fijo */
+    #powerbi #programa, #powerbi #inscripcion { scroll-margin-top: 90px; }
     @media (max-width:980px){ #powerbi .grid{ grid-template-columns:1fr; } }
   </style>
 
@@ -783,7 +781,7 @@
         <h2>Modalidad</h2>
         <ul>
           <li><b>Sincrónica</b> y <b>asincrónica</b> (materiales + grabaciones).</li>
-          <li><b>Duración total:</b> (5 sesiones).</li> <!-- fix etiqueta <b> -->
+          <li><b>Duración total:</b> (5 sesiones).</li>
           <li>Incluye <b>certificado</b> y repositorio de recursos.</li>
         </ul>
       </section>
@@ -800,7 +798,7 @@
       </ul>
     </section>
 
-    <!-- Programa 5 sesiones (secuencia lógica) -->
+    <!-- Programa -->
     <section id="programa" class="card">
       <h2>Programa — 5 sesiones</h2>
       <div class="timeline">
@@ -852,7 +850,7 @@
       </div>
     </section>
 
-    <!-- Fechas & Costo (mismo layout de EXCEL) -->
+    <!-- Fechas & Costo -->
     <div class="grid">
       <section class="card">
         <h2>Fechas y horario (en vivo)</h2>
@@ -873,10 +871,9 @@
       </section>
     </div>
 
-    <!-- Inscripción (envío por fetch, sin salir de la página) -->
+    <!-- Inscripción (fetch) -->
     <section id="inscripcion" class="card">
       <h2>Inscripción</h2>
-
       <div style="background:#fff7e6; border:1px dashed #f4a261; padding:12px; border-radius:10px; margin:10px 0;">
         🎁 <strong>Promo activa:</strong>
         <ul style="margin:6px 0 0 16px; padding:0;">
@@ -885,227 +882,158 @@
         </ul>
         <small style="display:block; margin-top:6px;">No acumulable con otras promociones.</small>
       </div>
-
       <p>Completá el formulario y reservá tu lugar. Recibirás la confirmación por correo.</p>
 
-      <!-- Sin action: lo maneja fetch -->
       <form id="form-insc" style="max-width:520px; margin:0 auto;">
         <input type="text" name="nombre" placeholder="Nombre completo" required style="width:100%; padding:12px; margin:6px 0; border-radius:8px; border:1px solid #d7dde5;">
         <input type="email" name="email" placeholder="Correo electrónico" required style="width:100%; padding:12px; margin:6px 0; border-radius:8px; border:1px solid #d7dde5;">
         <input type="tel" name="telefono" placeholder="Teléfono" required style="width:100%; padding:12px; margin:6px 0; border-radius:8px; border:1px solid #d7dde5;">
-
-        <!-- Cursos (checkboxes; name="cursos" múltiple) -->
         <div style="width:100%; padding:12px; margin:6px 0; border-radius:8px; border:1px solid #d7dde5; background:#fff;">
           <label style="display:block; font-weight:600; margin-bottom:6px;">Seleccioná los cursos (podés elegir más de uno)</label>
-
           <label style="display:flex; align-items:center; gap:8px; margin:6px 0;">
             <input type="checkbox" name="cursos" value="Report y Dashboard con Power BI" checked>
             <span>Report y Dashboard con Power BI</span>
           </label>
-
           <label style="display:flex; align-items:center; gap:8px; margin:6px 0;">
             <input type="checkbox" name="cursos" value="Análisis de Datos Moderno con Excel: Power Query + Power Pivot">
             <span>Análisis de Datos Moderno con Excel: Power Query + Power Pivot</span>
           </label>
-
           <label style="display:flex; align-items:center; gap:8px; margin:6px 0;">
             <input type="checkbox" name="cursos" value="SQL">
             <span>SQL</span>
           </label>
-
           <small id="promo-aviso" style="display:block; margin-top:8px; color:#7a869a;">
             💡 Si elegís 2 cursos: 40% OFF en el segundo. Si elegís 3 cursos: 40% OFF también en el tercero.
           </small>
         </div>
-
         <textarea name="comentarios" placeholder="Comentarios o consultas" rows="4" style="width:100%; padding:12px; margin:6px 0 12px; border-radius:8px; border:1px solid #d7dde5;"></textarea>
-
-        <!-- Campos ocultos de promo -->
         <input type="hidden" name="promo" id="promo" value="No">
         <input type="hidden" name="cantidad_cursos_seleccionados" id="cant-cursos" value="1">
-
         <button id="btn-enviar" type="submit" class="button button--accent" style="width:100%; justify-content:center;">📝 Enviar inscripción</button>
         <div id="msg-insc" role="status" style="margin-top:10px; font-size:0.95rem;"></div>
       </form>
-
-      <script>
-        (function(){
-          const root = document.getElementById('powerbi');
-          if (!root) return;
-
-          // 🔗 TU endpoint /exec (cambiá si redeployás)
-          const URL_APPS_SCRIPT = 'https://script.google.com/macros/s/AKfycbzumz937-h3CCYsmmidpYiy0atY3DFZ7OwjJ3IbgZDoHTuGNEetTaNRpXwCfzvR_dlQDw/exec';
-
-          const form = root.querySelector('#form-insc');
-          if (!form) return;
-
-          // --- Lógica de promo (scoped al formulario) ---
-          const checks = Array.from(form.querySelectorAll('input[name="cursos"]'));
-          const aviso  = root.querySelector('#promo-aviso');
-          const promoInput = root.querySelector('#promo');
-          const cantInput  = root.querySelector('#cant-cursos');
-
-          function actualizarPromo(){
-            const seleccionadas = checks.filter(c => c.checked).length;
-            if (cantInput) cantInput.value = String(seleccionadas);
-
-            if (!aviso || !promoInput) return;
-
-            if (seleccionadas === 1) {
-              aviso.textContent = '💡 Si elegís 2 cursos: 40% OFF en el segundo. Si elegís 3 cursos: 40% OFF también en el tercero.';
-              promoInput.value = 'No';
-            } else if (seleccionadas === 2) {
-              aviso.textContent = '✅ ¡Genial! Se aplicará 40% OFF en el segundo curso.';
-              promoInput.value = 'Sí - 40% en 2º curso';
-            } else if (seleccionadas >= 3) {
-              aviso.textContent = '✅ ¡Top! Se aplicará 40% OFF en el segundo y tercer curso.';
-              promoInput.value = 'Sí - 40% en 2º y 3º curso';
-            }
-          }
-          checks.forEach(c => c.addEventListener('change', actualizarPromo));
-          actualizarPromo();
-
-          // --- Envío por fetch (sin salir de la página) ---
-          const btn  = root.querySelector('#btn-enviar');
-          const msg  = root.querySelector('#msg-insc');
-
-          form.addEventListener('submit', async (ev) => {
-            ev.preventDefault();
-            if (msg) msg.textContent = '';
-            if (btn) { btn.disabled = true; btn.textContent = 'Enviando…'; }
-
-            try {
-              const fd = new FormData(form);
-              await fetch(URL_APPS_SCRIPT, { method: 'POST', body: fd, mode: 'no-cors' });
-              if (msg) {
-                msg.style.color = '#157347';
-                msg.innerHTML = '✅ <strong>¡Gracias!</strong> Tu inscripción fue enviada.';
-              }
-              form.reset();
-              actualizarPromo();
-            } catch (err) {
-              console.error(err);
-              if (msg) {
-                msg.style.color = '#b02a37';
-                msg.textContent = '❌ Ocurrió un error al enviar. Probá de nuevo.';
-              }
-            } finally {
-              if (btn) { btn.disabled = false; btn.textContent = '📝 Enviar inscripción'; }
-            }
-          });
-        })();
-      </script>
     </section>
 
     <!-- Pagos -->
     <section class="card" id="pagos">
       <h2>Formas de pago</h2>
-
       <div class="grid">
-        <!-- Transferencia -->
         <div class="card">
           <h3>🏦 Transferencia / Depósito</h3>
           <ul id="datos-transferencia" style="list-style: none; padding-left: 0;">
             <li><b>Banco:</b> <span data-copy="banco">Itaú</span></li>
-            <li>
-              <b>Cta. Nº:</b> <span data-copy="cta">720005407</span>
-              <button type="button" data-target="cta" class="btn-copy">Copiar</button>
-            </li>
-            <li>
-              <b>Titular:</b> <span data-copy="titular">Oscar Gonzalez Frutos</span>
-              <button type="button" data-target="titular" class="btn-copy">Copiar</button>
-            </li>
-            <li>
-              <b>CI:</b> <span data-copy="ci">3584172</span>
-              <button type="button" data-target="ci" class="btn-copy">Copiar</button>
-            </li>
-            <li>
-              <b>Alias:</b> <span data-copy="alias">3584172</span>
-              <button type="button" data-target="alias" class="btn-copy">Copiar</button>
-            </li>
+            <li><b>Cta. Nº:</b> <span data-copy="cta">720005407</span> <button type="button" data-target="cta" class="btn-copy">Copiar</button></li>
+            <li><b>Titular:</b> <span data-copy="titular">Oscar Gonzalez Frutos</span> <button type="button" data-target="titular" class="btn-copy">Copiar</button></li>
+            <li><b>CI:</b> <span data-copy="ci">3584172</span> <button type="button" data-target="ci" class="btn-copy">Copiar</button></li>
+            <li><b>Alias:</b> <span data-copy="alias">3584172</span> <button type="button" data-target="alias" class="btn-copy">Copiar</button></li>
           </ul>
-
           <button type="button" class="btn-copy-all" data-copy-all="#datos-transferencia">Copiar todos los datos</button>
         </div>
-
-        <!-- Tarjeta -->
         <div class="card">
           <h3>💳 Tarjeta de crédito / débito</h3>
           <p>Podés abonar mediante POS virtual. Solicitá el enlace de pago.</p>
-          <a
-            href="https://wa.me/595983352932?text=Hola%20%F0%9F%91%8B%20quiero%20el%20link%20de%20pago%20(POS%20virtual)%20para%20inscribirme%20a%20los%20cursos."
-            class="button button--accent"
-            target="_blank" rel="noopener"
-            style="display:inline-flex; align-items:center; gap:8px;"
-          >Solicitar link por WhatsApp</a>
+          <a href="https://wa.me/595983352932?text=Hola%20%F0%9F%91%8B%20quiero%20el%20link%20de%20pago%20(POS%20virtual)%20para%20inscribirme%20a%20los%20cursos."
+             class="button button--accent" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:8px;">
+            Solicitar link por WhatsApp
+          </a>
         </div>
       </div>
-
       <p style="margin-top:10px; font-weight:700;">
         Para confirmar tu inscripción enviá el comprobante a
         <a href="https://wa.me/595983352932?text=Hola%2C%20adjunto%20mi%20comprobante%20de%20pago%20para%20la%20inscripci%C3%B3n." target="_blank" rel="noopener"><b>0983 352 932</b></a>
         o llamá al <a href="tel:+595983352932">+595 983 352 932</a>.
       </p>
-
-      <!-- Toast de copiado -->
-      <div id="copy-toast" aria-live="polite" style="display:none; position:fixed; bottom:16px; left:50%; transform:translateX(-50%); background:#111; color:#fff; padding:8px 12px; border-radius:8px; font-size:0.9rem;">
-        ¡Copiado!
-      </div>
+      <div id="copy-toast" aria-live="polite" style="display:none; position:fixed; bottom:16px; left:50%; transform:translateX(-50%); background:#111; color:#fff; padding:8px 12px; border-radius:8px; font-size:0.9rem;">¡Copiado!</div>
     </section>
 
+    <!-- Script integrado (anchors + promo + fetch + pagos) -->
     <script>
       (function(){
-        const scope = document.querySelector('#powerbi #pagos');
-        if (!scope) return;
+        const root = document.getElementById('powerbi');
+        if (!root) return;
 
-        const toast = scope.querySelector('#copy-toast');
-
-        function showToast(msg='¡Copiado!'){
-          if(!toast) return;
-          toast.textContent = msg;
-          toast.style.display = 'block';
-          clearTimeout(showToast._t);
-          showToast._t = setTimeout(()=> toast.style.display='none', 1400);
-        }
-
-        function copiarTexto(texto){
-          if (!navigator.clipboard) {
-            const ta = document.createElement('textarea');
-            ta.value = texto;
-            document.body.appendChild(ta);
-            ta.select();
-            try { document.execCommand('copy'); } catch(e){}
-            document.body.removeChild(ta);
-            showToast();
-            return;
-          }
-          navigator.clipboard.writeText(texto).then(()=> showToast());
-        }
-
-        // Botones individuales
-        scope.querySelectorAll('.btn-copy[data-target]').forEach(btn=>{
-          btn.addEventListener('click', ()=>{
-            const target = btn.getAttribute('data-target');
-            const span = scope.querySelector(`[data-copy="${target}"]`);
-            if (span) copiarTexto(span.textContent.trim());
-            btn.textContent = '¡Copiado!';
-            setTimeout(()=> btn.textContent = 'Copiar', 1200);
+        /* ====== Scroll anclas de la CTA (solo dentro de este tab) ====== */
+        root.querySelectorAll('.cta a[href^="#"]').forEach(a => {
+          a.addEventListener('click', (e) => {
+            const hash = a.getAttribute('href');
+            const target = root.querySelector(hash);
+            if (!target) return;
+            e.preventDefault();
+            const header = document.querySelector('[data-sticky], header, .site-header');
+            const offset = header ? header.offsetHeight : 80;
+            const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+            window.scrollTo({ top, behavior: 'smooth' });
           });
         });
 
-        // Copiar todos
-        scope.querySelectorAll('[data-copy-all]').forEach(btn=>{
+        /* ====== Inscripción: promo + envío por fetch ====== */
+        const URL_APPS_SCRIPT = 'https://script.google.com/macros/s/AKfycbzumz937-h3CCYsmmidpYiy0atY3DFZ7OwjJ3IbgZDoHTuGNEetTaNRpXwCfzvR_dlQDw/exec';
+        const form = root.querySelector('#form-insc');
+        const btn  = root.querySelector('#btn-enviar');
+        const msg  = root.querySelector('#msg-insc');
+        const checks = form ? Array.from(form.querySelectorAll('input[name="cursos"]')) : [];
+        const aviso  = root.querySelector('#promo-aviso');
+        const promoInput = root.querySelector('#promo');
+        const cantInput  = root.querySelector('#cant-cursos');
+
+        function actualizarPromo(){
+          const seleccionadas = checks.filter(c => c.checked).length;
+          if (cantInput) cantInput.value = String(seleccionadas);
+          if (!aviso || !promoInput) return;
+          if (seleccionadas === 1) { aviso.textContent = '💡 Si elegís 2 cursos: 40% OFF en el segundo. Si elegís 3 cursos: 40% OFF también en el tercero.'; promoInput.value = 'No'; }
+          else if (seleccionadas === 2) { aviso.textContent = '✅ ¡Genial! Se aplicará 40% OFF en el segundo curso.'; promoInput.value = 'Sí - 40% en 2º curso'; }
+          else if (seleccionadas >= 3) { aviso.textContent = '✅ ¡Top! Se aplicará 40% OFF en el segundo y tercer curso.'; promoInput.value = 'Sí - 40% en 2º y 3º curso'; }
+        }
+        checks.forEach(c => c.addEventListener('change', actualizarPromo));
+        actualizarPromo();
+
+        if (form) {
+          form.addEventListener('submit', async (ev) => {
+            ev.preventDefault();
+            if (msg) msg.textContent = '';
+            if (btn) { btn.disabled = true; btn.textContent = 'Enviando…'; }
+            try {
+              const fd = new FormData(form);
+              await fetch(URL_APPS_SCRIPT, { method: 'POST', body: fd, mode: 'no-cors' });
+              if (msg) { msg.style.color = '#157347'; msg.innerHTML = '✅ <strong>¡Gracias!</strong> Tu inscripción fue enviada.'; }
+              form.reset(); actualizarPromo();
+            } catch (err) {
+              console.error(err);
+              if (msg) { msg.style.color = '#b02a37'; msg.textContent = '❌ Ocurrió un error al enviar. Probá de nuevo.'; }
+            } finally {
+              if (btn) { btn.disabled = false; btn.textContent = '📝 Enviar inscripción'; }
+            }
+          });
+        }
+
+        /* ====== Pagos: copiar datos ====== */
+        const pagos = root.querySelector('#pagos');
+        const toast = pagos ? pagos.querySelector('#copy-toast') : null;
+
+        function showToast(msg){ if (!toast) return; toast.textContent = msg || '¡Copiado!'; toast.style.display='block'; clearTimeout(showToast._t); showToast._t=setTimeout(()=>toast.style.display='none',1400); }
+        function copiarTexto(txt){
+          if (!navigator.clipboard) { const ta=document.createElement('textarea'); ta.value=txt; document.body.appendChild(ta); ta.select(); try{document.execCommand('copy');}catch(e){} document.body.removeChild(ta); showToast(); return; }
+          navigator.clipboard.writeText(txt).then(()=> showToast());
+        }
+
+        pagos?.querySelectorAll('.btn-copy[data-target]').forEach(btn=>{
           btn.addEventListener('click', ()=>{
-            const selector = btn.getAttribute('data-copy-all');
-            const cont = scope.querySelector(selector);
-            if(!cont) return;
-            const pares = Array.from(cont.querySelectorAll('[data-copy]')).map(s=>{
-              const label = s.closest('li')?.querySelector('b')?.textContent.replace(':','').trim() || 'Dato';
+            const target=btn.getAttribute('data-target');
+            const span=pagos.querySelector(`[data-copy="${target}"]`);
+            if (span) copiarTexto(span.textContent.trim());
+            btn.textContent='¡Copiado!'; setTimeout(()=>btn.textContent='Copiar',1200);
+          });
+        });
+        pagos?.querySelectorAll('[data-copy-all]').forEach(btn=>{
+          btn.addEventListener('click', ()=>{
+            const sel=btn.getAttribute('data-copy-all');
+            const cont=pagos.querySelector(sel); if(!cont) return;
+            const pares=Array.from(cont.querySelectorAll('[data-copy]')).map(s=>{
+              const label=s.closest('li')?.querySelector('b')?.textContent.replace(':','').trim()||'Dato';
               return `${label}: ${s.textContent.trim()}`;
             });
             copiarTexto(pares.join('\n'));
-            btn.textContent = '¡Datos copiados!';
-            setTimeout(()=> btn.textContent = 'Copiar todos los datos', 1200);
+            btn.textContent='¡Datos copiados!'; setTimeout(()=>btn.textContent='Copiar todos los datos',1200);
           });
         });
       })();
@@ -1127,10 +1055,7 @@
             <li>Certificación: Data Science con R — HarvardX.</li>
             <li>Experiencia dictando en BCP, Itaipú, DGEEC, MEC, FACEN-UNA, MDS; y en sector privado (Automotor, Banco Familiar, Bancoop, Sueñolar).</li>
           </ul>
-          <p>
-            🌐 <a href="https://oscar-pry.github.io/web_personal/" target="_blank" style="color:var(--primary);">Web personal</a> ·
-            🔗 <a href="https://www.linkedin.com/in/oscar-gonzález-frutos" target="_blank" style="color:var(--primary);">LinkedIn</a>
-          </p>
+          <p>🌐 <a href="https://oscar-pry.github.io/web_personal/" target="_blank" style="color:var(--primary);">Web personal</a> · 🔗 <a href="https://www.linkedin.com/in/oscar-gonzález-frutos" target="_blank" style="color:var(--primary);">LinkedIn</a></p>
         </div>
       </div>
       <h3 style="margin-top:12px; color:var(--primary);">📸 Galería</h3>
