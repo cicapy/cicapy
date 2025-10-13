@@ -458,12 +458,12 @@
 
   <div style="background:#fff7e6; border:1px dashed #f4a261; padding:12px; border-radius:10px; margin:10px 0;">
     🎁 <strong>Promo activa:</strong>
-    Si tomás <strong>Report y Dashboard con Power BI</strong> + <strong>Análisis de Datos Moderno con Excel (Power Query + Power Pivot)</strong>,
-    te llevás <strong>SQL GRATIS</strong> (clases grabadas con todos los materiales y grabaciones).
+    Si te inscribís en <strong>Report y Dashboard con Power BI</strong> + <strong>Análisis de Datos Moderno con Excel (Power Query + Power Pivot)</strong>, 
+    <strong>SQL ya es GRATIS</strong> (se agrega automáticamente). 
     <small style="display:block; margin-top:6px;">No acumulable con otras promociones.</small>
   </div>
 
-  <p>Completá el formulario y reservá tu lugar. </p>
+  <p>Completá el formulario y reservá tu lugar. Recibirás la confirmación por correo.</p>
 
   <!-- Sin action: lo maneja fetch -->
   <form id="form-insc" style="max-width:520px; margin:0 auto;">
@@ -490,12 +490,15 @@
         <span id="sql-label">SQL</span>
       </label>
 
+      <!-- Sombra para enviar SQL cuando está deshabilitado (gratis) -->
+      <input type="hidden" name="cursos" id="sql-free-shadow" value="">
+
       <small style="display:block; color:#7a869a; margin-top:4px;">
         ℹ️ SQL son <strong>clases grabadas</strong> e incluye <strong>materiales y grabaciones</strong>.
       </small>
 
       <small id="promo-aviso" style="display:block; margin-top:8px; color:#7a869a;">
-        💡 Promo: si elegís <strong>Power BI + Excel</strong>, <strong>SQL se agrega GRATIS</strong>.
+        💡 Si elegís <strong>Power BI + Excel</strong>, <strong>SQL ya es GRATIS</strong> y se agrega automáticamente.
       </small>
     </div>
 
@@ -503,6 +506,8 @@
 
     <!-- Campos ocultos de promo -->
     <input type="hidden" name="promo" id="promo" value="No">
+    <input type="hidden" name="bonificacion" id="bonificacion" value="">
+    <!-- Cantidad de cursos PAGADOS (cuando hay combo, cuenta 2) -->
     <input type="hidden" name="cantidad_cursos_seleccionados" id="cant-cursos" value="1">
 
     <button id="btn-enviar" type="submit" class="button button--accent" style="width:100%; justify-content:center;">📝 Enviar inscripción</button>
@@ -515,30 +520,35 @@
       const URL_APPS_SCRIPT = 'https://script.google.com/macros/s/AKfycbzumz937-h3CCYsmmidpYiy0atY3DFZ7OwjJ3IbgZDoHTuGNEetTaNRpXwCfzvR_dlQDw/exec';
 
       // --- Elementos ---
-      const checks      = Array.from(document.querySelectorAll('input[name="cursos"]'));
-      const aviso       = document.getElementById('promo-aviso');
-      const promoInput  = document.getElementById('promo');
-      const cantInput   = document.getElementById('cant-cursos');
+      const checks        = Array.from(document.querySelectorAll('input[name="cursos"]'));
+      const aviso         = document.getElementById('promo-aviso');
+      const promoInput    = document.getElementById('promo');
+      const cantInput     = document.getElementById('cant-cursos');
+      const boniInput     = document.getElementById('bonificacion');
 
-      const pbi        = document.getElementById('curso-pbi');
-      const excel      = document.getElementById('curso-excel');
-      const sql        = document.getElementById('curso-sql');
-      const sqlLabel   = document.getElementById('sql-label');
+      const pbi           = document.getElementById('curso-pbi');
+      const excel         = document.getElementById('curso-excel');
+      const sql           = document.getElementById('curso-sql');
+      const sqlLabel      = document.getElementById('sql-label');
+      const sqlFreeShadow = document.getElementById('sql-free-shadow');
 
-      // --- Lógica de promo: PBI + Excel -> SQL gratis ---
+      // --- Lógica: PBI + Excel => SQL gratis (auto-agregado) ---
       function aplicarGratisSQL() {
-        // Marca SQL, lo bloquea y lo rotula como GRATIS
         sql.checked  = true;
         sql.disabled = true;
         sqlLabel.textContent = 'SQL — GRATIS (clases grabadas + materiales)';
         sqlLabel.style.fontWeight = '600';
+        // asegurar que SQL se envíe aunque esté disabled
+        sqlFreeShadow.value = 'SQL';
       }
 
       function quitarGratisSQL() {
-        // Libera SQL para que el usuario decida; restaura el rótulo
         sql.disabled = false;
+        // si veníamos del estado gratis, desmarcamos para que el usuario decida
+        sql.checked = false;
         sqlLabel.textContent = 'SQL';
         sqlLabel.style.fontWeight = '';
+        sqlFreeShadow.value = '';
       }
 
       function actualizarPromo(){
@@ -546,19 +556,20 @@
 
         if (combo) {
           aplicarGratisSQL();
-          aviso.innerHTML = '✅ ¡Listo! <strong>Power BI + Excel</strong> activan la promo: <strong>SQL se agrega GRATIS</strong>.';
+          aviso.innerHTML = '✅ ¡Listo! <strong>Power BI + Excel</strong> activan la promo: <strong>SQL ya es GRATIS</strong> y se agrega automáticamente.';
           promoInput.value = 'Sí - SQL gratis por combo PBI + Excel';
+          boniInput.value  = 'SQL gratis (combo PBI + Excel)';
+          // contar solo cursos pagados (2)
+          cantInput.value = '2';
         } else {
-          // Si el usuario no cumple el combo, quitar el “gratis” (pero mantener si el usuario lo quiere marcar)
           quitarGratisSQL();
-          aviso.innerHTML = '💡 Promo: si elegís <strong>Power BI + Excel</strong>, <strong>SQL se agrega GRATIS</strong>.';
-          // Solo marcar “No” si no hay combo (evita sobreescritura cuando el usuario marca SQL por su cuenta)
+          aviso.innerHTML = '💡 Si elegís <strong>Power BI + Excel</strong>, <strong>SQL ya es GRATIS</strong> y se agrega automáticamente.';
           promoInput.value = 'No';
+          boniInput.value  = '';
+          // contar seleccionados reales (incluye SQL solo si el usuario lo marca y no está gratis)
+          const seleccionadas = checks.filter(c => c.checked).length;
+          cantInput.value = String(seleccionadas);
         }
-
-        // Actualizar contador real de seleccionados
-        const seleccionadas = checks.filter(c => c.checked).length;
-        cantInput.value = String(seleccionadas);
       }
 
       // Listeners
@@ -593,9 +604,6 @@
     })();
   </script>
 </section>
-
-
-
 
 
 
@@ -900,18 +908,18 @@
       </section>
     </div>
 
-   <!-- Inscripción (envío por fetch, sin salir de la página) -->
+  <!-- Inscripción (envío por fetch, sin salir de la página) -->
 <section id="inscripcion" class="card">
   <h2>Inscripción</h2>
 
   <div style="background:#fff7e6; border:1px dashed #f4a261; padding:12px; border-radius:10px; margin:10px 0;">
     🎁 <strong>Promo activa:</strong>
-    Si tomás <strong>Report y Dashboard con Power BI</strong> + <strong>Análisis de Datos Moderno con Excel (Power Query + Power Pivot)</strong>,
-    te llevás <strong>SQL GRATIS</strong> (clases grabadas con todos los materiales y grabaciones).
+    Si te inscribís en <strong>Report y Dashboard con Power BI</strong> + <strong>Análisis de Datos Moderno con Excel (Power Query + Power Pivot)</strong>, 
+    <strong>SQL ya es GRATIS</strong> (se agrega automáticamente). 
     <small style="display:block; margin-top:6px;">No acumulable con otras promociones.</small>
   </div>
 
-  <p>Completá el formulario y reservá tu lugar. </p>
+  <p>Completá el formulario y reservá tu lugar. Recibirás la confirmación por correo.</p>
 
   <!-- Sin action: lo maneja fetch -->
   <form id="form-insc" style="max-width:520px; margin:0 auto;">
@@ -938,12 +946,15 @@
         <span id="sql-label">SQL</span>
       </label>
 
+      <!-- Sombra para enviar SQL cuando está deshabilitado (gratis) -->
+      <input type="hidden" name="cursos" id="sql-free-shadow" value="">
+
       <small style="display:block; color:#7a869a; margin-top:4px;">
         ℹ️ SQL son <strong>clases grabadas</strong> e incluye <strong>materiales y grabaciones</strong>.
       </small>
 
       <small id="promo-aviso" style="display:block; margin-top:8px; color:#7a869a;">
-        💡 Promo: si elegís <strong>Power BI + Excel</strong>, <strong>SQL se agrega GRATIS</strong>.
+        💡 Si elegís <strong>Power BI + Excel</strong>, <strong>SQL ya es GRATIS</strong> y se agrega automáticamente.
       </small>
     </div>
 
@@ -951,6 +962,8 @@
 
     <!-- Campos ocultos de promo -->
     <input type="hidden" name="promo" id="promo" value="No">
+    <input type="hidden" name="bonificacion" id="bonificacion" value="">
+    <!-- Cantidad de cursos PAGADOS (cuando hay combo, cuenta 2) -->
     <input type="hidden" name="cantidad_cursos_seleccionados" id="cant-cursos" value="1">
 
     <button id="btn-enviar" type="submit" class="button button--accent" style="width:100%; justify-content:center;">📝 Enviar inscripción</button>
@@ -963,30 +976,35 @@
       const URL_APPS_SCRIPT = 'https://script.google.com/macros/s/AKfycbzumz937-h3CCYsmmidpYiy0atY3DFZ7OwjJ3IbgZDoHTuGNEetTaNRpXwCfzvR_dlQDw/exec';
 
       // --- Elementos ---
-      const checks      = Array.from(document.querySelectorAll('input[name="cursos"]'));
-      const aviso       = document.getElementById('promo-aviso');
-      const promoInput  = document.getElementById('promo');
-      const cantInput   = document.getElementById('cant-cursos');
+      const checks        = Array.from(document.querySelectorAll('input[name="cursos"]'));
+      const aviso         = document.getElementById('promo-aviso');
+      const promoInput    = document.getElementById('promo');
+      const cantInput     = document.getElementById('cant-cursos');
+      const boniInput     = document.getElementById('bonificacion');
 
-      const pbi        = document.getElementById('curso-pbi');
-      const excel      = document.getElementById('curso-excel');
-      const sql        = document.getElementById('curso-sql');
-      const sqlLabel   = document.getElementById('sql-label');
+      const pbi           = document.getElementById('curso-pbi');
+      const excel         = document.getElementById('curso-excel');
+      const sql           = document.getElementById('curso-sql');
+      const sqlLabel      = document.getElementById('sql-label');
+      const sqlFreeShadow = document.getElementById('sql-free-shadow');
 
-      // --- Lógica de promo: PBI + Excel -> SQL gratis ---
+      // --- Lógica: PBI + Excel => SQL gratis (auto-agregado) ---
       function aplicarGratisSQL() {
-        // Marca SQL, lo bloquea y lo rotula como GRATIS
         sql.checked  = true;
         sql.disabled = true;
         sqlLabel.textContent = 'SQL — GRATIS (clases grabadas + materiales)';
         sqlLabel.style.fontWeight = '600';
+        // asegurar que SQL se envíe aunque esté disabled
+        sqlFreeShadow.value = 'SQL';
       }
 
       function quitarGratisSQL() {
-        // Libera SQL para que el usuario decida; restaura el rótulo
         sql.disabled = false;
+        // si veníamos del estado gratis, desmarcamos para que el usuario decida
+        sql.checked = false;
         sqlLabel.textContent = 'SQL';
         sqlLabel.style.fontWeight = '';
+        sqlFreeShadow.value = '';
       }
 
       function actualizarPromo(){
@@ -994,19 +1012,20 @@
 
         if (combo) {
           aplicarGratisSQL();
-          aviso.innerHTML = '✅ ¡Listo! <strong>Power BI + Excel</strong> activan la promo: <strong>SQL se agrega GRATIS</strong>.';
+          aviso.innerHTML = '✅ ¡Listo! <strong>Power BI + Excel</strong> activan la promo: <strong>SQL ya es GRATIS</strong> y se agrega automáticamente.';
           promoInput.value = 'Sí - SQL gratis por combo PBI + Excel';
+          boniInput.value  = 'SQL gratis (combo PBI + Excel)';
+          // contar solo cursos pagados (2)
+          cantInput.value = '2';
         } else {
-          // Si el usuario no cumple el combo, quitar el “gratis” (pero mantener si el usuario lo quiere marcar)
           quitarGratisSQL();
-          aviso.innerHTML = '💡 Promo: si elegís <strong>Power BI + Excel</strong>, <strong>SQL se agrega GRATIS</strong>.';
-          // Solo marcar “No” si no hay combo (evita sobreescritura cuando el usuario marca SQL por su cuenta)
+          aviso.innerHTML = '💡 Si elegís <strong>Power BI + Excel</strong>, <strong>SQL ya es GRATIS</strong> y se agrega automáticamente.';
           promoInput.value = 'No';
+          boniInput.value  = '';
+          // contar seleccionados reales (incluye SQL solo si el usuario lo marca y no está gratis)
+          const seleccionadas = checks.filter(c => c.checked).length;
+          cantInput.value = String(seleccionadas);
         }
-
-        // Actualizar contador real de seleccionados
-        const seleccionadas = checks.filter(c => c.checked).length;
-        cantInput.value = String(seleccionadas);
       }
 
       // Listeners
@@ -1041,8 +1060,6 @@
     })();
   </script>
 </section>
-
-
 
 
     <!-- Pagos -->
