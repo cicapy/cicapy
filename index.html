@@ -466,8 +466,16 @@
   <p>Completá el formulario y reservá tu lugar. Recibirás la confirmación por correo.</p>
 
   <form id="form-insc" style="max-width:520px; margin:0 auto;">
-    <input type="text" name="nombre" placeholder="Nombre completo" required style="width:100%; padding:12px; margin:6px 0; border-radius:8px; border:1px solid #d7dde5;">
+    <!-- Nombre -->
+    <input type="text" name="nombre" placeholder="Nombre" required style="width:100%; padding:12px; margin:6px 0; border-radius:8px; border:1px solid #d7dde5;">
+    
+    <!-- Apellido -->
+    <input type="text" name="apellido" placeholder="Apellido" required style="width:100%; padding:12px; margin:6px 0; border-radius:8px; border:1px solid #d7dde5;">
+    
+    <!-- Email -->
     <input type="email" name="email" placeholder="Correo electrónico" required style="width:100%; padding:12px; margin:6px 0; border-radius:8px; border:1px solid #d7dde5;">
+    
+    <!-- Teléfono -->
     <input type="tel" name="telefono" placeholder="Teléfono" required style="width:100%; padding:12px; margin:6px 0; border-radius:8px; border:1px solid #d7dde5;">
 
     <div style="width:100%; padding:12px; margin:6px 0; border-radius:8px; border:1px solid #d7dde5; background:#fff;">
@@ -596,6 +604,7 @@
     })();
   </script>
 </section>
+
 
 
 
@@ -945,7 +954,7 @@
     </div>
 
 
-  <!-- Inscripción (envío por fetch, sin salir de la página) -->
+ <!-- Inscripción (envío por fetch, sin salir de la página) -->
 <section id="inscripcion" class="card">
   <h2>Inscripción</h2>
 
@@ -959,8 +968,16 @@
   <p>Completá el formulario y reservá tu lugar. Recibirás la confirmación por correo.</p>
 
   <form id="form-insc" style="max-width:520px; margin:0 auto;">
-    <input type="text" name="nombre" placeholder="Nombre completo" required style="width:100%; padding:12px; margin:6px 0; border-radius:8px; border:1px solid #d7dde5;">
+    <!-- Nombre -->
+    <input type="text" name="nombre" placeholder="Nombre" required style="width:100%; padding:12px; margin:6px 0; border-radius:8px; border:1px solid #d7dde5;">
+    
+    <!-- Apellido -->
+    <input type="text" name="apellido" placeholder="Apellido" required style="width:100%; padding:12px; margin:6px 0; border-radius:8px; border:1px solid #d7dde5;">
+    
+    <!-- Email -->
     <input type="email" name="email" placeholder="Correo electrónico" required style="width:100%; padding:12px; margin:6px 0; border-radius:8px; border:1px solid #d7dde5;">
+    
+    <!-- Teléfono -->
     <input type="tel" name="telefono" placeholder="Teléfono" required style="width:100%; padding:12px; margin:6px 0; border-radius:8px; border:1px solid #d7dde5;">
 
     <div style="width:100%; padding:12px; margin:6px 0; border-radius:8px; border:1px solid #d7dde5; background:#fff;">
@@ -981,22 +998,20 @@
         <span id="sql-label">SQL</span>
       </label>
 
-      <!-- Campo oculto para enviar SQL si está gratis -->
       <input type="hidden" name="cursos" id="sql-free-shadow" value="">
 
-      <small style="display:block; color:#6b7785; margin-top:4px; font-size:0.92rem;">
+      <small style="display:block; color:#7a869a; margin-top:4px;">
         ℹ️ SQL son <strong>clases grabadas</strong> e incluye <strong>materiales y grabaciones</strong>.
       </small>
 
-      <small id="promo-aviso" style="display:block; margin-top:8px; color:#6b7785; font-size:0.92rem; line-height:1.5;">
-        💡 Si elegís <strong>2 cursos</strong>: <strong>40 % OFF en el segundo</strong>.  
-        Si elegís <strong>3 cursos</strong>: <strong>40 % OFF en el segundo</strong> y <strong>el tercero (SQL) es GRATIS</strong>.
+      <small id="promo-aviso" style="display:block; margin-top:8px; color:#7a869a;">
+        💡 Si elegís <strong>2 cursos</strong> tenés <strong>40 % OFF en el segundo</strong>.  
+        Si elegís <strong>los 3 cursos</strong>, <strong>SQL es GRATIS</strong>.
       </small>
     </div>
 
     <textarea name="comentarios" placeholder="Comentarios o consultas" rows="4" style="width:100%; padding:12px; margin:6px 0 12px; border-radius:8px; border:1px solid #d7dde5;"></textarea>
 
-    <!-- Campos ocultos -->
     <input type="hidden" name="promo" id="promo" value="No">
     <input type="hidden" name="bonificacion" id="bonificacion" value="">
     <input type="hidden" name="cantidad_cursos_seleccionados" id="cant-cursos" value="1">
@@ -1009,20 +1024,18 @@
     (function(){
       const URL_APPS_SCRIPT = 'https://script.google.com/macros/s/AKfycbzumz937-h3CCYsmmidpYiy0atY3DFZ7OwjJ3IbgZDoHTuGNEetTaNRpXwCfzvR_dlQDw/exec';
 
-      // Referencias
       const checks = Array.from(document.querySelectorAll('input[name="cursos"]'));
       const aviso = document.getElementById('promo-aviso');
       const promoInput = document.getElementById('promo');
-      const boniInput = document.getElementById('bonificacion');
       const cantInput = document.getElementById('cant-cursos');
+      const boniInput = document.getElementById('bonificacion');
       const pbi = document.getElementById('curso-pbi');
       const excel = document.getElementById('curso-excel');
       const sql = document.getElementById('curso-sql');
       const sqlLabel = document.getElementById('sql-label');
       const sqlFreeShadow = document.getElementById('sql-free-shadow');
 
-      // Funciones
-      function aplicarGratisSQL(){
+      function aplicarGratisSQL() {
         sql.checked = true;
         sql.disabled = true;
         sqlLabel.textContent = 'SQL — GRATIS (clases grabadas + materiales)';
@@ -1030,7 +1043,7 @@
         sqlFreeShadow.value = 'SQL';
       }
 
-      function quitarGratisSQL(){
+      function quitarGratisSQL() {
         sql.disabled = false;
         sql.checked = false;
         sqlLabel.textContent = 'SQL';
@@ -1040,16 +1053,16 @@
 
       function actualizarPromo(){
         const seleccionadas = checks.filter(c => c.checked).length;
-        const combo2 = pbi.checked && excel.checked && !sql.checked;
         const combo3 = pbi.checked && excel.checked && sql.checked;
+        const combo2 = pbi.checked && excel.checked && !sql.checked;
 
-        if (combo3){
+        if (combo3) {
           aplicarGratisSQL();
           aviso.innerHTML = '✅ ¡Listo! Tenés <strong>40 % OFF en el segundo curso</strong> y <strong>SQL GRATIS</strong> como tercero.';
           promoInput.value = 'Sí - 40% OFF + SQL gratis';
           boniInput.value = '40% OFF en segundo curso + SQL gratis';
           cantInput.value = '2';
-        } else if (combo2){
+        } else if (combo2) {
           quitarGratisSQL();
           aviso.innerHTML = '✅ ¡Listo! Tenés <strong>40 % OFF en el segundo curso</strong>. Si sumás SQL, será GRATIS.';
           promoInput.value = 'Sí - 40% OFF en segundo curso';
@@ -1057,7 +1070,7 @@
           cantInput.value = '2';
         } else {
           quitarGratisSQL();
-          aviso.innerHTML = '💡 Si elegís <strong>2 cursos</strong>: <strong>40 % OFF en el segundo</strong>. Si elegís <strong>3 cursos</strong>: <strong>40 % OFF en el segundo</strong> y <strong>el tercero (SQL) es GRATIS</strong>.';
+          aviso.innerHTML = '💡 Si elegís <strong>2 cursos</strong> tenés <strong>40 % OFF en el segundo</strong>. Si elegís <strong>los 3 cursos</strong>, <strong>SQL es GRATIS</strong>.';
           promoInput.value = 'No';
           boniInput.value = '';
           cantInput.value = String(seleccionadas);
@@ -1067,28 +1080,26 @@
       checks.forEach(c => c.addEventListener('change', actualizarPromo));
       actualizarPromo();
 
-      // Envío por fetch
       const form = document.getElementById('form-insc');
       const btn = document.getElementById('btn-enviar');
       const msg = document.getElementById('msg-insc');
 
-      form.addEventListener('submit', async (ev)=>{
+      form.addEventListener('submit', async (ev) => {
         ev.preventDefault();
         msg.textContent = '';
         btn.disabled = true; btn.textContent = 'Enviando…';
-
-        try{
+        try {
           const fd = new FormData(form);
-          await fetch(URL_APPS_SCRIPT, { method:'POST', body:fd, mode:'no-cors' });
+          await fetch(URL_APPS_SCRIPT, { method: 'POST', body: fd, mode: 'no-cors' });
           msg.style.color = '#157347';
           msg.innerHTML = '✅ <strong>¡Gracias!</strong> Tu inscripción fue enviada correctamente.';
           form.reset();
           actualizarPromo();
-        }catch(err){
+        } catch (err) {
           console.error(err);
           msg.style.color = '#b02a37';
           msg.textContent = '❌ Ocurrió un error al enviar. Probá de nuevo.';
-        }finally{
+        } finally {
           btn.disabled = false; btn.textContent = '📝 Enviar inscripción';
         }
       });
