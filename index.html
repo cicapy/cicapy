@@ -457,21 +457,19 @@
   <h2>Inscripción</h2>
 
   <div style="background:#fff7e6; border:1px dashed #f4a261; padding:12px; border-radius:10px; margin:10px 0;">
-    🎁 <strong>Promo activa:</strong>
-    Si te inscribís en <strong>Report y Dashboard con Power BI</strong> + <strong>Análisis de Datos Moderno con Excel (Power Query + Power Pivot)</strong>, 
-    <strong>SQL ya es GRATIS</strong> (se agrega automáticamente). 
+    🎁 <strong>Promo activa:</strong><br>
+    Si te inscribís en <strong>2 cursos</strong>: <strong>40 % OFF en el segundo</strong>.<br>
+    Si te inscribís en <strong>3 cursos</strong>: <strong>40 % OFF en el segundo</strong> y <strong>el tercero (SQL) es GRATIS</strong>.<br>
     <small style="display:block; margin-top:6px;">No acumulable con otras promociones.</small>
   </div>
 
   <p>Completá el formulario y reservá tu lugar. Recibirás la confirmación por correo.</p>
 
-  <!-- Sin action: lo maneja fetch -->
   <form id="form-insc" style="max-width:520px; margin:0 auto;">
     <input type="text" name="nombre" placeholder="Nombre completo" required style="width:100%; padding:12px; margin:6px 0; border-radius:8px; border:1px solid #d7dde5;">
     <input type="email" name="email" placeholder="Correo electrónico" required style="width:100%; padding:12px; margin:6px 0; border-radius:8px; border:1px solid #d7dde5;">
     <input type="tel" name="telefono" placeholder="Teléfono" required style="width:100%; padding:12px; margin:6px 0; border-radius:8px; border:1px solid #d7dde5;">
 
-    <!-- Cursos (checkboxes; name="cursos" múltiple) -->
     <div style="width:100%; padding:12px; margin:6px 0; border-radius:8px; border:1px solid #d7dde5; background:#fff;">
       <label style="display:block; font-weight:600; margin-bottom:6px;">Seleccioná los cursos (podés elegir más de uno)</label>
 
@@ -490,7 +488,6 @@
         <span id="sql-label">SQL</span>
       </label>
 
-      <!-- Sombra para enviar SQL cuando está deshabilitado (gratis) -->
       <input type="hidden" name="cursos" id="sql-free-shadow" value="">
 
       <small style="display:block; color:#7a869a; margin-top:4px;">
@@ -498,16 +495,15 @@
       </small>
 
       <small id="promo-aviso" style="display:block; margin-top:8px; color:#7a869a;">
-        💡 Si elegís <strong>Power BI + Excel</strong>, <strong>SQL ya es GRATIS</strong> y se agrega automáticamente.
+        💡 Si elegís <strong>2 cursos</strong> tenés <strong>40 % OFF en el segundo</strong>.  
+        Si elegís <strong>los 3 cursos</strong>, <strong>SQL es GRATIS</strong>.
       </small>
     </div>
 
     <textarea name="comentarios" placeholder="Comentarios o consultas" rows="4" style="width:100%; padding:12px; margin:6px 0 12px; border-radius:8px; border:1px solid #d7dde5;"></textarea>
 
-    <!-- Campos ocultos de promo -->
     <input type="hidden" name="promo" id="promo" value="No">
     <input type="hidden" name="bonificacion" id="bonificacion" value="">
-    <!-- Cantidad de cursos PAGADOS (cuando hay combo, cuenta 2) -->
     <input type="hidden" name="cantidad_cursos_seleccionados" id="cant-cursos" value="1">
 
     <button id="btn-enviar" type="submit" class="button button--accent" style="width:100%; justify-content:center;">📝 Enviar inscripción</button>
@@ -516,35 +512,29 @@
 
   <script>
     (function(){
-      // 🔗 TU endpoint /exec (cambiá si redeployás)
       const URL_APPS_SCRIPT = 'https://script.google.com/macros/s/AKfycbzumz937-h3CCYsmmidpYiy0atY3DFZ7OwjJ3IbgZDoHTuGNEetTaNRpXwCfzvR_dlQDw/exec';
 
-      // --- Elementos ---
-      const checks        = Array.from(document.querySelectorAll('input[name="cursos"]'));
-      const aviso         = document.getElementById('promo-aviso');
-      const promoInput    = document.getElementById('promo');
-      const cantInput     = document.getElementById('cant-cursos');
-      const boniInput     = document.getElementById('bonificacion');
-
-      const pbi           = document.getElementById('curso-pbi');
-      const excel         = document.getElementById('curso-excel');
-      const sql           = document.getElementById('curso-sql');
-      const sqlLabel      = document.getElementById('sql-label');
+      const checks = Array.from(document.querySelectorAll('input[name="cursos"]'));
+      const aviso = document.getElementById('promo-aviso');
+      const promoInput = document.getElementById('promo');
+      const cantInput = document.getElementById('cant-cursos');
+      const boniInput = document.getElementById('bonificacion');
+      const pbi = document.getElementById('curso-pbi');
+      const excel = document.getElementById('curso-excel');
+      const sql = document.getElementById('curso-sql');
+      const sqlLabel = document.getElementById('sql-label');
       const sqlFreeShadow = document.getElementById('sql-free-shadow');
 
-      // --- Lógica: PBI + Excel => SQL gratis (auto-agregado) ---
       function aplicarGratisSQL() {
-        sql.checked  = true;
+        sql.checked = true;
         sql.disabled = true;
         sqlLabel.textContent = 'SQL — GRATIS (clases grabadas + materiales)';
         sqlLabel.style.fontWeight = '600';
-        // asegurar que SQL se envíe aunque esté disabled
         sqlFreeShadow.value = 'SQL';
       }
 
       function quitarGratisSQL() {
         sql.disabled = false;
-        // si veníamos del estado gratis, desmarcamos para que el usuario decida
         sql.checked = false;
         sqlLabel.textContent = 'SQL';
         sqlLabel.style.fontWeight = '';
@@ -552,45 +542,47 @@
       }
 
       function actualizarPromo(){
-        const combo = pbi.checked && excel.checked;
+        const seleccionadas = checks.filter(c => c.checked).length;
+        const combo3 = pbi.checked && excel.checked && sql.checked;
+        const combo2 = pbi.checked && excel.checked && !sql.checked;
 
-        if (combo) {
+        if (combo3) {
           aplicarGratisSQL();
-          aviso.innerHTML = '✅ ¡Listo! <strong>Power BI + Excel</strong> activan la promo: <strong>SQL ya es GRATIS</strong> y se agrega automáticamente.';
-          promoInput.value = 'Sí - SQL gratis por combo PBI + Excel';
-          boniInput.value  = 'SQL gratis (combo PBI + Excel)';
-          // contar solo cursos pagados (2)
+          aviso.innerHTML = '✅ ¡Listo! Tenés <strong>40 % OFF en el segundo curso</strong> y <strong>SQL GRATIS</strong> como tercero.';
+          promoInput.value = 'Sí - 40% OFF + SQL gratis';
+          boniInput.value = '40% OFF en segundo curso + SQL gratis';
+          cantInput.value = '2';
+        } else if (combo2) {
+          quitarGratisSQL();
+          aviso.innerHTML = '✅ ¡Listo! Tenés <strong>40 % OFF en el segundo curso</strong>. Si sumás SQL, será GRATIS.';
+          promoInput.value = 'Sí - 40% OFF en segundo curso';
+          boniInput.value = '40% OFF en segundo curso';
           cantInput.value = '2';
         } else {
           quitarGratisSQL();
-          aviso.innerHTML = '💡 Si elegís <strong>Power BI + Excel</strong>, <strong>SQL ya es GRATIS</strong> y se agrega automáticamente.';
+          aviso.innerHTML = '💡 Si elegís <strong>2 cursos</strong> tenés <strong>40 % OFF en el segundo</strong>. Si elegís <strong>los 3 cursos</strong>, <strong>SQL es GRATIS</strong>.';
           promoInput.value = 'No';
-          boniInput.value  = '';
-          // contar seleccionados reales (incluye SQL solo si el usuario lo marca y no está gratis)
-          const seleccionadas = checks.filter(c => c.checked).length;
+          boniInput.value = '';
           cantInput.value = String(seleccionadas);
         }
       }
 
-      // Listeners
       checks.forEach(c => c.addEventListener('change', actualizarPromo));
       actualizarPromo();
 
-      // --- Envío por fetch (sin salir de la página) ---
       const form = document.getElementById('form-insc');
-      const btn  = document.getElementById('btn-enviar');
-      const msg  = document.getElementById('msg-insc');
+      const btn = document.getElementById('btn-enviar');
+      const msg = document.getElementById('msg-insc');
 
       form.addEventListener('submit', async (ev) => {
         ev.preventDefault();
         msg.textContent = '';
         btn.disabled = true; btn.textContent = 'Enviando…';
-
         try {
           const fd = new FormData(form);
           await fetch(URL_APPS_SCRIPT, { method: 'POST', body: fd, mode: 'no-cors' });
           msg.style.color = '#157347';
-          msg.innerHTML = '✅ <strong>¡Gracias!</strong> Tu inscripción fue enviada.';
+          msg.innerHTML = '✅ <strong>¡Gracias!</strong> Tu inscripción fue enviada correctamente.';
           form.reset();
           actualizarPromo();
         } catch (err) {
@@ -604,6 +596,7 @@
     })();
   </script>
 </section>
+
 
 
 
@@ -755,8 +748,51 @@
         <img src="images/f7.jpg" alt="Capacitación 7" style="width:260px; height:160px; object-fit:cover; border-radius:10px; border:1px solid #e7ebf0;"/>
       </div>
     </section>
+
+    
+    <!-- Ejemplos de informes y dashboards -->
+<section class="card" id="ejemplos">
+  <h2>📊 Proyectos y Dashboards creados en las clases</h2>
+  <p style="margin-bottom:16px;">
+    Algunos ejemplos reales de reportes e interfaces creadas en <strong>Power BI y Excel</strong> durante las capacitaciones:
+  </p>
+
+  <div style="display:flex; flex-wrap:wrap; gap:14px; justify-content:center;">
+    <div style="background:#fff; border:1px solid #e7ebf0; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.05); overflow:hidden; width:360px;">
+      <img src="images/p6.png" alt="Dashboard de métricas clave de Merx" style="width:100%; height:210px; object-fit:cover;">
+      <div style="padding:12px;">
+        <h4 style="margin:0; color:#336699;">Dashboard de métricas clave – Merx</h4>
+        <p style="margin:6px 0 0; color:#444; font-size:0.92rem; line-height:1.4;">
+          Reporte de ventas, utilidades y márgenes con segmentación dinámica por categorías, canales y subcategorías.
+        </p>
+      </div>
+    </div>
+
+    <div style="background:#fff; border:1px solid #e7ebf0; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.05); overflow:hidden; width:360px;">
+      <img src="images/p4.png" alt="Dashboard financiero" style="width:100%; height:210px; object-fit:cover;">
+      <div style="padding:12px;">
+        <h4 style="margin:0; color:#336699;">Dashboard Financiero – Margen y Costos</h4>
+        <p style="margin:6px 0 0; color:#444; font-size:0.92rem; line-height:1.4;">
+          Seguimiento mensual de ingresos, costos y utilidades por centro de costos, con gráficos comparativos y alertas visuales.
+        </p>
+      </div>
+    </div>
+
+    <div style="background:#fff; border:1px solid #e7ebf0; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.05); overflow:hidden; width:360px;">
+      <img src="images/informe.jpg" alt="Dashboard de clientes y ventas" style="width:100%; height:210px; object-fit:cover;">
+      <div style="padding:12px;">
+        <h4 style="margin:0; color:#336699;">Dashboard de Clientes y Ventas</h4>
+        <p style="margin:6px 0 0; color:#444; font-size:0.92rem; line-height:1.4;">
+          Muestra comportamiento de clientes, ticket promedio, ventas por canal y evolución trimestral, usando segmentaciones interactivas.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
   </div>
 </div>
+
+
 <div id="powerbi" class="tab-content">
   <style>
     /* ====== Estilos del tab ====== */
@@ -908,26 +944,25 @@
       </section>
     </div>
 
+
   <!-- Inscripción (envío por fetch, sin salir de la página) -->
 <section id="inscripcion" class="card">
   <h2>Inscripción</h2>
 
   <div style="background:#fff7e6; border:1px dashed #f4a261; padding:12px; border-radius:10px; margin:10px 0;">
-    🎁 <strong>Promo activa:</strong>
-    Si te inscribís en <strong>Report y Dashboard con Power BI</strong> + <strong>Análisis de Datos Moderno con Excel (Power Query + Power Pivot)</strong>, 
-    <strong>SQL ya es GRATIS</strong> (se agrega automáticamente). 
+    🎁 <strong>Promo activa:</strong><br>
+    Si te inscribís en <strong>2 cursos</strong>: <strong>40 % OFF en el segundo</strong>.<br>
+    Si te inscribís en <strong>3 cursos</strong>: <strong>40 % OFF en el segundo</strong> y <strong>el tercero (SQL) es GRATIS</strong>.<br>
     <small style="display:block; margin-top:6px;">No acumulable con otras promociones.</small>
   </div>
 
   <p>Completá el formulario y reservá tu lugar. Recibirás la confirmación por correo.</p>
 
-  <!-- Sin action: lo maneja fetch -->
   <form id="form-insc" style="max-width:520px; margin:0 auto;">
     <input type="text" name="nombre" placeholder="Nombre completo" required style="width:100%; padding:12px; margin:6px 0; border-radius:8px; border:1px solid #d7dde5;">
     <input type="email" name="email" placeholder="Correo electrónico" required style="width:100%; padding:12px; margin:6px 0; border-radius:8px; border:1px solid #d7dde5;">
     <input type="tel" name="telefono" placeholder="Teléfono" required style="width:100%; padding:12px; margin:6px 0; border-radius:8px; border:1px solid #d7dde5;">
 
-    <!-- Cursos (checkboxes; name="cursos" múltiple) -->
     <div style="width:100%; padding:12px; margin:6px 0; border-radius:8px; border:1px solid #d7dde5; background:#fff;">
       <label style="display:block; font-weight:600; margin-bottom:6px;">Seleccioná los cursos (podés elegir más de uno)</label>
 
@@ -946,24 +981,24 @@
         <span id="sql-label">SQL</span>
       </label>
 
-      <!-- Sombra para enviar SQL cuando está deshabilitado (gratis) -->
+      <!-- Campo oculto para enviar SQL si está gratis -->
       <input type="hidden" name="cursos" id="sql-free-shadow" value="">
 
-      <small style="display:block; color:#7a869a; margin-top:4px;">
+      <small style="display:block; color:#6b7785; margin-top:4px; font-size:0.92rem;">
         ℹ️ SQL son <strong>clases grabadas</strong> e incluye <strong>materiales y grabaciones</strong>.
       </small>
 
-      <small id="promo-aviso" style="display:block; margin-top:8px; color:#7a869a;">
-        💡 Si elegís <strong>Power BI + Excel</strong>, <strong>SQL ya es GRATIS</strong> y se agrega automáticamente.
+      <small id="promo-aviso" style="display:block; margin-top:8px; color:#6b7785; font-size:0.92rem; line-height:1.5;">
+        💡 Si elegís <strong>2 cursos</strong>: <strong>40 % OFF en el segundo</strong>.  
+        Si elegís <strong>3 cursos</strong>: <strong>40 % OFF en el segundo</strong> y <strong>el tercero (SQL) es GRATIS</strong>.
       </small>
     </div>
 
     <textarea name="comentarios" placeholder="Comentarios o consultas" rows="4" style="width:100%; padding:12px; margin:6px 0 12px; border-radius:8px; border:1px solid #d7dde5;"></textarea>
 
-    <!-- Campos ocultos de promo -->
+    <!-- Campos ocultos -->
     <input type="hidden" name="promo" id="promo" value="No">
     <input type="hidden" name="bonificacion" id="bonificacion" value="">
-    <!-- Cantidad de cursos PAGADOS (cuando hay combo, cuenta 2) -->
     <input type="hidden" name="cantidad_cursos_seleccionados" id="cant-cursos" value="1">
 
     <button id="btn-enviar" type="submit" class="button button--accent" style="width:100%; justify-content:center;">📝 Enviar inscripción</button>
@@ -972,35 +1007,31 @@
 
   <script>
     (function(){
-      // 🔗 TU endpoint /exec (cambiá si redeployás)
       const URL_APPS_SCRIPT = 'https://script.google.com/macros/s/AKfycbzumz937-h3CCYsmmidpYiy0atY3DFZ7OwjJ3IbgZDoHTuGNEetTaNRpXwCfzvR_dlQDw/exec';
 
-      // --- Elementos ---
-      const checks        = Array.from(document.querySelectorAll('input[name="cursos"]'));
-      const aviso         = document.getElementById('promo-aviso');
-      const promoInput    = document.getElementById('promo');
-      const cantInput     = document.getElementById('cant-cursos');
-      const boniInput     = document.getElementById('bonificacion');
-
-      const pbi           = document.getElementById('curso-pbi');
-      const excel         = document.getElementById('curso-excel');
-      const sql           = document.getElementById('curso-sql');
-      const sqlLabel      = document.getElementById('sql-label');
+      // Referencias
+      const checks = Array.from(document.querySelectorAll('input[name="cursos"]'));
+      const aviso = document.getElementById('promo-aviso');
+      const promoInput = document.getElementById('promo');
+      const boniInput = document.getElementById('bonificacion');
+      const cantInput = document.getElementById('cant-cursos');
+      const pbi = document.getElementById('curso-pbi');
+      const excel = document.getElementById('curso-excel');
+      const sql = document.getElementById('curso-sql');
+      const sqlLabel = document.getElementById('sql-label');
       const sqlFreeShadow = document.getElementById('sql-free-shadow');
 
-      // --- Lógica: PBI + Excel => SQL gratis (auto-agregado) ---
-      function aplicarGratisSQL() {
-        sql.checked  = true;
+      // Funciones
+      function aplicarGratisSQL(){
+        sql.checked = true;
         sql.disabled = true;
         sqlLabel.textContent = 'SQL — GRATIS (clases grabadas + materiales)';
         sqlLabel.style.fontWeight = '600';
-        // asegurar que SQL se envíe aunque esté disabled
         sqlFreeShadow.value = 'SQL';
       }
 
-      function quitarGratisSQL() {
+      function quitarGratisSQL(){
         sql.disabled = false;
-        // si veníamos del estado gratis, desmarcamos para que el usuario decida
         sql.checked = false;
         sqlLabel.textContent = 'SQL';
         sqlLabel.style.fontWeight = '';
@@ -1008,58 +1039,64 @@
       }
 
       function actualizarPromo(){
-        const combo = pbi.checked && excel.checked;
+        const seleccionadas = checks.filter(c => c.checked).length;
+        const combo2 = pbi.checked && excel.checked && !sql.checked;
+        const combo3 = pbi.checked && excel.checked && sql.checked;
 
-        if (combo) {
+        if (combo3){
           aplicarGratisSQL();
-          aviso.innerHTML = '✅ ¡Listo! <strong>Power BI + Excel</strong> activan la promo: <strong>SQL ya es GRATIS</strong> y se agrega automáticamente.';
-          promoInput.value = 'Sí - SQL gratis por combo PBI + Excel';
-          boniInput.value  = 'SQL gratis (combo PBI + Excel)';
-          // contar solo cursos pagados (2)
+          aviso.innerHTML = '✅ ¡Listo! Tenés <strong>40 % OFF en el segundo curso</strong> y <strong>SQL GRATIS</strong> como tercero.';
+          promoInput.value = 'Sí - 40% OFF + SQL gratis';
+          boniInput.value = '40% OFF en segundo curso + SQL gratis';
+          cantInput.value = '2';
+        } else if (combo2){
+          quitarGratisSQL();
+          aviso.innerHTML = '✅ ¡Listo! Tenés <strong>40 % OFF en el segundo curso</strong>. Si sumás SQL, será GRATIS.';
+          promoInput.value = 'Sí - 40% OFF en segundo curso';
+          boniInput.value = '40% OFF en segundo curso';
           cantInput.value = '2';
         } else {
           quitarGratisSQL();
-          aviso.innerHTML = '💡 Si elegís <strong>Power BI + Excel</strong>, <strong>SQL ya es GRATIS</strong> y se agrega automáticamente.';
+          aviso.innerHTML = '💡 Si elegís <strong>2 cursos</strong>: <strong>40 % OFF en el segundo</strong>. Si elegís <strong>3 cursos</strong>: <strong>40 % OFF en el segundo</strong> y <strong>el tercero (SQL) es GRATIS</strong>.';
           promoInput.value = 'No';
-          boniInput.value  = '';
-          // contar seleccionados reales (incluye SQL solo si el usuario lo marca y no está gratis)
-          const seleccionadas = checks.filter(c => c.checked).length;
+          boniInput.value = '';
           cantInput.value = String(seleccionadas);
         }
       }
 
-      // Listeners
       checks.forEach(c => c.addEventListener('change', actualizarPromo));
       actualizarPromo();
 
-      // --- Envío por fetch (sin salir de la página) ---
+      // Envío por fetch
       const form = document.getElementById('form-insc');
-      const btn  = document.getElementById('btn-enviar');
-      const msg  = document.getElementById('msg-insc');
+      const btn = document.getElementById('btn-enviar');
+      const msg = document.getElementById('msg-insc');
 
-      form.addEventListener('submit', async (ev) => {
+      form.addEventListener('submit', async (ev)=>{
         ev.preventDefault();
         msg.textContent = '';
         btn.disabled = true; btn.textContent = 'Enviando…';
 
-        try {
+        try{
           const fd = new FormData(form);
-          await fetch(URL_APPS_SCRIPT, { method: 'POST', body: fd, mode: 'no-cors' });
+          await fetch(URL_APPS_SCRIPT, { method:'POST', body:fd, mode:'no-cors' });
           msg.style.color = '#157347';
-          msg.innerHTML = '✅ <strong>¡Gracias!</strong> Tu inscripción fue enviada.';
+          msg.innerHTML = '✅ <strong>¡Gracias!</strong> Tu inscripción fue enviada correctamente.';
           form.reset();
           actualizarPromo();
-        } catch (err) {
+        }catch(err){
           console.error(err);
           msg.style.color = '#b02a37';
           msg.textContent = '❌ Ocurrió un error al enviar. Probá de nuevo.';
-        } finally {
+        }finally{
           btn.disabled = false; btn.textContent = '📝 Enviar inscripción';
         }
       });
     })();
   </script>
 </section>
+
+
 
 
     <!-- Pagos -->
@@ -1124,14 +1161,23 @@
         const promoInput = root.querySelector('#promo');
         const cantInput  = root.querySelector('#cant-cursos');
 
-        function actualizarPromo(){
-          const seleccionadas = checks.filter(c => c.checked).length;
-          if (cantInput) cantInput.value = String(seleccionadas);
-          if (!aviso || !promoInput) return;
-          if (seleccionadas === 1) { aviso.textContent = '💡 Si elegís 2 cursos: 40% OFF en el segundo. Si elegís 3 cursos: 40% OFF también en el tercero.'; promoInput.value = 'No'; }
-          else if (seleccionadas === 2) { aviso.textContent = '✅ ¡Genial! Se aplicará 40% OFF en el segundo curso.'; promoInput.value = 'Sí - 40% en 2º curso'; }
-          else if (seleccionadas >= 3) { aviso.textContent = '✅ ¡Top! Se aplicará 40% OFF en el segundo y tercer curso.'; promoInput.value = 'Sí - 40% en 2º y 3º curso'; }
-        }
+       function actualizarPromo() {
+  const seleccionadas = checks.filter(c => c.checked).length;
+  if (cantInput) cantInput.value = String(seleccionadas);
+  if (!aviso || !promoInput) return;
+
+  if (seleccionadas === 1) {
+    aviso.innerHTML = '💡 Si elegís <strong>2 cursos</strong>: <strong>40 % OFF en el segundo</strong>. Si elegís <strong>3 cursos</strong>: <strong>40 % OFF en el segundo</strong> y <strong>el tercero (SQL) es GRATIS</strong>.';
+    promoInput.value = 'No';
+  } else if (seleccionadas === 2) {
+    aviso.innerHTML = '✅ ¡Genial! Tenés <strong>40 % OFF en el segundo curso</strong>.';
+    promoInput.value = 'Sí - 40% OFF en 2º curso';
+  } else if (seleccionadas >= 3) {
+    aviso.innerHTML = '✅ ¡Excelente! Tenés <strong>40 % OFF en el segundo</strong> y <strong>el tercero (SQL) GRATIS</strong>.';
+    promoInput.value = 'Sí - 40% OFF en 2º curso y SQL gratis';
+  }
+}
+
         checks.forEach(c => c.addEventListener('change', actualizarPromo));
         actualizarPromo();
 
@@ -1217,6 +1263,49 @@
         <img src="images/f7.jpg" alt="Capacitación 7" style="width:260px; height:160px; object-fit:cover; border-radius:10px; border:1px solid #e7ebf0;"/>
       </div>
     </section>
+
+
+
+    <!-- Ejemplos de informes y dashboards -->
+<section class="card" id="ejemplos">
+  <h2>📊 Proyectos y Dashboards creados en las clases</h2>
+  <p style="margin-bottom:16px;">
+    Algunos ejemplos reales de reportes e interfaces creadas en <strong>Power BI y Excel</strong> durante las capacitaciones:
+  </p>
+
+  <div style="display:flex; flex-wrap:wrap; gap:14px; justify-content:center;">
+    <div style="background:#fff; border:1px solid #e7ebf0; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.05); overflow:hidden; width:360px;">
+      <img src="images/p6.png" alt="Dashboard de métricas clave de Merx" style="width:100%; height:210px; object-fit:cover;">
+      <div style="padding:12px;">
+        <h4 style="margin:0; color:#336699;">Dashboard de métricas clave – Merx</h4>
+        <p style="margin:6px 0 0; color:#444; font-size:0.92rem; line-height:1.4;">
+          Reporte de ventas, utilidades y márgenes con segmentación dinámica por categorías, canales y subcategorías.
+        </p>
+      </div>
+    </div>
+
+    <div style="background:#fff; border:1px solid #e7ebf0; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.05); overflow:hidden; width:360px;">
+      <img src="images/p4.png" alt="Dashboard financiero" style="width:100%; height:210px; object-fit:cover;">
+      <div style="padding:12px;">
+        <h4 style="margin:0; color:#336699;">Dashboard Financiero – Margen y Costos</h4>
+        <p style="margin:6px 0 0; color:#444; font-size:0.92rem; line-height:1.4;">
+          Seguimiento mensual de ingresos, costos y utilidades por centro de costos, con gráficos comparativos y alertas visuales.
+        </p>
+      </div>
+    </div>
+
+    <div style="background:#fff; border:1px solid #e7ebf0; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.05); overflow:hidden; width:360px;">
+      <img src="images/informe.jpg" alt="Dashboard de clientes y ventas" style="width:100%; height:210px; object-fit:cover;">
+      <div style="padding:12px;">
+        <h4 style="margin:0; color:#336699;">Dashboard de Clientes y Ventas</h4>
+        <p style="margin:6px 0 0; color:#444; font-size:0.92rem; line-height:1.4;">
+          Muestra comportamiento de clientes, ticket promedio, ventas por canal y evolución trimestral, usando segmentaciones interactivas.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
   </div>
 </div>
 
