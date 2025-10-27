@@ -285,57 +285,104 @@
       </section>
     </div>
 
-    <!-- Programa 5 sesiones -->
-    <section id="programa" class="card">
-      <h2>Programa — 5 sesiones </h2>
-      <div class="timeline">
-        <div class="step" data-n="1">
-          <h4>Excel para análisis + Primer ETL con Power Query</h4>
-          <p><span class="pill">Fundamentos</span><span class="pill">Limpieza</span><span class="pill">Calidad de datos</span></p>
-          <ul>
-            <li>Buenas prácticas en libros, tablas y referencias estructuradas.</li>
-            <li>Conectar a CSV/TXT/Excel; perfiles y tipos; remover nulos, recortar, normalizar.</li>
-            <li>Entregable: <b>pipeline de limpieza</b> repetible (Query).</li>
-          </ul>
-        </div>
-        <div class="step" data-n="2">
-          <h4>Power Query en acción: combinar, transformar y calendarizar</h4>
-          <p><span class="pill">Merges</span><span class="pill">Parametros</span><span class="pill">Funciones</span></p>
-          <ul>
-            <li>Uniones (merge/append), tablas de dimensiones, normalización de fechas.</li>
-            <li>Parámetros y funciones para automatizar tareas recurrentes.</li>
-            <li>Entregable: <b>dataset limpio y unificado</b> listo para el modelo.</li>
-          </ul>
-        </div>
-        <div class="step" data-n="3">
-          <h4>Power Pivot: modelo relacional y DAX básico</h4>
-          <p><span class="pill">Relaciones</span><span class="pill">Medidas</span><span class="pill">Calendario</span></p>
-          <ul>
-            <li>Relaciones 1‑* y *‑* controladas, direcciones de filtro.</li>
-            <li>Calendario de fechas, columnas calculadas vs. medidas.</li>
-            <li>DAX esencial: <code>SUM</code>, <code>COUNTROWS</code>, <code>DIVIDE</code>, <code>IF</code>, <code>VAR</code>.</li>
-          </ul>
-        </div>
-        <div class="step" data-n="4">
-          <h4>DAX intermedio: contexto, CALCULATE y time‑intelligence</h4>
-          <p><span class="pill">Contexto</span><span class="pill">Filtros</span><span class="pill">YTD/MTD</span></p>
-          <ul>
-            <li>Contexto de fila vs. filtro, <code>CALCULATE</code>, <code>FILTER</code>, <code>ALL</code>.</li>
-            <li>Variaciones interanuales, crecimiento, % contribución, KPI semáforos.</li>
-            <li>Entregable: <b>paquete de medidas reutilizables</b>.</li>
-          </ul>
-        </div>
-        <div class="step" data-n="5">
-          <h4>Dashboard ejecutivo en Excel + actualización automática</h4>
-          <p><span class="pill">Segmentadores</span><span class="pill">Diseño</span><span class="pill">Automatización</span></p>
-          <ul>
-            <li>Tablas dinámicas conectadas al modelo, gráficos avanzados y segmentadores.</li>
-            <li>Diseño profesional (tipografía, paleta, layout) y storytelling de datos.</li>
-            <li>Refresh controlado: actualizar todo con un clic. <b>Presentación final del proyecto</b>.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+    <!-- ================================
+     PROGRAMA CURSO EXCEL + POWER QUERY/PIVOT
+     ================================ -->
+
+<section id="programa" class="card">
+  <h2>Programa — 7 sesiones</h2>
+  <div class="timeline">
+
+    <!-- SESIÓN 1 -->
+    <div class="step" data-n="1">
+      <h4>Excel Básico I: Fundamentos y fórmulas esenciales</h4>
+      <p><span class="pill">Fórmulas</span><span class="pill">Funciones</span><span class="pill">Eficiencia</span></p>
+      <ul>
+        <li>Interfaz, tipos de datos y formato profesional de hojas.</li>
+        <li>Uso del signo igual (<code>=</code>) y estructura de fórmulas.</li>
+        <li>Funciones clave: <code>SUMA</code>, <code>PROMEDIO</code>, <code>MAX</code>, <code>MIN</code>, <code>CONTAR.SI</code>.</li>
+        <li>Funciones de texto (<code>CONCATENAR</code>, <code>IZQUIERDA</code>, <code>TEXTO</code>).</li>
+        <li>Referencias absolutas, relativas y mixtas (<code>$A$1</code>, <code>A1</code>).</li>
+        <li><b>Entregable:</b> hoja automatizada con fórmulas aplicadas a casos reales.</li>
+      </ul>
+    </div>
+
+    <!-- SESIÓN 2 -->
+    <div class="step" data-n="2">
+      <h4>Excel Básico II: Análisis con tablas, filtros y gráficos</h4>
+      <p><span class="pill">Tablas</span><span class="pill">Filtros</span><span class="pill">Gráficos</span></p>
+      <ul>
+        <li>Ordenar, filtrar y validar datos.</li>
+        <li>Funciones de búsqueda: <code>BUSCARV</code>, <code>BUSCARX</code>, <code>INDICE</code> y <code>COINCIDIR</code>.</li>
+        <li>Creación de tablas estructuradas y referencias automáticas.</li>
+        <li>Tipos de gráficos: columnas, líneas, circular y combinados.</li>
+        <li><b>Entregable:</b> mini dashboard con tablas, filtros y gráficos dinámicos.</li>
+      </ul>
+    </div>
+
+    <!-- SESIÓN 3 -->
+    <div class="step" data-n="3">
+      <h4>Power Query I: Introducción y limpieza de datos</h4>
+      <p><span class="pill">Fundamentos</span><span class="pill">Limpieza</span><span class="pill">ETL</span></p>
+      <ul>
+        <li>Buenas prácticas en libros, tablas y fuentes de datos.</li>
+        <li>Conexión a CSV, TXT o Excel.</li>
+        <li>Detección de tipos, recorte, normalización y eliminación de nulos.</li>
+        <li><b>Entregable:</b> pipeline de limpieza repetible (Query).</li>
+      </ul>
+    </div>
+
+    <!-- SESIÓN 4 -->
+    <div class="step" data-n="4">
+      <h4>Power Query II: Combinar, transformar y calendarizar</h4>
+      <p><span class="pill">Merges</span><span class="pill">Parámetros</span><span class="pill">Funciones</span></p>
+      <ul>
+        <li>Uniones (merge/append) y tablas de dimensiones.</li>
+        <li>Normalización de fechas y creación de calendarios.</li>
+        <li>Automatización con parámetros y funciones personalizadas.</li>
+        <li><b>Entregable:</b> dataset limpio y unificado.</li>
+      </ul>
+    </div>
+
+    <!-- SESIÓN 5 -->
+    <div class="step" data-n="5">
+      <h4>Power Pivot I: Modelo relacional y medidas DAX</h4>
+      <p><span class="pill">Modelo</span><span class="pill">Medidas</span><span class="pill">Relaciones</span></p>
+      <ul>
+        <li>Relaciones 1-* y *-* controladas, direcciones de filtro.</li>
+        <li>Columnas calculadas y medidas con <code>DAX</code>.</li>
+        <li>Funciones básicas: <code>SUM</code>, <code>COUNTROWS</code>, <code>IF</code>, <code>DIVIDE</code>.</li>
+        <li><b>Entregable:</b> modelo relacional funcional.</li>
+      </ul>
+    </div>
+
+    <!-- SESIÓN 6 -->
+    <div class="step" data-n="6">
+      <h4>Power Pivot II: DAX intermedio y análisis temporal</h4>
+      <p><span class="pill">Contexto</span><span class="pill">CALCULATE</span><span class="pill">Time-Intelligence</span></p>
+      <ul>
+        <li>Contexto de fila vs. filtro.</li>
+        <li>Uso de <code>CALCULATE</code>, <code>FILTER</code> y <code>ALL</code>.</li>
+        <li>Medidas de crecimiento YTD/MTD y % contribución.</li>
+        <li><b>Entregable:</b> paquete de medidas reutilizables.</li>
+      </ul>
+    </div>
+
+    <!-- SESIÓN 7 -->
+    <div class="step" data-n="7">
+      <h4>Dashboard ejecutivo en Excel</h4>
+      <p><span class="pill">Visualización</span><span class="pill">Automatización</span><span class="pill">Presentación</span></p>
+      <ul>
+        <li>Tablas dinámicas conectadas al modelo de datos.</li>
+        <li>Gráficos avanzados y segmentadores.</li>
+        <li>Diseño profesional, storytelling y refresh automático.</li>
+        <li><b>Entregable final:</b> dashboard ejecutivo totalmente automatizado.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
 
     <!-- Tracks por sector (casos prácticos) -->
     <section class="card">
@@ -437,7 +484,7 @@
         <h2>Fechas y horario (en vivo)</h2>
         <ul>
           <li><b>Días:</b> <b>martes</b></li>
-          <li><b>Fechas:</b> 4, 11, 18 y 25 de noviembre; <b>2 de diciembre</b> de 2025.</li>
+          <li><b>Fechas:</b> 4,7, 11,14, 18 y 25 de noviembre; <b>2 de diciembre</b> de 2025.</li>
           <li><b>Horario:</b> 19:30–21:30 (2 h, GMT-3).</li>
           <li><b>Duración total:</b> 5 sesiones.</li>
         </ul>
@@ -451,7 +498,6 @@
         </ul>
       </section>
     </div>
-
 
 
 <!-- ====== SECCIÓN INSCRIPCIÓN ACTUALIZADA ====== -->
@@ -492,48 +538,61 @@
   </form>
 
   <script>
-    (function () {
-      const URL_APPS_SCRIPT = 'https://script.google.com/macros/s/AKfycbws0FfKtWvkcArK6-pmu45jO01M0cPOpif2Ya0nej8Vk1dPXNF0QOj5Q6e61kzdZgT3/exec';
-      const form = document.getElementById('form-insc');
-      const msg = document.getElementById('msg-insc');
-      const btn = document.getElementById('btn-enviar');
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("form-insc");
+    const msg = document.getElementById("msg-insc");
+    const btn = document.getElementById("btn-enviar");
+    const URL_APPS_SCRIPT = "https://script.google.com/macros/s/AKfycbws0FfKtWvkcArK6-pmu45jO01M0cPOpif2Ya0nej8Vk1dPXNF0QOj5Q6e61kzdZgT3/exec";
 
-      form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        msg.textContent = '⏳ Enviando...';
-        msg.style.color = '#000';
-        btn.disabled = true;
+    if (!form) return;
 
-        try {
-          const fd = new FormData(form);
-          const seleccionados = [...form.querySelectorAll('input[name="cursos[]"]:checked')];
-          fd.set('cantidad_cursos_seleccionados', seleccionados.length);
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      msg.textContent = "⏳ Enviando...";
+      msg.style.color = "#000";
+      btn.disabled = true;
 
-          if (seleccionados.length === 2) fd.set('promo', '40 % OFF en el segundo curso');
-          if (seleccionados.length >= 3) fd.set('promo', 'SQL GRATIS');
+      try {
+        const fd = new FormData();
+        fd.append("nombre", form.nombre.value.trim());
+        fd.append("apellido", form.apellido.value.trim());
+        fd.append("email", form.email.value.trim());
+        fd.append("telefono", form.telefono.value.trim());
+        fd.append("comentarios", form.comentarios.value.trim());
 
-          const res = await fetch(URL_APPS_SCRIPT, { method: 'POST', body: fd });
-          const data = await res.json();
+        // ✅ Unimos todos los cursos seleccionados
+        const cursosSeleccionados = [...form.querySelectorAll('input[name="cursos[]"]:checked')].map(i => i.value);
+        fd.append("cursos", cursosSeleccionados.join(", "));
+        fd.append("cantidad_cursos_seleccionados", cursosSeleccionados.length);
 
-          if (data.status === 'success') {
-            msg.style.color = '#157347';
-            msg.textContent = '✅ ¡Gracias! Tu inscripción fue enviada.';
-            form.reset();
-          } else {
-            throw new Error(data.message || 'Error desconocido');
-          }
-        } catch (err) {
-          console.error(err);
-          msg.style.color = '#b02a37';
-          msg.textContent = '❌ Error al enviar. Probá nuevamente.';
-        } finally {
-          btn.disabled = false;
+        if (cursosSeleccionados.length === 2) fd.append("promo", "40 % OFF en el segundo curso");
+        else if (cursosSeleccionados.length >= 3) fd.append("promo", "SQL GRATIS");
+        else fd.append("promo", "No");
+
+        const res = await fetch(URL_APPS_SCRIPT, { method: "POST", body: fd });
+        const data = await res.json();
+
+        if (data.status === "success") {
+          msg.style.color = "#157347";
+          msg.textContent = "✅ ¡Gracias! Tu inscripción fue enviada.";
+          form.reset();
+        } else {
+          throw new Error(data.message || "Error desconocido");
         }
-      });
-    })();
+      } catch (err) {
+        console.error("❌ Error:", err);
+        msg.style.color = "#b02a37";
+        msg.textContent = "❌ Error al enviar. Probá nuevamente.";
+      } finally {
+        btn.disabled = false;
+      }
+    });
+  });
   </script>
 </section>
 <!-- ====== FIN INSCRIPCIÓN ====== -->
+
 
 
 <!-- Pagos -->
