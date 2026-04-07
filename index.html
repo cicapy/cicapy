@@ -73,11 +73,11 @@
     .navbar.scrolled { box-shadow: var(--shadow-md); }
     .navbar-inner {
       max-width: 1280px; margin: 0 auto; padding: 0 24px;
-      display: flex; align-items: center; gap: 6px; height: 66px;
+      display: flex; align-items: center; gap: 8px; height: 76px;
     }
-    .navbar-brand { display: flex; align-items: center; gap: 10px; margin-right: 16px; flex-shrink: 0; }
+    .navbar-brand { display: flex; align-items: center; gap: 12px; margin-right: 16px; flex-shrink: 0; }
     .navbar-logo {
-      width: 38px; height: 38px;
+      width: 48px; height: 48px;
       background: transparent;
       border-radius: 10px; display: grid; place-items: center;
       overflow: hidden;
@@ -87,8 +87,8 @@
       width: 100%; height: 100%; object-fit: contain; display: block;
     }
     .navbar-name-block { line-height: 1.15; }
-    .navbar-name { font-family: var(--font-display); font-weight: 700; font-size: 16px; color: var(--slate-900); display: block; }
-    .navbar-sub { font-size: 10px; font-weight: 400; color: var(--slate-500); display: block; }
+    .navbar-name { font-family: var(--font-display); font-weight: 700; font-size: 17px; color: var(--slate-900); display: block; }
+    .navbar-sub { font-size: 10.5px; font-weight: 400; color: var(--slate-500); display: block; }
     .nav-tabs { display: flex; align-items: center; gap: 2px; overflow-x: auto; scrollbar-width: none; flex: 1; }
     .nav-tabs::-webkit-scrollbar { display: none; }
     .nav-tab {
@@ -172,6 +172,8 @@
     .btn-primary:hover { background: var(--blue-700); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(37,99,235,0.35); }
     .btn-green { background: var(--green-600); color: white; }
     .btn-green:hover { background: var(--green-700); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(22,163,74,0.30); }
+    .btn-gold { background: #F59E0B; color: var(--navy-900); font-weight: 700; box-shadow: var(--shadow-gold); }
+    .btn-gold:hover { background: #FBBF24; transform: translateY(-2px); box-shadow: 0 12px 40px rgba(245,158,11,0.35); }
     .btn-outline { background: transparent; color: white; border: 1.5px solid rgba(255,255,255,0.25); }
     .btn-outline:hover { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.40); }
     .btn-outline-blue { background: transparent; color: var(--blue-600); border: 1.5px solid var(--blue-200); }
@@ -563,6 +565,20 @@
     #btn-cerrar-modal { padding: 11px 28px; background: var(--green-600); color: white; border: none; border-radius: var(--radius-full); font-size: 14px; font-weight: 700; cursor: pointer; transition: background 0.15s; }
     #btn-cerrar-modal:hover { background: var(--green-700); }
 
+    /* Animaciones de pulso para botones */
+    @keyframes pulse-green {
+      0% { box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.6); }
+      70% { box-shadow: 0 0 0 14px rgba(22, 163, 74, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(22, 163, 74, 0); }
+    }
+    @keyframes pulse-gold {
+      0% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.6); }
+      70% { box-shadow: 0 0 0 14px rgba(245, 158, 11, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
+    }
+    .btn-pulse-green { animation: pulse-green 2s infinite; }
+    .btn-pulse-gold { animation: pulse-gold 2s infinite; }
+
     /* Scroll animations */
     .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.55s var(--ease-out), transform 0.55s var(--ease-out); }
     .reveal.visible { opacity: 1; transform: none; }
@@ -576,6 +592,19 @@
     /* Two col */
     .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
     .divider { height: 1px; background: var(--slate-200); margin: 36px 0; }
+
+    /* Program Logos */
+    .inner-hero-split { display: flex; align-items: center; justify-content: space-between; gap: 40px; }
+    .inner-hero-text { flex: 1; }
+    .inner-hero-logo {
+      width: 140px; height: 140px; flex-shrink: 0;
+      background: rgba(255,255,255,0.06); border-radius: var(--radius-xl); padding: 22px;
+      display: grid; place-items: center; backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+      transition: transform 0.3s var(--ease);
+    }
+    .inner-hero-logo:hover { transform: translateY(-5px) scale(1.03); }
+    .inner-hero-logo img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3)); }
 
     /* ============================================
        RESPONSIVE
@@ -603,10 +632,12 @@
       .footer-grid { grid-template-columns: 1fr; }
       .footer-bottom { flex-direction: column; text-align: center; }
       .stats-inner { gap: 24px; }
+      .inner-hero-split { flex-direction: column-reverse; align-items: flex-start; gap: 24px; }
+      .inner-hero-logo { width: 90px; height: 90px; padding: 14px; }
     }
     .nav-tabs.mobile-open {
       display: flex; flex-direction: column; position: absolute;
-      top: 66px; left: 0; right: 0;
+      top: 76px; left: 0; right: 0;
       background: white; border-bottom: 1px solid var(--slate-200);
       padding: 10px; box-shadow: var(--shadow-lg); z-index: 998;
     }
@@ -616,9 +647,6 @@
 </head>
 <body>
 
-<!-- =============================================
-     NAVBAR
-============================================== -->
 <nav class="navbar" id="navbar">
   <div class="navbar-inner">
     <a class="navbar-brand" href="#" onclick="openTab(event,'inicio')">
@@ -633,6 +661,7 @@
       <button class="nav-tab active" onclick="openTab(event,'inicio')">Inicio</button>
       <button class="nav-tab" onclick="openTab(event,'servicios')">Servicios</button>
       <button class="nav-tab" onclick="openTab(event,'verano')">Verano 2026</button>
+      <button class="nav-tab" onclick="openTab(event,'taller')">Taller Libre</button>
       <button class="nav-tab" onclick="openTab(event,'powerbi')">Power BI</button>
       <button class="nav-tab" onclick="openTab(event,'excel')">Excel</button>
       <button class="nav-tab" onclick="openTab(event,'sql')">SQL</button>
@@ -647,12 +676,8 @@
   </div>
 </nav>
 
-<!-- =============================================
-     TAB: INICIO
-============================================== -->
 <div id="inicio" class="tab-content active">
 
-  <!-- HERO -->
   <section class="hero-section">
     <div class="hero-inner">
       <div class="hero-text">
@@ -666,7 +691,6 @@
           Dominá Power BI, Excel, SQL y más herramientas líderes del mercado. Formación 100% online, práctica y orientada a resultados reales.
         </p>
         <div class="hero-cta-group">
-          <!--<button class="btn btn-primary" onclick="openTab(null,'powerbi')">📚 Ver todos los cursos</button> -->
           <a class="btn btn-green" href="https://cicapy.github.io/incripciones_2026/" target="_blank" rel="noopener">✏️ Inscribirme ahora</a>
           <a class="btn btn-outline" href="https://wa.me/595983352932" target="_blank" rel="noopener">💬 WhatsApp</a>
         </div>
@@ -695,7 +719,6 @@
     </div>
   </section>
 
-  <!-- STATS BAR -->
   <div class="stats-bar">
     <div class="stats-inner">
       <div class="stat-item"><div class="stat-number">10<span>+</span></div><div class="stat-label">Años de experiencia</div></div>
@@ -706,7 +729,6 @@
     </div>
   </div>
 
-  <!-- BENEFICIOS -->
   <section class="section section-alt">
     <div class="container">
       <div class="section-head section-head-center">
@@ -749,7 +771,6 @@
     </div>
   </section>
 
-  <!-- SOBRE CICAPY -->
   <section class="section">
     <div class="container">
       <div class="about-grid">
@@ -774,7 +795,6 @@
     </div>
   </section>
 
-  <!-- CURSOS -->
   <section class="section section-alt">
     <div class="container">
       <div class="section-head section-head-center">
@@ -841,16 +861,14 @@
     </div>
   </section>
 
-  <!-- CAPACITADOR -->
   <section class="section">
     <div class="container">
       <div class="section-head">
-       <!-- <span class="section-label">El equipo</span>   -->
         <h2 class="section-title">Capacitador</h2>
       </div>
       <div class="instructor-card">
         <div class="instructor-left">
-          <img class="instructor-photo" src="images/foto.jpg" alt="Foto del capacitador">
+          <img class="instructor-photo" src="images/foto.jpg" alt="Foto del capacitador" onerror="this.src='https://via.placeholder.com/130x130?text=Prof'">
           <div class="instructor-name">Oscar González Frutos</div>
           <div class="instructor-role">Docente & Director Académico</div>
           <div class="inst-social">
@@ -878,45 +896,6 @@
     </div>
   </section>
 
-  <!-- TESTIMONIOS (oculto temporalmente)
-  <section class="section section-alt">
-    <div class="container">
-      <div class="section-head section-head-center">
-        <span class="section-label">Testimonios</span>
-        <h2 class="section-title">Lo que dicen nuestros estudiantes</h2>
-        <p class="section-subtitle">Profesionales de distintas industrias que transformaron su carrera con CICAPY.</p>
-      </div>
-      <div class="testimonials-grid">
-        <div class="testimonial-card reveal reveal-d1">
-          <div class="t-stars">★★★★★</div>
-          <p class="t-text">"El curso de Power BI cambió completamente la forma en que presento datos en mi empresa. En tres semanas ya estaba haciendo dashboards que antes tardaba días en Excel."</p>
-          <div class="t-author">
-            <div class="t-avatar" style="background:var(--blue-600)">MR</div>
-            <div><div class="t-name">María Rodríguez</div><div class="t-role">Analista Financiera · Asunción</div></div>
-          </div>
-        </div>
-        <div class="testimonial-card reveal reveal-d2">
-          <div class="t-stars">★★★★★</div>
-          <p class="t-text">"Oscar explica todo de manera muy clara y siempre está disponible para responder consultas. El nivel práctico es increíble, aprendí más en 8 clases que en meses de tutoriales."</p>
-          <div class="t-author">
-            <div class="t-avatar" style="background:var(--green-600)">CP</div>
-            <div><div class="t-name">Carlos Paredes</div><div class="t-role">Gerente de Operaciones · Encarnación</div></div>
-          </div>
-        </div>
-        <div class="testimonial-card reveal reveal-d3">
-          <div class="t-stars">★★★★★</div>
-          <p class="t-text">"El curso de SQL fue exactamente lo que necesitaba. Ahora puedo extraer y analizar datos directamente desde nuestra base de datos sin depender del área de TI."</p>
-          <div class="t-author">
-            <div class="t-avatar" style="background:#7C3AED">LG</div>
-            <div><div class="t-name">Laura Gómez</div><div class="t-role">Coordinadora RRHH · Ciudad del Este</div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  -->
-
-  <!-- DASHBOARDS -->
   <section class="section">
     <div class="container">
       <div class="section-head section-head-center">
@@ -945,7 +924,6 @@
     </div>
   </section>
 
-  <!-- CTA FINAL -->
   <section class="cta-section">
     <div class="cta-inner">
       <h2 class="cta-title">Inscribite ahora y potenciá tu carrera</h2>
@@ -957,7 +935,6 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer class="footer">
     <div class="footer-grid">
       <div>
@@ -977,6 +954,7 @@
       </div>
       <div>
         <div class="footer-col-title">Cursos</div>
+        <span class="footer-link" onclick="openTab(null,'taller')">Taller Libre (En Vivo)</span>
         <span class="footer-link" onclick="openTab(null,'powerbi')">Power BI + IA</span>
         <span class="footer-link" onclick="openTab(null,'excel')">Excel Avanzado</span>
         <span class="footer-link" onclick="openTab(null,'sql')">SQL + IA</span>
@@ -997,17 +975,12 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span class="footer-bottom-text">© 2025 CICAPY – Instituto Técnico Superior. Resolución MEC 848/2022.</span>
+      <span class="footer-bottom-text">© 2026 CICAPY – Instituto Técnico Superior. Resolución MEC 848/2022.</span>
       <span class="footer-bottom-text">Todos los derechos reservados · Paraguay</span>
     </div>
   </footer>
 
-</div><!-- /inicio -->
-
-<!-- =============================================
-     TAB: SERVICIOS
-============================================== -->
-<div id="servicios" class="tab-content">
+</div><div id="servicios" class="tab-content">
   <section class="inner-hero">
     <div class="inner-hero-inner">
       <div class="inner-badge">🏢 Capacitación Empresarial</div>
@@ -1076,7 +1049,6 @@
     </div>
   </section>
 
-  <!-- Capacitador en Servicios -->
   <section class="section">
     <div class="container">
       <div class="section-head section-head-center">
@@ -1085,7 +1057,7 @@
       </div>
       <div class="instructor-card">
         <div class="instructor-left">
-          <img class="instructor-photo" src="foto.jpg" alt="Foto del capacitador">
+          <img class="instructor-photo" src="foto.jpg" alt="Foto del capacitador" onerror="this.src='https://via.placeholder.com/130x130?text=Prof'">
           <div class="instructor-name">Oscar González Frutos</div>
           <div class="instructor-role">Docente & Director Académico</div>
           <div class="inst-social">
@@ -1111,7 +1083,6 @@
     </div>
   </section>
 
-  <!-- Gallery -->
   <section class="section section-alt">
     <div class="container">
       <div class="section-head section-head-center">
@@ -1127,7 +1098,6 @@
     </div>
   </section>
 
-  <!-- CTA -->
   <section class="cta-section">
     <div class="cta-inner">
       <h2 class="cta-title">¿Querés capacitar a tu equipo?</h2>
@@ -1138,12 +1108,7 @@
       </div>
     </div>
   </section>
-</div><!-- /servicios -->
-
-<!-- =============================================
-     TAB: VERANO 2026
-============================================== -->
-<div id="verano" class="tab-content">
+</div><div id="verano" class="tab-content">
   <section class="inner-hero">
     <div class="inner-hero-inner">
       <div class="inner-badge">☀️ Edición Verano</div>
@@ -1151,7 +1116,6 @@
       <p class="inner-sub">Formación intensiva en Inteligencia de Negocios y Análisis de Datos. Clases en vivo por Zoom, certificación incluida y material descargable.</p>
       <div style="display:flex;gap:12px;flex-wrap:wrap;">
         <a class="btn btn-green" href="https://cicapy.github.io/incripciones_2026/" target="_blank" rel="noopener">✏️ Ir a Inscripciones</a>
-        <button class="btn btn-outline" onclick="openTab(null,'powerbi')">📚 Ver todos los cursos</button>
       </div>
     </div>
   </section>
@@ -1214,27 +1178,118 @@
       </div>
     </div>
   </section>
-</div><!-- /verano -->
-
-<!-- =============================================
-     TAB: POWER BI
-============================================== -->
-<div id="powerbi" class="tab-content">
-  <section class="inner-hero">
+</div><div id="taller" class="tab-content">
+  <section class="inner-hero" style="background: linear-gradient(135deg, #0A1628 0%, #060E1A 100%); position: relative; overflow: hidden;">
     <div class="inner-hero-inner">
-      <div class="inner-badge">📊 Análisis de Datos</div>
-      <h1 class="inner-title">Power BI para Business Intelligence y Analítica de Datos + IA</h1>
-      <p class="inner-sub">Modelado de datos, Power Query, DAX y dashboards ejecutivos con apoyo de Inteligencia Artificial. 5 sesiones prácticas en vivo.</p>
-      <div class="inner-tags">
-        <span class="inner-tag">Business Intelligence</span><span class="inner-tag">Power Query</span>
-        <span class="inner-tag">DAX</span><span class="inner-tag">Dashboards</span>
-        <span class="inner-tag">ChatGPT & Claude</span>
+      <div class="inner-badge" style="background: rgba(245,158,11,0.15); border: 1px solid rgba(245,158,11,0.3); color: #FCD34D;">⭐ Acceso Libre</div>
+      <h1 class="inner-title">Aprende Power BI y SQL con IA</h1>
+      <p class="inner-sub">¡Formación profesional en vivo! Crea dashboards interactivos y escribe consultas SQL inteligentes aplicando Inteligencia Artificial al análisis de datos.</p>
+      <div class="inner-tags" style="margin-top: 20px; margin-bottom: 24px;">
+        <span class="inner-tag" style="background: rgba(245,158,11,0.15); color: #FCD34D; border: 1px solid rgba(245,158,11,0.3);">📅 Sábado 11 de Abril</span>
+        <span class="inner-tag" style="background: rgba(255,255,255,0.05); color: white; border: 1px solid rgba(255,255,255,0.1);">🕘 9:00 AM - 11:30 AM (2h 30min)</span>
+        <span class="inner-tag" style="background: rgba(59,130,246,0.15); color: #93C5FD; border: 1px solid rgba(59,130,246,0.3);">💻 Vía Zoom</span>
+      </div>
+      <div style="display:flex; gap:12px; flex-wrap:wrap;">
+        <a class="btn btn-green btn-pulse-green" href="https://cicapy.github.io/inscripciones_2026/" target="_blank" rel="noopener" style="font-size: 15px; padding: 14px 28px;">🎟️ Inscribirme al Taller</a>
       </div>
     </div>
   </section>
 
   <div class="inner-content">
-    <!-- Metodología y Modalidad -->
+    <div class="two-col" style="align-items: center;">
+      <div>
+        <h2 style="font-family: var(--font-display); font-size: 28px; font-weight: 800; color: var(--slate-900); margin-bottom: 24px;">Lo que veremos en el taller</h2>
+        
+        <div class="timeline">
+          <div class="timeline-step">
+            <div class="t-num" style="background: #F59E0B;">1</div>
+            <div class="t-body">
+              <h4>Crea Dashboards Profesionales</h4>
+              <p>Aprende a diseñar y construir paneles de control interactivos y de alto impacto visual utilizando las mejores prácticas en Power BI.</p>
+            </div>
+          </div>
+          <div class="timeline-step">
+            <div class="t-num" style="background: #3B82F6;">2</div>
+            <div class="t-body">
+              <h4>Escribe Consultas SQL con IA</h4>
+              <p>Descubre cómo utilizar la Inteligencia Artificial para estructurar, depurar y generar consultas complejas a bases de datos en tiempo récord.</p>
+            </div>
+          </div>
+          <div class="timeline-step">
+            <div class="t-num" style="background: #8B5CF6;">3</div>
+            <div class="t-body">
+              <h4>Inteligencia Artificial aplicada al análisis</h4>
+              <p>Integración de asistentes virtuales modernos para acelerar significativamente el flujo de trabajo del analista de datos moderno.</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 36px; padding: 28px; background: linear-gradient(135deg, var(--navy-800), var(--navy-900)); border: 1px solid rgba(245,158,11,0.3); border-radius: var(--radius-lg); box-shadow: var(--shadow-lg);">
+          <h3 style="font-family: var(--font-display); font-size: 20px; font-weight: 700; color: #FCD34D; margin-bottom: 12px;">🎟️ Asegura tu lugar (Cupos limitados)</h3>
+          <p style="font-size: 14.5px; color: rgba(255,255,255,0.8); margin-bottom: 20px;">El taller es de <strong>Acceso Libre</strong> pero requiere inscripción previa para recibir el link de Zoom y los materiales de práctica.</p>
+          <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+            <a class="btn btn-gold btn-pulse-gold" href="https://cicapy.github.io/inscripciones_2026/" target="_blank" rel="noopener" style="font-size: 15px; padding: 12px 24px;">👉 Completar Inscripción</a>
+            <a class="btn btn-outline" href="https://wa.me/595983352932" target="_blank" rel="noopener">💬 Consultar WhatsApp</a>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align: center;">
+        <img src="taller.jpg" class="poster-img" alt="Afiche Taller Aprende Power BI y SQL con IA" onerror="this.src='https://via.placeholder.com/600x600?text=Afiche+Taller'">
+      </div>
+    </div>
+
+    <!-- Capacitador del Taller Libre -->
+    <div class="divider"></div>
+    <h2 style="font-family:var(--font-display);font-size:22px;font-weight:800;color:var(--slate-900);margin-bottom:20px;text-align:center;">👨‍🏫 Capacitador del Taller</h2>
+    <div class="instructor-card" style="margin-bottom: 20px;">
+      <div class="instructor-left">
+        <img class="instructor-photo" src="foto.jpg" alt="Foto del capacitador" onerror="this.src='https://via.placeholder.com/130x130?text=Prof'">
+        <div class="instructor-name">Oscar González Frutos</div>
+        <div class="instructor-role">Docente & Director Académico</div>
+        <div class="inst-social">
+          <a class="inst-social-btn" href="https://oscar-pry.github.io/web_personal/" target="_blank" rel="noopener">🌐 Web</a>
+          <a class="inst-social-btn" href="https://www.linkedin.com/in/oscar-gonz%C3%A1lez-frutos" target="_blank" rel="noopener">🔗 LinkedIn</a>
+        </div>
+      </div>
+      <div class="instructor-right">
+        <span class="section-label">Docente Principal</span>
+        <h2>Más de 10 años formando profesionales en datos</h2>
+        <p>Estadístico, analista y docente apasionado por transformar la manera en que las personas trabajan con datos. Combina rigor académico de nivel internacional con una metodología práctica y orientada a resultados.</p>
+        <div class="cred-grid">
+          <div class="cred-item"><div class="cred-label">Licenciatura</div><div class="cred-value">Matemática Estadística · FACEN-UNA</div></div>
+          <div class="cred-item"><div class="cred-label">Maestría (MSc)</div><div class="cred-value">Estadística Aplicada · Univ. de Granada, España</div></div>
+        </div>
+        <div class="exp-chips" style="margin-top:14px;">
+          <span class="exp-chip">BCP</span><span class="exp-chip">Itaipú Binacional</span><span class="exp-chip">DGEEC</span>
+          <span class="exp-chip">MEC</span><span class="exp-chip">FACEN-UNA</span><span class="exp-chip">Min. Desarrollo Social</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div id="powerbi" class="tab-content">
+  <section class="inner-hero">
+    <div class="inner-hero-inner inner-hero-split">
+      <div class="inner-hero-text">
+        <div class="inner-badge">📊 Análisis de Datos</div>
+        <h1 class="inner-title">Power BI para Business Intelligence y Analítica de Datos + IA</h1>
+        <p class="inner-sub">Modelado de datos, Power Query, DAX y dashboards ejecutivos con apoyo de Inteligencia Artificial. 5 sesiones prácticas en vivo.</p>
+        <div class="inner-tags">
+          <span class="inner-tag">Business Intelligence</span><span class="inner-tag">Power Query</span>
+          <span class="inner-tag">DAX</span><span class="inner-tag">Dashboards</span>
+          <span class="inner-tag">ChatGPT & Claude</span>
+        </div>
+      </div>
+      <div class="inner-hero-logo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg" alt="Logo Power BI">
+      </div>
+    </div>
+  </section>
+
+  <div class="inner-content">
     <div class="inner-grid">
       <div class="inner-card">
         <h2>⚙️ Metodología</h2>
@@ -1259,7 +1314,6 @@
       </div>
     </div>
 
-    <!-- A quién va dirigido -->
     <div class="inner-card" style="margin-bottom:28px;">
       <h2>🎯 ¿A quién va dirigido?</h2>
       <div class="feature-grid" style="margin-top:12px;">
@@ -1270,7 +1324,6 @@
       </div>
     </div>
 
-    <!-- Programa -->
     <div class="inner-card" style="margin-bottom:28px;">
       <h2 style="margin-bottom:20px;">📚 Programa — 5 sesiones</h2>
       <div class="timeline">
@@ -1317,7 +1370,6 @@
       </div>
     </div>
 
-    <!-- Inscripción + Pagos -->
     <div class="two-col" style="align-items:start;margin-bottom:36px;">
       <div class="form-wrap">
         <section id="pbi-inscripcion" class="form-card">
@@ -1349,7 +1401,33 @@
       </div>
     </div>
 
-    <!-- Galería + Dashboards -->
+    <div class="divider"></div>
+    <h2 style="font-family:var(--font-display);font-size:22px;font-weight:800;color:var(--slate-900);margin-bottom:20px;text-align:center;">👨‍🏫 Capacitador del Curso</h2>
+    <div class="instructor-card" style="margin-bottom: 40px;">
+      <div class="instructor-left">
+        <img class="instructor-photo" src="foto.jpg" alt="Foto del capacitador" onerror="this.src='https://via.placeholder.com/130x130?text=Prof'">
+        <div class="instructor-name">Oscar González Frutos</div>
+        <div class="instructor-role">Docente & Director Académico</div>
+        <div class="inst-social">
+          <a class="inst-social-btn" href="https://oscar-pry.github.io/web_personal/" target="_blank" rel="noopener">🌐 Web</a>
+          <a class="inst-social-btn" href="https://www.linkedin.com/in/oscar-gonz%C3%A1lez-frutos" target="_blank" rel="noopener">🔗 LinkedIn</a>
+        </div>
+      </div>
+      <div class="instructor-right">
+        <span class="section-label">Docente Principal</span>
+        <h2>Más de 10 años formando profesionales en datos</h2>
+        <p>Estadístico, analista y docente apasionado por transformar la manera en que las personas trabajan con datos. Combina rigor académico de nivel internacional con una metodología práctica y orientada a resultados.</p>
+        <div class="cred-grid">
+          <div class="cred-item"><div class="cred-label">Licenciatura</div><div class="cred-value">Matemática Estadística · FACEN-UNA</div></div>
+          <div class="cred-item"><div class="cred-label">Maestría (MSc)</div><div class="cred-value">Estadística Aplicada · Univ. de Granada, España</div></div>
+        </div>
+        <div class="exp-chips" style="margin-top:14px;">
+          <span class="exp-chip">BCP</span><span class="exp-chip">Itaipú Binacional</span><span class="exp-chip">DGEEC</span>
+          <span class="exp-chip">MEC</span><span class="exp-chip">FACEN-UNA</span><span class="exp-chip">Min. Desarrollo Social</span>
+        </div>
+      </div>
+    </div>
+
     <div class="divider"></div>
     <h2 style="font-family:var(--font-display);font-size:22px;font-weight:800;color:var(--slate-900);margin-bottom:20px;text-align:center;">📸 Galería de capacitaciones</h2>
     <div class="gallery-grid" style="margin-bottom:40px;">
@@ -1373,21 +1451,21 @@
       </div>
     </div>
   </div>
-</div><!-- /powerbi -->
-
-<!-- =============================================
-     TAB: EXCEL
-============================================== -->
-<div id="excel" class="tab-content">
+</div><div id="excel" class="tab-content">
   <section class="inner-hero">
-    <div class="inner-hero-inner">
-      <div class="inner-badge">📗 Excel Avanzado</div>
-      <h1 class="inner-title">Análisis de Datos Moderno con Excel:<br>Power Query + Power Pivot</h1>
-      <p class="inner-sub">Programa intensivo de 7 sesiones para construir modelos confiables, automatizar la limpieza de datos y crear dashboards accionables por sector.</p>
-      <div class="inner-tags">
-        <span class="inner-tag">Finanzas</span><span class="inner-tag">Marketing</span>
-        <span class="inner-tag">Tecnología</span><span class="inner-tag">Educación</span>
-        <span class="inner-tag">Power Query</span><span class="inner-tag">Power Pivot</span>
+    <div class="inner-hero-inner inner-hero-split">
+      <div class="inner-hero-text">
+        <div class="inner-badge">📗 Excel Avanzado</div>
+        <h1 class="inner-title">Análisis de Datos Moderno con Excel:<br>Power Query + Power Pivot</h1>
+        <p class="inner-sub">Programa intensivo de 7 sesiones para construir modelos confiables, automatizar la limpieza de datos y crear dashboards accionables por sector.</p>
+        <div class="inner-tags">
+          <span class="inner-tag">Finanzas</span><span class="inner-tag">Marketing</span>
+          <span class="inner-tag">Tecnología</span><span class="inner-tag">Educación</span>
+          <span class="inner-tag">Power Query</span><span class="inner-tag">Power Pivot</span>
+        </div>
+      </div>
+      <div class="inner-hero-logo">
+        <img src="https://static.vecteezy.com/system/resources/previews/027/179/360/non_2x/microsoft-excel-icon-logo-symbol-free-png.png">
       </div>
     </div>
   </section>
@@ -1433,6 +1511,33 @@
     </div>
 
     <div class="divider"></div>
+    <h2 style="font-family:var(--font-display);font-size:22px;font-weight:800;color:var(--slate-900);margin-bottom:20px;text-align:center;">👨‍🏫 Capacitador del Curso</h2>
+    <div class="instructor-card" style="margin-bottom: 40px;">
+      <div class="instructor-left">
+        <img class="instructor-photo" src="foto.jpg" alt="Foto del capacitador" onerror="this.src='https://via.placeholder.com/130x130?text=Prof'">
+        <div class="instructor-name">Oscar González Frutos</div>
+        <div class="instructor-role">Docente & Director Académico</div>
+        <div class="inst-social">
+          <a class="inst-social-btn" href="https://oscar-pry.github.io/web_personal/" target="_blank" rel="noopener">🌐 Web</a>
+          <a class="inst-social-btn" href="https://www.linkedin.com/in/oscar-gonz%C3%A1lez-frutos" target="_blank" rel="noopener">🔗 LinkedIn</a>
+        </div>
+      </div>
+      <div class="instructor-right">
+        <span class="section-label">Docente Principal</span>
+        <h2>Más de 10 años formando profesionales en datos</h2>
+        <p>Estadístico, analista y docente apasionado por transformar la manera en que las personas trabajan con datos. Combina rigor académico de nivel internacional con una metodología práctica y orientada a resultados.</p>
+        <div class="cred-grid">
+          <div class="cred-item"><div class="cred-label">Licenciatura</div><div class="cred-value">Matemática Estadística · FACEN-UNA</div></div>
+          <div class="cred-item"><div class="cred-label">Maestría (MSc)</div><div class="cred-value">Estadística Aplicada · Univ. de Granada, España</div></div>
+        </div>
+        <div class="exp-chips" style="margin-top:14px;">
+          <span class="exp-chip">BCP</span><span class="exp-chip">Itaipú Binacional</span><span class="exp-chip">DGEEC</span>
+          <span class="exp-chip">MEC</span><span class="exp-chip">FACEN-UNA</span><span class="exp-chip">Min. Desarrollo Social</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
     <h2 style="font-family:var(--font-display);font-size:20px;font-weight:800;color:var(--slate-900);margin-bottom:20px;text-align:center;">📸 Galería de capacitaciones</h2>
     <div class="gallery-grid">
       <img src="images/curso1.jpg" alt="Curso 1"><img src="images/curso2.jpg" alt="Curso 2">
@@ -1441,28 +1546,26 @@
       <img src="images/curso7.jpg" alt="Curso 7">
     </div>
   </div>
-</div><!-- /excel -->
-
-<!-- =============================================
-     TAB: SQL (NUEVO)
-============================================== -->
-<div id="sql" class="tab-content">
+</div><div id="sql" class="tab-content">
   <section class="inner-hero">
-    <div class="inner-hero-inner">
-      <div class="inner-badge">🗄️ Bases de Datos</div>
-      <h1 class="inner-title">SQL para Business Intelligence y Analítica de Datos + IA</h1>
-      <p class="inner-sub">Aprendé a consultar, filtrar, agrupar y analizar datos con MySQL e Inteligencia Artificial aplicada con ChatGPT y Claude.</p>
-      <div class="inner-tags">
-        <span class="inner-tag">MySQL</span><span class="inner-tag">IA aplicada</span>
-        <span class="inner-tag">ChatGPT & Claude</span><span class="inner-tag">SELECT & JOINs</span>
-        <span class="inner-tag">GROUP BY</span>
+    <div class="inner-hero-inner inner-hero-split">
+      <div class="inner-hero-text">
+        <div class="inner-badge">🗄️ Bases de Datos</div>
+        <h1 class="inner-title">SQL para Business Intelligence y Analítica de Datos + IA</h1>
+        <p class="inner-sub">Aprendé a consultar, filtrar, agrupar y analizar datos con MySQL e Inteligencia Artificial aplicada con ChatGPT y Claude.</p>
+        <div class="inner-tags">
+          <span class="inner-tag">MySQL</span><span class="inner-tag">IA aplicada</span>
+          <span class="inner-tag">ChatGPT & Claude</span><span class="inner-tag">SELECT & JOINs</span>
+          <span class="inner-tag">GROUP BY</span>
+        </div>
+      </div>
+      <div class="inner-hero-logo">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original-wordmark.svg" alt="Logo MySQL">
       </div>
     </div>
   </section>
 
   <div class="inner-content">
-
-    <!-- Metodología y Modalidad -->
     <div class="inner-grid">
       <div class="inner-card">
         <h2>⚙️ Metodología</h2>
@@ -1488,7 +1591,6 @@
       </div>
     </div>
 
-    <!-- Código de ejemplo -->
     <div class="inner-card" style="margin-bottom:28px;">
       <h2 style="margin-bottom:16px;">💻 ¿Qué vas a poder hacer?</h2>
       <div class="code-block">
@@ -1508,7 +1610,6 @@
       </div>
     </div>
 
-    <!-- A quién va dirigido -->
     <div class="inner-card" style="margin-bottom:28px;">
       <h2 style="margin-bottom:14px;">🎯 ¿A quién va dirigido?</h2>
       <div class="feature-grid">
@@ -1519,7 +1620,6 @@
       </div>
     </div>
 
-    <!-- Programa -->
     <div class="inner-card" style="margin-bottom:28px;">
       <h2 style="margin-bottom:20px;">📚 Programa </h2>
       <div class="timeline">
@@ -1574,7 +1674,33 @@
       </div>
     </div>
 
-    <!-- CTA Inscripción SQL -->
+    <div class="divider"></div>
+    <h2 style="font-family:var(--font-display);font-size:22px;font-weight:800;color:var(--slate-900);margin-bottom:20px;text-align:center;">👨‍🏫 Capacitador del Curso</h2>
+    <div class="instructor-card" style="margin-bottom: 40px;">
+      <div class="instructor-left">
+        <img class="instructor-photo" src="foto.jpg" alt="Foto del capacitador" onerror="this.src='https://via.placeholder.com/130x130?text=Prof'">
+        <div class="instructor-name">Oscar González Frutos</div>
+        <div class="instructor-role">Docente & Director Académico</div>
+        <div class="inst-social">
+          <a class="inst-social-btn" href="https://oscar-pry.github.io/web_personal/" target="_blank" rel="noopener">🌐 Web</a>
+          <a class="inst-social-btn" href="https://www.linkedin.com/in/oscar-gonz%C3%A1lez-frutos" target="_blank" rel="noopener">🔗 LinkedIn</a>
+        </div>
+      </div>
+      <div class="instructor-right">
+        <span class="section-label">Docente Principal</span>
+        <h2>Más de 10 años formando profesionales en datos</h2>
+        <p>Estadístico, analista y docente apasionado por transformar la manera en que las personas trabajan con datos. Combina rigor académico de nivel internacional con una metodología práctica y orientada a resultados.</p>
+        <div class="cred-grid">
+          <div class="cred-item"><div class="cred-label">Licenciatura</div><div class="cred-value">Matemática Estadística · FACEN-UNA</div></div>
+          <div class="cred-item"><div class="cred-label">Maestría (MSc)</div><div class="cred-value">Estadística Aplicada · Univ. de Granada, España</div></div>
+        </div>
+        <div class="exp-chips" style="margin-top:14px;">
+          <span class="exp-chip">BCP</span><span class="exp-chip">Itaipú Binacional</span><span class="exp-chip">DGEEC</span>
+          <span class="exp-chip">MEC</span><span class="exp-chip">FACEN-UNA</span><span class="exp-chip">Min. Desarrollo Social</span>
+        </div>
+      </div>
+    </div>
+
     <div class="inner-card" style="text-align:center;padding:36px;">
       <h2 style="margin-bottom:10px;">📝 ¿Listo para dominar SQL?</h2>
       <p style="font-size:15px;color:var(--slate-500);max-width:500px;margin:0 auto 24px;line-height:1.65;">Inscribite al curso de SQL + IA y comenzá a extraer el máximo valor de tus datos directamente desde la fuente.</p>
@@ -1595,10 +1721,7 @@
     </div>
 
   </div>
-</div><!-- /sql -->
-
-<!-- TOAST & MODAL -->
-<div id="copy-toast" role="status" aria-live="polite">¡Copiado!</div>
+</div><div id="copy-toast" role="status" aria-live="polite">¡Copiado!</div>
 
 <div id="modal-confirmacion" role="dialog" aria-modal="true" aria-labelledby="modal-titulo">
   <div class="modal-inner">
@@ -1609,9 +1732,6 @@
   </div>
 </div>
 
-<!-- =============================================
-     JAVASCRIPT
-============================================== -->
 <script>
 (function () {
   'use strict';
@@ -1635,7 +1755,7 @@
   window.addEventListener('load', function(){
     var hash = window.location.hash.replace('#','');
     if (hash) {
-      var tabs = ['inicio','servicios','verano','powerbi','excel','sql'];
+      var tabs = ['inicio','servicios','verano','taller','powerbi','excel','sql'];
       if (tabs.indexOf(hash) !== -1) {
         var btn = document.querySelector('.nav-tab[onclick*="' + hash + '"]');
         if (btn) {
