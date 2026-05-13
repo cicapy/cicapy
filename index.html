@@ -673,10 +673,11 @@
     <div class="nav-tabs" id="nav-tabs">
       <button class="nav-tab active" onclick="openTab(event,'inicio')">Inicio</button>
       <button class="nav-tab" onclick="openTab(event,'servicios')">Servicios</button>
-      <button class="nav-tab" onclick="openTab(event,'verano')">Verano 2026</button>
-      <button class="nav-tab" onclick="openTab(event,'powerbi')">Power BI</button>
-      <button class="nav-tab" onclick="openTab(event,'excel')">Excel</button>
-      <button class="nav-tab" onclick="openTab(event,'sql')">SQL</button>
+      <button class="nav-tab" onclick="openTab(event,'excel-basico')">📗 Excel Básico</button>
+      <button class="nav-tab" onclick="openTab(event,'excel-avanzado')">📊 Excel Avanzado</button>
+      <button class="nav-tab" onclick="openTab(event,'powerbi-basico')">📈 Power BI Básico</button>
+      <button class="nav-tab" onclick="openTab(event,'powerbi-avanzado')">🚀 Power BI Avanzado</button>
+      <button class="nav-tab" onclick="openTab(event,'sql')">🗄️ SQL</button>
     </div>
 
     <a class="nav-cta" href="https://wa.me/595983352932?text=Hola%21+Quiero+informaci%C3%B3n+sobre+los+cursos." target="_blank" rel="noopener">
@@ -742,7 +743,7 @@
       <div class="stat-item"><div class="stat-number">10<span>+</span></div><div class="stat-label">Años de experiencia</div></div>
       <div class="stat-item"><div class="stat-number">500<span>+</span></div><div class="stat-label">Estudiantes capacitados</div></div>
       <div class="stat-item"><div class="stat-number">15<span>+</span></div><div class="stat-label">Instituciones clientes</div></div>
-      <div class="stat-item"><div class="stat-number">4<span></span></div><div class="stat-label">Cursos disponibles</div></div>
+      <div class="stat-item"><div class="stat-number">5<span></span></div><div class="stat-label">Cursos disponibles</div></div>
       <div class="stat-item"><div class="stat-number">100<span>%</span></div><div class="stat-label">Online · En vivo</div></div>
     </div>
   </div>
@@ -823,59 +824,100 @@
         <h2 class="section-title">Formación de alto impacto en datos</h2>
         <p class="section-subtitle">Programas diseñados para llevarte desde los fundamentos hasta un nivel profesional y certificado.</p>
       </div>
-      <div class="courses-grid">
-        <div class="course-card course-card-pbi reveal reveal-d1">
+      <div class="courses-grid" style="grid-template-columns:repeat(3,1fr);">
+        <!-- Excel Básico -->
+        <div class="course-card course-card-excel reveal reveal-d1">
+          <div class="course-top-bar"></div>
+          <div class="course-body">
+            <div class="course-icon">📗</div>
+            <div class="course-name">Excel Básico + IA</div>
+            <div class="course-desc">Fundamentos de Excel: fórmulas esenciales, tablas, gráficos y primeros pasos con IA para potenciar tu trabajo.</div>
+            <div class="course-tags">
+              <span class="tag tag-green">Nivel Básico</span>
+              <span class="tag tag-blue">4 sesiones</span>
+              <span class="tag tag-sky">Zoom en vivo</span>
+            </div>
+            <div class="course-meta">
+              <span class="meta-item">📅 Inicia 3 de junio</span>
+              <span class="meta-item">💰 Gs. 250.000</span>
+            </div>
+            <button class="btn btn-primary btn-sm btn-full" onclick="openTab(null,'excel-basico')">Ver programa completo →</button>
+          </div>
+        </div>
+        <!-- Excel Avanzado -->
+        <div class="course-card course-card-excel reveal reveal-d2">
           <div class="course-top-bar"></div>
           <div class="course-body">
             <div class="course-icon">📊</div>
-            <div class="course-name">Power BI para Business Intelligence y Analítica de Datos + IA</div>
-            <div class="course-desc">Modelado de datos, Power Query, DAX, dashboards ejecutivos y analítica aplicada con Inteligencia Artificial.</div>
+            <div class="course-name">Excel Avanzado: Power Query + Power Pivot</div>
+            <div class="course-desc">Automatizá reportes, construí modelos de datos y creá dashboards profesionales con Power Query y Power Pivot.</div>
             <div class="course-tags">
-              <span class="tag tag-orange">Básico – Avanzado</span>
+              <span class="tag tag-teal">Avanzado</span>
               <span class="tag tag-blue">5 sesiones</span>
               <span class="tag tag-sky">Zoom en vivo</span>
             </div>
             <div class="course-meta">
-              <span class="meta-item">📅 Inicia 20 de abril</span>
-              <span class="meta-item">⏱ Mar & Mié · 19:30 – 21:30</span>
+              <span class="meta-item">📅 Luego de Excel Básico</span>
+              <span class="meta-item">💰 Gs. 300.000</span>
             </div>
-            <button class="btn btn-primary btn-sm btn-full" onclick="openTab(null,'powerbi')">Ver programa completo →</button>
+            <button class="btn btn-primary btn-sm btn-full" onclick="openTab(null,'excel-avanzado')">Ver programa completo →</button>
           </div>
         </div>
-        <div class="course-card course-card-excel reveal reveal-d2">
-          <div class="course-top-bar"></div>
-          <div class="course-body">
-            <div class="course-icon">📗</div>
-            <div class="course-name">Excel Moderno: Power Query + Power Pivot</div>
-            <div class="course-desc">Automatizá reportes, construí modelos de datos y creá dashboards profesionales sin salir de Excel.</div>
-            <div class="course-tags">
-              <span class="tag tag-green">Intermedio – Avanzado</span>
-              <span class="tag tag-blue">7 sesiones</span>
-              <span class="tag tag-sky">Zoom en vivo</span>
-            </div>
-            <div class="course-meta">
-              <span class="meta-item">📅 Online</span>
-              <span class="meta-item">⏱ 2 horas/sesión</span>
-            </div>
-            <button class="btn btn-primary btn-sm btn-full" onclick="openTab(null,'excel')">Ver programa completo →</button>
-          </div>
-        </div>
+        <!-- SQL -->
         <div class="course-card course-card-sql reveal reveal-d3">
           <div class="course-top-bar"></div>
           <div class="course-body">
             <div class="course-icon">🗄️</div>
-            <div class="course-name">SQL para Business Intelligence y Analítica de Datos + IA</div>
-            <div class="course-desc">Aprendé SQL + IA, ChatGPT y Claude para consultar, analizar y acelerar flujos de Business Intelligence.</div>
+            <div class="course-name">SQL para Business Intelligence + IA</div>
+            <div class="course-desc">Consultá, analizá y extraé valor de bases de datos relacionales. Con apoyo de ChatGPT y Claude.</div>
             <div class="course-tags">
               <span class="tag tag-purple">Básico – Intermedio</span>
-              <span class="tag tag-blue">4 sesiones</span>
+              <span class="tag tag-blue">5 sesiones</span>
               <span class="tag tag-sky">Sábados</span>
             </div>
             <div class="course-meta">
-              <span class="meta-item">📅 Inicia sábado 18 de abril</span>
-              <span class="meta-item">⏱ 09:30 – 11:30</span>
+              <span class="meta-item">📅 Inicia 7 de junio</span>
+              <span class="meta-item">💰 Gs. 300.000</span>
             </div>
             <button class="btn btn-primary btn-sm btn-full" onclick="openTab(null,'sql')">Ver programa completo →</button>
+          </div>
+        </div>
+        <!-- Power BI Básico -->
+        <div class="course-card course-card-pbi reveal reveal-d1">
+          <div class="course-top-bar"></div>
+          <div class="course-body">
+            <div class="course-icon">📈</div>
+            <div class="course-name">Power BI Básico + IA</div>
+            <div class="course-desc">Conectá datos, transformalos con Power Query y construí tu primer dashboard ejecutivo interactivo.</div>
+            <div class="course-tags">
+              <span class="tag tag-orange">Nivel Básico</span>
+              <span class="tag tag-blue">4 sesiones</span>
+              <span class="tag tag-sky">Zoom en vivo</span>
+            </div>
+            <div class="course-meta">
+              <span class="meta-item">📅 Inicia 9 de junio</span>
+              <span class="meta-item">💰 Gs. 300.000</span>
+            </div>
+            <button class="btn btn-primary btn-sm btn-full" onclick="openTab(null,'powerbi-basico')">Ver programa completo →</button>
+          </div>
+        </div>
+        <!-- Power BI Avanzado -->
+        <div class="course-card course-card-pbi reveal reveal-d2">
+          <div class="course-top-bar"></div>
+          <div class="course-body">
+            <div class="course-icon">🚀</div>
+            <div class="course-name">Power BI Avanzado: DAX + Dashboards + IA</div>
+            <div class="course-desc">DAX avanzado, Time Intelligence, diseño profesional de dashboards y publicación en Power BI Service.</div>
+            <div class="course-tags">
+              <span class="tag" style="background:#FFF7ED;color:#C2410C;border:1px solid #FED7AA">Avanzado</span>
+              <span class="tag tag-blue">5 sesiones</span>
+              <span class="tag tag-sky">Zoom en vivo</span>
+            </div>
+            <div class="course-meta">
+              <span class="meta-item">📅 Luego de Power BI Básico</span>
+              <span class="meta-item">💰 Gs. 300.000</span>
+            </div>
+            <button class="btn btn-primary btn-sm btn-full" onclick="openTab(null,'powerbi-avanzado')">Ver programa completo →</button>
           </div>
         </div>
       </div>
@@ -1018,10 +1060,11 @@
       </div>
       <div>
         <div class="footer-col-title">Cursos</div>
-        <span class="footer-link" onclick="openTab(null,'powerbi')">Power BI + IA</span>
-        <span class="footer-link" onclick="openTab(null,'excel')">Excel Avanzado</span>
+        <span class="footer-link" onclick="openTab(null,'excel-basico')">Excel Básico</span>
+        <span class="footer-link" onclick="openTab(null,'excel-avanzado')">Excel Avanzado</span>
+        <span class="footer-link" onclick="openTab(null,'powerbi-basico')">Power BI Básico + IA</span>
+        <span class="footer-link" onclick="openTab(null,'powerbi-avanzado')">Power BI Avanzado + IA</span>
         <span class="footer-link" onclick="openTab(null,'sql')">SQL + IA</span>
-        <span class="footer-link" onclick="openTab(null,'verano')">Curso de Verano 2026</span>
       </div>
       <div>
         <div class="footer-col-title">Instituto</div>
@@ -1032,7 +1075,7 @@
       </div>
       <div>
         <div class="footer-col-title">Inscripciones</div>
-        <span class="footer-link" onclick="openTab(null,'powerbi')">Cursos Disponibles 2026</span>
+        <span class="footer-link" onclick="openTab(null,'excel-basico')">Cursos Disponibles 2025</span>
         <a class="footer-link" href="https://cicapy.github.io/incripciones_2026/" target="_blank" rel="noopener">Inscripciones Abiertas</a>
         <a class="footer-link" href="https://wa.me/595983352932" target="_blank" rel="noopener">Consultar por WhatsApp</a>
       </div>
@@ -1181,158 +1224,232 @@
   </section>
 </div><!-- /servicios -->
 
+<!-- VERANO TAB REMOVIDO -->
+
 <!-- =============================================
-     TAB: VERANO 2026
+     TAB: POWER BI BÁSICO
 ============================================== -->
-<div id="verano" class="tab-content">
+<div id="powerbi-basico" class="tab-content">
   <section class="inner-hero">
     <div class="inner-hero-inner">
-      <div class="inner-badge">☀️ Edición Verano</div>
-      <h1 class="inner-title">Curso de Verano 2026</h1>
-      <p class="inner-sub">Formación intensiva en Inteligencia de Negocios y Análisis de Datos. Clases en vivo por Zoom, certificación incluida y material descargable.</p>
-      <div style="display:flex;gap:12px;flex-wrap:wrap;">
-        <a class="btn btn-green" href="https://cicapy.github.io/incripciones_2026/" target="_blank" rel="noopener">✏️ Ir a Inscripciones</a>
-        <button class="btn btn-outline" onclick="openTab(null,'powerbi')">📚 Ver todos los cursos</button>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <div class="section-head section-head-center">
-        <span class="section-label">¿Qué incluye?</span>
-        <h2 class="section-title">Formación intensiva de verano</h2>
-      </div>
-      <div class="benefits-grid" style="margin-bottom:60px;">
-        <div class="benefit-card"><div class="benefit-icon">🚀</div><div class="benefit-title">100% Online</div><div class="benefit-desc">Modalidad ideal para aprender desde casa durante el verano, sin desplazamientos.</div></div>
-        <div class="benefit-card"><div class="benefit-icon">📊</div><div class="benefit-title">Básico a Avanzado</div><div class="benefit-desc">Cursos disponibles en múltiples niveles. Comenzás donde corresponde a tu experiencia.</div></div>
-        <div class="benefit-card"><div class="benefit-icon">🛠️</div><div class="benefit-title">Enfoque Práctico</div><div class="benefit-desc">Ejercicios con datasets reales desde la primera clase. Aprendés haciendo, no memorizando.</div></div>
-        <div class="benefit-card"><div class="benefit-icon">📁</div><div class="benefit-title">Material Incluido</div><div class="benefit-desc">Acceso a grabaciones, recursos descargables y plantillas de trabajo.</div></div>
-        <div class="benefit-card"><div class="benefit-icon">🎓</div><div class="benefit-title">Certificación</div><div class="benefit-desc">Certificado oficial del Instituto Técnico Superior CICAPY al finalizar cada curso.</div></div>
-        <div class="benefit-card"><div class="benefit-icon">🎥</div><div class="benefit-title">Zoom en Vivo</div><div class="benefit-desc">Todas las clases se dictan en vivo con el docente, con espacio para consultas en tiempo real.</div></div>
-      </div>
-
-      <div class="section-head section-head-center">
-        <span class="section-label">Calendario académico</span>
-        <h2 class="section-title">Cursos disponibles · Verano 2026</h2>
-        <p class="section-subtitle">Organizá tu verano con formación de alto impacto. Todas las clases se dictan en vivo por Zoom.</p>
-      </div>
-      <div class="verano-grid" style="margin-bottom:48px;">
-        <div class="verano-card">
-          <div class="verano-header"><div class="verano-dot" style="background:#2563EB"></div><h4>Excel Básico</h4></div>
-          <p class="verano-date"><strong>19 al 22 de enero de 2026</strong><br>19:45 a 21:45 · Online</p>
-          <div style="display:flex;gap:8px;flex-wrap:wrap;"><span class="tag tag-blue">Nivel Básico</span><span class="tag tag-sky">Zoom en vivo</span></div>
-        </div>
-        <div class="verano-card">
-          <div class="verano-header"><div class="verano-dot" style="background:#F59E0B"></div><h4>Power BI – Reportes y Dashboards</h4></div>
-          <p class="verano-date"><strong>26 al 30 de enero de 2026</strong><br>19:45 a 21:45 · Online</p>
-          <div style="display:flex;gap:8px;flex-wrap:wrap;"><span class="tag tag-orange">Básico – Intermedio</span><span class="tag tag-sky">Zoom en vivo</span></div>
-        </div>
-        <div class="verano-card">
-          <div class="verano-header"><div class="verano-dot" style="background:#16A34A"></div><h4>SQL (MySQL)</h4></div>
-          <p class="verano-date"><strong>Desde 24 de enero (sábados)</strong><br>09:30 a 11:30 · Online</p>
-          <div style="display:flex;gap:8px;flex-wrap:wrap;"><span class="tag tag-green">Básico – Intermedio</span><span class="tag tag-sky">Zoom en vivo</span></div>
-        </div>
-        <div class="verano-card">
-          <div class="verano-header"><div class="verano-dot" style="background:#EF4444"></div><h4>Power BI Avanzado</h4></div>
-          <p class="verano-date"><strong>02 al 06 de febrero de 2026</strong><br>19:45 a 21:45 · Online</p>
-          <div style="display:flex;gap:8px;flex-wrap:wrap;"><span class="tag" style="background:#FEF2F2;color:#B91C1C">Nivel Avanzado</span><span class="tag tag-sky">Zoom en vivo</span></div>
-        </div>
-        <div class="verano-card">
-          <div class="verano-header"><div class="verano-dot" style="background:#0EA5E9"></div><h4>Análisis con Excel: Power Query + Power Pivot</h4></div>
-          <p class="verano-date"><strong>09 al 13 de febrero de 2026</strong><br>19:45 a 21:45 · Online</p>
-          <div style="display:flex;gap:8px;flex-wrap:wrap;"><span class="tag tag-teal">Intermedio – Avanzado</span><span class="tag tag-sky">Zoom en vivo</span></div>
-        </div>
-      </div>
-
-      <div style="text-align:center;">
-        <h3 style="font-family:var(--font-display);font-size:22px;font-weight:800;color:var(--slate-900);margin-bottom:10px;">📝 Inscripciones abiertas</h3>
-        <p style="font-size:15.5px;color:var(--slate-500);max-width:600px;margin:0 auto 24px;line-height:1.65;">Asegurá tu lugar en el Curso de Verano 2026 y potenciá tu perfil profesional con herramientas altamente demandadas.</p>
-        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
-          <a class="btn btn-green" href="https://cicapy.github.io/incripciones_2026/" target="_blank" rel="noopener">👉 Ir a Inscripciones</a>
-          <a class="btn btn-outline-blue" href="https://wa.me/595983352932" target="_blank" rel="noopener">💬 Consultar por WhatsApp</a>
-        </div>
-      </div>
-    </div>
-  </section>
-</div><!-- /verano -->
-
-<!-- <!-- =============================================
-     TAB: POWER BI
-============================================== -->
-<div id="powerbi" class="tab-content">
-  <section class="inner-hero">
-    <div class="inner-hero-inner">
-      <div class="inner-badge" style="display: inline-flex; align-items: center; gap: 6px;">
-        <!-- Icono oficial de Power BI -->
+      <div class="inner-badge" style="display:inline-flex;align-items:center;gap:6px;">
         <svg width="16" height="16" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect x="22" y="4" width="6" height="24" rx="1" fill="#F2C811"/>
           <rect x="13" y="12" width="6" height="16" rx="1" fill="#F2C811"/>
           <rect x="4" y="20" width="6" height="8" rx="1" fill="#F2C811"/>
         </svg>
-        Análisis de Datos
+        Power BI Básico
       </div>
-      <h1 class="inner-title">Power BI para Business Intelligence y Analítica de Datos + IA</h1>
-      <p class="inner-sub">Modelado de datos, Power Query, DAX y dashboards ejecutivos con apoyo de Inteligencia Artificial. Inicio el 20 de abril, con clases los martes y miércoles en vivo.</p>
+      <h1 class="inner-title">Power BI Básico + IA<br><span style="font-size:0.65em;font-weight:600;color:rgba(255,255,255,0.7);">Gs. 300.000</span></h1>
+      <p class="inner-sub">Aprendé a conectar datos, transformarlos con Power Query y construir tu primer dashboard ejecutivo interactivo. 4 sesiones en vivo, inicio 9 de junio.</p>
       <div class="inner-tags">
-        <span class="inner-tag">Business Intelligence</span><span class="inner-tag">Power Query</span>
-        <span class="inner-tag">DAX</span><span class="inner-tag">Dashboards</span>
-        <span class="inner-tag">ChatGPT & Claude</span>
+        <span class="inner-tag">Power Query</span><span class="inner-tag">Visualizaciones</span>
+        <span class="inner-tag">Modelado básico</span><span class="inner-tag">Dashboards</span>
       </div>
       <div class="hero-inscribirse-wrap">
-        <a class="btn btn-green" href="https://cicapy.github.io/incripciones_2026/" target="_blank" rel="noopener">
-          <svg width="18" height="18" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right: 6px;">
-            <rect x="22" y="4" width="6" height="24" rx="1" fill="currentColor"/>
-            <rect x="13" y="12" width="6" height="16" rx="1" fill="currentColor"/>
-            <rect x="4" y="20" width="6" height="8" rx="1" fill="currentColor"/>
-          </svg>
-          Inscribirme en Power BI
-        </a>
-        <a class="btn btn-outline" href="https://wa.me/595983352932?text=Hola%21+Quiero+info+del+curso+Power+BI." target="_blank" rel="noopener">💬 Consultar</a>
-      </div>
-      <!-- Imagen representativa Power BI -->
-      <div class="section-image">
-        <img src="images/pb1.webp" alt="Power BI Dashboard" style="width: 100%; height: auto; display: block; border-radius: 16px; position: relative; z-index: 1; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
-        <div class="section-image__glow section-image__glow--pbi"></div>
+        <a class="btn btn-green" href="https://cicapy.github.io/incripciones_2026/" target="_blank" rel="noopener">✏️ Inscribirme en Power BI Básico</a>
+        <a class="btn btn-outline" href="https://wa.me/595983352932?text=Hola%21+Quiero+info+del+curso+Power+BI+Básico." target="_blank" rel="noopener">💬 Consultar</a>
       </div>
     </div>
   </section>
 
   <div class="inner-content">
-    <!-- Metodología y Modalidad -->
     <div class="inner-grid">
       <div class="inner-card">
         <h2>⚙️ Metodología</h2>
         <ul class="inner-card-list">
           <li>Clases en vivo por Zoom + acceso a grabaciones.</li>
-          <li>Aprendizaje práctico con datasets reales y ejercicios guiados.</li>
-          <li>Flujo completo: datos → transformación → modelo → DAX → dashboard.</li>
-          <li>Uso de ChatGPT y Claude para acelerar fórmulas, transformaciones y documentación.</li>
-          <li>Acompañamiento y soporte durante el proceso de aprendizaje.</li>
+          <li>Aprendizaje práctico con datasets reales desde la sesión 1.</li>
+          <li>Flujo completo: conectar → transformar → modelar → visualizar.</li>
+          <li>Uso introductorio de Claude y ChatGPT para acelerar el aprendizaje.</li>
+          <li>Soporte y materiales descargables incluidos.</li>
         </ul>
       </div>
       <div class="inner-card">
         <h2>📅 Modalidad y Fechas</h2>
         <ul class="inner-card-list">
-          <li><strong>Modalidad:</strong> Híbrida – sincrónica y asincrónica.</li>
-          <li><strong>Duración:</strong> 5 sesiones.</li>
-          <li><strong>Inicio:</strong> 21 de abril</li>
-          <li><strong>Días:</strong> Martes y miércoles</li>
+          <li><strong>Inicio:</strong> 9 de junio de 2026</li>
+          <li><strong>Duración:</strong> 4 sesiones × 2 horas</li>
           <li><strong>Horario:</strong> 19:30 – 21:30 hs</li>
+          <li><strong>Modalidad:</strong> Online en vivo · Zoom</li>
           <li>Zona horaria: GMT-3 (Paraguay)</li>
-          <li>Incluye materiales, datasets y certificado.</li>
+          <li><strong>Precio:</strong> Gs. 300.000</li>
+          <li>Certificado incluido al finalizar.</li>
         </ul>
       </div>
     </div>
 
-    <!-- A quién va dirigido -->
     <div class="inner-card" style="margin-bottom:28px;">
       <h2>🎯 ¿A quién va dirigido?</h2>
       <div class="feature-grid" style="margin-top:12px;">
-        <div class="feature-card"><h4>Profesionales de distintas áreas</h4><ul><li>Analistas, contadores, administradores que necesitan reportes dinámicos</li></ul></div>
-        <div class="feature-card"><h4>Usuarios de Excel</h4><ul><li>Personas que quieran dar el salto a Business Intelligence moderno</li></ul></div>
-        <div class="feature-card"><h4>Ingenieros, docentes y emprendedores</h4><ul><li>Quienes buscan optimizar procesos con datos e inteligencia analítica</li></ul></div>
-        <div class="feature-card"><h4>Estudiantes y egresados</h4><ul><li>Que buscan fortalecer su perfil con Power BI e IA en el mercado laboral</li></ul></div>
+        <div class="feature-card"><h4>Sin experiencia previa en BI</h4><ul><li>Personas que nunca usaron Power BI y quieren empezar desde cero con un enfoque práctico</li></ul></div>
+        <div class="feature-card"><h4>Usuarios de Excel</h4><ul><li>Quienes quieren dar el salto a Business Intelligence moderno y crear reportes interactivos</li></ul></div>
+        <div class="feature-card"><h4>Profesionales de distintas áreas</h4><ul><li>Analistas, contadores, administradores que necesitan visualizar y comunicar datos con impacto</li></ul></div>
+        <div class="feature-card"><h4>Estudiantes y egresados</h4><ul><li>Que buscan fortalecer su perfil con Power BI para el mercado laboral</li></ul></div>
+      </div>
+    </div>
+
+    <!-- Programa -->
+    <div class="inner-card" style="margin-bottom:28px;">
+      <h2 style="margin-bottom:20px;">📚 Programa — 4 sesiones</h2>
+      <div class="timeline">
+        <div class="timeline-step">
+          <div class="t-num">1</div>
+          <div class="t-body">
+            <div class="t-pills"><span class="t-pill">BI</span><span class="t-pill">Interfaz</span><span class="t-pill">Conexión</span></div>
+            <h4>Introducción a Power BI y conexión de datos</h4>
+            <ul>
+              <li>¿Qué es Business Intelligence y para qué sirve Power BI?</li>
+              <li>Instalación y recorrido por la interfaz: Report View, Data View, Model View.</li>
+              <li>Conexión a archivos Excel, CSV y carpetas de datos.</li>
+              <li>Primer reporte básico: importar datos y crear una visualización simple.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="timeline-step">
+          <div class="t-num">2</div>
+          <div class="t-body">
+            <div class="t-pills"><span class="t-pill">Power Query</span><span class="t-pill">Limpieza</span><span class="t-pill">Tipos de datos</span></div>
+            <h4>Power Query: transformación y limpieza de datos</h4>
+            <ul>
+              <li>Editor de Power Query: pasos aplicados y flujo de transformación.</li>
+              <li>Eliminar filas/columnas vacías, cambiar tipos de datos, estandarizar campos.</li>
+              <li>Separar columnas, crear columnas personalizadas y filtrar registros.</li>
+              <li>Buenas prácticas para preparar datos listos para analizar.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="timeline-step">
+          <div class="t-num">3</div>
+          <div class="t-body">
+            <div class="t-pills"><span class="t-pill">Modelo</span><span class="t-pill">Relaciones</span><span class="t-pill">Tabla calendario</span></div>
+            <h4>Modelado básico de datos</h4>
+            <ul>
+              <li>Concepto de modelo de datos: tablas de hechos y dimensiones.</li>
+              <li>Crear y gestionar relaciones entre tablas en Power BI.</li>
+              <li>Tabla calendario: creación y conexión al modelo.</li>
+              <li>Primeras medidas con DAX: <code>SUM</code>, <code>COUNT</code>, <code>AVERAGE</code>.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="timeline-step">
+          <div class="t-num">4</div>
+          <div class="t-body">
+            <div class="t-pills"><span class="t-pill">Dashboard</span><span class="t-pill">Visualizaciones</span><span class="t-pill">IA</span></div>
+            <h4>Primer dashboard ejecutivo y apoyo con IA</h4>
+            <ul>
+              <li>Gráficos esenciales: barras, líneas, tarjetas, tablas y segmentadores.</li>
+              <li>Diseño de un dashboard completo con KPIs y filtros interactivos.</li>
+              <li>Publicación básica en Power BI Service.</li>
+              <li>Introducción a Claude y ChatGPT para crear medidas DAX y resolver errores.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Inscripción + Pagos -->
+    <div class="two-col" style="align-items:start;margin-bottom:36px;">
+      <div class="form-wrap">
+        <section class="form-card">
+          <div class="form-title">📝 Formulario de inscripción</div>
+          <div class="form-subtitle">Completá tu inscripción en el formulario oficial de CICAPY.</div>
+          <a class="btn btn-green btn-full" href="https://cicapy.github.io/incripciones_2026/" target="_blank" rel="noopener">✏️ Inscribirme ahora</a>
+          <p style="text-align:center;font-size:13px;color:var(--slate-500);margin-top:14px;line-height:1.6;">Todas las inscripciones se gestionan desde el formulario oficial de CICAPY.</p>
+        </section>
+      </div>
+      <div>
+        <div class="inner-card" style="margin-bottom:16px;">
+          <h2>🏦 Datos de pago — Transferencia Itaú</h2>
+          <div class="payment-card" style="margin-top:12px;">
+            <div class="pay-row"><span class="pay-label">Banco</span><span class="pay-val">Itaú</span></div>
+            <div class="pay-row"><span class="pay-label">Cta. N°</span><span class="pay-val"><span>720005407</span><button type="button" onclick="copiarTexto('720005407',this)" class="btn-copy">Copiar</button></span></div>
+            <div class="pay-row"><span class="pay-label">Titular</span><span class="pay-val"><span>Oscar Gonzalez Frutos</span></span></div>
+            <div class="pay-row"><span class="pay-label">CI / Alias</span><span class="pay-val"><span>3584172</span><button type="button" onclick="copiarTexto('3584172',this)" class="btn-copy">Copiar</button></span></div>
+            <div class="pay-row"><span class="pay-label">Monto</span><span class="pay-val" style="color:var(--green-600);font-weight:700;">Gs. 300.000</span></div>
+          </div>
+          <p style="font-size:13px;color:var(--slate-500);margin-top:12px;">Enviá el comprobante al <a href="https://wa.me/595983352932" target="_blank" style="color:var(--green-600);font-weight:600;">0983 352 932</a> para confirmar.</p>
+        </div>
+        <div class="inner-card">
+          <h2>💳 Tarjeta de crédito / débito</h2>
+          <p style="font-size:14px;color:var(--slate-600);line-height:1.6;margin-bottom:14px;">Podés abonar mediante POS virtual. Solicitá el enlace de pago por WhatsApp.</p>
+          <a class="btn btn-green btn-sm" href="https://wa.me/595983352932?text=Hola%21+quiero+el+link+de+pago+para+Power+BI+Básico." target="_blank" rel="noopener">💬 Solicitar link</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+    <div style="text-align:center;margin-bottom:32px;">
+      <p style="font-size:15px;color:var(--slate-600);">¿Ya completaste el nivel básico? Continuá con el nivel avanzado.</p>
+      <button class="btn btn-primary" onclick="openTab(null,'powerbi-avanzado')" style="margin-top:12px;">🚀 Ver Power BI Avanzado →</button>
+    </div>
+  </div>
+</div><!-- /powerbi-basico -->
+
+<!-- =============================================
+     TAB: POWER BI AVANZADO
+============================================== -->
+<div id="powerbi-avanzado" class="tab-content">
+  <section class="inner-hero">
+    <div class="inner-hero-inner">
+      <div class="inner-badge" style="display:inline-flex;align-items:center;gap:6px;">
+        <svg width="16" height="16" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="22" y="4" width="6" height="24" rx="1" fill="#F2C811"/>
+          <rect x="13" y="12" width="6" height="16" rx="1" fill="#F2C811"/>
+          <rect x="4" y="20" width="6" height="8" rx="1" fill="#F2C811"/>
+        </svg>
+        Power BI Avanzado
+      </div>
+      <h1 class="inner-title">Power BI Avanzado: DAX + Dashboards + IA<br><span style="font-size:0.65em;font-weight:600;color:rgba(255,255,255,0.7);">Gs. 300.000</span></h1>
+      <p class="inner-sub">DAX avanzado, Time Intelligence, diseño profesional de dashboards y publicación en Power BI Service con apoyo de IA. 5 sesiones en vivo. Inicia al finalizar Power BI Básico.</p>
+      <div class="inner-tags">
+        <span class="inner-tag">DAX Avanzado</span><span class="inner-tag">CALCULATE</span>
+        <span class="inner-tag">Time Intelligence</span><span class="inner-tag">Power BI Service</span>
+        <span class="inner-tag">Claude & ChatGPT</span>
+      </div>
+      <div class="hero-inscribirse-wrap">
+        <a class="btn btn-green" href="https://cicapy.github.io/incripciones_2026/" target="_blank" rel="noopener">✏️ Inscribirme en Power BI Avanzado</a>
+        <a class="btn btn-outline" href="https://wa.me/595983352932?text=Hola%21+Quiero+info+del+curso+Power+BI+Avanzado." target="_blank" rel="noopener">💬 Consultar</a>
+      </div>
+      <div style="margin-top:14px;">
+        <div class="inner-badge" style="background:rgba(245,158,11,0.15);border-color:rgba(245,158,11,0.30);color:#FCD34D;">⚡ Prerrequisito: Power BI Básico o conocimientos equivalentes</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="inner-content">
+    <div class="inner-grid">
+      <div class="inner-card">
+        <h2>⚙️ Metodología</h2>
+        <ul class="inner-card-list">
+          <li>Clases en vivo por Zoom + acceso a grabaciones.</li>
+          <li>Práctica con datasets reales y casos de negocios concretos.</li>
+          <li>Flujo completo: modelo estrella → DAX → dashboards ejecutivos → publicación.</li>
+          <li>Uso activo de Claude y ChatGPT para generar, depurar y optimizar fórmulas DAX.</li>
+          <li>Acompañamiento y soporte durante todo el proceso.</li>
+        </ul>
+      </div>
+      <div class="inner-card">
+        <h2>📅 Modalidad y Fechas</h2>
+        <ul class="inner-card-list">
+          <li><strong>Inicio:</strong> Al finalizar Power BI Básico (mismo día de semana)</li>
+          <li><strong>Duración:</strong> 5 sesiones × 2 horas</li>
+          <li><strong>Horario:</strong> 19:30 – 21:30 hs</li>
+          <li><strong>Modalidad:</strong> Online en vivo · Zoom</li>
+          <li>Zona horaria: GMT-3 (Paraguay)</li>
+          <li><strong>Precio:</strong> Gs. 300.000</li>
+          <li>Certificado incluido al finalizar.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="inner-card" style="margin-bottom:28px;">
+      <h2>🎯 ¿A quién va dirigido?</h2>
+      <div class="feature-grid" style="margin-top:12px;">
+        <div class="feature-card"><h4>Ex-alumnos de Power BI Básico</h4><ul><li>Que quieren llevar sus habilidades al siguiente nivel con DAX avanzado y dashboards profesionales</li></ul></div>
+        <div class="feature-card"><h4>Usuarios con experiencia en Power BI</h4><ul><li>Que ya crean reportes y quieren dominar CALCULATE, Time Intelligence y modelo estrella</li></ul></div>
+        <div class="feature-card"><h4>Analistas y BI developers</h4><ul><li>Que necesitan construir modelos escalables y dashboards ejecutivos de alto impacto</li></ul></div>
+        <div class="feature-card"><h4>Profesionales que integran IA</h4><ul><li>Que quieren acelerar su trabajo con Claude y ChatGPT para generar y optimizar DAX</li></ul></div>
       </div>
     </div>
 
@@ -1343,68 +1460,81 @@
         <div class="timeline-step">
           <div class="t-num">1</div>
           <div class="t-body">
-            <div class="t-pills"><span class="t-pill">BI</span><span class="t-pill">Ecosistema</span><span class="t-pill">Fuentes</span></div>
-            <h4>Introducción a Business Intelligence y conexión de datos</h4>
-            <ul><li>Conceptos fundamentales de Business Intelligence y analítica de datos.</li><li>Flujo de trabajo: obtener → transformar → modelar → visualizar → publicar.</li><li>Conexión a Excel, CSV, carpetas, SQL y fuentes web desde Power BI.</li></ul>
+            <div class="t-pills"><span class="t-pill">Modelo estrella</span><span class="t-pill">DAX básico</span><span class="t-pill">Medidas</span></div>
+            <h4>Repaso del modelo estrella y fundamentos DAX</h4>
+            <ul>
+              <li>Revisión del modelo estrella: tablas de hechos, dimensiones y relaciones.</li>
+              <li>Diferencia entre columnas calculadas y medidas en DAX.</li>
+              <li>Contexto de fila vs contexto de filtro: la clave para entender DAX.</li>
+              <li>Medidas base: <code>SUM</code>, <code>COUNT</code>, <code>DIVIDE</code>, <code>IF</code> y <code>IFERROR</code>.</li>
+            </ul>
           </div>
         </div>
         <div class="timeline-step">
           <div class="t-num">2</div>
           <div class="t-body">
-            <div class="t-pills"><span class="t-pill">Power Query</span><span class="t-pill">Limpieza</span><span class="t-pill">Automatización</span></div>
-            <h4>Power Query: limpieza, transformación y automatización</h4>
-            <ul><li>Eliminar errores, tratar nulos, cambiar tipos de datos y estandarizar campos.</li><li>Combinar tablas con <code>Merge</code>, unir datasets con <code>Append</code> y automatizar procesos ETL.</li><li>Uso de columnas personalizadas, parámetros y funciones reutilizables.</li></ul>
+            <div class="t-pills"><span class="t-pill">CALCULATE</span><span class="t-pill">FILTER</span><span class="t-pill">VAR</span></div>
+            <h4>DAX intermedio: CALCULATE, FILTER y variables</h4>
+            <ul>
+              <li><code>CALCULATE</code>: la función más poderosa de DAX, modificando el contexto de filtro.</li>
+              <li><code>FILTER</code>, <code>ALL</code>, <code>ALLEXCEPT</code> para cálculos con contextos personalizados.</li>
+              <li>Variables con <code>VAR</code> / <code>RETURN</code> para fórmulas legibles y eficientes.</li>
+              <li>Medidas de participación (%), ranking y acumulados.</li>
+            </ul>
           </div>
         </div>
         <div class="timeline-step">
           <div class="t-num">3</div>
           <div class="t-body">
-            <div class="t-pills"><span class="t-pill">Modelo estrella</span><span class="t-pill">Relaciones</span><span class="t-pill">Calendario</span></div>
-            <h4>Modelado de datos para Business Intelligence</h4>
-            <ul><li>Diseño de tablas de hechos y dimensiones con enfoque de modelo estrella.</li><li>Relaciones, cardinalidad, dirección del filtro y tabla calendario.</li><li>Buenas prácticas para construir modelos confiables y escalables.</li></ul>
+            <div class="t-pills"><span class="t-pill">Time Intelligence</span><span class="t-pill">YTD</span><span class="t-pill">Comparativas</span></div>
+            <h4>DAX avanzado: Time Intelligence</h4>
+            <ul>
+              <li>Funciones de inteligencia de tiempo: <code>TOTALYTD</code>, <code>SAMEPERIODLASTYEAR</code>.</li>
+              <li>Variación vs período anterior (MoM, YoY) con <code>DATEADD</code> y <code>PARALLELPERIOD</code>.</li>
+              <li>Acumulados anuales y promedios móviles.</li>
+              <li>Tabla calendario avanzada con semanas fiscales y periodos personalizados.</li>
+            </ul>
           </div>
         </div>
         <div class="timeline-step">
           <div class="t-num">4</div>
           <div class="t-body">
-            <div class="t-pills"><span class="t-pill">DAX</span><span class="t-pill">Medidas</span><span class="t-pill">Time Intelligence</span></div>
-            <h4>DAX para el cálculo analítico</h4>
-            <ul><li>Diferencia entre columnas calculadas y medidas. Contexto de fila y filtro.</li><li>Funciones como <code>SUM</code>, <code>DIVIDE</code>, <code>CALCULATE</code>, <code>FILTER</code> y <code>VAR</code>.</li><li>Medidas para acumulados, variaciones y análisis por periodos.</li></ul>
+            <div class="t-pills"><span class="t-pill">Dashboards</span><span class="t-pill">UX</span><span class="t-pill">Storytelling</span></div>
+            <h4>Diseño profesional de dashboards y storytelling</h4>
+            <ul>
+              <li>Principios de diseño: jerarquía visual, paletas de color y tipografía.</li>
+              <li>KPIs, indicadores condicionales, tooltips y navegación entre páginas.</li>
+              <li>Bookmarks, botones y filtros avanzados para dashboards interactivos.</li>
+              <li>Storytelling con datos: cómo guiar al tomador de decisiones.</li>
+            </ul>
           </div>
         </div>
         <div class="timeline-step">
           <div class="t-num">5</div>
           <div class="t-body">
-            <div class="t-pills"><span class="t-pill">Dashboards</span><span class="t-pill">Service</span><span class="t-pill" style="background:#F5F3FF;color:#5B21B6;border-color:#DDD6FE">IA</span></div>
-            <h4>Dashboards ejecutivos, publicación e integración con IA</h4>
-            <ul><li>Diseño de dashboards con KPIs, segmentadores, navegación y storytelling con datos.</li><li>Publicación en Power BI Service y buenas prácticas de entrega.</li><li>Uso de ChatGPT y Claude para apoyar DAX, transformaciones y documentación analítica.</li></ul>
+            <div class="t-pills"><span class="t-pill">Service</span><span class="t-pill">Publicación</span><span class="t-pill" style="background:#F5F3FF;color:#5B21B6;border-color:#DDD6FE">IA</span></div>
+            <h4>Power BI Service, publicación e integración con IA</h4>
+            <ul>
+              <li>Publicación de informes en Power BI Service y gestión de espacios de trabajo.</li>
+              <li>Programación de actualizaciones de datos y configuración de alertas.</li>
+              <li>Uso avanzado de Claude y ChatGPT: generar, depurar y optimizar medidas DAX.</li>
+              <li>Proyecto final: dashboard ejecutivo completo con presentación ante el grupo.</li>
+            </ul>
           </div>
         </div>
       </div>
     </div>
 
-
-    <!-- TALLER LIBRE -->
+    <!-- Taller libre -->
     <div class="inner-card" style="margin-bottom:28px;">
       <h2 style="margin-bottom:10px;">🎥 Taller libre</h2>
-      <p style="font-size:15px;color:var(--slate-500);line-height:1.7;margin-bottom:20px;">
-        Reviví el taller libre con la grabación completa en YouTube y descargá los materiales de apoyo para seguir practicando a tu ritmo.
-      </p>
+      <p style="font-size:15px;color:var(--slate-500);line-height:1.7;margin-bottom:20px;">Reviví el taller libre con la grabación completa en YouTube y descargá los materiales de apoyo para seguir practicando a tu ritmo.</p>
       <div class="dashboards-grid" style="margin-bottom:18px;">
         <div class="dashboard-card" style="grid-column:1 / -1;">
           <div class="video-wrap">
-            <iframe
-              title="Taller libre CICAPY"
-              src="https://www.youtube.com/embed/XLJmWFP7oBc"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen
-              loading="lazy"></iframe>
+            <iframe title="Taller libre CICAPY" src="https://www.youtube.com/embed/XLJmWFP7oBc" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
           </div>
-          <div class="dash-body">
-            <h4>Grabación del taller libre</h4>
-            <p>Accedé a la clase grabada en YouTube y repasá cada explicación cuando lo necesites.</p>
-          </div>
+          <div class="dash-body"><h4>Grabación del taller libre</h4><p>Accedé a la clase grabada en YouTube y repasá cada explicación cuando lo necesites.</p></div>
         </div>
       </div>
       <div style="display:flex;gap:12px;flex-wrap:wrap;">
@@ -1416,178 +1546,263 @@
     <!-- Inscripción + Pagos -->
     <div class="two-col" style="align-items:start;margin-bottom:36px;">
       <div class="form-wrap">
-        <section id="pbi-inscripcion" class="form-card">
+        <section class="form-card">
           <div class="form-title">📝 Formulario de inscripción</div>
           <div class="form-subtitle">Completá tu inscripción en el formulario oficial de CICAPY.</div>
           <a class="btn btn-green btn-full" href="https://cicapy.github.io/incripciones_2026/" target="_blank" rel="noopener">✏️ Inscribirme ahora</a>
-          <p style="text-align:center;font-size:13px;color:var(--slate-500);margin-top:14px;line-height:1.6;">Todas las inscripciones se gestionan desde el formulario oficial de CICAPY.</p>
         </section>
       </div>
       <div>
         <div class="inner-card" style="margin-bottom:16px;">
           <h2>🏦 Datos de pago — Transferencia Itaú</h2>
-          <div class="payment-card" style="margin-top:12px;" id="datos-transferencia-wrap">
-            <div id="datos-transferencia">
-              <div class="pay-row"><span class="pay-label">Banco</span><span class="pay-val"><span data-copy="banco">Itaú</span></span></div>
-              <div class="pay-row"><span class="pay-label">Cta. N°</span><span class="pay-val"><span data-copy="cta">720005407</span><button type="button" data-target="cta" class="btn-copy">Copiar</button></span></div>
-              <div class="pay-row"><span class="pay-label">Titular</span><span class="pay-val"><span data-copy="titular">Oscar Gonzalez Frutos</span><button type="button" data-target="titular" class="btn-copy">Copiar</button></span></div>
-              <div class="pay-row"><span class="pay-label">CI / Alias</span><span class="pay-val"><span data-copy="ci">3584172</span><button type="button" data-target="ci" class="btn-copy">Copiar</button></span></div>
-            </div>
-            <button type="button" class="btn-copy-all" data-copy-all="#datos-transferencia">📋 Copiar todos los datos</button>
+          <div class="payment-card" style="margin-top:12px;">
+            <div class="pay-row"><span class="pay-label">Banco</span><span class="pay-val">Itaú</span></div>
+            <div class="pay-row"><span class="pay-label">Cta. N°</span><span class="pay-val"><span>720005407</span><button type="button" onclick="copiarTexto('720005407',this)" class="btn-copy">Copiar</button></span></div>
+            <div class="pay-row"><span class="pay-label">Titular</span><span class="pay-val"><span>Oscar Gonzalez Frutos</span></span></div>
+            <div class="pay-row"><span class="pay-label">CI / Alias</span><span class="pay-val"><span>3584172</span><button type="button" onclick="copiarTexto('3584172',this)" class="btn-copy">Copiar</button></span></div>
+            <div class="pay-row"><span class="pay-label">Monto</span><span class="pay-val" style="color:var(--green-600);font-weight:700;">Gs. 300.000</span></div>
           </div>
+          <p style="font-size:13px;color:var(--slate-500);margin-top:12px;">Enviá el comprobante al <a href="https://wa.me/595983352932" target="_blank" style="color:var(--green-600);font-weight:600;">0983 352 932</a> para confirmar.</p>
         </div>
         <div class="inner-card">
           <h2>💳 Tarjeta de crédito / débito</h2>
           <p style="font-size:14px;color:var(--slate-600);line-height:1.6;margin-bottom:14px;">Podés abonar mediante POS virtual. Solicitá el enlace de pago por WhatsApp.</p>
-          <a class="btn btn-green btn-sm" href="https://wa.me/595983352932?text=Hola%21+quiero+el+link+de+pago+(POS+virtual)+para+inscribirme." target="_blank" rel="noopener">💬 Solicitar link</a>
-          <p style="font-size:13px;color:var(--slate-500);margin-top:14px;">✅ Enviá el comprobante al <strong>0983 352 932</strong> para confirmar tu inscripción.</p>
+          <a class="btn btn-green btn-sm" href="https://wa.me/595983352932?text=Hola%21+quiero+el+link+de+pago+para+Power+BI+Avanzado." target="_blank" rel="noopener">💬 Solicitar link</a>
         </div>
       </div>
     </div>
 
-    <!-- Galería + Dashboards -->
+    <!-- Dashboards -->
     <div class="divider"></div>
-    <h2 style="font-family:var(--font-display);font-size:22px;font-weight:800;color:var(--slate-900);margin-bottom:20px;text-align:center;">📸 Galería de capacitaciones</h2>
-    <div class="gallery-grid" style="margin-bottom:40px;">
-      <img src="images/f1.jpg" alt="Capacitación 1"><img src="images/f2.jpg" alt="Capacitación 2">
-      <img src="images/f3.jpg" alt="Capacitación 3"><img src="images/f4.jpg" alt="Capacitación 4">
-      <img src="images/f5.jpg" alt="Capacitación 5"><img src="images/f6.jpg" alt="Capacitación 6">
-      <img src="images/f7.jpg" alt="Capacitación 7"><img src="images/f8.jpg" alt="Capacitación 8">
-    </div>
-
-    <div class="divider"></div>
-    <h2 style="font-family:var(--font-display);font-size:22px;font-weight:800;color:var(--slate-900);margin-bottom:8px;text-align:center;display:flex;align-items:center;justify-content:center;gap:10px;">
-      <!-- Icono oficial de Power BI -->
-      <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="22" y="4" width="6" height="24" rx="1" fill="#F2C811"/>
-        <rect x="13" y="12" width="6" height="16" rx="1" fill="#F2C811"/>
-        <rect x="4" y="20" width="6" height="8" rx="1" fill="#F2C811"/>
-      </svg>
-      Dashboards creados en clase
-    </h2>
+    <h2 style="font-family:var(--font-display);font-size:22px;font-weight:800;color:var(--slate-900);margin-bottom:8px;text-align:center;">📊 Dashboards creados en clase</h2>
     <p style="text-align:center;font-size:14.5px;color:var(--slate-500);margin-bottom:24px;">Reportes interactivos construidos durante las sesiones de Power BI.</p>
     <div class="dashboards-grid">
-      <!-- Dashboard 1: Ventas / Modelo Estrella -->
       <div class="dashboard-card">
         <div class="video-wrap"><iframe title="modelo_estrella_medidas_informe" src="https://app.powerbi.com/view?r=eyJrIjoiODExN2ZmNDUtYTg4OS00MGU5LTljMGQtNDFlMTVlZTQ4NzlhIiwidCI6IjBiNjk2MDAyLWQ2YTYtNDI2Ni04OTI4LTE1ZWQ4ZDA2NDQxMCIsImMiOjR9" frameborder="0" allowfullscreen loading="lazy"></iframe></div>
         <div class="dash-body"><h4>Dashboard de Ventas – Modelo Estrella</h4><p>Medidas DAX, segmentadores y análisis por categoría.</p></div>
       </div>
-      <!-- Dashboard 2: Ventas Final -->
       <div class="dashboard-card">
         <div class="video-wrap"><iframe title="Informe_Ventas_Final" src="https://app.powerbi.com/view?r=eyJrIjoiMGM4ZjAxZWYtMzkwNS00ZWRjLWI5YjktMzE1MzE4ZmI2YTQ2IiwidCI6IjBiNjk2MDAyLWQ2YTYtNDI2Ni04OTI4LTE1ZWQ4ZDA2NDQxMCIsImMiOjR9" frameborder="0" allowfullscreen loading="lazy"></iframe></div>
         <div class="dash-body"><h4>Informe de Ventas Final</h4><p>KPIs, tendencias y comparativa entre períodos.</p></div>
       </div>
-      
     </div>
   </div>
-</div><!-- /powerbi -->
+</div><!-- /powerbi-avanzado -->
 
 <!-- =============================================
-     TAB: EXCEL
+     TAB: EXCEL BÁSICO
 ============================================== -->
-<div id="excel" class="tab-content">
+<div id="excel-basico" class="tab-content">
   <section class="inner-hero">
     <div class="inner-hero-inner">
-      <div class="inner-badge">📗 Excel Avanzado</div>
-      <h1 class="inner-title">Análisis de Datos Moderno con Excel:<br>Power Query + Power Pivot</h1>
-      <p class="inner-sub">Programa intensivo de 7 sesiones para construir modelos confiables, automatizar la limpieza de datos y crear dashboards accionables por sector.</p>
+      <div class="inner-badge">📗 Excel Básico</div>
+      <h1 class="inner-title">Excel Básico + IA<br><span style="font-size:0.65em;font-weight:600;color:rgba(255,255,255,0.7);">Gs. 250.000</span></h1>
+      <p class="inner-sub">Aprendé los fundamentos de Excel desde cero: fórmulas esenciales, tablas, gráficos y primeros pasos con IA para potenciar tu trabajo. 4 sesiones en vivo. Inicio 3 de junio.</p>
       <div class="inner-tags">
-        <span class="inner-tag">Finanzas</span><span class="inner-tag">Marketing</span>
-        <span class="inner-tag">Tecnología</span><span class="inner-tag">Educación</span>
-        <span class="inner-tag">Power Query</span><span class="inner-tag">Power Pivot</span>
+        <span class="inner-tag">Fórmulas básicas</span><span class="inner-tag">Tablas</span>
+        <span class="inner-tag">Gráficos</span><span class="inner-tag">Formato condicional</span>
+        <span class="inner-tag">IA aplicada</span>
       </div>
       <div class="hero-inscribirse-wrap">
-        <a class="btn btn-green" href="https://cicapy.github.io/incripciones_2026/" target="_blank" rel="noopener">✏️ Inscribirme en Excel</a>
-        <a class="btn btn-outline" href="https://wa.me/595983352932?text=Hola%21+Quiero+info+del+curso+de+Excel." target="_blank" rel="noopener">💬 Consultar</a>
+        <a class="btn btn-green" href="https://cicapy.github.io/incripciones_2026/" target="_blank" rel="noopener">✏️ Inscribirme en Excel Básico</a>
+        <a class="btn btn-outline" href="https://wa.me/595983352932?text=Hola%21+Quiero+info+del+curso+Excel+Básico." target="_blank" rel="noopener">💬 Consultar</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="inner-content">
+    <div class="inner-grid">
+      <div class="inner-card">
+        <h2>⚙️ Metodología</h2>
+        <ul class="inner-card-list">
+          <li>Clases en vivo por Zoom + acceso a grabaciones.</li>
+          <li>Ejercicios prácticos desde la primera sesión con archivos reales.</li>
+          <li>Aprendizaje progresivo: cada sesión construye sobre la anterior.</li>
+          <li>Introducción a Claude y ChatGPT para resolver dudas y crear fórmulas.</li>
+          <li>Material descargable y soporte incluido.</li>
+        </ul>
+      </div>
+      <div class="inner-card">
+        <h2>📅 Modalidad y Fechas</h2>
+        <ul class="inner-card-list">
+          <li><strong>Inicio:</strong> 3 de junio de 2026</li>
+          <li><strong>Duración:</strong> 4 sesiones × 2 horas</li>
+          <li><strong>Horario:</strong> 19:30 – 21:30 hs</li>
+          <li><strong>Modalidad:</strong> Online en vivo · Zoom</li>
+          <li>Zona horaria: GMT-3 (Paraguay)</li>
+          <li><strong>Precio:</strong> Gs. 250.000</li>
+          <li>Certificado incluido al finalizar.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="inner-card" style="margin-bottom:28px;">
+      <h2>🎯 ¿A quién va dirigido?</h2>
+      <div class="feature-grid" style="margin-top:12px;">
+        <div class="feature-card"><h4>Sin experiencia en Excel</h4><ul><li>Personas que nunca usaron Excel o tienen conocimientos muy básicos y quieren empezar desde cero</li></ul></div>
+        <div class="feature-card"><h4>Profesionales y administrativos</h4><ul><li>Quienes necesitan Excel para su trabajo diario: reportes simples, cálculos y organización de datos</li></ul></div>
+        <div class="feature-card"><h4>Emprendedores</h4><ul><li>Que quieren gestionar sus ventas, costos e inventarios con herramientas simples pero efectivas</li></ul></div>
+        <div class="feature-card"><h4>Estudiantes</h4><ul><li>Que necesitan Excel para sus trabajos académicos y quieren fortalecer una habilidad clave del mercado laboral</li></ul></div>
+      </div>
+    </div>
+
+    <!-- Programa -->
+    <div class="inner-card" style="margin-bottom:28px;">
+      <h2 style="margin-bottom:20px;">📚 Programa — 4 sesiones</h2>
+      <div class="timeline">
+        <div class="timeline-step">
+          <div class="t-num">1</div>
+          <div class="t-body">
+            <div class="t-pills"><span class="t-pill">Interfaz</span><span class="t-pill">Fórmulas básicas</span><span class="t-pill">Referencias</span></div>
+            <h4>Fundamentos de Excel y fórmulas esenciales</h4>
+            <ul>
+              <li>Interfaz de Excel: cinta de opciones, hojas, celdas y rangos.</li>
+              <li>Fórmulas básicas: <code>SUMA</code>, <code>PROMEDIO</code>, <code>MAX</code>, <code>MIN</code>, <code>CONTAR</code>.</li>
+              <li>Referencias relativas, absolutas ($) y mixtas: cuándo usar cada una.</li>
+              <li>Formato de celdas: números, fechas, moneda y alineación.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="timeline-step">
+          <div class="t-num">2</div>
+          <div class="t-body">
+            <div class="t-pills"><span class="t-pill">SI / Y / O</span><span class="t-pill">BUSCARV</span><span class="t-pill">Formato condicional</span></div>
+            <h4>Funciones lógicas, búsqueda y formato condicional</h4>
+            <ul>
+              <li>Funciones lógicas: <code>SI</code>, <code>Y</code>, <code>O</code> y <code>SI anidado</code>.</li>
+              <li>Funciones de búsqueda: <code>BUSCARV</code>, <code>BUSCARH</code> y <code>BUSCARX</code>.</li>
+              <li>Formato condicional: resaltar celdas, barras de datos y escalas de color.</li>
+              <li>Funciones de texto: <code>CONCATENAR</code>, <code>IZQUIERDA</code>, <code>DERECHA</code>, <code>LARGO</code>.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="timeline-step">
+          <div class="t-num">3</div>
+          <div class="t-body">
+            <div class="t-pills"><span class="t-pill">Tablas</span><span class="t-pill">Filtros</span><span class="t-pill">Subtotales</span></div>
+            <h4>Tablas inteligentes, filtros y organización de datos</h4>
+            <ul>
+              <li>Conversión a tabla inteligente: ventajas, referencias estructuradas y estilos.</li>
+              <li>Filtros simples y avanzados para buscar y segmentar datos.</li>
+              <li>Ordenamiento por columna, por color y criterios múltiples.</li>
+              <li>Función <code>SUBTOTAL</code> para cálculos sobre datos filtrados.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="timeline-step">
+          <div class="t-num">4</div>
+          <div class="t-body">
+            <div class="t-pills"><span class="t-pill">Gráficos</span><span class="t-pill">Dashboard básico</span><span class="t-pill" style="background:#F5F3FF;color:#5B21B6;border-color:#DDD6FE">IA</span></div>
+            <h4>Gráficos, dashboard básico y uso de IA</h4>
+            <ul>
+              <li>Tipos de gráficos: barras, líneas, torta y gráficos combinados.</li>
+              <li>Formato de gráficos: títulos, leyendas, colores y ejes.</li>
+              <li>Construcción de un dashboard simple con fórmulas y gráficos.</li>
+              <li>Uso de Claude y ChatGPT para crear fórmulas, resolver errores y acelerar tareas en Excel.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Inscripción + Pagos -->
+    <div class="two-col" style="align-items:start;margin-bottom:36px;">
+      <div class="form-wrap">
+        <section class="form-card">
+          <div class="form-title">📝 Formulario de inscripción</div>
+          <div class="form-subtitle">Completá tu inscripción en el formulario oficial de CICAPY.</div>
+          <a class="btn btn-green btn-full" href="https://cicapy.github.io/incripciones_2026/" target="_blank" rel="noopener">✏️ Inscribirme ahora</a>
+        </section>
+      </div>
+      <div>
+        <div class="inner-card" style="margin-bottom:16px;">
+          <h2>🏦 Datos de pago — Transferencia Itaú</h2>
+          <div class="payment-card" style="margin-top:12px;">
+            <div class="pay-row"><span class="pay-label">Banco</span><span class="pay-val">Itaú</span></div>
+            <div class="pay-row"><span class="pay-label">Cta. N°</span><span class="pay-val"><span>720005407</span><button type="button" onclick="copiarTexto('720005407',this)" class="btn-copy">Copiar</button></span></div>
+            <div class="pay-row"><span class="pay-label">Titular</span><span class="pay-val"><span>Oscar Gonzalez Frutos</span></span></div>
+            <div class="pay-row"><span class="pay-label">CI / Alias</span><span class="pay-val"><span>3584172</span><button type="button" onclick="copiarTexto('3584172',this)" class="btn-copy">Copiar</button></span></div>
+            <div class="pay-row"><span class="pay-label">Monto</span><span class="pay-val" style="color:var(--green-600);font-weight:700;">Gs. 250.000</span></div>
+          </div>
+          <p style="font-size:13px;color:var(--slate-500);margin-top:12px;">Enviá el comprobante al <a href="https://wa.me/595983352932" target="_blank" style="color:var(--green-600);font-weight:600;">0983 352 932</a> para confirmar.</p>
+        </div>
+        <div class="inner-card">
+          <h2>💳 Tarjeta de crédito / débito</h2>
+          <p style="font-size:14px;color:var(--slate-600);line-height:1.6;margin-bottom:14px;">Podés abonar mediante POS virtual. Solicitá el enlace de pago por WhatsApp.</p>
+          <a class="btn btn-green btn-sm" href="https://wa.me/595983352932?text=Hola%21+quiero+el+link+de+pago+para+Excel+Básico." target="_blank" rel="noopener">💬 Solicitar link</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+    <div style="text-align:center;margin-bottom:32px;">
+      <p style="font-size:15px;color:var(--slate-600);">¿Ya tenés bases de Excel? Llevá tus habilidades al siguiente nivel.</p>
+      <button class="btn btn-primary" onclick="openTab(null,'excel-avanzado')" style="margin-top:12px;">📊 Ver Excel Avanzado →</button>
+    </div>
+  </div>
+</div><!-- /excel-basico -->
+
+<!-- =============================================
+     TAB: EXCEL AVANZADO
+============================================== -->
+<div id="excel-avanzado" class="tab-content">
+  <section class="inner-hero">
+    <div class="inner-hero-inner">
+      <div class="inner-badge">📊 Excel Avanzado</div>
+      <h1 class="inner-title">Excel Avanzado: Power Query + Power Pivot<br><span style="font-size:0.65em;font-weight:600;color:rgba(255,255,255,0.7);">Gs. 300.000</span></h1>
+      <p class="inner-sub">Automatizá reportes, construí modelos de datos con Power Pivot y creá dashboards profesionales. 5 sesiones en vivo. Inicia al finalizar Excel Básico (mismo día de semana).</p>
+      <div class="inner-tags">
+        <span class="inner-tag">Power Query</span><span class="inner-tag">Power Pivot</span>
+        <span class="inner-tag">DAX en Excel</span><span class="inner-tag">Tablas dinámicas</span>
+        <span class="inner-tag">Dashboards</span>
+      </div>
+      <div class="hero-inscribirse-wrap">
+        <a class="btn btn-green" href="https://cicapy.github.io/incripciones_2026/" target="_blank" rel="noopener">✏️ Inscribirme en Excel Avanzado</a>
+        <a class="btn btn-outline" href="https://wa.me/595983352932?text=Hola%21+Quiero+info+del+curso+Excel+Avanzado." target="_blank" rel="noopener">💬 Consultar</a>
+      </div>
+      <div style="margin-top:14px;">
+        <div class="inner-badge" style="background:rgba(22,163,74,0.15);border-color:rgba(22,163,74,0.30);color:#4ADE80;">⚡ Prerrequisito: Excel Básico o conocimientos equivalentes</div>
       </div>
       <!-- Imagen representativa Excel -->
       <div class="section-image">
         <svg viewBox="0 0 680 340" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <linearGradient id="ex-bg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0a1a12"/><stop offset="100%" stop-color="#0a1020"/></linearGradient>
+            <linearGradient id="ex-bg2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0a1a12"/><stop offset="100%" stop-color="#0a1020"/></linearGradient>
           </defs>
-          <rect width="680" height="340" rx="16" fill="url(#ex-bg)"/>
-          <!-- Formula bar -->
+          <rect width="680" height="340" rx="16" fill="url(#ex-bg2)"/>
           <rect x="30" y="14" width="620" height="24" rx="6" fill="#ffffff05" stroke="#ffffff08"/>
-          <text x="44" y="30" font-family="'Courier New', monospace" font-size="11" fill="#22C55E" opacity="0.7">=SUMAPRODUCTO(TblVentas[Cantidad],TblVentas[Precio])</text>
-          <!-- Spreadsheet -->
+          <text x="44" y="30" font-family="'Courier New', monospace" font-size="11" fill="#22C55E" opacity="0.7">=CALCULATE(SUM(Ventas[Monto]),DATEADD(Calendario[Fecha],-1,YEAR))</text>
           <rect x="30" y="48" width="420" height="272" rx="10" fill="#ffffff04" stroke="#ffffff08"/>
-          <!-- Header row -->
           <rect x="30" y="48" width="420" height="28" rx="10" fill="#16A34A10"/>
-          <rect x="31" y="48" width="418" height="28" rx="10" fill="transparent" stroke="#16A34A20"/>
-          <!-- Column headers -->
           <rect x="44" y="57" width="32" height="8" rx="2" fill="#22C55E" opacity="0.5"/>
           <rect x="114" y="57" width="48" height="8" rx="2" fill="#22C55E" opacity="0.5"/>
           <rect x="204" y="57" width="44" height="8" rx="2" fill="#22C55E" opacity="0.5"/>
           <rect x="294" y="57" width="38" height="8" rx="2" fill="#22C55E" opacity="0.5"/>
           <rect x="374" y="57" width="52" height="8" rx="2" fill="#22C55E" opacity="0.5"/>
-          <!-- Row lines -->
           <line x1="30" y1="76" x2="450" y2="76" stroke="#ffffff06"/>
           <line x1="30" y1="104" x2="450" y2="104" stroke="#ffffff06"/>
           <line x1="30" y1="132" x2="450" y2="132" stroke="#ffffff06"/>
           <line x1="30" y1="160" x2="450" y2="160" stroke="#ffffff06"/>
-          <line x1="30" y1="188" x2="450" y2="188" stroke="#ffffff06"/>
-          <line x1="30" y1="216" x2="450" y2="216" stroke="#ffffff06"/>
-          <line x1="30" y1="244" x2="450" y2="244" stroke="#ffffff06"/>
-          <line x1="30" y1="272" x2="450" y2="272" stroke="#ffffff06"/>
-          <!-- Col lines -->
-          <line x1="100" y1="48" x2="100" y2="320" stroke="#ffffff05"/>
-          <line x1="190" y1="48" x2="190" y2="320" stroke="#ffffff05"/>
-          <line x1="280" y1="48" x2="280" y2="320" stroke="#ffffff05"/>
-          <line x1="360" y1="48" x2="360" y2="320" stroke="#ffffff05"/>
-          <!-- Data rows -->
           <rect x="44" y="85" width="24" height="7" rx="2" fill="#ffffff15"/>
           <rect x="114" y="85" width="56" height="7" rx="2" fill="#ffffff10"/>
           <rect x="204" y="85" width="40" height="7" rx="2" fill="#ffffff10"/>
           <rect x="294" y="85" width="36" height="7" rx="2" fill="#22C55E" opacity="0.3"/>
           <rect x="374" y="85" width="48" height="7" rx="2" fill="#ffffff10"/>
-          <rect x="44" y="113" width="24" height="7" rx="2" fill="#ffffff15"/>
-          <rect x="114" y="113" width="44" height="7" rx="2" fill="#ffffff10"/>
-          <rect x="204" y="113" width="52" height="7" rx="2" fill="#ffffff10"/>
-          <rect x="294" y="113" width="30" height="7" rx="2" fill="#22C55E" opacity="0.3"/>
-          <rect x="374" y="113" width="40" height="7" rx="2" fill="#ffffff10"/>
-          <rect x="44" y="141" width="24" height="7" rx="2" fill="#ffffff15"/>
-          <rect x="114" y="141" width="60" height="7" rx="2" fill="#ffffff10"/>
-          <rect x="204" y="141" width="36" height="7" rx="2" fill="#ffffff10"/>
-          <rect x="294" y="141" width="42" height="7" rx="2" fill="#22C55E" opacity="0.3"/>
-          <rect x="374" y="141" width="52" height="7" rx="2" fill="#ffffff10"/>
-          <rect x="44" y="169" width="24" height="7" rx="2" fill="#ffffff15"/>
-          <rect x="114" y="169" width="50" height="7" rx="2" fill="#ffffff10"/>
-          <rect x="204" y="169" width="46" height="7" rx="2" fill="#ffffff10"/>
-          <rect x="294" y="169" width="34" height="7" rx="2" fill="#22C55E" opacity="0.3"/>
-          <rect x="374" y="169" width="44" height="7" rx="2" fill="#ffffff10"/>
-          <!-- Highlighted active cell -->
-          <rect x="280" y="188" width="80" height="28" fill="#22C55E0a" stroke="#22C55E" stroke-width="1.5" rx="2"/>
-          <rect x="294" y="198" width="55" height="9" rx="3" fill="#22C55E" opacity="0.6"/>
-          <!-- Mini chart panel -->
+          <rect x="280" y="130" width="80" height="28" fill="#22C55E0a" stroke="#22C55E" stroke-width="1.5" rx="2"/>
+          <rect x="294" y="140" width="55" height="9" rx="3" fill="#22C55E" opacity="0.6"/>
           <rect x="478" y="48" width="180" height="130" rx="12" fill="#ffffff05" stroke="#ffffff08"/>
           <rect x="492" y="60" width="60" height="8" rx="2" fill="#ffffff12"/>
-          <rect x="492" y="74" width="40" height="6" rx="2" fill="#22C55E" opacity="0.3"/>
-          <!-- Bar chart mini -->
           <rect x="492" y="130" width="18" height="32" rx="3" fill="#22C55E" opacity="0.6"/>
           <rect x="516" y="115" width="18" height="47" rx="3" fill="#22C55E" opacity="0.8"/>
           <rect x="540" y="125" width="18" height="37" rx="3" fill="#22C55E" opacity="0.5"/>
           <rect x="564" y="100" width="18" height="62" rx="3" fill="#22C55E" opacity="0.9"/>
           <rect x="588" y="110" width="18" height="52" rx="3" fill="#22C55E" opacity="0.7"/>
-          <rect x="612" y="120" width="18" height="42" rx="3" fill="#22C55E" opacity="0.55"/>
-          <!-- Pivot table mini -->
           <rect x="478" y="195" width="180" height="120" rx="12" fill="#ffffff05" stroke="#ffffff08"/>
           <rect x="492" y="207" width="70" height="8" rx="2" fill="#ffffff12"/>
-          <rect x="492" y="226" width="148" height="1" fill="#ffffff08"/>
           <rect x="492" y="236" width="44" height="6" rx="2" fill="#ffffff10"/>
           <rect x="568" y="236" width="30" height="6" rx="2" fill="#22C55E" opacity="0.3"/>
-          <rect x="608" y="236" width="30" height="6" rx="2" fill="#ffffff0d"/>
           <rect x="492" y="250" width="38" height="6" rx="2" fill="#ffffff10"/>
           <rect x="568" y="250" width="35" height="6" rx="2" fill="#22C55E" opacity="0.3"/>
-          <rect x="608" y="250" width="28" height="6" rx="2" fill="#ffffff0d"/>
-          <rect x="492" y="264" width="50" height="6" rx="2" fill="#ffffff10"/>
-          <rect x="568" y="264" width="28" height="6" rx="2" fill="#22C55E" opacity="0.3"/>
-          <rect x="608" y="264" width="32" height="6" rx="2" fill="#ffffff0d"/>
-          <rect x="492" y="278" width="42" height="6" rx="2" fill="#ffffff10"/>
-          <rect x="568" y="278" width="32" height="6" rx="2" fill="#22C55E" opacity="0.3"/>
-          <rect x="608" y="278" width="25" height="6" rx="2" fill="#ffffff0d"/>
-          <rect x="492" y="296" width="148" height="1" fill="#ffffff08"/>
-          <rect x="492" y="303" width="44" height="7" rx="2" fill="#22C55E" opacity="0.45" font-weight="bold"/>
           <text x="610" y="326" text-anchor="end" font-family="DM Sans, sans-serif" font-size="10" fill="#ffffff20">Excel Power Query + Pivot</text>
         </svg>
         <div class="section-image__glow section-image__glow--excel"></div>
@@ -1602,49 +1817,141 @@
         <ul class="inner-card-list">
           <li>Clases en vivo por Zoom + grabaciones on-demand.</li>
           <li>Aprendizaje hands-on con datasets reales por sector.</li>
-          <li>Proyecto guiado: extracción → modelado → dashboard.</li>
+          <li>Proyecto guiado: extracción → modelado → dashboard ejecutivo.</li>
+          <li>Uso de Claude y ChatGPT para generar y depurar fórmulas DAX.</li>
           <li>Soporte y asesoría personalizada durante el curso.</li>
         </ul>
       </div>
       <div class="inner-card">
-        <h2>📅 Modalidad</h2>
+        <h2>📅 Modalidad y Fechas</h2>
         <ul class="inner-card-list">
-          <li>Sincrónica y asincrónica.</li>
-          <li>7 sesiones × 120 minutos cada una.</li>
-          <li>Incluye certificado y repositorio de recursos.</li>
-          <li>Casos por sector: Finanzas, Marketing, Tecnología, Educación.</li>
+          <li><strong>Inicio:</strong> Al finalizar Excel Básico (mismo día de semana)</li>
+          <li><strong>Duración:</strong> 5 sesiones × 2 horas</li>
+          <li><strong>Horario:</strong> 19:30 – 21:30 hs</li>
+          <li><strong>Modalidad:</strong> Online en vivo · Zoom</li>
+          <li>Zona horaria: GMT-3 (Paraguay)</li>
+          <li><strong>Precio:</strong> Gs. 300.000</li>
+          <li>Certificado incluido al finalizar.</li>
         </ul>
       </div>
     </div>
 
     <div class="inner-card" style="margin-bottom:28px;">
-      <h2 style="margin-bottom:20px;">📚 Programa — 7 sesiones</h2>
-      <div class="timeline">
-        <div class="timeline-step"><div class="t-num">1</div><div class="t-body"><div class="t-pills"><span class="t-pill">Fórmulas</span><span class="t-pill">Funciones</span><span class="t-pill">Eficiencia</span></div><h4>Excel Básico I: Fundamentos y fórmulas esenciales</h4><p>Fórmulas avanzadas, referencias absolutas/mixtas, funciones de búsqueda y referencia. Fundamentos para el análisis de datos en Excel.</p></div></div>
-        <div class="timeline-step"><div class="t-num">2</div><div class="t-body"><div class="t-pills"><span class="t-pill">Tablas dinámicas</span><span class="t-pill">Filtros</span><span class="t-pill">Gráficos</span></div><h4>Excel Básico II: Tablas dinámicas y visualización</h4><p>Tablas dinámicas avanzadas, slicers, gráficos dinámicos y dashboards básicos. Técnicas de limpieza y formato de datos.</p></div></div>
-        <div class="timeline-step"><div class="t-num">3</div><div class="t-body"><div class="t-pills"><span class="t-pill">Power Query</span><span class="t-pill">ETL</span><span class="t-pill">Transformación</span></div><h4>Power Query I: Importación y transformación de datos</h4><p>Conectar a múltiples fuentes, transformar, limpiar y combinar datos automáticamente. Editor de Power Query, tipos de datos y pasos aplicados.</p></div></div>
-        <div class="timeline-step"><div class="t-num">4</div><div class="t-body"><div class="t-pills"><span class="t-pill">Merge</span><span class="t-pill">Append</span><span class="t-pill">Lenguaje M</span></div><h4>Power Query II: Consultas avanzadas y automatización</h4><p>Combinar y anexar tablas, columnas condicionales, parámetros de consulta e introducción al lenguaje M para transformaciones personalizadas.</p></div></div>
-        <div class="timeline-step"><div class="t-num">5</div><div class="t-body"><div class="t-pills"><span class="t-pill">Power Pivot</span><span class="t-pill">Modelo datos</span><span class="t-pill">Relaciones</span></div><h4>Power Pivot: Modelo de datos y relaciones</h4><p>Creación de modelos de datos relacionales en Excel. Relaciones entre tablas, tabla calendario y modelo estrella adaptado a Excel.</p></div></div>
-        <div class="timeline-step"><div class="t-num">6</div><div class="t-body"><div class="t-pills"><span class="t-pill">DAX</span><span class="t-pill">Medidas</span><span class="t-pill">KPIs</span></div><h4>DAX en Excel: Medidas y KPIs con Power Pivot</h4><p>Medidas calculadas con DAX: <code>SUMX</code>, <code>CALCULATE</code>, <code>RELATED</code>, <code>DATEADD</code>. Diferencias con columnas calculadas y buenas prácticas.</p></div></div>
-        <div class="timeline-step"><div class="t-num">7</div><div class="t-body"><div class="t-pills"><span class="t-pill">Dashboard</span><span class="t-pill">Proyecto final</span><span class="t-pill">Presentación</span></div><h4>Dashboard integral y proyecto final</h4><p>Integración de todo el flujo: Power Query → Power Pivot → Tablas dinámicas → Dashboard ejecutivo. Presentación de proyecto real por sector de cada participante.</p></div></div>
+      <h2>🎯 ¿A quién va dirigido?</h2>
+      <div class="feature-grid" style="margin-top:12px;">
+        <div class="feature-card"><h4>Ex-alumnos de Excel Básico</h4><ul><li>Que quieren llevar sus habilidades al nivel profesional con automatización y modelado de datos</li></ul></div>
+        <div class="feature-card"><h4>Usuarios intermedios de Excel</h4><ul><li>Que ya conocen fórmulas y tablas dinámicas y quieren descubrir el poder de Power Query y Power Pivot</li></ul></div>
+        <div class="feature-card"><h4>Analistas y reportistas</h4><ul><li>Que consumen horas en limpiar y consolidar datos manualmente y quieren automatizar ese proceso</li></ul></div>
+        <div class="feature-card"><h4>Profesionales de finanzas y negocios</h4><ul><li>Que necesitan crear modelos de datos robustos y dashboards ejecutivos directamente en Excel</li></ul></div>
       </div>
     </div>
 
-    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:36px;">
-      <a class="btn btn-green" href="https://cicapy.github.io/incripciones_2026/" target="_blank" rel="noopener">✏️ Inscribirme en Excel</a>
-      <a class="btn btn-outline-blue" href="https://wa.me/595983352932?text=Hola%21+Quiero+informaci%C3%B3n+del+curso+de+Excel." target="_blank" rel="noopener">💬 Consultar por WhatsApp</a>
+    <!-- Programa -->
+    <div class="inner-card" style="margin-bottom:28px;">
+      <h2 style="margin-bottom:20px;">📚 Programa — 5 sesiones</h2>
+      <div class="timeline">
+        <div class="timeline-step">
+          <div class="t-num">1</div>
+          <div class="t-body">
+            <div class="t-pills"><span class="t-pill">Power Query</span><span class="t-pill">ETL</span><span class="t-pill">Fuentes</span></div>
+            <h4>Power Query I: Importación y transformación de datos</h4>
+            <ul>
+              <li>¿Qué es Power Query y cómo cambia la forma de trabajar con datos en Excel?</li>
+              <li>Conexión a múltiples fuentes: Excel, CSV, carpetas y bases de datos.</li>
+              <li>Editor de Power Query: pasos aplicados, tipos de datos y transformaciones básicas.</li>
+              <li>Limpieza de datos: eliminar duplicados, tratar nulos, estandarizar campos y dividir columnas.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="timeline-step">
+          <div class="t-num">2</div>
+          <div class="t-body">
+            <div class="t-pills"><span class="t-pill">Merge</span><span class="t-pill">Append</span><span class="t-pill">Columnas personalizadas</span></div>
+            <h4>Power Query II: Consultas avanzadas y automatización</h4>
+            <ul>
+              <li>Combinar tablas con <code>Merge</code> (equivalente a BUSCARV automático).</li>
+              <li>Unir datasets con <code>Append</code> para consolidar múltiples archivos en uno.</li>
+              <li>Columnas condicionales, personalizadas y columnas desde ejemplo.</li>
+              <li>Parametrización de consultas para actualizar datos de forma dinámica.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="timeline-step">
+          <div class="t-num">3</div>
+          <div class="t-body">
+            <div class="t-pills"><span class="t-pill">Power Pivot</span><span class="t-pill">Modelo de datos</span><span class="t-pill">Relaciones</span></div>
+            <h4>Power Pivot: Modelo de datos y relaciones</h4>
+            <ul>
+              <li>¿Qué es Power Pivot y por qué supera a las tablas dinámicas clásicas?</li>
+              <li>Creación del modelo de datos en Excel: tablas de hechos y dimensiones.</li>
+              <li>Relaciones entre tablas y tabla calendario para análisis temporal.</li>
+              <li>Modelo estrella adaptado a Excel para análisis profesional.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="timeline-step">
+          <div class="t-num">4</div>
+          <div class="t-body">
+            <div class="t-pills"><span class="t-pill">DAX</span><span class="t-pill">CALCULATE</span><span class="t-pill">Time Intelligence</span></div>
+            <h4>DAX en Excel: Medidas, KPIs y análisis temporal</h4>
+            <ul>
+              <li>Medidas calculadas con DAX: <code>SUMX</code>, <code>CALCULATE</code>, <code>RELATED</code> y <code>DIVIDE</code>.</li>
+              <li>Diferencia entre medidas y columnas calculadas: cuándo usar cada una.</li>
+              <li>Análisis temporal con <code>TOTALYTD</code>, <code>SAMEPERIODLASTYEAR</code> y <code>DATEADD</code>.</li>
+              <li>KPIs y medidas de variación (% cambio mes a mes, año a año).</li>
+            </ul>
+          </div>
+        </div>
+        <div class="timeline-step">
+          <div class="t-num">5</div>
+          <div class="t-body">
+            <div class="t-pills"><span class="t-pill">Dashboard</span><span class="t-pill">Tablas dinámicas</span><span class="t-pill" style="background:#F5F3FF;color:#5B21B6;border-color:#DDD6FE">IA</span></div>
+            <h4>Dashboard ejecutivo completo e integración con IA</h4>
+            <ul>
+              <li>Tablas dinámicas avanzadas conectadas al modelo de Power Pivot.</li>
+              <li>Segmentadores (Slicers) y escala de tiempo para filtros interactivos.</li>
+              <li>Construcción del dashboard final: KPIs, gráficos y presentación ejecutiva.</li>
+              <li>Uso de Claude y ChatGPT para generar fórmulas DAX, depurar errores y documentar el modelo.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="divider"></div>
-    <h2 style="font-family:var(--font-display);font-size:20px;font-weight:800;color:var(--slate-900);margin-bottom:20px;text-align:center;">📸 Galería de capacitaciones</h2>
-    <div class="gallery-grid">
-      <img src="images/curso1.jpg" alt="Curso 1"><img src="images/curso2.jpg" alt="Curso 2">
-      <img src="images/curso3.jpg" alt="Curso 3"><img src="images/curso4.jpg" alt="Curso 4">
-      <img src="images/curso5.jpg" alt="Curso 5"><img src="images/curso6.jpg" alt="Curso 6">
-      <img src="images/curso7.jpg" alt="Curso 7">
+    <!-- Inscripción + Pagos -->
+    <div class="two-col" style="align-items:start;margin-bottom:36px;">
+      <div class="form-wrap">
+        <section class="form-card">
+          <div class="form-title">📝 Formulario de inscripción</div>
+          <div class="form-subtitle">Completá tu inscripción en el formulario oficial de CICAPY.</div>
+          <a class="btn btn-green btn-full" href="https://cicapy.github.io/incripciones_2026/" target="_blank" rel="noopener">✏️ Inscribirme ahora</a>
+        </section>
+      </div>
+      <div>
+        <div class="inner-card" style="margin-bottom:16px;">
+          <h2>🏦 Datos de pago — Transferencia Itaú</h2>
+          <div class="payment-card" style="margin-top:12px;">
+            <div class="pay-row"><span class="pay-label">Banco</span><span class="pay-val">Itaú</span></div>
+            <div class="pay-row"><span class="pay-label">Cta. N°</span><span class="pay-val"><span>720005407</span><button type="button" onclick="copiarTexto('720005407',this)" class="btn-copy">Copiar</button></span></div>
+            <div class="pay-row"><span class="pay-label">Titular</span><span class="pay-val"><span>Oscar Gonzalez Frutos</span></span></div>
+            <div class="pay-row"><span class="pay-label">CI / Alias</span><span class="pay-val"><span>3584172</span><button type="button" onclick="copiarTexto('3584172',this)" class="btn-copy">Copiar</button></span></div>
+            <div class="pay-row"><span class="pay-label">Monto</span><span class="pay-val" style="color:var(--green-600);font-weight:700;">Gs. 300.000</span></div>
+          </div>
+          <p style="font-size:13px;color:var(--slate-500);margin-top:12px;">Enviá el comprobante al <a href="https://wa.me/595983352932" target="_blank" style="color:var(--green-600);font-weight:600;">0983 352 932</a> para confirmar.</p>
+        </div>
+        <div class="inner-card">
+          <h2>💳 Tarjeta de crédito / débito</h2>
+          <p style="font-size:14px;color:var(--slate-600);line-height:1.6;margin-bottom:14px;">Podés abonar mediante POS virtual. Solicitá el enlace de pago por WhatsApp.</p>
+          <a class="btn btn-green btn-sm" href="https://wa.me/595983352932?text=Hola%21+quiero+el+link+de+pago+para+Excel+Avanzado." target="_blank" rel="noopener">💬 Solicitar link</a>
+        </div>
+      </div>
     </div>
   </div>
-</div><!-- /excel -->
+</div><!-- /excel-avanzado -->
+<!-- =============================================
+     TAB: SQL (NUEVO)
+============================================== -->
+
 
 <!-- =============================================
      TAB: SQL (NUEVO)
@@ -1653,8 +1960,8 @@
   <section class="inner-hero">
     <div class="inner-hero-inner">
       <div class="inner-badge">🗄️ Bases de Datos</div>
-      <h1 class="inner-title">SQL para Business Intelligence y Analítica de Datos + IA</h1>
-      <p class="inner-sub">Aprendé a consultar, filtrar, agrupar y analizar datos con MySQL e Inteligencia Artificial aplicada con ChatGPT y Claude. Inicio este sábado 18 de abril en 4 sesiones prácticas.</p>
+      <h1 class="inner-title">SQL para Business Intelligence y Analítica de Datos + IA<br><span style="font-size:0.65em;font-weight:600;color:rgba(255,255,255,0.7);">Gs. 300.000</span></h1>
+      <p class="inner-sub">Aprendé a consultar, filtrar, agrupar y analizar datos con MySQL e Inteligencia Artificial aplicada con ChatGPT y Claude. 5 sesiones los sábados. Inicio 7 de junio.</p>
       <div class="inner-tags">
         <span class="inner-tag">MySQL</span><span class="inner-tag">IA aplicada</span>
         <span class="inner-tag">ChatGPT & Claude</span><span class="inner-tag">SELECT & JOINs</span>
@@ -1786,12 +2093,13 @@
       <div class="inner-card">
         <h2>📅 Modalidad</h2>
         <ul class="inner-card-list">
-          <li><strong>Inicio:</strong> Sábado 18 de abril</li>
+          <li><strong>Inicio:</strong> Sábado 7 de junio de 2026</li>
           <li><strong>Días:</strong> Sábados</li>
           <li><strong>Horario:</strong> 09:30 – 11:30 hs</li>
-          <li><strong>Duración:</strong> 4 sesiones × 2 horas</li>
+          <li><strong>Duración:</strong> 5 sesiones × 2 horas</li>
           <li>Modalidad online en vivo vía Zoom</li>
           <li>Zona horaria: GMT-3 (Paraguay)</li>
+          <li><strong>Precio:</strong> Gs. 300.000</li>
           <li>Certificado incluido al finalizar</li>
         </ul>
       </div>
@@ -1830,7 +2138,7 @@
 
     <!-- Programa -->
     <div class="inner-card" style="margin-bottom:28px;">
-      <h2 style="margin-bottom:20px;">📚 Programa — 4 sesiones</h2>
+      <h2 style="margin-bottom:20px;">📚 Programa — 5 sesiones</h2>
       <div class="timeline">
         <div class="timeline-step">
           <div class="t-num">1</div>
@@ -1859,9 +2167,22 @@
         <div class="timeline-step">
           <div class="t-num">4</div>
           <div class="t-body">
+            <div class="t-pills"><span class="t-pill">Funciones ventana</span><span class="t-pill">RANK</span><span class="t-pill">ROW_NUMBER</span></div>
+            <h4>Funciones de ventana y análisis avanzado</h4>
+            <ul>
+              <li>Introducción a funciones de ventana (<em>window functions</em>) con <code>OVER()</code>.</li>
+              <li><code>ROW_NUMBER()</code>, <code>RANK()</code>, <code>DENSE_RANK()</code> para rankear registros.</li>
+              <li><code>LAG()</code> y <code>LEAD()</code> para comparar valores con períodos anteriores/siguientes.</li>
+              <li>Acumulados con <code>SUM() OVER()</code> y promedios móviles.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="timeline-step">
+          <div class="t-num">5</div>
+          <div class="t-body">
             <div class="t-pills"><span class="t-pill">Proyecto</span><span class="t-pill">Power BI</span><span class="t-pill">IA</span></div>
             <h4>Proyecto final, integración con Power BI y apoyo con IA</h4>
-            <ul><li>Análisis completo de un dataset empresarial real usando SQL.</li><li>Conexión de MySQL con Power BI Desktop para visualizar resultados.</li><li>Uso de ChatGPT y Claude para escribir, depurar y optimizar consultas.</li><li>Exportación de resultados y cierre con proyecto aplicado.</li></ul>
+            <ul><li>Análisis completo de un dataset empresarial real usando SQL.</li><li>Conexión de MySQL con Power BI Desktop para visualizar resultados.</li><li>Uso de ChatGPT y Claude para escribir, depurar y optimizar consultas SQL.</li><li>Exportación de resultados y cierre con proyecto aplicado.</li></ul>
           </div>
         </div>
       </div>
@@ -1881,6 +2202,7 @@
         <div class="pay-row"><span class="pay-label">Cta. N°</span><span class="pay-val"><span>720005407</span><button type="button" onclick="copiarTexto('720005407',this)" class="btn-copy">Copiar</button></span></div>
         <div class="pay-row"><span class="pay-label">Titular</span><span class="pay-val"><span>Oscar Gonzalez Frutos</span></span></div>
         <div class="pay-row"><span class="pay-label">CI / Alias</span><span class="pay-val"><span>3584172</span><button type="button" onclick="copiarTexto('3584172',this)" class="btn-copy">Copiar</button></span></div>
+        <div class="pay-row"><span class="pay-label">Monto</span><span class="pay-val" style="color:var(--green-600);font-weight:700;">Gs. 300.000</span></div>
         <p style="font-size:12.5px;color:var(--slate-500);margin-top:14px;">Enviá el comprobante al <a href="https://wa.me/595983352932" target="_blank" rel="noopener" style="color:var(--green-600);font-weight:600;">0983 352 932</a> para confirmar.</p>
       </div>
     </div>
@@ -1926,7 +2248,7 @@
   window.addEventListener('load', function(){
     var hash = window.location.hash.replace('#','');
     if (hash) {
-      var tabs = ['inicio','servicios','verano','powerbi','excel','sql'];
+      var tabs = ['inicio','servicios','excel-basico','excel-avanzado','powerbi-basico','powerbi-avanzado','sql'];
       if (tabs.indexOf(hash) !== -1) {
         var btn = document.querySelector('.nav-tab[onclick*="' + hash + '"]');
         if (btn) {
